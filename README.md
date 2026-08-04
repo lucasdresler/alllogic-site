@@ -53,7 +53,7 @@ O projeto deverá manter uma separação explícita entre:
 - **estilos e tokens de design**, centralizados;
 - **infraestrutura e publicação**, versionadas e documentadas.
 
-## Estrutura prevista
+## Estrutura geral
 
 ```text
 src/
@@ -73,15 +73,21 @@ docs/             # Arquitetura, ADRs e guias operacionais
 tests/            # Testes unitários e de ponta a ponta
 ```
 
-## Fluxo de trabalho
+## Fluxo Oficial de Desenvolvimento
 
-O desenvolvimento segue esta sequência para mudanças relevantes:
+O desenvolvimento do Projeto Atlas segue o fluxo oficial adotado pela AllLogic para orientar mudanças relevantes, com clareza de contexto, decisão e rastreabilidade:
 
-1. Analisar o contexto, o impacto e os requisitos.
-2. Sugerir uma solução com as decisões técnicas necessárias.
-3. Aguardar aprovação.
-4. Implementar apenas o escopo aprovado.
-5. Revisar e validar o resultado antes de avançar.
+1. Entender
+2. Pesquisar
+3. Discutir
+4. Aprovar
+5. Implementar
+6. Validar
+7. Documentar
+8. Versionar
+9. Publicar
+
+O detalhamento de cada etapa está disponível no [Fluxo de Desenvolvimento](docs/MOA/fluxo-desenvolvimento.md).
 
 ## Padrões de qualidade
 
@@ -97,29 +103,33 @@ O desenvolvimento segue esta sequência para mudanças relevantes:
 
 O ambiente de produção será composto por um contêiner da aplicação, roteado pelo Traefik e exposto através da Cloudflare. As credenciais, chaves e valores específicos de cada ambiente não devem ser versionados; exemplos seguros devem ser fornecidos em arquivos `.env.example` quando a implementação exigir variáveis de ambiente.
 
-## Status
-
-O Projeto Atlas está em desenvolvimento, na fase de definição arquitetural. A implementação será iniciada após a validação das decisões de estrutura, conteúdo e infraestrutura.
-
 ## Estado do Projeto
 
-Atualmente o Projeto Atlas encontra-se na fase de definição da arquitetura e preparação da infraestrutura de desenvolvimento.
+O Projeto Atlas está em desenvolvimento. A fundação com Astro foi integrada, e a documentação técnica passa a contar com uma organização própria para apoiar a evolução segura do produto.
 
-Nesta etapa estão sendo estabelecidos os padrões técnicos, a arquitetura da aplicação, a organização do repositório, o Design System e o fluxo oficial de desenvolvimento da AllLogic.
+Neste estágio, o foco é consolidar a arquitetura, o Design System, o conteúdo institucional e os ambientes que sustentarão as próximas entregas.
 
 Próximas etapas:
 
-- Estrutura inicial do projeto Astro.
-- Configuração do ambiente Docker.
-- Definição do Design System.
-- Desenvolvimento da Home.
-- Publicação do ambiente de homologação.
+- Consolidar as decisões arquiteturais necessárias à evolução do site.
+- Definir as bases do Design System.
+- Estruturar o conteúdo institucional e as páginas prioritárias.
+- Preparar os ambientes e o processo de homologação das próximas entregas.
+
+## Documentação
+
+Toda a documentação técnica e operacional do Projeto Atlas está organizada em [docs/](docs/):
+
+- [Arquitetura](docs/architecture.md): princípios e direção arquitetural do projeto.
+- [Roadmap](docs/roadmap.md): fases, entregas concluídas e próximas etapas.
+- [Changelog](docs/changelog.md): marcos relevantes da evolução do Atlas.
+- [Design System](docs/design-system.md): estrutura dos fundamentos da interface.
+- [Decisões](docs/decisions/README.md): registros de decisões arquiteturais.
+- [MOA](docs/MOA/README.md): padrões e procedimentos operacionais da AllLogic.
 
 ---
 
-AllLogic
-
-Engenharia de Soluções Digitais
+**AllLogic — Engenharia de Soluções Digitais**
 
 Tecnologia que trabalha para as pessoas.
 
