@@ -2,7 +2,7 @@
 
 ## Site Institucional da AllLogic
 
-Site institucional oficial da **AllLogic**, empresa de Engenharia de Soluções Digitais.
+Site institucional oficial da **AllLogic**, desenvolvido com Astro e orientado por arquitetura, documentação e desempenho.
 
 > A tecnologia deve trabalhar para as pessoas.
 
