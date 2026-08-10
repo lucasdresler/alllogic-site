@@ -1,0 +1,24 @@
+/* tokens.css
+ * Custom Properties globais do projeto.
+ * Valores ainda não homologados — placeholders apenas, sem identidade visual definitiva.
+ */
+
+:root {
+  /* Cores — TODO: valores a homologar */
+  --color-primary: unset;
+  --color-secondary: unset;
+  --color-background: unset;
+  --color-text: unset;
+
+  /* Espaçamentos — TODO: valores a homologar */
+  --space-xs: unset;
+  --space-sm: unset;
+  --space-md: unset;
+  --space-lg: unset;
+  --space-xl: unset;
+
+  /* Raios de borda — TODO: valores a homologar */
+  --radius-sm: unset;
+  --radius-md: unset;
+  --radius-lg: unset;
+}

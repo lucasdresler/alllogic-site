@@ -1,0 +1,10 @@
+.problems-section__title {
+  max-width: 640px;
+  margin-block-end: var(--space-lg);
+}
+
+.problems-section__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}

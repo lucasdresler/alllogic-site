@@ -1,0 +1,14 @@
+---
+import "./grid.css";
+
+interface Props {
+  columns?: 1 | 2 | 3 | 4;
+  gap?: "sm" | "md" | "lg";
+}
+
+const { columns = 1, gap = "md" } = Astro.props;
+---
+
+<div class:list={["grid", `grid--columns-${columns}`, `grid--gap-${gap}`]}>
+  <slot />
+</div>

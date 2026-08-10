@@ -1,17 +1,21 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro";
+import HeroSection from "../components/sections/HeroSection.astro";
+import ProblemsSection from "../components/sections/ProblemsSection.astro";
+import MethodSection from "../components/sections/MethodSection.astro";
+import DiagnosisSection from "../components/sections/DiagnosisSection.astro";
+import SolutionsSection from "../components/sections/SolutionsSection.astro";
+import PortfolioSection from "../components/sections/PortfolioSection.astro";
+import CTASection from "../components/sections/CTASection.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Projeto Atlas" description="Fundação arquitetural concluída.">
+  <HeroSection />
+  <ProblemsSection />
+  <MethodSection />
+  <DiagnosisSection />
+  <SolutionsSection />
+  <PortfolioSection />
+  <CTASection />
+</MainLayout>
+

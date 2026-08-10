@@ -1,0 +1,41 @@
+.grid {
+  display: grid;
+}
+
+.grid--columns-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid--columns-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--columns-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--columns-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--gap-sm {
+  gap: 1rem;
+}
+
+.grid--gap-md {
+  gap: 1.5rem;
+}
+
+.grid--gap-lg {
+  gap: 2rem;
+}
+
+/* Responsivo: em telas pequenas, todas as configurações passam para uma coluna */
+@media (max-width: 640px) {
+  .grid--columns-1,
+  .grid--columns-2,
+  .grid--columns-3,
+  .grid--columns-4 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

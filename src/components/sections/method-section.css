@@ -1,0 +1,10 @@
+.method-section__title {
+  max-width: 640px;
+  margin-block-end: var(--space-lg);
+}
+
+.method-section__step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}

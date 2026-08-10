@@ -1,0 +1,10 @@
+/* index.css
+ * Ponto de entrada da arquitetura global de estilos.
+ * Agrega, na ordem correta, tokens, reset, layout, tipografia e utilidades.
+ */
+
+@import "./tokens.css";
+@import "./base.css";
+@import "./layout.css";
+@import "./typography.css";
+@import "./utilities.css";

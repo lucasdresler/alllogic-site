@@ -1,0 +1,32 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import Grid from "../layout/Grid.astro";
+import "./portfolio-section.css";
+---
+
+<Section>
+  <Container>
+    <div class="portfolio-section__header">
+      <h2>Título da seção</h2>
+      <p>Texto provisório.</p>
+    </div>
+
+    <Grid columns={3} gap="lg">
+      <div class="portfolio-section__block">
+        <h3>Projeto 1</h3>
+        <p>Descrição provisória.</p>
+      </div>
+
+      <div class="portfolio-section__block">
+        <h3>Projeto 2</h3>
+        <p>Descrição provisória.</p>
+      </div>
+
+      <div class="portfolio-section__block">
+        <h3>Projeto 3</h3>
+        <p>Descrição provisória.</p>
+      </div>
+    </Grid>
+  </Container>
+</Section>

@@ -1,0 +1,13 @@
+---
+import "./container.css";
+
+interface Props {
+  size?: "sm" | "md" | "lg" | "xl";
+}
+
+const { size = "lg" } = Astro.props;
+---
+
+<div class:list={["container", `container--${size}`]}>
+  <slot />
+</div>

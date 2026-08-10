@@ -1,0 +1,44 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import Grid from "../layout/Grid.astro";
+import "./method-section.css";
+---
+
+<Section>
+  <Container>
+    <h2 class="method-section__title">Título da seção</h2>
+
+    <Grid columns={1} gap="md">
+      <div class="method-section__step">
+        <span>01</span>
+        <h3>Etapa 1</h3>
+        <p>Descrição provisória.</p>
+      </div>
+
+      <div class="method-section__step">
+        <span>02</span>
+        <h3>Etapa 2</h3>
+        <p>Descrição provisória.</p>
+      </div>
+
+      <div class="method-section__step">
+        <span>03</span>
+        <h3>Etapa 3</h3>
+        <p>Descrição provisória.</p>
+      </div>
+
+      <div class="method-section__step">
+        <span>04</span>
+        <h3>Etapa 4</h3>
+        <p>Descrição provisória.</p>
+      </div>
+
+      <div class="method-section__step">
+        <span>05</span>
+        <h3>Etapa 5</h3>
+        <p>Descrição provisória.</p>
+      </div>
+    </Grid>
+  </Container>
+</Section>

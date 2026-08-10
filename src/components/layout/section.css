@@ -1,0 +1,25 @@
+/* padding-block por spacing */
+.section--spacing-sm {
+  padding-block: 2rem;
+}
+
+.section--spacing-md {
+  padding-block: 4rem;
+}
+
+.section--spacing-lg {
+  padding-block: 6rem;
+}
+
+/* Placeholders de background — cores reais serão definidas quando os Design Tokens estiverem disponíveis */
+.section--default {
+  /* TODO: cor de background quando os Design Tokens estiverem disponíveis */
+}
+
+.section--light {
+  /* TODO: cor de background quando os Design Tokens estiverem disponíveis */
+}
+
+.section--dark {
+  /* TODO: cor de background quando os Design Tokens estiverem disponíveis */
+}

@@ -1,0 +1,29 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import Grid from "../layout/Grid.astro";
+import "./problems-section.css";
+---
+
+<Section>
+  <Container>
+    <h2 class="problems-section__title">Título da seção</h2>
+
+    <Grid columns={3} gap="lg">
+      <div class="problems-section__card">
+        <h3>Problema 1</h3>
+        <p>Descrição provisória.</p>
+      </div>
+
+      <div class="problems-section__card">
+        <h3>Problema 2</h3>
+        <p>Descrição provisória.</p>
+      </div>
+
+      <div class="problems-section__card">
+        <h3>Problema 3</h3>
+        <p>Descrição provisória.</p>
+      </div>
+    </Grid>
+  </Container>
+</Section>

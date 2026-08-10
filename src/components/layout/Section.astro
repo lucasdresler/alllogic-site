@@ -1,0 +1,22 @@
+---
+import "./section.css";
+
+interface Props {
+  id?: string;
+  background?: "default" | "light" | "dark";
+  spacing?: "sm" | "md" | "lg";
+}
+
+const { id, background = "default", spacing = "lg" } = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={[
+    "section",
+    `section--${background}`,
+    `section--spacing-${spacing}`,
+  ]}
+>
+  <slot />
+</section>

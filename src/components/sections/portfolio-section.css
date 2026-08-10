@@ -1,0 +1,10 @@
+.portfolio-section__header {
+  max-width: 640px;
+  margin-block-end: var(--space-lg);
+}
+
+.portfolio-section__block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}

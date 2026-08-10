@@ -1,0 +1,23 @@
+/* layout.css
+ * Utilidades genéricas de layout (padrões conhecidos da comunidade CSS).
+ * Sem estilos específicos da identidade da AllLogic.
+ */
+
+/* Aplica espaçamento vertical consistente entre elementos filhos diretos */
+.flow > * + * {
+  margin-block-start: var(--space-md);
+}
+
+/* Empilha elementos verticalmente com espaçamento consistente */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Agrupa elementos horizontalmente, permitindo quebra de linha */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
