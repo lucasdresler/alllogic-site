@@ -1,15 +1,16 @@
 ---
 import Section from "../layout/Section.astro";
 import Container from "../layout/Container.astro";
+import { homeContent } from "../../content/home";
 import "./cta-section.css";
 ---
 
 <Section>
   <Container>
     <div class="cta-section__content">
-      <h2>Pronto para conversar?</h2>
-      <p>Texto provisório.</p>
-      <a href="#">Entrar em contato</a>
+      <h2>{homeContent.cta.title}</h2>
+      <p>{homeContent.cta.description}</p>
+      <a href="#">{homeContent.cta.primaryCTA}</a>
     </div>
   </Container>
 </Section>

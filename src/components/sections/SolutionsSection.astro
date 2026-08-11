@@ -2,14 +2,15 @@
 import Section from "../layout/Section.astro";
 import Container from "../layout/Container.astro";
 import Grid from "../layout/Grid.astro";
+import { homeContent } from "../../content/home";
 import "./solutions-section.css";
 ---
 
 <Section>
   <Container>
     <div class="solutions-section__header">
-      <h2>Título da seção</h2>
-      <p>Texto provisório.</p>
+      <h2>{homeContent.solutions.title}</h2>
+      <p>{homeContent.solutions.description}</p>
     </div>
 
     <Grid columns={3} gap="lg">

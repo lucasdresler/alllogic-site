@@ -1,5 +1,6 @@
 ---
 import Container from "../layout/Container.astro";
+import { navigationContent } from "../../content/navigation";
 import "./footer.css";
 ---
 
@@ -13,7 +14,15 @@ import "./footer.css";
 
       <!-- Navegação institucional -->
       <div class="footer__nav">
-        Navegação institucional
+        <nav>
+          <ul>
+            {navigationContent.footer.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
 
       <!-- Informações de contato -->

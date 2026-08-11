@@ -1,20 +1,37 @@
-// Configuração base do site institucional da AllLogic.
-// Valores ainda não definidos por fonte institucional aprovada — todos marcados como TODO.
+// Configuração técnica do site da AllLogic.
+// Responsabilidade restrita a parâmetros técnicos de infraestrutura/SEO —
+// conteúdo institucional (marca, contato, redes sociais, CTAs, navegação)
+// pertence exclusivamente a src/content/. Nenhum valor real foi definido —
+// todos os campos são placeholders marcados com "TODO".
+
+// Identidade técnica do site.
+export interface SiteGroup {
+  /** URL canônica do site. */
+  url: string;
+}
+
+// Metadados técnicos de SEO.
+export interface SeoGroup {
+  /** Template de título aplicado às páginas (ex.: "%s | Nome do Site"). */
+  titleTemplate: string;
+  /** Título padrão usado quando a página não define um título próprio. */
+  defaultTitle: string;
+  /** Descrição padrão usada quando a página não define uma descrição própria. */
+  defaultDescription: string;
+}
 
 export interface SiteConfig {
-  siteName: string;
-  siteDescription: string;
-  siteUrl: string;
-  email: string;
-  phone: string;
-  primaryCTA: string;
+  site: SiteGroup;
+  seo: SeoGroup;
 }
 
 export const siteConfig: SiteConfig = {
-  siteName: "TODO: definir siteName",
-  siteDescription: "TODO: definir siteDescription",
-  siteUrl: "TODO: definir siteUrl",
-  email: "TODO: definir email",
-  phone: "TODO: definir phone",
-  primaryCTA: "TODO: definir primaryCTA",
+  site: {
+    url: "TODO: definir site.url",
+  },
+  seo: {
+    titleTemplate: "TODO: definir seo.titleTemplate",
+    defaultTitle: "TODO: definir seo.defaultTitle",
+    defaultDescription: "TODO: definir seo.defaultDescription",
+  },
 };

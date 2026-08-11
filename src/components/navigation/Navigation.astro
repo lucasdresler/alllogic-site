@@ -1,12 +1,8 @@
 ---
-import type { NavigationItem } from "../../types/navigation";
+import { navigationContent } from "../../content/navigation";
 import "./navigation.css";
 
-interface Props {
-  items: NavigationItem[];
-}
-
-const { items } = Astro.props;
+const items = navigationContent.main;
 ---
 
 <nav aria-label="Principal">

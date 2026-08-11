@@ -1,17 +1,18 @@
 ---
 import Section from "../layout/Section.astro";
 import Container from "../layout/Container.astro";
+import { homeContent } from "../../content/home";
 import "./diagnosis-section.css";
 ---
 
 <Section>
   <Container>
     <div class="diagnosis-section__content">
-      <h2>Solicitar Diagnóstico</h2>
-      <p>Texto provisório.</p>
+      <h2>{homeContent.diagnosis.title}</h2>
+      <p>{homeContent.diagnosis.description}</p>
 
       <div class="diagnosis-section__cta">
-        <a href="#">Solicitar Diagnóstico</a>
+        <a href="#">{homeContent.diagnosis.primaryCTA}</a>
       </div>
     </div>
   </Container>

@@ -2,12 +2,13 @@
 import Section from "../layout/Section.astro";
 import Container from "../layout/Container.astro";
 import Grid from "../layout/Grid.astro";
+import { homeContent } from "../../content/home";
 import "./method-section.css";
 ---
 
 <Section>
   <Container>
-    <h2 class="method-section__title">Título da seção</h2>
+    <h2 class="method-section__title">{homeContent.method.title}</h2>
 
     <Grid columns={1} gap="md">
       <div class="method-section__step">
