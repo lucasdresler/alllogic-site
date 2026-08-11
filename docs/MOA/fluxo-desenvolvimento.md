@@ -2,40 +2,49 @@
 
 O Fluxo Oficial de Desenvolvimento orienta mudanças relevantes no Projeto Atlas e em iniciativas da AllLogic. Seu objetivo é assegurar que a tecnologia seja construída com entendimento, intenção, qualidade e rastreabilidade.
 
-## Entender
+Este documento descreve o fluxo efetivamente utilizado nas Sprints já executadas do Projeto Atlas, tarefa por tarefa.
 
-Compreender o contexto, a necessidade, as pessoas envolvidas e o resultado esperado antes de propor qualquer mudança.
+## 1. Planejamento da tarefa
 
-## Pesquisar
+Cada tarefa chega com objetivo, regras permanentes e implementações claramente delimitadas antes de qualquer trabalho começar.
 
-Consultar referências confiáveis, documentação oficial e informações necessárias para embasar a decisão.
+## 2. Implementação
 
-## Discutir
+Construir somente o que foi especificado na tarefa, respeitando as regras permanentes do projeto e a arquitetura já estabelecida: as camadas de `src/pages`, `src/layouts`, `src/components`, `src/content`, `src/lib`, `src/types`, `src/utils` e `src/styles`, conforme `docs/architecture.md`; e `public/`, destinada a ativos públicos e fora do fluxo de dependências de `src/`.
 
-Compartilhar a análise, avaliar alternativas, impactos e riscos com as pessoas responsáveis pela decisão.
+## 3. Revisão arquitetural
 
-## Aprovar
+Antes de aplicar a mudança, verificar se ela é compatível com a arquitetura vigente e com os consumidores existentes. Quando uma instrução de tarefa entra em conflito com uma regra permanente (ex.: alterar uma estrutura sem poder alterar quem a consome), o conflito é identificado e reportado explicitamente antes ou junto da implementação — nunca resolvido silenciosamente.
 
-Formalizar o direcionamento escolhido e o escopo que poderá seguir para implementação.
+## 4. Homologação técnica
 
-## Implementar
+Confirmar que a implementação está de acordo com o que foi pedido e com as regras permanentes da tarefa, incluindo a checagem de que nenhum arquivo fora do escopo autorizado foi tocado.
 
-Construir somente o que foi aprovado, respeitando os padrões técnicos e a arquitetura definida.
+## 5. Build local
 
-## Validar
+Verificar, na medida do possível dentro do ambiente disponível, se o projeto permanece compilável após a mudança. Quando não há acesso de execução ao ambiente do projeto, essa limitação é comunicada explicitamente, e a verificação real do build fica a cargo de quem tem esse acesso.
 
-Verificar se a entrega atende aos requisitos, aos critérios de qualidade e ao resultado esperado.
+## 6. Revisão do Git
 
-## Documentar
+Revisar o conjunto de mudanças antes de registrá-las — quais arquivos foram tocados, se a mudança está isolada ao escopo da tarefa, e se a mensagem de commit refletirá com precisão o que foi feito.
 
-Registrar as informações, decisões e orientações necessárias para a continuidade segura do trabalho.
+## 7. Commit
 
-## Versionar
+Registrar a mudança aprovada no controle de versão, com histórico claro e rastreável à tarefa que a originou.
 
-Registrar as alterações aprovadas no controle de versão, mantendo histórico claro e rastreável.
+## 8. Push
 
-## Publicar
+Publicar o commit no repositório remoto, tornando a mudança disponível para o restante do fluxo (build, deploy, revisão por outras pessoas).
 
-Disponibilizar a entrega validada no ambiente adequado, conforme o processo de publicação aplicável.
+## 9. Continuação imediata da próxima tarefa
+
+Ao concluir uma tarefa e reportar seu resultado, seguir imediatamente para a próxima tarefa da Sprint, sem interromper o fluxo por decisões já cobertas pelas regras permanentes do projeto.
+
+## Princípios Operacionais
+
+- **Não interromper o fluxo sem bloqueio real.** Uma dúvida que pode ser resolvida por uma decisão razoável dentro do escopo já aprovado não deve parar o fluxo; interrupções são reservadas para bloqueios genuínos (informação ausente que não pode ser inferida, conflito entre regras da própria tarefa, risco real à integridade do projeto).
+- **Resolver conflitos arquiteturais antes de prosseguir.** Quando duas regras da mesma tarefa (ou uma regra da tarefa e o estado real do código) entram em conflito, o conflito é relatado com transparência antes de qualquer avanço adicional que dependa dele.
+- **Manter o projeto sempre compilável.** Nenhuma tarefa deve deixar o projeto propositalmente quebrado sem relatar isso explicitamente; quando uma mudança necessária introduz uma quebra (ex.: por conflito entre regras), isso é comunicado de forma clara, com indicação do que precisa ser corrigido e em qual tarefa futura.
+- **Documentar decisões arquiteturais relevantes.** Mudanças estruturais (novas camadas, separação de responsabilidades, remoção de dependências) são refletidas na documentação (`docs/architecture.md`, READMEs de camada) como parte da própria tarefa que as introduz, não como trabalho posterior separado.
 
 > A tecnologia deve trabalhar para as pessoas.
