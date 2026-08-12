@@ -10,7 +10,9 @@ import "./cta-section.css";
     <div class="cta-section__content">
       <h2>{homeContent.cta.title}</h2>
       <p>{homeContent.cta.description}</p>
-      <a href="#">{homeContent.cta.primaryCTA}</a>
+      {homeContent.cta.actions.map((action) => (
+        <a href={action.href}>{action.label}</a>
+      ))}
     </div>
   </Container>
 </Section>

@@ -11,20 +11,12 @@ import "./problems-section.css";
     <h2 class="problems-section__title">{homeContent.problems.title}</h2>
 
     <Grid columns={3} gap="lg">
-      <div class="problems-section__card">
-        <h3>Problema 1</h3>
-        <p>Descrição provisória.</p>
-      </div>
-
-      <div class="problems-section__card">
-        <h3>Problema 2</h3>
-        <p>Descrição provisória.</p>
-      </div>
-
-      <div class="problems-section__card">
-        <h3>Problema 3</h3>
-        <p>Descrição provisória.</p>
-      </div>
+      {homeContent.problems.items.map((problem) => (
+        <div class="problems-section__card">
+          <h3>{problem.title}</h3>
+          <p>{problem.description}</p>
+        </div>
+      ))}
     </Grid>
   </Container>
 </Section>

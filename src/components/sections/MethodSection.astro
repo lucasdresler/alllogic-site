@@ -11,35 +11,13 @@ import "./method-section.css";
     <h2 class="method-section__title">{homeContent.method.title}</h2>
 
     <Grid columns={1} gap="md">
-      <div class="method-section__step">
-        <span>01</span>
-        <h3>Etapa 1</h3>
-        <p>Descrição provisória.</p>
-      </div>
-
-      <div class="method-section__step">
-        <span>02</span>
-        <h3>Etapa 2</h3>
-        <p>Descrição provisória.</p>
-      </div>
-
-      <div class="method-section__step">
-        <span>03</span>
-        <h3>Etapa 3</h3>
-        <p>Descrição provisória.</p>
-      </div>
-
-      <div class="method-section__step">
-        <span>04</span>
-        <h3>Etapa 4</h3>
-        <p>Descrição provisória.</p>
-      </div>
-
-      <div class="method-section__step">
-        <span>05</span>
-        <h3>Etapa 5</h3>
-        <p>Descrição provisória.</p>
-      </div>
+      {homeContent.method.steps.map((step) => (
+        <div class="method-section__step">
+          <span>{String(step.order).padStart(2, "0")}</span>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </div>
+      ))}
     </Grid>
   </Container>
 </Section>

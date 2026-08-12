@@ -1,7 +1,8 @@
 // Conteúdo institucional compartilhado do site, isolado da camada de apresentação.
-// Todos os valores são placeholders — nenhum conteúdo institucional definitivo.
-// Não copia texto do FOUNDATION.md; apenas prepara a estrutura onde essa
-// tradução institucional será registrada futuramente.
+// Propósito, missão e visão derivam de foundation.ts, que traduz o FOUNDATION.md.
+// Os demais campos permanecem placeholders até que suas fontes sejam homologadas.
+
+import { foundationContent } from "./foundation";
 
 export interface SiteContent {
   company: {
@@ -27,9 +28,9 @@ export interface SiteContent {
 export const siteContent: SiteContent = {
   company: {
     name: "Nome provisório",
-    purpose: "Texto provisório",
-    mission: "Texto provisório",
-    vision: "Texto provisório",
+    purpose: foundationContent.identity.purpose,
+    mission: foundationContent.identity.mission,
+    vision: foundationContent.identity.vision,
     description: "Texto provisório",
   },
   branding: {

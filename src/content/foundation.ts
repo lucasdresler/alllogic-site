@@ -1,17 +1,16 @@
-// Estrutura preparatória para futura integração com o FOUNDATION.md homologado
-// do repositório alllogic-sga. Nenhum conteúdo institucional definitivo foi
-// copiado nesta tarefa — apenas placeholders e comentários TODO indicando a
-// origem que preencherá cada campo quando essa integração for implementada.
+// Conteúdo institucional migrado literalmente do FOUNDATION.md homologado
+// do repositório allogic-sga. O manifesto permanece como placeholder porque
+// sua fonte oficial ainda não possui conteúdo.
 
 export interface FoundationContent {
   identity: {
-    /** TODO: preencher a partir da seção "Propósito da AllLogic" do FOUNDATION.md homologado (alllogic-sga). */
+    /** Fonte: seção "Propósito da AllLogic" do FOUNDATION.md (alllogic-sga). */
     purpose: string;
-    /** TODO: preencher a partir da seção "Missão" do FOUNDATION.md homologado (alllogic-sga). */
+    /** Fonte: seção "Missão" do FOUNDATION.md (alllogic-sga). */
     mission: string;
-    /** TODO: preencher a partir da seção "Visão" do FOUNDATION.md homologado (alllogic-sga). */
+    /** Fonte: seção "Visão" do FOUNDATION.md (alllogic-sga). */
     vision: string;
-    /** TODO: preencher a partir da seção "Valores" do FOUNDATION.md homologado (alllogic-sga). */
+    /** Fonte: seção "Valores" do FOUNDATION.md (alllogic-sga). */
     values: string[];
   };
   company: {
@@ -22,10 +21,20 @@ export interface FoundationContent {
 
 export const foundationContent: FoundationContent = {
   identity: {
-    purpose: "TODO: conteúdo a integrar do FOUNDATION.md",
-    mission: "TODO: conteúdo a integrar do FOUNDATION.md",
-    vision: "TODO: conteúdo a integrar do FOUNDATION.md",
-    values: ["TODO: conteúdo a integrar do FOUNDATION.md"],
+    purpose:
+      "A AllLogic existe para ajudar pessoas a solucionarem problemas de forma eficiente, funcional, competente e satisfatória, utilizando métodos bem definidos, atuando sempre com transparência e honestidade.",
+    mission:
+      "A missão da AllLogic é ajudar pessoas e organizações a solucionar problemas por meio da tecnologia, desenvolvendo soluções eficientes, funcionais e confiáveis, com métodos bem definidos, transparência, honestidade e compromisso com a excelência.",
+    vision:
+      "Ser reconhecida como uma empresa confiável, que honra seus compromissos, supera as expectativas de clientes, fornecedores e colaboradores, construindo relações duradouras por meio da excelência, da transparência e da honestidade.",
+    values: [
+      "Honestidade",
+      "Transparência",
+      "Qualidade",
+      "Compromisso com as Pessoas",
+      "Conhecimento Compartilhado",
+      "Aprendizado Contínuo",
+    ],
   },
   company: {
     manifesto: "TODO: conteúdo a integrar do FOUNDATION.md",

@@ -12,7 +12,9 @@ import "./diagnosis-section.css";
       <p>{homeContent.diagnosis.description}</p>
 
       <div class="diagnosis-section__cta">
-        <a href="#">{homeContent.diagnosis.primaryCTA}</a>
+        {homeContent.diagnosis.actions.map((action) => (
+          <a href={action.href}>{action.label}</a>
+        ))}
       </div>
     </div>
   </Container>

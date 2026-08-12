@@ -30,89 +30,23 @@ O `FOUNDATION.md` (repositório `alllogic-sga`) define a identidade instituciona
 
 ## Arquitetura da Home
 
-### Hero
+A estrutura editorial da Home está implementada em `src/content/home.ts` (contrato `HomeContent`) e consumida por sete seções Astro dedicadas, uma por etapa da jornada do visitante. Cada seção consome exclusivamente `homeContent`, sem conteúdo textual próprio hardcoded.
 
-#### Objetivo
+| Etapa da jornada | Seção em `home.ts` | Componente Astro | Estrutura de conteúdo |
+| --- | --- | --- | --- |
+| Chegada | `hero` | `HeroSection.astro` | `title`, `description`, `actions: HomeCTA[]` |
+| Problema | `problems` | `ProblemsSection.astro` | `title`, `description`, `items: HomeProblem[]` |
+| Método | `method` | `MethodSection.astro` | `title`, `description`, `steps: HomeMethodStep[]` |
+| Diagnóstico | `diagnosis` | `DiagnosisSection.astro` | `title`, `description`, `actions: HomeCTA[]` |
+| Soluções | `solutions` | `SolutionsSection.astro` | `title`, `description`, `items: HomeSolution[]` |
+| Portfólio | `portfolio` | `PortfolioSection.astro` | `title`, `description`, `projects: HomePortfolioProject[]` |
+| Contato (CTA final) | `cta` | `CTASection.astro` | `title`, `description`, `actions: HomeCTA[]` |
 
-#### Mensagem Principal
+Chamadas para ação (CTAs) de todas as seções são expressas exclusivamente via `actions: HomeCTA[]` (`{ label, href }`), fonte única para rótulo e destino de cada CTA.
 
-#### Mensagens Secundárias
+O campo `hero.title` reutiliza `siteContent.branding.tagline` em vez de duplicar conteúdo institucional. Os demais campos textuais (`description`, `title` das demais seções, itens de `problems`/`solutions`/`portfolio`, passos de `method`) permanecem como conteúdo editorial provisório da Home, ainda sem texto definitivo homologado.
 
-#### CTA
-
-#### Fonte Primária
-
-### Problems
-
-#### Objetivo
-
-#### Mensagem Principal
-
-#### Mensagens Secundárias
-
-#### CTA
-
-#### Fonte Primária
-
-### Method
-
-#### Objetivo
-
-#### Mensagem Principal
-
-#### Mensagens Secundárias
-
-#### CTA
-
-#### Fonte Primária
-
-### Diagnosis
-
-#### Objetivo
-
-#### Mensagem Principal
-
-#### Mensagens Secundárias
-
-#### CTA
-
-#### Fonte Primária
-
-### Solutions
-
-#### Objetivo
-
-#### Mensagem Principal
-
-#### Mensagens Secundárias
-
-#### CTA
-
-#### Fonte Primária
-
-### Portfolio
-
-#### Objetivo
-
-#### Mensagem Principal
-
-#### Mensagens Secundárias
-
-#### CTA
-
-#### Fonte Primária
-
-### CTA Final
-
-#### Objetivo
-
-#### Mensagem Principal
-
-#### Mensagens Secundárias
-
-#### CTA
-
-#### Fonte Primária
+<!-- TODO: objetivo, mensagem principal e mensagens secundárias de cada seção a definir com conteúdo editorial definitivo. -->
 
 ## Conteúdo Institucional
 

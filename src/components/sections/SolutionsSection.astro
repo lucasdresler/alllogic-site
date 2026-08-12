@@ -10,39 +10,16 @@ import "./solutions-section.css";
   <Container>
     <div class="solutions-section__header">
       <h2>{homeContent.solutions.title}</h2>
-      <p>{homeContent.solutions.description}</p>
+    <p>{homeContent.solutions.description}</p>
     </div>
 
     <Grid columns={3} gap="lg">
-      <div class="solutions-section__block">
-        <h3>Solução 1</h3>
-        <p>Descrição provisória.</p>
-      </div>
-
-      <div class="solutions-section__block">
-        <h3>Solução 2</h3>
-        <p>Descrição provisória.</p>
-      </div>
-
-      <div class="solutions-section__block">
-        <h3>Solução 3</h3>
-        <p>Descrição provisória.</p>
-      </div>
-
-      <div class="solutions-section__block">
-        <h3>Solução 4</h3>
-        <p>Descrição provisória.</p>
-      </div>
-
-      <div class="solutions-section__block">
-        <h3>Solução 5</h3>
-        <p>Descrição provisória.</p>
-      </div>
-
-      <div class="solutions-section__block">
-        <h3>Solução 6</h3>
-        <p>Descrição provisória.</p>
-      </div>
+      {homeContent.solutions.items.map((solution) => (
+        <div class="solutions-section__block">
+          <h3>{solution.title}</h3>
+          <p>{solution.description}</p>
+        </div>
+      ))}
     </Grid>
   </Container>
 </Section>

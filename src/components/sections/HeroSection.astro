@@ -12,8 +12,9 @@ import "./hero-section.css";
       <p>{homeContent.hero.description}</p>
 
       <div class="hero-section__ctas">
-        <a href="#">{homeContent.hero.primaryCTA}</a>
-        <a href="#">{homeContent.hero.secondaryCTA}</a>
+        {homeContent.hero.actions.map((action) => (
+          <a href={action.href}>{action.label}</a>
+        ))}
       </div>
     </div>
   </Container>
