@@ -1,0 +1,16 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { sobreContent } from "../../content/sobre";
+import "./philosophy-section.css";
+---
+
+<Section id="forma-de-pensar" background="light">
+  <Container>
+    <div class="philosophy-section__content">
+      <h2>{sobreContent.philosophy.title}</h2>
+      <p class="philosophy-section__description">{sobreContent.philosophy.description}</p>
+      <p class="philosophy-section__principle">{sobreContent.philosophy.principle}</p>
+    </div>
+  </Container>
+</Section>

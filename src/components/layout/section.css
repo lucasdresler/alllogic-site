@@ -11,15 +11,20 @@
   padding-block: 6rem;
 }
 
-/* Placeholders de background — cores reais serão definidas quando os Design Tokens estiverem disponíveis */
+/* Backgrounds — Design Tokens homologados (ver src/styles/tokens.css) */
 .section--default {
-  /* TODO: cor de background quando os Design Tokens estiverem disponíveis */
+  background-color: var(--color-background);
 }
 
 .section--light {
-  /* TODO: cor de background quando os Design Tokens estiverem disponíveis */
+  background-color: var(--color-surface);
 }
 
 .section--dark {
-  /* TODO: cor de background quando os Design Tokens estiverem disponíveis */
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.section--dark a {
+  color: var(--color-text-inverse);
 }

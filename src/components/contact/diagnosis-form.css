@@ -1,0 +1,103 @@
+.diagnosis-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 640px;
+}
+
+.diagnosis-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.diagnosis-form__field label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.diagnosis-form__field input,
+.diagnosis-form__field textarea {
+  font: inherit;
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.diagnosis-form__field input:focus-visible,
+.diagnosis-form__field textarea:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.diagnosis-form__field input[aria-invalid="true"],
+.diagnosis-form__field textarea[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+.diagnosis-form__hint {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.diagnosis-form__error {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-error);
+}
+
+.diagnosis-form__consent {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.diagnosis-form__submit {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-md);
+  border: none;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-secondary);
+  color: var(--color-text-inverse);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.diagnosis-form__submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.diagnosis-form__submit:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.diagnosis-form__status {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.diagnosis-form__status--success {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.diagnosis-form__status--error {
+  color: var(--color-error);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .diagnosis-form {
+    max-width: 100%;
+  }
+}

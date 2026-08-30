@@ -1,0 +1,15 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { sobreContent } from "../../content/sobre";
+import "./people-for-tech-section.css";
+---
+
+<Section id="tecnologia-para-pessoas" background="dark">
+  <Container>
+    <div class="people-for-tech-section__content">
+      <h2>{sobreContent.peopleForTech.title}</h2>
+      <p>{sobreContent.peopleForTech.description}</p>
+    </div>
+  </Container>
+</Section>

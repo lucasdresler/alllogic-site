@@ -1,0 +1,17 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { sobreContent } from "../../content/sobre";
+import "./about-closing-section.css";
+---
+
+<Section id="sobre-encerramento" background="dark">
+  <Container>
+    <div class="about-closing-section__content">
+      <p>{sobreContent.closing.description}</p>
+      {sobreContent.closing.actions.map((action) => (
+        <a class="about-closing-section__link" href={action.href}>{action.label}</a>
+      ))}
+    </div>
+  </Container>
+</Section>

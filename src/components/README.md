@@ -12,7 +12,9 @@ Diretório destinado aos componentes Astro de apresentação do site — a camad
 components/
 ├── layout/
 ├── navigation/
-└── sections/
+├── sections/
+├── contact/
+└── about/
 ```
 
 ### `layout/`
@@ -26,6 +28,14 @@ Componentes responsáveis pela navegação e pelo envelope estrutural comum a to
 ### `sections/`
 
 Componentes de conteúdo específicos da página inicial: `HeroSection`, `ProblemsSection`, `MethodSection`, `DiagnosisSection`, `SolutionsSection`, `PortfolioSection`, `CTASection`. Cada um consome sua fatia correspondente de `homeContent` (`src/content/home.ts`) e compõe os componentes de `layout/` para se estruturar internamente.
+
+### `contact/`
+
+Componentes de conteúdo específicos da página `/contato`: `ContactHeroSection`, `DiagnosisForm`, `ContactClosingSection`. Consomem `contatoContent` (`src/content/contato.ts`). `DiagnosisForm` é o único componente do projeto com script de cliente (validação e envio do formulário de diagnóstico) — depende de `src/utils/validation.ts` para validação e de `src/services/diagnosisSubmission.ts` para o envio (sem backend real conectado, ver ADR-0003).
+
+### `about/`
+
+Componentes de conteúdo específicos da página `/sobre`: `AboutHeroSection`, `WhoWeAreSection`, `PhilosophySection`, `EngineeringMindsetSection`, `PeopleForTechSection`, `ExperienceSection`, `ApproachSection`, `AboutClosingSection`. Consomem `sobreContent` (`src/content/sobre.ts`). `ExperienceSection` reaproveita os mesmos projetos próprios já usados no Portfólio da Home (via `sobreContent.experience.projects`, que vem de `homeContent.portfolio.projects`), evitando duplicar a lista.
 
 ## Diferença entre componentes estruturais, de navegação e de conteúdo
 

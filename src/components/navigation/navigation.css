@@ -3,4 +3,21 @@
   align-items: center;
   gap: var(--space-md);
   list-style: none;
+  flex-wrap: wrap;
+}
+
+.navigation__list a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+
+.navigation__list a:hover,
+.navigation__list a:focus-visible {
+  color: var(--color-secondary);
+}
+
+.navigation__list a:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
 }

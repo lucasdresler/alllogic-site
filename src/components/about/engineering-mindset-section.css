@@ -1,0 +1,24 @@
+.engineering-mindset-section__header {
+  max-width: 640px;
+  margin-block-end: var(--space-lg);
+}
+
+.engineering-mindset-section__header p {
+  color: var(--color-text-muted);
+}
+
+.engineering-mindset-section__step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.engineering-mindset-section__step-index {
+  font-weight: 700;
+  color: var(--color-accent);
+}

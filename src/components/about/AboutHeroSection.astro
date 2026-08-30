@@ -1,0 +1,16 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { sobreContent } from "../../content/sobre";
+import "./about-hero-section.css";
+---
+
+<Section id="sobre-hero" spacing="lg">
+  <Container>
+    <div class="about-hero-section__content">
+      <p class="about-hero-section__eyebrow">{sobreContent.hero.eyebrow}</p>
+      <h1>{sobreContent.hero.title}</h1>
+      <p class="about-hero-section__description">{sobreContent.hero.description}</p>
+    </div>
+  </Container>
+</Section>

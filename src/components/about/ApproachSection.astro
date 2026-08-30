@@ -1,0 +1,26 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import Grid from "../layout/Grid.astro";
+import { sobreContent } from "../../content/sobre";
+import "./approach-section.css";
+---
+
+<Section id="como-trabalhamos">
+  <Container>
+    <div class="approach-section__header">
+      <h2>{sobreContent.approach.title}</h2>
+      <p>{sobreContent.approach.description}</p>
+    </div>
+
+    <Grid columns={3} gap="md">
+      {sobreContent.approach.steps.map((step) => (
+        <div class="approach-section__step">
+          <span class="approach-section__step-order">{String(step.order).padStart(2, "0")}</span>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </div>
+      ))}
+    </Grid>
+  </Container>
+</Section>

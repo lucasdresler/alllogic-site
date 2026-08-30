@@ -6,9 +6,12 @@ import { homeContent } from "../../content/home";
 import "./problems-section.css";
 ---
 
-<Section>
+<Section id="problemas" background="light">
   <Container>
-    <h2 class="problems-section__title">{homeContent.problems.title}</h2>
+    <div class="problems-section__header">
+      <h2>{homeContent.problems.title}</h2>
+      <p>{homeContent.problems.description}</p>
+    </div>
 
     <Grid columns={3} gap="lg">
       {homeContent.problems.items.map((problem) => (
@@ -18,5 +21,7 @@ import "./problems-section.css";
         </div>
       ))}
     </Grid>
+
+    <p class="problems-section__closing">{homeContent.problems.closing}</p>
   </Container>
 </Section>

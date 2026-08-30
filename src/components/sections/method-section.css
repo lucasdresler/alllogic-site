@@ -1,10 +1,27 @@
 .method-section__title {
   max-width: 640px;
+  margin-block-end: var(--space-sm);
+}
+
+.method-section__description {
+  max-width: 640px;
   margin-block-end: var(--space-lg);
+  color: var(--color-text-muted);
 }
 
 .method-section__step {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  padding-block: var(--space-sm);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.method-section__step:first-child {
+  border-block-start: none;
+}
+
+.method-section__step span {
+  font-weight: 700;
+  color: var(--color-accent);
 }

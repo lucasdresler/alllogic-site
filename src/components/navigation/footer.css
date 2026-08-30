@@ -1,5 +1,11 @@
 .footer {
   width: 100%;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.footer a {
+  color: var(--color-text-inverse);
 }
 
 .footer__inner {

@@ -1,0 +1,19 @@
+.about-hero-section__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 640px;
+}
+
+.about-hero-section__eyebrow {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.about-hero-section__description {
+  color: var(--color-text-muted);
+}

@@ -4,3 +4,21 @@
   gap: var(--space-md);
   max-width: 640px;
 }
+
+.cta-section__link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-md);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cta-section__link:focus-visible {
+  outline: 2px solid var(--color-text-inverse);
+  outline-offset: 2px;
+}

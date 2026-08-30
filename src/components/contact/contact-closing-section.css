@@ -1,0 +1,6 @@
+.contact-closing-section__text {
+  max-width: 640px;
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-primary);
+}

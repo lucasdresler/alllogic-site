@@ -1,6 +1,10 @@
 // Conteúdo institucional compartilhado do site, isolado da camada de apresentação.
 // Propósito, missão e visão derivam de foundation.ts, que traduz o FOUNDATION.md.
-// Os demais campos permanecem placeholders até que suas fontes sejam homologadas.
+// company.name, company.description e branding.tagline já refletem o
+// posicionamento homologado da AllLogic.
+// contact.email, contact.phone e social.* permanecem placeholders: nenhum
+// dado real de contato ou rede social foi fornecido até o momento, e não deve
+// ser inventado (ver relatório de implementação — pendência registrada).
 
 import { foundationContent } from "./foundation";
 
@@ -27,14 +31,17 @@ export interface SiteContent {
 
 export const siteContent: SiteContent = {
   company: {
-    name: "Nome provisório",
+    name: "AllLogic",
     purpose: foundationContent.identity.purpose,
     mission: foundationContent.identity.mission,
     vision: foundationContent.identity.vision,
-    description: "Texto provisório",
+    // Diretriz de posicionamento homologada: "Empresa jovem. Mentalidade de
+    // engenharia. Experiência prática."
+    description:
+      "Empresa jovem de engenharia de soluções digitais, com mentalidade de engenharia e experiência prática na transformação de necessidades reais em tecnologia funcional.",
   },
   branding: {
-    tagline: "Texto provisório",
+    tagline: "Tecnologia que trabalha para as pessoas.",
   },
   contact: {
     email: "Texto provisório",

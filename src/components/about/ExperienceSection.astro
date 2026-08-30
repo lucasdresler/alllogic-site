@@ -1,0 +1,26 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import Grid from "../layout/Grid.astro";
+import { sobreContent } from "../../content/sobre";
+import "./experience-section.css";
+---
+
+<Section id="experiencia-pratica" background="light">
+  <Container>
+    <div class="experience-section__header">
+      <h2>{sobreContent.experience.title}</h2>
+      <p>{sobreContent.experience.description}</p>
+    </div>
+
+    <Grid columns={3} gap="lg">
+      {sobreContent.experience.projects.map((project) => (
+        <div class="experience-section__block">
+          <span class="experience-section__type">{project.type}</span>
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+        </div>
+      ))}
+    </Grid>
+  </Container>
+</Section>

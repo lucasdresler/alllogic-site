@@ -1,5 +1,7 @@
 .header {
   width: 100%;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .header__inner {
@@ -8,4 +10,9 @@
   justify-content: space-between;
   gap: var(--space-md);
   padding-block: var(--space-sm);
+}
+
+.header__logo {
+  font-weight: 700;
+  color: var(--color-primary);
 }

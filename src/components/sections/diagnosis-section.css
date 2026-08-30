@@ -4,3 +4,20 @@
   gap: var(--space-md);
   max-width: 640px;
 }
+
+.diagnosis-section__cta a {
+  display: inline-flex;
+  align-items: center;
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-md);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.diagnosis-section__cta a:focus-visible {
+  outline: 2px solid var(--color-text-inverse);
+  outline-offset: 2px;
+}

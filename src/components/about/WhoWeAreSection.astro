@@ -1,0 +1,15 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { sobreContent } from "../../content/sobre";
+import "./who-we-are-section.css";
+---
+
+<Section id="quem-somos">
+  <Container>
+    <div class="who-we-are-section__content">
+      <h2>{sobreContent.whoWeAre.title}</h2>
+      <p>{sobreContent.whoWeAre.description}</p>
+    </div>
+  </Container>
+</Section>

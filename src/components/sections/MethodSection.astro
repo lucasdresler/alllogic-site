@@ -6,9 +6,10 @@ import { homeContent } from "../../content/home";
 import "./method-section.css";
 ---
 
-<Section>
+<Section id="metodo">
   <Container>
     <h2 class="method-section__title">{homeContent.method.title}</h2>
+    <p class="method-section__description">{homeContent.method.description}</p>
 
     <Grid columns={1} gap="md">
       {homeContent.method.steps.map((step) => (

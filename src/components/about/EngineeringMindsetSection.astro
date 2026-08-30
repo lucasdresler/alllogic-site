@@ -1,0 +1,25 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import Grid from "../layout/Grid.astro";
+import { sobreContent } from "../../content/sobre";
+import "./engineering-mindset-section.css";
+---
+
+<Section id="mentalidade-de-engenharia">
+  <Container>
+    <div class="engineering-mindset-section__header">
+      <h2>{sobreContent.engineeringMindset.title}</h2>
+      <p>{sobreContent.engineeringMindset.description}</p>
+    </div>
+
+    <Grid columns={3} gap="md">
+      {sobreContent.engineeringMindset.steps.map((step, index) => (
+        <span class="engineering-mindset-section__step">
+          <span class="engineering-mindset-section__step-index">{String(index + 1).padStart(2, "0")}</span>
+          {step}
+        </span>
+      ))}
+    </Grid>
+  </Container>
+</Section>

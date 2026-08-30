@@ -29,11 +29,12 @@ O código-fonte em `src/` está organizado nas seguintes camadas, cada uma com r
 
 - **`src/pages`** — pontos de entrada de rota (roteamento baseado em arquivos do Astro). Compõe um layout com os componentes de conteúdo correspondentes à rota. Não define estrutura de documento nem conteúdo textual próprio.
 - **`src/layouts`** — estrutura de documento compartilhada entre páginas (HTML, metatags, composição de `Header`/`Footer` ao redor de um `<slot />`). Não define conteúdo textual próprio nem regras de negócio.
-- **`src/components`** — apresentação: markup e composição visual, organizada em `layout/` (componentes estruturais genéricos: `Container`, `Section`, `Grid`), `navigation/` (`Header`, `Navigation`, `Footer`) e `sections/` (componentes de conteúdo específicos da Home). Não define conteúdo textual próprio nem parâmetros técnicos.
-- **`src/content`** — conteúdo institucional e editorial (textos, identidade da marca, navegação), organizado em `foundation.ts` (tradução literal do `FOUNDATION.md` homologado do `alllogic-sga`, já integrada), `site.ts` (identidade institucional compartilhada, consumindo `foundation.ts`), `home.ts` (narrativa da Home, consumindo `site.ts` para campos institucionais compartilhados) e `navigation.ts` (itens de navegação, ainda não homologados). Não define markup nem parâmetros técnicos.
+- **`src/components`** — apresentação: markup e composição visual, organizada em `layout/` (componentes estruturais genéricos: `Container`, `Section`, `Grid`), `navigation/` (`Header`, `Navigation`, `Footer`), `sections/` (componentes de conteúdo específicos da Home), `contact/` (componentes específicos da página `/contato`: `ContactHeroSection`, `DiagnosisForm`, `ContactClosingSection`) e `about/` (componentes específicos da página `/sobre`: `AboutHeroSection`, `WhoWeAreSection`, `PhilosophySection`, `EngineeringMindsetSection`, `PeopleForTechSection`, `ExperienceSection`, `ApproachSection`, `AboutClosingSection`). Não define conteúdo textual próprio nem parâmetros técnicos.
+- **`src/content`** — conteúdo institucional e editorial (textos, identidade da marca, navegação), organizado em `foundation.ts` (tradução literal do `FOUNDATION.md` homologado do `alllogic-sga`, já integrada), `site.ts` (identidade institucional compartilhada, consumindo `foundation.ts`), `home.ts` (narrativa da Home, consumindo `site.ts` para campos institucionais compartilhados), `contato.ts` (conteúdo da página `/contato`), `sobre.ts` (conteúdo da página `/sobre`, reaproveitando `homeContent.portfolio.projects`/`.closing` e `siteContent.branding.tagline` como fonte única em vez de duplicar) e `navigation.ts` (itens de navegação, ainda não homologados). Não define markup nem parâmetros técnicos.
 - **`src/lib`** — configuração técnica do site (`site.config.ts`: URL canônica e metadados técnicos de SEO). Não define conteúdo institucional nem markup.
+- **`src/services`** — integração com serviços externos (ver `src/services/README.md`). Hoje contém `diagnosisSubmission.ts`, o ponto único de envio do formulário de diagnóstico, sem backend real conectado (ver ADR-0003). Não define apresentação nem validação de campos — isso pertence a `src/components` e `src/utils`, respectivamente.
 - **`src/types`** — contratos de tipo TypeScript compartilhados entre camadas (hoje, `NavigationItem`). Não contém valores nem lógica.
-- **`src/utils`** — funções utilitárias puras e sem estado (formatação, validação, transformação de dados). Diretório preparado na estrutura, ainda sem nenhuma função implementada.
+- **`src/utils`** — funções utilitárias puras e sem estado. Hoje contém `validation.ts` (`isRequired`, `hasMinLength`, `hasMaxLength`, `isValidBrazilianPhone`), usadas pela validação do formulário de diagnóstico.
 - **`src/styles`** — arquitetura de estilos globais (tokens, reset, layout, tipografia, utilidades), agregada em `index.css` e importada pelo `MainLayout`.
 - **`public/`** — ativos estáticos públicos, atualmente os favicons do site. O Astro os copia diretamente para a saída do build e os disponibiliza por URL pública; não contém lógica, código-fonte ou recursos processados pela cadeia de ativos de `src/`.
 
@@ -52,11 +53,14 @@ content
   ↓ depende de (parcialmente)
 lib
 
-content, components e lib podem depender de:
+components pode depender também de:
+services (para chamadas a integrações externas, ex.: envio de formulário)
+
+content, components, lib e services podem depender de:
 types
 
 Qualquer camada pode depender de:
-utils (quando houver funções implementadas)
+utils
 ```
 
 `public/` não participa desse fluxo de dependências: seus ativos estáticos não são importados pelas camadas de `src/` e são copiados diretamente pelo Astro durante o build. Recursos que fazem parte da implementação e precisam ser importados ou processados pertencem a `src/assets/`, não a `public/`.
@@ -76,19 +80,46 @@ src/content/{home,site,navigation}.ts
 src/types/navigation.ts
 ```
 
+```
+src/pages/contato.astro
+        ↓
+src/layouts/MainLayout.astro
+        ↓
+src/components/contact/{ContactHeroSection,DiagnosisForm,ContactClosingSection}.astro
+        ↓                                    ↓
+src/content/contato.ts                src/services/diagnosisSubmission.ts
+        ↓                                    ↓
+src/content/site.ts                   (sem backend real conectado — ver ADR-0003)
+
+DiagnosisForm.astro também depende de src/utils/validation.ts para validação de campos.
+```
+
+```
+src/pages/sobre.astro
+        ↓
+src/layouts/MainLayout.astro
+        ↓
+src/components/about/*.astro (8 componentes)
+        ↓
+src/content/sobre.ts
+        ↓                    ↓
+src/content/site.ts   src/content/home.ts (reaproveita portfolio.projects/.closing)
+```
+
 `src/lib/site.config.ts` hoje não é consumido por nenhum arquivo do projeto (documentado como responsabilidade técnica reservada, sem integração ativa ainda).
 
 ## Regra de Dependências (quem pode depender de quem)
 
 - `pages` pode depender de: `layouts`, `components`, `content`, `types`, `utils`.
 - `layouts` pode depender de: `components`, `content`, `lib`, `types`, `utils`, `styles`.
-- `components` pode depender de: `content`, `types`, `utils` (e de outros `components`, dentro da mesma camada).
+- `components` pode depender de: `content`, `services`, `types`, `utils` (e de outros `components`, dentro da mesma camada).
 - `content` pode depender de: outros arquivos de `content` (ex.: `home.ts` depende de `site.ts`), `types`, `utils`.
 - `lib` pode depender de: `types`, `utils`.
+- `services` pode depender de: `types`, `utils`.
 - `types` não depende de nenhuma outra camada.
 - `utils` não depende de nenhuma outra camada.
 
-Nenhuma camada "abaixo" (`content`, `lib`, `types`, `utils`) importa de uma camada "acima" (`components`, `layouts`, `pages`) — essa é a regra estrutural que impede acoplamento circular entre conteúdo/configuração e apresentação/roteamento.
+Nenhuma camada "abaixo" (`content`, `lib`, `services`, `types`, `utils`) importa de uma camada "acima" (`components`, `layouts`, `pages`) — essa é a regra estrutural que impede acoplamento circular entre conteúdo/configuração/integração e apresentação/roteamento.
 
 ## Diagrama Textual da Arquitetura
 
@@ -105,19 +136,20 @@ Nenhuma camada "abaixo" (`content`, `lib`, `types`, `utils`) importa de uma cama
                     │
 ┌───────────────────▼───────────────────────────┐
 │               src/components                 │
-│   layout/   navigation/   sections/           │
+│ layout/  navigation/  sections/  contact/  about/ │
 └───────────────────┬───────────────────────────┘
                     │
 ┌───────────────────▼───────────────────────────┐
 │                src/content                    │
-│  foundation.ts  site.ts  home.ts  navigation.ts│
+│  foundation.ts  site.ts  home.ts  contato.ts   │
+│              sobre.ts  navigation.ts            │
 └───────────────────┬───────────────────────────┘
                     │
-       ┌────────────┴────────────┐
-       ▼                         ▼
-┌─────────────┐           ┌─────────────┐
-│  src/types  │           │  src/utils  │
-└─────────────┘           └─────────────┘
+       ┌────────────┴────────────┬──────────────┐
+       ▼                         ▼              ▼
+┌─────────────┐           ┌─────────────┐  ┌──────────────┐
+│  src/types  │           │  src/utils  │  │ src/services │
+└─────────────┘           └─────────────┘  └──────────────┘
 
 src/lib (site.config.ts) — configuração técnica,
 consumida potencialmente por layouts/pages,
@@ -133,6 +165,7 @@ não contém código-fonte nem lógica.
 
 - Conteúdo (`src/content`): informações institucionais e editoriais estruturadas, sem markup.
 - Configuração técnica (`src/lib`): parâmetros de infraestrutura e SEO, sem conteúdo institucional.
+- Integração externa (`src/services`): ponto único de contato com serviços de fora do projeto (ex.: envio de formulário), sem apresentação nem conteúdo próprio.
 - Tipos (`src/types`): contratos de forma de dado compartilhados, sem valores.
 - Utilitários (`src/utils`): transformação pura de dados, sem apresentação nem conteúdo.
 - Componentes de interface (`src/components`): elementos de apresentação reutilizáveis e acessíveis, sem conteúdo textual próprio.
@@ -151,4 +184,4 @@ As definições arquiteturais serão amadurecidas conforme o projeto evoluir. De
 - [Fluxo de Desenvolvimento](MOA/fluxo-desenvolvimento.md)
 - [Fluxo de Homologação Tecnológica](MOA/fluxo-homologacao.md)
 - [Homologação do Astro 7.1.6](MOA/homologacoes/astro-7.1.6.md)
-- READMEs de cada camada: `src/content/README.md`, `src/lib/README.md`, `src/types/README.md`, `src/utils/README.md`, `src/components/README.md`, `src/layouts/README.md`, `src/pages/README.md`.
+- READMEs de cada camada: `src/content/README.md`, `src/lib/README.md`, `src/services/README.md`, `src/types/README.md`, `src/utils/README.md`, `src/components/README.md`, `src/layouts/README.md`, `src/pages/README.md`.

@@ -5,15 +5,24 @@ import { homeContent } from "../../content/home";
 import "./hero-section.css";
 ---
 
-<Section>
+<Section spacing="lg">
   <Container>
     <div class="hero-section__content">
+      <p class="hero-section__eyebrow">{homeContent.hero.eyebrow}</p>
       <h1>{homeContent.hero.title}</h1>
-      <p>{homeContent.hero.description}</p>
+      <p class="hero-section__description">{homeContent.hero.description}</p>
 
       <div class="hero-section__ctas">
-        {homeContent.hero.actions.map((action) => (
-          <a href={action.href}>{action.label}</a>
+        {homeContent.hero.actions.map((action, index) => (
+          <a
+            href={action.href}
+            class:list={[
+              "hero-section__cta",
+              index === 0 ? "hero-section__cta--primary" : "hero-section__cta--secondary",
+            ]}
+          >
+            {action.label}
+          </a>
         ))}
       </div>
     </div>

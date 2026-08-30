@@ -1,0 +1,12 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { contatoContent } from "../../content/contato";
+import "./contact-closing-section.css";
+---
+
+<Section id="contato-encerramento" background="light">
+  <Container>
+    <p class="contact-closing-section__text">{contatoContent.closing}</p>
+  </Container>
+</Section>

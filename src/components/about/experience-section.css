@@ -1,0 +1,26 @@
+.experience-section__header {
+  max-width: 640px;
+  margin-block-end: var(--space-lg);
+}
+
+.experience-section__header p {
+  color: var(--color-text-muted);
+}
+
+.experience-section__block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background-color: var(--color-background);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.experience-section__type {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}

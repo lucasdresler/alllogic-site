@@ -1,0 +1,16 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { contatoContent } from "../../content/contato";
+import "./contact-hero-section.css";
+---
+
+<Section id="contato-hero" spacing="lg">
+  <Container>
+    <div class="contact-hero-section__content">
+      <p class="contact-hero-section__eyebrow">{contatoContent.hero.eyebrow}</p>
+      <h1>{contatoContent.hero.title}</h1>
+      <p class="contact-hero-section__description">{contatoContent.hero.description}</p>
+    </div>
+  </Container>
+</Section>

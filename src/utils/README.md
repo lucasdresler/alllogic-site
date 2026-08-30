@@ -29,10 +29,11 @@ Diretório destinado a **funções utilitárias** reutilizáveis, sem estado e s
 - **`src/content`** — *o que o site comunica*. Valores institucionais e editoriais (textos, navegação), sem lógica de transformação nem apresentação.
 - **`src/components`** — *como o dado é exibido*. Markup e apresentação, consumindo dados de `src/content`, configuração de `src/lib`, e podendo usar funções de `src/utils` para formatar o que exibem.
 
-## Exemplos de futuros utilitários (não implementados nesta tarefa)
+## Funções implementadas
+
+- **`validation.ts`**: `isRequired`, `hasMinLength`, `hasMaxLength`, `isValidBrazilianPhone` — usadas pelo formulário de diagnóstico (`src/components/contact/DiagnosisForm.astro`) para validar os campos Empresa, Contato, Tel/Whats e Mensagem.
+
+## Exemplos de futuros utilitários (ainda não implementados)
 
 - **Formatação**: uma função que formate um número de telefone para exibição padronizada; uma função que formate uma data para o padrão brasileiro.
-- **Validação**: uma função que valide o formato de um e-mail antes de um envio de formulário; uma função que valide se uma URL informada é bem-formada.
 - **Transformação de dados**: uma função que ordene os itens de `navigationContent.main` por algum critério; uma função que agrupe os blocos de `SolutionsSection` em lotes para paginação futura.
-
-Nenhuma dessas funções foi criada nesta tarefa — os exemplos acima são apenas ilustrativos do tipo de utilitário que pertenceria a este diretório no futuro.
