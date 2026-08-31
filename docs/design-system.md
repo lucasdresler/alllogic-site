@@ -20,6 +20,8 @@ Direção visual homologada: tecnologia, engenharia, confiança, clareza, profis
 | `--color-text-muted` | `#4A5568` | Texto secundário (descrições). |
 | `--color-text-inverse` | `#FFFFFF` | Texto sobre fundo escuro (`section--dark`). |
 | `--color-border` | `#DDE3EE` | Bordas sutis (cards, header, CTA secundário). |
+| `--color-error` | `#B3261E` | Feedback de erro (validação de campos, status de envio falho). |
+| `--color-success` | `#1E8E3E` | Feedback de sucesso (status de envio bem-sucedido). |
 
 ## Tipografia
 
