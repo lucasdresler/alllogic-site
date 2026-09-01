@@ -21,6 +21,7 @@ const resolvedDescription = description ?? siteContent.company.description;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{resolvedTitle}</title>
     <meta name="description" content={resolvedDescription} />
+    <link rel="canonical" href={Astro.url} />
 
     <!-- TODO: Open Graph (tarefa futura) -->
     <!-- TODO: Schema.org (tarefa futura) -->
