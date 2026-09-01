@@ -184,4 +184,5 @@ As definições arquiteturais serão amadurecidas conforme o projeto evoluir. De
 - [Fluxo de Desenvolvimento](MOA/fluxo-desenvolvimento.md)
 - [Fluxo de Homologação Tecnológica](MOA/fluxo-homologacao.md)
 - [Homologação do Astro 7.1.6](MOA/homologacoes/astro-7.1.6.md)
+- [Homologação da Publicação do Site AllLogic](MOA/homologacoes/publicacao-site-alllogic.md)
 - READMEs de cada camada: `src/content/README.md`, `src/lib/README.md`, `src/services/README.md`, `src/types/README.md`, `src/utils/README.md`, `src/components/README.md`, `src/layouts/README.md`, `docs/pages.md`.
