@@ -3,6 +3,7 @@ import { siteContent } from "../content/site";
 import { siteConfig } from "../lib/site.config";
 import Header from "../components/navigation/Header.astro";
 import Footer from "../components/navigation/Footer.astro";
+import ScrollToTop from "../components/navigation/ScrollToTop.astro";
 import "../styles/index.css";
 
 interface Props {
@@ -131,5 +132,6 @@ const websiteSchema = {
     </main>
 
     <Footer />
+    <ScrollToTop />
   </body>
 </html>

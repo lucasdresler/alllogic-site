@@ -1,0 +1,33 @@
+---
+import "./scroll-to-top.css";
+---
+
+<button
+  class="scroll-to-top"
+  type="button"
+  aria-label="Voltar ao topo"
+  title="Voltar ao topo"
+>
+  <span aria-hidden="true">↑</span>
+</button>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>(".scroll-to-top");
+
+  if (button) {
+    const updateVisibility = () => {
+      button.classList.toggle("scroll-to-top--visible", window.scrollY > 400);
+    };
+
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+
+    button.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+
+    updateVisibility();
+  }
+</script>
