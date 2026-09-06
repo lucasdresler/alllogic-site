@@ -3,12 +3,12 @@
 // src/content/home.ts), sem repetir seu texto ao pé da letra onde o Hero
 // desta página tem uma redação própria mais adequada a uma página dedicada.
 //
-// Pendências conhecidas:
-// - Nenhum dado de contato real (telefone, e-mail, endereço) está disponível;
-//   nada foi inventado.
-// - O envio do formulário depende de uma integração externa ainda não
-//   definida (ver src/services/diagnosisSubmission.ts e
-//   docs/decisions/ADR-0003-camada-de-servicos-e-formulario-de-diagnostico.md).
+// Estado atual:
+// - Dados oficiais de contato já definidos: telefone/WhatsApp e e-mail
+//   institucional.
+// - O envio do formulário está integrado ao endpoint próprio
+//   public/api/diagnosis.php, responsável por encaminhar as mensagens ao
+//   endereço institucional de contato.
 // - Vínculo com a Política de Privacidade: página ainda não existe no
 //   projeto; o texto de consentimento abaixo é neutro e não referencia uma
 //   política que ainda não foi criada.

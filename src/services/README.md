@@ -6,11 +6,11 @@ Diretório destinado à **camada de integração externa** do site — o ponto d
 
 `src/services` isola qualquer chamada a um serviço externo em uma função com um contrato estável (entrada tipada, saída tipada), para que componentes de apresentação nunca precisem saber *como* ou *para onde* um dado é enviado — apenas chamam a função e reagem ao resultado.
 
-Esta camada foi criada porque o projeto passou a ter uma necessidade real de envio de dados (formulário de diagnóstico) sem que uma integração de backend estivesse definida. Antes desta necessidade, essa camada não existia — não foi antecipada sem uso real (ver `docs/decisions/ADR-0003-camada-de-servicos-e-formulario-de-diagnostico.md`).
+Esta camada foi criada para atender à necessidade real de envio de dados do formulário de diagnóstico. O envio é realizado pelo endpoint próprio `public/api/diagnosis.php`, que encaminha as mensagens ao e-mail institucional de contato (ver `docs/decisions/ADR-0003-camada-de-servicos-e-formulario-de-diagnostico.md`).
 
 ## Regra importante
 
-Uma função em `src/services` **nunca finge sucesso quando não há integração real conectada**. Quando uma integração ainda não está definida, a função deve deixar isso explícito no seu retorno (ex.: um resultado que indique que o envio não pôde ser concluído), nunca simular uma resposta de sucesso fabricada.
+Uma função em `src/services` **nunca finge sucesso quando não há integração real conectada**. A integração atual é real: `submitDiagnosisRequest` envia os dados para `public/api/diagnosis.php` e considera o envio bem-sucedido somente quando o endpoint responde com `ok: true`.
 
 ## Diferença em relação às outras camadas
 
@@ -20,4 +20,4 @@ Uma função em `src/services` **nunca finge sucesso quando não há integraçã
 
 ## Arquivos
 
-- **`diagnosisSubmission.ts`**: função `submitDiagnosisRequest`, usada por `src/components/contact/DiagnosisForm.astro`. Atualmente **não há nenhum backend real conectado** — a função existe como ponto de integração único e documentado, mas sempre retorna um resultado indicando que o envio não pôde ser concluído, até que uma integração real seja definida e implementada aqui.
+- **`diagnosisSubmission.ts`**: função `submitDiagnosisRequest`, usada por `src/components/contact/DiagnosisForm.astro`. Realiza uma requisição `POST` para o endpoint próprio `/api/diagnosis.php`, enviando os dados do formulário em JSON e tratando a resposta da integração.
