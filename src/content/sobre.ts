@@ -51,16 +51,6 @@ export interface SobreContent {
     title: string;
     description: string;
   };
-  experience: {
-    title: string;
-    description: string;
-    projects: typeof homeContent.portfolio.projects;
-  };
-  approach: {
-    title: string;
-    description: string;
-    steps: SobreApproachStep[];
-  };
   closing: {
     description: string;
     actions: SobreCTA[];

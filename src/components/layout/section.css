@@ -28,3 +28,9 @@
 .section--dark a {
   color: var(--color-text-inverse);
 }
+
+@media (max-width: 768px) {
+  .section {
+    scroll-margin-top: 5rem;
+  }
+}
