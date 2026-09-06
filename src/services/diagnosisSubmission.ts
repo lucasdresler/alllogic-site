@@ -1,13 +1,3 @@
-// Camada de integração externa (ver src/services/README.md).
-//
-// PENDÊNCIA REAL: nenhum backend, e-mail, webhook, CRM ou serviço externo está
-// configurado neste projeto. Esta função é o único ponto de integração para o
-// formulário de diagnóstico — quando uma integração real for definida
-// (endpoint, e-mail, webhook, etc.), a implementação abaixo deve ser
-// substituída para de fato transportar os dados. Até lá, ela NUNCA deve
-// simular sucesso: sempre retorna um resultado indicando que o envio não pôde
-// ser concluído, o que é a verdade sobre o estado atual do projeto.
-
 export interface DiagnosisRequestPayload {
   company: string;
   contactName: string;
@@ -17,12 +7,28 @@ export interface DiagnosisRequestPayload {
 
 export type DiagnosisSubmissionResult =
   | { ok: true }
-  | { ok: false; reason: "integration-not-configured" };
+  | { ok: false; reason: "request-failed" };
 
 export async function submitDiagnosisRequest(
-  _payload: DiagnosisRequestPayload,
+  payload: DiagnosisRequestPayload,
 ): Promise<DiagnosisSubmissionResult> {
-  // Nenhuma chamada de rede é feita aqui de propósito: não existe endpoint,
-  // e-mail ou serviço real para onde enviar os dados ainda.
-  return { ok: false, reason: "integration-not-configured" };
+  try {
+    const response = await fetch("/api/diagnosis.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const result = (await response.json()) as { ok?: boolean };
+
+    if (!response.ok || result.ok !== true) {
+      return { ok: false, reason: "request-failed" };
+    }
+
+    return { ok: true };
+  } catch {
+    return { ok: false, reason: "request-failed" };
+  }
 }
