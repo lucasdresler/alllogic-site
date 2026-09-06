@@ -35,7 +35,7 @@ Componentes de conteúdo específicos da página `/contato`: `ContactHeroSection
 
 ### `about/`
 
-Componentes de conteúdo específicos da página `/sobre`: `AboutHeroSection`, `WhoWeAreSection`, `PhilosophySection`, `EngineeringMindsetSection`, `PeopleForTechSection`, `ExperienceSection`, `ApproachSection`, `AboutClosingSection`. Consomem `sobreContent` (`src/content/sobre.ts`). `ExperienceSection` reaproveita os mesmos projetos próprios já usados no Portfólio da Home (via `sobreContent.experience.projects`, que vem de `homeContent.portfolio.projects`), evitando duplicar a lista.
+Componentes de conteúdo específicos da página `/sobre`: `AboutHeroSection`, `WhoWeAreSection`, `PhilosophySection`, `EngineeringMindsetSection`, `PeopleForTechSection`, `ExperienceSection`, `ApproachSection`, `AboutClosingSection`. Consomem `sobreContent` (`src/content/sobre.ts`). `ExperienceSection` reaproveita os mesmos projetos já usados no Portfólio da Home (via `sobreContent.experience.projects`, que vem de `homeContent.portfolio.projects`), evitando duplicar a lista.
 
 ## Diferença entre componentes estruturais, de navegação e de conteúdo
 

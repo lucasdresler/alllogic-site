@@ -1,7 +1,7 @@
 // Conteúdo textual da página /sobre, isolado da apresentação.
 // Reaproveita fontes já homologadas em vez de duplicar valores:
 // - experience.projects vem de homeContent.portfolio.projects (mesmos três
-//   projetos próprios, mesma descrição neutra — sem duplicar a lista).
+//   projetos apresentados no portfólio, sem duplicar a lista).
 // - philosophy.principle vem de homeContent.portfolio.closing (mesma frase
 //   já homologada "Cada empresa tem seus próprios desafios e também suas
 //   soluções.").
@@ -97,9 +97,9 @@ export const sobreContent: SobreContent = {
       "Uma solução tecnológica só faz sentido quando melhora alguma coisa na prática: simplifica tarefas, reduz trabalho repetitivo, organiza informações, melhora processos e proporciona uma experiência melhor para quem usa.",
   },
   experience: {
-    title: "Experiência prática",
+    title: "Experiência na Prática",
     description:
-      "A AllLogic ainda não possui clientes. A experiência prática vem do que já desenvolvemos: projetos próprios, tratados como o que realmente são.",
+      "A AllLogic transforma idéias e necessidades reais em soluções digitais funcionais, combinando tecnologia, estratégia e atenção aos detalhes.",
     projects: homeContent.portfolio.projects,
   },
   approach: {

@@ -1,8 +1,7 @@
 // Configuração técnica do site da AllLogic.
 // Responsabilidade restrita a parâmetros técnicos de infraestrutura/SEO —
 // conteúdo institucional (marca, contato, redes sociais, CTAs, navegação)
-// pertence exclusivamente a src/content/. Nenhum valor real foi definido —
-// todos os campos são placeholders marcados com "TODO".
+// pertence exclusivamente a src/content/.
 
 // Identidade técnica do site.
 export interface SiteGroup {
@@ -27,11 +26,11 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   site: {
-    url: "TODO: definir site.url",
+    url: "https://alllogiconline.com.br",
   },
   seo: {
-    titleTemplate: "TODO: definir seo.titleTemplate",
-    defaultTitle: "TODO: definir seo.defaultTitle",
-    defaultDescription: "TODO: definir seo.defaultDescription",
+    titleTemplate: "%s | AllLogic",
+    defaultTitle: "AllLogic — Engenharia de Soluções Digitais",
+    defaultDescription: "A AllLogic transforma necessidades reais em soluções digitais funcionais, combinando tecnologia, estratégia e atenção aos detalhes.",
   },
 };

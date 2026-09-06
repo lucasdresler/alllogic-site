@@ -2,9 +2,8 @@
 // Propósito, missão e visão derivam de foundation.ts, que traduz o FOUNDATION.md.
 // company.name, company.description e branding.tagline já refletem o
 // posicionamento homologado da AllLogic.
-// contact.email, contact.phone e social.* permanecem placeholders: nenhum
-// dado real de contato ou rede social foi fornecido até o momento, e não deve
-// ser inventado (ver relatório de implementação — pendência registrada).
+// contact.email e contact.phone contêm os dados oficiais de contato da AllLogic.
+// social.* permanece como placeholder até a definição dos perfis oficiais.
 
 import { foundationContent } from "./foundation";
 
@@ -22,6 +21,7 @@ export interface SiteContent {
   contact: {
     email: string;
     phone: string;
+    whatsapp: string;
   };
   social: {
     linkedin: string;
@@ -38,14 +38,15 @@ export const siteContent: SiteContent = {
     // Diretriz de posicionamento homologada: "Empresa jovem. Mentalidade de
     // engenharia. Experiência prática."
     description:
-      "Empresa jovem de engenharia de soluções digitais, com mentalidade de engenharia e experiência prática na transformação de necessidades reais em tecnologia funcional.",
+      "Empresa jovem de engenharia de soluções digitais, com mentalidade e experiência prática na transformação de necessidades reais em tecnologia funcional.",
   },
   branding: {
     tagline: "Tecnologia que trabalha para as pessoas.",
   },
   contact: {
-    email: "Texto provisório",
-    phone: "Texto provisório",
+    email: "contato@alllogiconline.com.br",
+    phone: "(11)96638-1915",
+    whatsapp: "(11)96638-1915",
   },
   social: {
     linkedin: "Texto provisório",

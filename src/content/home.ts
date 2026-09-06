@@ -5,10 +5,8 @@
 // siteContent em vez de duplicar valores (ver src/content/site.ts).
 //
 // Pendências conhecidas (ver docs/content-architecture.md):
-// - portfolio.projects: descrições mantidas neutras e genéricas porque o conteúdo
-//   detalhado de cada projeto próprio (Escola Sabatina Online, Cupido Adventista,
-//   Lojinha do Lucas) ainda não foi verificado nos respectivos repositórios/contexto.
-//   Nenhum resultado, métrica ou descrição funcional foi inventado.
+// - portfolio.projects: trabalhos realizados para clientes, com situação e descrição
+//   definidas a partir da análise dos projetos. Nenhum resultado ou métrica foi inventado.
 // - diagnosis.actions aponta para "/contato", implementada (ver
 //   src/pages/contato.astro). cta.actions aponta para "/sobre", também
 //   implementada (ver src/pages/sobre.astro).
@@ -38,7 +36,7 @@ export interface HomeSolution {
 
 export interface HomePortfolioProject {
   title: string;
-  /** Identifica a natureza real do projeto (ex.: "Projeto próprio"), nunca "cliente". */
+  /** Indica a situação atual do trabalho apresentado no portfólio. */
   type: string;
   description: string;
 }
@@ -192,21 +190,21 @@ export const homeContent: HomeContent = {
     projects: [
       {
         title: "Escola Sabatina Online",
-        type: "Projeto próprio",
+        type: "Projeto concluído",
         description:
-          "Projeto próprio da AllLogic, em desenvolvimento. Descrição detalhada a confirmar com o conteúdo real do projeto.",
+          "Otimização de SEO, organização de conteúdo e melhorias técnicas para fortalecer a presença orgânica do projeto.",
       },
       {
         title: "Cupido Adventista",
-        type: "Projeto próprio",
+        type: "Em andamento",
         description:
-          "Projeto próprio da AllLogic, em desenvolvimento. Descrição detalhada a confirmar com o conteúdo real do projeto.",
+          "Otimização de SEO das áreas públicas, melhorias técnicas e ajustes de estrutura e conteúdo.",
       },
       {
         title: "Lojinha do Lucas",
-        type: "Projeto próprio",
+        type: "Projeto concluído",
         description:
-          "Projeto próprio da AllLogic, em desenvolvimento. Descrição detalhada a confirmar com o conteúdo real do projeto.",
+          "Otimização de SEO para produtos e categorias, ajustes de conteúdo e melhorias na estrutura da loja.",
       },
     ],
     closing: "Cada empresa tem seus próprios desafios e também suas soluções.",

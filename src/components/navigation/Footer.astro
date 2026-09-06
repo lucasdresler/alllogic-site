@@ -1,6 +1,7 @@
 ---
 import Container from "../layout/Container.astro";
 import { navigationContent } from "../../content/navigation";
+import { siteContent } from "../../content/site";
 import "./footer.css";
 ---
 
@@ -9,12 +10,19 @@ import "./footer.css";
     <div class="footer__inner">
       <!-- Marca -->
       <div class="footer__brand">
-        Marca
+        <a href="/" class="footer__logo" aria-label="AllLogic">
+          <img
+            src="/images/logo-alllogic.png"
+            alt="AllLogic — Engenharia de Soluções Digitais"
+          />
+        </a>
+        <p>{siteContent.branding.tagline}</p>
       </div>
 
       <!-- Navegação institucional -->
       <div class="footer__nav">
-        <nav>
+        <h2>Navegação</h2>
+        <nav aria-label="Navegação institucional">
           <ul>
             {navigationContent.footer.map((item) => (
               <li>
@@ -27,13 +35,42 @@ import "./footer.css";
 
       <!-- Informações de contato -->
       <div class="footer__contact">
-        Informações de contato
-      </div>
+        <h2>Contato</h2>
 
-      <!-- Copyright -->
-      <div class="footer__copyright">
-        Copyright
+        <address>
+          <p>
+            <span>E-mail</span>
+            <a href={`mailto:${siteContent.contact.email}`}>
+              {siteContent.contact.email}
+            </a>
+          </p>
+
+          <p>
+            <span>Telefone</span>
+            <a href={`tel:+5511966381915`}>
+              {siteContent.contact.phone}
+            </a>
+          </p>
+
+          <p>
+            <span>WhatsApp</span>
+            <a
+              href="https://wa.me/5511966381915"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {siteContent.contact.whatsapp}
+            </a>
+          </p>
+        </address>
       </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer__copyright">
+      <p>
+        © {new Date().getFullYear()} AllLogic. Todos os direitos reservados.
+      </p>
     </div>
   </Container>
 </footer>
