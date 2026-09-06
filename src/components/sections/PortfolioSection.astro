@@ -15,11 +15,28 @@ import "./portfolio-section.css";
 
     <Grid columns={3} gap="lg">
       {homeContent.portfolio.projects.map((project) => (
-        <div class="portfolio-section__block">
-          <span class="portfolio-section__type">{project.type}</span>
-          <h3>{project.title}</h3>
-          <p>{project.description}</p>
-        </div>
+        <article class="portfolio-section__block">
+          {project.image && (
+            <div class="portfolio-section__image">
+              <img src={project.image} alt={`Prévia do projeto ${project.title}`} />
+            </div>
+          )}
+
+          <div class="portfolio-section__content">
+            <span class="portfolio-section__type">{project.type}</span>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+            <a
+              class="portfolio-section__link"
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visitar projeto
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
       ))}
     </Grid>
 

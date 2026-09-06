@@ -39,6 +39,8 @@ export interface HomePortfolioProject {
   /** Indica a situação atual do trabalho apresentado no portfólio. */
   type: string;
   description: string;
+  url: string;
+  image?: string;
 }
 
 export interface HomeContent {
@@ -193,18 +195,24 @@ export const homeContent: HomeContent = {
         type: "Projeto concluído",
         description:
           "Otimização de SEO, organização de conteúdo e melhorias técnicas para fortalecer a presença orgânica do projeto.",
+        url: "https://escolasabatinaonline.com.br/site/",
+        image: "/images/portfolio/escola-sabatina-online.png",
       },
       {
         title: "Cupido Adventista",
         type: "Em andamento",
         description:
           "Otimização de SEO das áreas públicas, melhorias técnicas e ajustes de estrutura e conteúdo.",
+        url: "https://cupidoadventista.com.br/",
+        image: "/images/portfolio/cupido-adventista.png",
       },
       {
         title: "Lojinha do Lucas",
         type: "Projeto concluído",
         description:
           "Otimização de SEO para produtos e categorias, ajustes de conteúdo e melhorias na estrutura da loja.",
+        url: "https://lojinhadolucas.com.br/",
+        image: "/images/portfolio/lojinha-do-lucas.png",
       },
     ],
     closing: "Cada empresa tem seus próprios desafios e também suas soluções.",

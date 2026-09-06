@@ -21,16 +21,16 @@ export interface NavigationContent {
 export const navigationContent: NavigationContent = {
   main: [
     { label: "Início", href: "/" },
-    { label: "Soluções", href: "#solucoes" },
-    { label: "Portfólio", href: "#portfolio" },
-    { label: "Diagnóstico", href: "#diagnostico" },
+    { label: "Soluções", href: "/#solucoes" },
+    { label: "Portfólio", href: "/#portfolio" },
+    { label: "Diagnóstico", href: "/#diagnostico" },
     { label: "Sobre", href: "/sobre" },
     { label: "Contato", href: "/contato" },
   ],
   footer: [
     { label: "Início", href: "/" },
-    { label: "Soluções", href: "#solucoes" },
-    { label: "Portfólio", href: "#portfolio" },
+    { label: "Soluções", href: "/#solucoes" },
+    { label: "Portfólio", href: "/#portfolio" },
     { label: "Sobre", href: "/sobre" },
     { label: "Contato", href: "/contato" },
   ],
