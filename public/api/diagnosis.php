@@ -48,45 +48,16 @@ $body = implode("\n", [
     $message,
 ]);
 
-$email = implode("\r\n", [
+$headers = implode("\r\n", [
     'From: contato@alllogiconline.com.br',
     'Reply-To: contato@alllogiconline.com.br',
-    'To: ' . $to,
-    'Subject: ' . $subject,
     'Content-Type: text/plain; charset=UTF-8',
-    '',
-    $body,
 ]);
 
-$process = proc_open(
-    '/usr/sbin/sendmail -t -i',
-    [
-        0 => ['pipe', 'w'],
-        1 => ['pipe', 'w'],
-        2 => ['pipe', 'w'],
-    ],
-    $pipes,
-);
+$sent = mail($to, $subject, $body, $headers);
 
-if (!is_resource($process)) {
-    http_response_code(500);
-    echo json_encode(['ok' => false]);
-    exit;
-}
-
-fwrite($pipes[0], $email);
-fclose($pipes[0]);
-
-$stdout = stream_get_contents($pipes[1]);
-fclose($pipes[1]);
-
-$stderr = stream_get_contents($pipes[2]);
-fclose($pipes[2]);
-
-$exitCode = proc_close($process);
-
-if ($exitCode !== 0) {
-    error_log('Falha no envio do formulário AllLogic: ' . trim($stderr));
+if (!$sent) {
+    error_log('Falha no envio do formulário AllLogic com mail().');
     http_response_code(500);
     echo json_encode(['ok' => false]);
     exit;
