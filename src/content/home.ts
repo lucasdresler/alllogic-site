@@ -186,7 +186,7 @@ export const homeContent: HomeContent = {
     ],
   },
   portfolio: {
-    title: "Soluções que saem do papel.",
+    title: "Projetos que saem do papel.",
     description:
       "Cada projeto nasce de uma necessidade específica. Conheça algumas das soluções que desenvolvemos e estamos evoluindo para transformar desafios em experiências digitais funcionais.",
     projects: [

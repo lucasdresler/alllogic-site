@@ -39,3 +39,13 @@ a {
     scroll-behavior: auto !important;
   }
 }
+
+html {
+  scroll-padding-top: 142px;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 188.5px;
+  }
+}
