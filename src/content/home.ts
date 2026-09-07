@@ -161,7 +161,7 @@ export const homeContent: HomeContent = {
     items: [
       {
         title: "Presença Digital",
-        description: "Sites, páginas e soluções para fortalecer a presença da empresa na internet.",
+        description: "Registro de Domínios, Desenvolvimento, Hospedagem e Manutenção de Sites e Lojas Online, e soluções para fortalecer a presença da empresa na internet.",
       },
       {
         title: "Automação",

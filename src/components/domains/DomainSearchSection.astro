@@ -1,0 +1,33 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import "./domain-search-section.css";
+---
+
+<Section id="busca-dominio" spacing="lg">
+  <Container>
+    <div class="domain-search-section__content">
+      <p class="domain-search-section__eyebrow">Registro de Domínios</p>
+      <h2>Encontre o domínio ideal para sua empresa.</h2>
+      <p class="domain-search-section__description">
+        Consulte um domínio para sua empresa e veja as opções disponíveis para
+        registrar sua presença na internet.
+      </p>
+
+      <form class="domain-search-section__form">
+        <label for="domain-search">Digite o domínio que deseja pesquisar</label>
+
+        <div class="domain-search-section__input-group">
+          <input
+            id="domain-search"
+            name="domain"
+            type="text"
+            placeholder="exemplo.com.br"
+            autocomplete="url"
+          />
+          <button type="submit">Buscar domínio</button>
+        </div>
+      </form>
+    </div>
+  </Container>
+</Section>
