@@ -9,6 +9,7 @@ import "./cookie-consent.css";
       <p>
         Utilizamos cookies de análise para entender como o site é utilizado
         e melhorar sua experiência. Você pode aceitar ou recusar esses cookies.
+        <a href="/politica-de-privacidade">Saiba mais na Política de Privacidade.</a>
       </p>
     </div>
 
@@ -23,6 +24,15 @@ import "./cookie-consent.css";
   </div>
 </div>
 
+<button
+  type="button"
+  class="cookie-consent__manage"
+  data-cookie-consent-manage
+  hidden
+>
+  Preferências de privacidade
+</button>
+
 <script>
   import { loadAnalytics } from "../../lib/analytics";
 
@@ -30,6 +40,31 @@ import "./cookie-consent.css";
   const consentElement = document.querySelector<HTMLElement>(
     "[data-cookie-consent]"
   );
+  const manageElement = document.querySelector<HTMLButtonElement>(
+    "[data-cookie-consent-manage]"
+  );
+
+  const manageVisibilityDuration = 60_000;
+
+  function updateManageVisibility(): void {
+    if (manageElement) {
+      manageElement.hidden = !localStorage.getItem(consentKey);
+    }
+  }
+
+  function scheduleManageHide(): void {
+    if (manageElement) {
+      window.setTimeout(() => {
+        manageElement.hidden = true;
+      }, manageVisibilityDuration);
+    }
+  }
+
+  function showConsent(): void {
+    if (consentElement) {
+      consentElement.hidden = false;
+    }
+  }
 
   if (consentElement) {
     const savedConsent = localStorage.getItem(consentKey);
@@ -37,7 +72,7 @@ import "./cookie-consent.css";
     if (savedConsent === "accepted") {
       loadAnalytics();
     } else if (!savedConsent) {
-      consentElement.hidden = false;
+      showConsent();
     }
 
     consentElement
@@ -45,6 +80,8 @@ import "./cookie-consent.css";
       ?.addEventListener("click", () => {
         localStorage.setItem(consentKey, "accepted");
         consentElement.hidden = true;
+        updateManageVisibility();
+        scheduleManageHide();
         loadAnalytics();
       });
 
@@ -53,6 +90,20 @@ import "./cookie-consent.css";
       ?.addEventListener("click", () => {
         localStorage.setItem(consentKey, "rejected");
         consentElement.hidden = true;
+        updateManageVisibility();
+        scheduleManageHide();
       });
+  }
+
+  manageElement?.addEventListener("click", () => {
+    localStorage.removeItem(consentKey);
+    showConsent();
+    updateManageVisibility();
+  });
+
+  updateManageVisibility();
+
+  if (manageElement && !manageElement.hidden) {
+    scheduleManageHide();
   }
 </script>
