@@ -1,0 +1,39 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { privacidadeContent } from "../../content/privacidade";
+import "./privacy-policy-section.css";
+---
+
+<Section id="politica-de-privacidade">
+  <Container>
+    <article class="privacy-policy">
+      <header class="privacy-policy__header">
+        <p class="privacy-policy__eyebrow">{privacidadeContent.eyebrow}</p>
+        <h1>{privacidadeContent.title}</h1>
+        <p class="privacy-policy__description">
+          {privacidadeContent.description}
+        </p>
+        <p class="privacy-policy__updated">
+          Última atualização: {privacidadeContent.updatedAt}
+        </p>
+      </header>
+
+      <div class="privacy-policy__content">
+        {privacidadeContent.sections.map((section) => (
+          <section>
+            <h2>{section.title}</h2>
+
+            {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+
+            {section.items && (
+              <ul>
+                {section.items.map((item) => <li>{item}</li>)}
+              </ul>
+            )}
+          </section>
+        ))}
+      </div>
+    </article>
+  </Container>
+</Section>

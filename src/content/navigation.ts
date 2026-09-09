@@ -28,10 +28,6 @@ export const navigationContent: NavigationContent = {
     { label: "Contato", href: "/contato" },
   ],
   footer: [
-    { label: "Início", href: "/" },
-    { label: "Soluções", href: "/#solucoes" },
-    { label: "Portfólio", href: "/#portfolio" },
-    { label: "Sobre", href: "/sobre" },
-    { label: "Contato", href: "/contato" },
+    { label: "Política de Privacidade", href: "/politica-de-privacidade" },
   ],
 };
