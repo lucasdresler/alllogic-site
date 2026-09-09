@@ -42,7 +42,7 @@ A solução mantém a separação entre apresentação e integração: o compone
 ## Dependências
 
 - Depende da disponibilidade do endpoint PHP e do mecanismo `sendmail` na hospedagem para realizar o encaminhamento das mensagens.
-- Depende também de `siteContent.contact` (ainda placeholder) para eventualmente informar um canal alternativo de contato na própria página.
+- Depende também de `siteContent.contact` para informar os dados oficiais de contato na própria página.
 
 ## Referências
 
