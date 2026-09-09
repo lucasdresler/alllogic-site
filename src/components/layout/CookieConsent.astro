@@ -1,0 +1,58 @@
+---
+import "./cookie-consent.css";
+---
+
+<div class="cookie-consent" data-cookie-consent hidden>
+  <div class="cookie-consent__content">
+    <div class="cookie-consent__text">
+      <p class="cookie-consent__title">Privacidade e cookies</p>
+      <p>
+        Utilizamos cookies de análise para entender como o site é utilizado
+        e melhorar sua experiência. Você pode aceitar ou recusar esses cookies.
+      </p>
+    </div>
+
+    <div class="cookie-consent__actions">
+      <button type="button" data-cookie-consent-reject>
+        Recusar
+      </button>
+      <button type="button" data-cookie-consent-accept>
+        Aceitar
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { loadAnalytics } from "../../lib/analytics";
+
+  const consentKey = "alllogic-cookie-consent";
+  const consentElement = document.querySelector<HTMLElement>(
+    "[data-cookie-consent]"
+  );
+
+  if (consentElement) {
+    const savedConsent = localStorage.getItem(consentKey);
+
+    if (savedConsent === "accepted") {
+      loadAnalytics();
+    } else if (!savedConsent) {
+      consentElement.hidden = false;
+    }
+
+    consentElement
+      .querySelector("[data-cookie-consent-accept]")
+      ?.addEventListener("click", () => {
+        localStorage.setItem(consentKey, "accepted");
+        consentElement.hidden = true;
+        loadAnalytics();
+      });
+
+    consentElement
+      .querySelector("[data-cookie-consent-reject]")
+      ?.addEventListener("click", () => {
+        localStorage.setItem(consentKey, "rejected");
+        consentElement.hidden = true;
+      });
+  }
+</script>
