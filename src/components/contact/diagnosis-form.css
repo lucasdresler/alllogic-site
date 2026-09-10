@@ -64,7 +64,7 @@
   padding-inline: var(--space-md);
   border: none;
   border-radius: var(--radius-sm);
-  background-color: var(--color-secondary);
+  background-color: var(--color-accent);
   color: var(--color-text-inverse);
   font: inherit;
   font-weight: 600;

@@ -11,7 +11,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-secondary);
+  color: var(--color-accent);
 }
 
 .about-hero-section__description {

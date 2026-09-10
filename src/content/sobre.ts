@@ -79,7 +79,7 @@ export const sobreContent: SobreContent = {
     title: "Mentalidade de engenharia",
     description:
       "Engenharia de Soluções Digitais não é um termo de marketing. É uma forma de trabalhar em que a tecnologia está a serviço do problema, nunca o contrário.",
-    steps: ["Compreender", "Analisar", "Planejar", "Construir", "Testar", "Melhorar"],
+    steps: ["Entender", "Analisar", "Planejar", "Construir", "Testar", "Evoluir"],
   },
   peopleForTech: {
     title: siteContent.branding.tagline,

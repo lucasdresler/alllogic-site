@@ -11,7 +11,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-secondary);
+  color: var(--color-accent);
 }
 
 .hero-section__description {
@@ -35,8 +35,8 @@
 }
 
 .hero-section__cta--primary {
-  background-color: var(--color-secondary);
-  color: var(--color-text-inverse);
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
 }
 
 .hero-section__cta--secondary {
