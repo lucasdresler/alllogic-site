@@ -91,10 +91,7 @@ export const homeContent: HomeContent = {
     title: siteContent.branding.tagline,
     description:
       "A AllLogic transforma necessidades reais de empresas em soluções digitais — com engenharia, clareza e utilidade em cada decisão técnica.",
-    actions: [
-      { label: "Conheça nossas soluções", href: "#solucoes" },
-      { label: "Vamos conversar", href: "#diagnostico" },
-    ],
+    actions: [{ label: "Conheça nossas soluções", href: "#solucoes" }],
   },
   problems: {
     title: "Sua empresa poderia funcionar melhor.",

@@ -36,7 +36,7 @@
 
 .hero-section__cta--primary {
   background-color: var(--color-accent);
-  color: var(--color-primary-dark);
+  color: var(--color-text-inverse);
 }
 
 .hero-section__cta--secondary {
