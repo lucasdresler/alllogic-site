@@ -15,7 +15,7 @@ import "./portfolio-section.css";
 
     <Grid columns={3} gap="lg">
       {homeContent.portfolio.projects.map((project) => (
-        <article class="portfolio-section__block">
+        <article class="portfolio-section__block" data-scroll-reveal="right">
           {project.image && (
             <div class="portfolio-section__image">
               <img src={project.image} alt={`Prévia do projeto ${project.title}`} />

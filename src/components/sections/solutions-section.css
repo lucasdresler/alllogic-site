@@ -14,4 +14,17 @@
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.solutions-section__block:hover {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
 }

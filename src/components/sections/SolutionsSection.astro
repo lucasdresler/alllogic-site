@@ -8,14 +8,14 @@ import "./solutions-section.css";
 
 <Section id="solucoes">
   <Container>
-    <div class="solutions-section__header">
+    <div class="solutions-section__header" data-scroll-reveal="fade">
       <h2>{homeContent.solutions.title}</h2>
       <p>{homeContent.solutions.description}</p>
     </div>
 
     <Grid columns={3} gap="lg">
       {homeContent.solutions.items.map((solution) => (
-        <div class="solutions-section__block">
+        <div class="solutions-section__block" data-scroll-reveal="up">
           <h3>{solution.title}</h3>
           <p>{solution.description}</p>
         </div>

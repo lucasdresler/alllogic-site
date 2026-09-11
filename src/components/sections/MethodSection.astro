@@ -13,7 +13,7 @@ import "./method-section.css";
 
     <Grid columns={1} gap="md">
       {homeContent.method.steps.map((step) => (
-        <div class="method-section__step">
+        <div class="method-section__step" data-scroll-reveal="left">
           <span>{String(step.order).padStart(2, "0")}</span>
           <h3>{step.title}</h3>
           <p>{step.description}</p>
