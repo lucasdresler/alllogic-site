@@ -1,9 +1,9 @@
 /* Movimentos de entrada — usados de forma seletiva conforme a hierarquia visual. */
 
-[data-scroll-reveal="up"],
-[data-scroll-reveal="left"],
-[data-scroll-reveal="right"],
-[data-scroll-reveal="fade"] {
+.scroll-reveal-enabled [data-scroll-reveal="up"],
+.scroll-reveal-enabled [data-scroll-reveal="left"],
+.scroll-reveal-enabled [data-scroll-reveal="right"],
+.scroll-reveal-enabled [data-scroll-reveal="fade"] {
   opacity: 0;
   transition:
     opacity var(--reveal-duration, 500ms) ease,

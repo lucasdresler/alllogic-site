@@ -11,12 +11,14 @@ const initScrollReveal = () => {
     "(prefers-reduced-motion: reduce)",
   ).matches;
 
-  if (prefersReducedMotion) {
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
     revealElements.forEach((element) => {
       element.classList.add("scroll-reveal--visible");
     });
     return;
   }
+
+  document.documentElement.classList.add("scroll-reveal-enabled");
 
   const observer = new IntersectionObserver(
     (entries, currentObserver) => {
