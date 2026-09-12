@@ -1,6 +1,6 @@
 const initScrollReveal = () => {
-  const revealElements = document.querySelectorAll<HTMLElement>(
-    "[data-scroll-reveal]",
+  const revealElements = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-scroll-reveal]"),
   );
 
   if (revealElements.length === 0) {
@@ -11,7 +11,7 @@ const initScrollReveal = () => {
     "(prefers-reduced-motion: reduce)",
   ).matches;
 
-  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+  if (prefersReducedMotion) {
     revealElements.forEach((element) => {
       element.classList.add("scroll-reveal--visible");
     });
@@ -20,26 +20,42 @@ const initScrollReveal = () => {
 
   document.documentElement.classList.add("scroll-reveal-enabled");
 
-  const observer = new IntersectionObserver(
-    (entries, currentObserver) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
+  const revealVisibleElements = () => {
+    const viewportHeight = window.innerHeight;
 
-        entry.target.classList.add("scroll-reveal--visible");
-        currentObserver.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: "0px 0px -40px 0px",
-    },
-  );
+    revealElements.forEach((element) => {
+      if (element.classList.contains("scroll-reveal--visible")) {
+        return;
+      }
 
-  revealElements.forEach((element) => {
-    observer.observe(element);
-  });
+      const rect = element.getBoundingClientRect();
+      const revealPoint = viewportHeight * 0.88;
+
+      if (rect.top <= revealPoint && rect.bottom >= 0) {
+        element.classList.add("scroll-reveal--visible");
+      }
+    });
+  };
+
+  let ticking = false;
+
+  const handleScroll = () => {
+    if (ticking) {
+      return;
+    }
+
+    ticking = true;
+
+    window.requestAnimationFrame(() => {
+      revealVisibleElements();
+      ticking = false;
+    });
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener("resize", revealVisibleElements);
+
+  revealVisibleElements();
 };
 
 if (document.readyState === "loading") {
