@@ -2,17 +2,115 @@
 import Section from "../layout/Section.astro";
 import Container from "../layout/Container.astro";
 import "./hosting-section.css";
+
+const plans = [
+  {
+    name: "Essencial",
+    description: "Para empresas que estão começando sua presença digital.",
+    sites: 1,
+    storage: "5 GB",
+    bandwidth: "50 GB/mês",
+    emails: 5,
+    databases: 2,
+    ftp: 1,
+    subdomains: 5,
+    additionalDomains: 0,
+  },
+  {
+    name: "Profissional",
+    description: "Para empresas que já precisam de uma estrutura profissional.",
+    sites: 2,
+    storage: "10 GB",
+    bandwidth: "100 GB/mês",
+    emails: 10,
+    databases: 5,
+    ftp: 2,
+    subdomains: 10,
+    additionalDomains: 1,
+  },
+  {
+    name: "Avançado",
+    description: "Para empresas em crescimento e operações maiores.",
+    sites: 5,
+    storage: "25 GB",
+    bandwidth: "150 GB/mês",
+    emails: 20,
+    databases: 10,
+    ftp: 3,
+    subdomains: 20,
+    additionalDomains: 4,
+  },
+  {
+    name: "Empresarial",
+    description: "Para empresas que precisam de uma estrutura mais robusta.",
+    sites: 10,
+    storage: "50 GB",
+    bandwidth: "200 GB/mês",
+    emails: 30,
+    databases: 15,
+    ftp: 5,
+    subdomains: 30,
+    additionalDomains: 9,
+  },
+];
+
+const items = [
+  "Sites",
+  "Armazenamento",
+  "Tráfego",
+  "Contas de e-mail",
+  "Bancos de dados",
+  "Contas FTP",
+  "Subdomínios",
+  "Domínios adicionais",
+];
 ---
 
 <Section id="hospedagem-sites" spacing="lg">
   <Container>
     <div class="hosting-section__content">
       <p class="hosting-section__eyebrow">Hospedagem de Sites</p>
-      <h2>Uma estrutura para manter seu site online.</h2>
+      <h2>Uma estrutura para manter sua empresa online.</h2>
       <p class="hosting-section__description">
         Hospedagem para sites e lojas online, integrada às necessidades da
         presença digital da sua empresa.
       </p>
+    </div>
+
+    <div class="hosting-section__comparison">
+      <div class="hosting-section__labels">
+        <div class="hosting-section__labels-header">
+          <h3>Recursos</h3>
+          <p>Confira os limites incluídos em cada plano.</p>
+        </div>
+        {
+          items.map((item) => (
+            <div class="hosting-section__label">{item}</div>
+          ))
+        }
+      </div>
+
+      {
+        plans.map((plan) => (
+          <article class="hosting-section__card">
+            <div class="hosting-section__card-header">
+              <h3>{plan.name}</h3>
+              <p>{plan.description}</p>
+            </div>
+
+            <div class="hosting-section__values">
+              <div>{plan.sites}</div>
+              <div>{plan.storage}</div>
+              <div>{plan.bandwidth}</div>
+              <div>{plan.emails}</div>
+              <div>{plan.databases}</div>
+              <div>{plan.ftp}</div>
+              <div>{plan.subdomains}</div>
+              <div>{plan.additionalDomains}</div>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </Container>
 </Section>

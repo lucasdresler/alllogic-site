@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: var(--space-md);
   max-width: 760px;
+  margin-block-end: var(--space-xl);
 }
 
 .hosting-section__eyebrow {
@@ -16,4 +17,272 @@
 
 .hosting-section__description {
   color: var(--color-text-muted);
+}
+
+.hosting-section__comparison {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.hosting-section__labels,
+.hosting-section__card {
+  min-width: 0;
+}
+
+.hosting-section__labels {
+  padding-top: 4px;
+}
+
+.hosting-section__labels-header {
+  height: 9rem;
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem 0.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.hosting-section__label {
+  display: flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.65rem 0.75rem;
+  box-sizing: border-box;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.hosting-section__label:nth-child(even) {
+  background: var(--color-surface);
+}
+
+.hosting-section__labels {
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.hosting-section__label:nth-child(odd) {
+  background: var(--color-background);
+}
+
+.hosting-section__card {
+  --hosting-plan-color: var(--color-primary);
+
+  display: flex;
+  flex-direction: column;
+  border: 1px solid color-mix(
+    in srgb,
+    var(--hosting-plan-color) 30%,
+    var(--color-border)
+  );
+  border-top: 4px solid var(--hosting-plan-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.hosting-section__card:nth-child(2) {
+  --hosting-plan-color: var(--color-primary);
+}
+
+.hosting-section__card:nth-child(3) {
+  --hosting-plan-color: var(--color-secondary);
+}
+
+.hosting-section__card:nth-child(4) {
+  --hosting-plan-color: var(--color-accent);
+}
+
+.hosting-section__card:nth-child(5) {
+  --hosting-plan-color: var(--color-primary-dark);
+}
+
+.hosting-section__card-header {
+  height: 9rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.hosting-section__card-header h3 {
+  margin: 0 0 0.5rem;
+  color: var(--hosting-plan-color);
+}
+
+.hosting-section__card-header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.hosting-section__values {
+  display: flex;
+  flex-direction: column;
+}
+
+.hosting-section__values > div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 3rem;
+  padding: 0.65rem 0.75rem;
+  box-sizing: border-box;
+  font-weight: 600;
+  text-align: right;
+  color: var(--color-text);
+}
+
+.hosting-section__values > div:nth-child(odd) {
+  background: var(--color-background);
+}
+
+.hosting-section__values > div:nth-child(even) {
+  background: var(--color-surface);
+}
+
+@media (max-width: 1100px) {
+  .hosting-section__comparison {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .hosting-section__comparison {
+    grid-template-columns: repeat(5, 12rem);
+  }
+}
+
+/* Alinhamento estrutural dos cinco cards */
+.hosting-section__comparison {
+  align-items: stretch;
+}
+
+.hosting-section__labels,
+.hosting-section__card {
+  height: 100%;
+  min-height: 28rem;
+}
+
+.hosting-section__labels {
+  display: flex;
+  flex-direction: column;
+}
+
+.hosting-section__labels-header {
+  height: 8rem;
+  min-height: 8rem;
+  box-sizing: border-box;
+}
+
+.hosting-section__labels-header {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem 0.75rem;
+}
+
+.hosting-section__values {
+  flex: 1;
+}
+
+.hosting-section__values > div,
+.hosting-section__label {
+  height: 3rem;
+  min-height: 3rem;
+  box-sizing: border-box;
+}
+
+/* Ajuste da alternância das linhas: Sites inicia em branco */
+.hosting-section__label:nth-child(even) {
+  background: var(--color-background);
+}
+
+.hosting-section__label:nth-child(odd) {
+  background: var(--color-surface);
+}
+
+.hosting-section__labels-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.hosting-section__labels-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+.hosting-section__labels-header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.hosting-section__label {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.hosting-section__values > div {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+/* Teste visual — títulos e descrições dos planos centralizados */
+.hosting-section__card-header {
+  text-align: center !important;
+}
+
+.hosting-section__card-header h3,
+.hosting-section__card-header p {
+  text-align: center !important;
+}
+
+/* Empresarial — azul escuro da paleta AllLogic */
+.hosting-section__card:last-child {
+  --hosting-plan-color: var(--color-primary) !important;
+}
+
+.hosting-section__card:last-child .hosting-section__card-header h3 {
+  color: var(--color-primary) !important;
+}
+
+/* Os valores permanecem alinhados à direita */
+.hosting-section__values > div {
+  justify-content: flex-end !important;
+  text-align: right !important;
+}
+
+/* Empresarial — azul escuro da paleta AllLogic */
+.hosting-section__card:last-child {
+  --hosting-plan-color: var(--color-primary-dark) !important;
+}
+
+.hosting-section__card:last-child .hosting-section__card-header h3 {
+  color: var(--color-primary-dark) !important;
+}
+
+/* Ajuste de cores dos planos */
+.hosting-section__card:nth-child(2) {
+  --hosting-plan-color: #2F6B4F !important;
+}
+
+.hosting-section__card:nth-child(2) .hosting-section__card-header h3 {
+  color: #2F6B4F !important;
+}
+
+.hosting-section__card:last-child {
+  --hosting-plan-color: var(--color-text) !important;
+}
+
+.hosting-section__card:last-child .hosting-section__card-header h3 {
+  color: var(--color-text) !important;
 }
