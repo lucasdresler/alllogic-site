@@ -2,13 +2,25 @@
 
 Diretório destinado aos arquivos estáticos públicos do Projeto Atlas. No Astro, tudo que estiver em `public/` é disponibilizado diretamente na raiz do site e copiado para a saída do build sem ser processado pela cadeia de ativos do framework.
 
-No estado atual, esta pasta contém os favicons do site. Eles são ativos públicos necessários para identificação no navegador e deverão ser substituídos pela identidade visual homologada da AllLogic quando essa decisão existir.
+No estado atual, esta pasta contém os favicons, a identidade visual pública utilizada pelo site, imagens de Open Graph, imagens do portfólio e o endpoint PHP do formulário de diagnóstico. Os ativos visuais atualmente presentes fazem parte da implementação publicada.
 
 ## Responsabilidade de `public/`
 
 Use `public/` para arquivos que precisam ser entregues exatamente como foram adicionados ao repositório e referenciados por uma URL pública estável. Um arquivo em `public/favicon.svg`, por exemplo, é servido como `/favicon.svg`.
 
-Esta pasta não é uma camada de conteúdo, componentes, estilos, configuração técnica ou código. Ela é exclusivamente o local para ativos estáticos que não requerem importação ou processamento pelo Astro.
+A maior parte desta pasta é destinada a ativos estáticos públicos que não requerem importação ou processamento pelo Astro. A exceção arquitetural atual é `public/api/diagnosis.php`, que existe nesse caminho por depender de uma URL pública estável e é executado pelo ambiente de hospedagem como endpoint PHP; ele não é um ativo estático.
+
+## Conteúdo atual
+
+A estrutura atualmente utilizada é:
+
+- `public/images/favicon/` — favicons e ícones públicos do site.
+- `public/images/logo-alllogic.png` — logotipo público utilizado pela implementação.
+- `public/images/og-alllogic.png` — imagem pública para compartilhamento/Open Graph.
+- `public/images/portfolio/` — imagens públicas dos projetos apresentados no portfólio.
+- `public/api/diagnosis.php` — endpoint PHP responsável pelo recebimento e encaminhamento das solicitações do formulário de diagnóstico. Sua responsabilidade está registrada também no ADR-0003.
+
+`public/api/diagnosis.php` deve ser tratado separadamente dos ativos estáticos: embora esteja fisicamente dentro de `public/`, ele representa uma integração executável necessária ao funcionamento do formulário.
 
 ## `public/` e recursos em `src/`
 

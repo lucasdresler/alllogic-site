@@ -17,7 +17,7 @@ Estabelecer a direção arquitetural do Projeto Atlas para que o site institucio
 
 ## Stack
 
-O projeto utiliza Astro, TypeScript e CSS moderno. Docker, Traefik, Cloudflare e Git compõem a direção definida para ambientes, publicação e colaboração. As responsabilidades de cada tecnologia estão apresentadas no [README principal](../README.md#stack).
+O projeto utiliza Astro, TypeScript e CSS moderno. A publicação atual utiliza geração estática e a infraestrutura de produção homologada está documentada separadamente no MOA. Docker e Traefik permanecem como direção futura de infraestrutura, enquanto Git é utilizado para versionamento e colaboração. As responsabilidades das tecnologias estão apresentadas no [README principal](../README.md#stack).
 
 ## Organização do Projeto
 
@@ -32,11 +32,11 @@ O código-fonte em `src/` está organizado nas seguintes camadas, cada uma com r
 - **`src/components`** — apresentação: markup e composição visual, organizada em `layout/` (componentes estruturais genéricos: `Container`, `Section`, `Grid`), `navigation/` (`Header`, `Navigation`, `Footer`), `sections/` (componentes de conteúdo específicos da Home), `contact/` (componentes específicos da página `/contato`: `ContactHeroSection`, `DiagnosisForm`, `ContactClosingSection`) e `about/` (componentes específicos da página `/sobre`: `AboutHeroSection`, `WhoWeAreSection`, `PhilosophySection`, `EngineeringMindsetSection`, `PeopleForTechSection`, `ExperienceSection`, `ApproachSection`, `AboutClosingSection`). Não define conteúdo textual próprio nem parâmetros técnicos.
 - **`src/content`** — conteúdo institucional e editorial (textos, identidade da marca, navegação), organizado em `foundation.ts` (tradução literal do `FOUNDATION.md` homologado do `alllogic-sga`, já integrada), `site.ts` (identidade institucional compartilhada, consumindo `foundation.ts`), `home.ts` (narrativa da Home, consumindo `site.ts` para campos institucionais compartilhados), `contato.ts` (conteúdo da página `/contato`), `sobre.ts` (conteúdo da página `/sobre`, reaproveitando `homeContent.portfolio.projects`/`.closing` e `siteContent.branding.tagline` como fonte única em vez de duplicar) e `navigation.ts` (itens de navegação). Não define markup nem parâmetros técnicos.
 - **`src/lib`** — configuração técnica do site (`site.config.ts`: URL canônica e metadados técnicos de SEO). Não define conteúdo institucional nem markup.
-- **`src/services`** — integração com serviços externos (ver `src/services/README.md`). Hoje contém `diagnosisSubmission.ts`, o ponto único de envio do formulário de diagnóstico, sem backend real conectado (ver ADR-0003). Não define apresentação nem validação de campos — isso pertence a `src/components` e `src/utils`, respectivamente.
+- **`src/services`** — integração com serviços externos (ver `src/services/README.md`). Hoje contém `diagnosisSubmission.ts`, o ponto único de envio do formulário de diagnóstico, conectado ao endpoint PHP `public/api/diagnosis.php` conforme ADR-0003. Não define apresentação nem validação de campos — isso pertence a `src/components` e `src/utils`, respectivamente.
 - **`src/types`** — contratos de tipo TypeScript compartilhados entre camadas (hoje, `NavigationItem`). Não contém valores nem lógica.
 - **`src/utils`** — funções utilitárias puras e sem estado. Hoje contém `validation.ts` (`isRequired`, `hasMinLength`, `hasMaxLength`, `isValidBrazilianPhone`), usadas pela validação do formulário de diagnóstico.
 - **`src/styles`** — arquitetura de estilos globais (tokens, reset, layout, tipografia, utilidades), agregada em `index.css` e importada pelo `MainLayout`.
-- **`public/`** — ativos estáticos públicos, atualmente os favicons do site. O Astro os copia diretamente para a saída do build e os disponibiliza por URL pública; não contém lógica, código-fonte ou recursos processados pela cadeia de ativos de `src/`.
+- **`public/`** — ativos e recursos públicos entregues diretamente pelo Astro. Atualmente contém ativos estáticos do site, incluindo identidade visual e favicons, além do endpoint PHP `api/diagnosis.php` utilizado pela integração do formulário. Recursos colocados em `public/` não passam pela cadeia de processamento de ativos de `src/`.
 
 ## Fluxo de Dependências
 
@@ -89,7 +89,9 @@ src/components/contact/{ContactHeroSection,DiagnosisForm,ContactClosingSection}.
         ↓                                    ↓
 src/content/contato.ts                src/services/diagnosisSubmission.ts
         ↓                                    ↓
-src/content/site.ts                   (sem backend real conectado — ver ADR-0003)
+src/content/site.ts                   public/api/diagnosis.php
+                                             ↓
+                                  serviço de envio institucional
 
 DiagnosisForm.astro também depende de src/utils/validation.ts para validação de campos.
 ```
@@ -106,7 +108,7 @@ src/content/sobre.ts
 src/content/site.ts   src/content/home.ts (reaproveita portfolio.projects/.closing)
 ```
 
-`src/lib/site.config.ts` hoje não é consumido por nenhum arquivo do projeto (documentado como responsabilidade técnica reservada, sem integração ativa ainda).
+`src/lib/site.config.ts` é consumido pelo `src/layouts/MainLayout.astro`, que utiliza sua configuração técnica para a URL institucional e os metadados padrão de SEO.
 
 ## Regra de Dependências (quem pode depender de quem)
 
@@ -152,13 +154,14 @@ Nenhuma camada "abaixo" (`content`, `lib`, `services`, `types`, `utils`) importa
 └─────────────┘           └─────────────┘  └──────────────┘
 
 src/lib (site.config.ts) — configuração técnica,
-consumida potencialmente por layouts/pages,
-sem consumidor ativo no estado atual.
+consumida pelo MainLayout para URL institucional
+e metadados padrão de SEO.
 
 src/styles — estilos globais, importados pelo layout.
 
-public/ — ativos estáticos públicos, copiados diretamente para o build;
-não contém código-fonte nem lógica.
+public/ — ativos públicos entregues diretamente;
+inclui ativos estáticos e o endpoint PHP
+public/api/diagnosis.php, executado pela hospedagem.
 ```
 
 ## Separação de Responsabilidades
@@ -172,11 +175,12 @@ não contém código-fonte nem lógica.
 - Páginas e layouts (`src/pages`, `src/layouts`): composição das rotas e da estrutura de documento, sem regras de negócio nem conteúdo próprio.
 - Estilos e tokens de design (`src/styles`): fundamentos visuais centralizados.
 - Ativos públicos (`public/`): arquivos estáticos entregues diretamente pelo Astro, sem lógica, código-fonte ou processamento de ativos de `src/`.
-- Infraestrutura e publicação: configuração versionada e documentada (Docker, Traefik, Cloudflare, Git).
+- Infraestrutura e publicação: geração estática, publicação e ambiente de produção documentados no MOA; Docker e Traefik permanecem como direção futura de infraestrutura.
 
 ## Evolução da Arquitetura
 
 As definições arquiteturais serão amadurecidas conforme o projeto evoluir. Decisões relevantes deverão ser registradas como ADRs no diretório [decisions/](decisions/), após análise e aprovação no fluxo oficial da AllLogic.
+
 
 ## Referências
 

@@ -2,7 +2,9 @@
 
 ## Status
 
-Homologada
+Superada — substituída pelo ADR-0004 quanto à definição do domínio oficial do site institucional.
+
+A decisão histórica permanece preservada para registro do contexto e das decisões da primeira versão do Projeto Atlas.
 
 ## Contexto
 

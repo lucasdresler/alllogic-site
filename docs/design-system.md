@@ -51,7 +51,9 @@ Componente `Grid` (`src/components/layout/Grid.astro`) com 1 a 4 colunas, respon
 
 ## Sombras
 
-`--shadow-sm`: `0 1px 2px rgba(10, 31, 68, 0.08)` — uso pontual (ex.: cards do Portfólio), evitando excesso de profundidade.
+- `--shadow-sm`: `0 1px 2px rgba(10, 31, 68, 0.08)` — uso pontual (ex.: cards do Portfólio), evitando excesso de profundidade.
+- `--shadow-md`: `0 4px 12px rgba(10, 31, 68, 0.08)` — profundidade intermediária para superfícies que necessitam maior destaque.
+- `--shadow-hover`: `0 8px 20px rgba(10, 31, 68, 0.14)` — estado de interação para elementos que possuem comportamento de hover.
 
 ## Componentes
 

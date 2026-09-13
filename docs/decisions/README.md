@@ -28,5 +28,5 @@ O próximo número disponível deve ser utilizado, sem reutilização de identif
 | ADR | Título | Status |
 | --- | --- | --- |
 | [ADR-0001](ADR-0001-conteudo-e-design-system-da-home.md) | Conteúdo real da Home e Design System v1 | Implementada |
-| [ADR-0002](ADR-0002-escopo-de-internacionalizacao.md) | Escopo de internacionalização: primeira versão somente em Português do Brasil | Homologada |
+| [ADR-0002](ADR-0002-escopo-de-internacionalizacao.md) | Escopo de internacionalização: primeira versão somente em Português do Brasil | Superada |
 | [ADR-0003](ADR-0003-camada-de-servicos-e-formulario-de-diagnostico.md) | Camada de serviços e formulário de diagnóstico (`/contato`) | Implementada |

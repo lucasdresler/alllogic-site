@@ -14,13 +14,28 @@ O `FOUNDATION.md` (repositório `alllogic-sga`) define a identidade instituciona
 
 ## Princípios da Comunicação
 
-<!-- TODO: princípios de comunicação a definir -->
+A comunicação pública do site deve traduzir a identidade institucional da AllLogic sem criar novas promessas ou atributos não homologados. Como fonte institucional primária, o SGA Foundation estabelece honestidade, transparência, qualidade, compromisso com as pessoas, conhecimento compartilhado e aprendizado contínuo, além do princípio de que a tecnologia deve trabalhar para as pessoas.
+
+Na comunicação do site, isso significa:
+
+- comunicar com clareza e transparência;
+- apresentar tecnologia como meio para solucionar problemas reais;
+- evitar promessas, resultados, números ou capacidades que não possam ser sustentados;
+- priorizar utilidade, funcionalidade, competência e confiança;
+- manter coerência com a missão, visão, valores e código de ética da AllLogic;
+- não criar conteúdo institucional por inferência quando não houver fonte primária aprovada.
+
+A fonte institucional para esses princípios é o `SGA/FOUNDATION.md`.
 
 ## Público-alvo
 
-<!-- TODO: público-alvo a definir -->
+O `SGA/FOUNDATION.md` não define um público-alvo comercial específico para a AllLogic. Portanto, a arquitetura de conteúdo da V1 não estabelece um segmento de mercado, porte de empresa ou perfil de cliente por inferência.
+
+A comunicação deve permanecer ampla o suficiente para representar a proposta institucional da AllLogic até que um público-alvo comercial seja formalmente definido e homologado.
 
 ## Jornada do Visitante
+
+A jornada editorial implementada na Home segue:
 
 1. Chegada
 2. Problema
@@ -30,7 +45,7 @@ O `FOUNDATION.md` (repositório `alllogic-sga`) define a identidade instituciona
 6. Portfólio
 7. Contato
 
-<!-- TODO: desenvolvimento textual de cada etapa -->
+A jornada já está materializada nas sete seções da Home descritas abaixo. O desenvolvimento textual da jornada não permanece como pendência separada.
 
 ## Arquitetura da Home
 
@@ -61,9 +76,9 @@ Continuação funcional do bloco Diagnóstico da Home. Conteúdo implementado em
 
 Campos do formulário: Empresa, Contato (nome do responsável), Tel/Whats, Mensagem — todos obrigatórios, com validação client-side (`src/utils/validation.ts`) e mensagens de erro em Português do Brasil, associadas a cada campo via `aria-describedby`.
 
-**Envio pendente de integração real.** Não há backend, e-mail, webhook ou CRM configurado no projeto. O envio passa por `src/services/diagnosisSubmission.ts`, que hoje sempre retorna um resultado indicando que a mensagem não pôde ser enviada — o formulário nunca finge um envio bem-sucedido. Ver [ADR-0003](decisions/ADR-0003-camada-de-servicos-e-formulario-de-diagnostico.md) para o registro completo dessa decisão.
+**Integração real implementada.** O formulário utiliza `src/services/diagnosisSubmission.ts` como ponto único de envio e está conectado ao endpoint PHP `public/api/diagnosis.php`, responsável por receber, validar e encaminhar a solicitação ao endereço institucional `contato@alllogiconline.com.br`. O formulário somente apresenta sucesso após confirmação positiva do endpoint. Ver [ADR-0003](decisions/ADR-0003-camada-de-servicos-e-formulario-de-diagnostico.md) para o registro da decisão.
 
-**Vínculo com Política de Privacidade:** a página de Política de Privacidade ainda não existe no projeto; por isso, o formulário traz apenas uma nota de consentimento neutra (`contatoContent.form.consentNote`), sem referenciar uma política que ainda não foi criada. Pendência registrada, sem conteúdo jurídico inventado.
+**Vínculo com Política de Privacidade:** a Política de Privacidade está implementada em `/politica-de-privacidade/`. O formulário e o mecanismo de consentimento devem permanecer coerentes com o conteúdo efetivamente tratado pelo site e com a versão vigente da política.
 
 ## Página Sobre (`/sobre`)
 
@@ -79,20 +94,34 @@ Nenhuma foto de equipe, cliente, depoimento, número ou resultado foi criado —
 
 ## Conteúdo Institucional
 
-<!-- TODO: conteúdo institucional a definir -->
+O conteúdo institucional da V1 está distribuído principalmente entre a Home e a página `/sobre`, utilizando `src/content/site.ts`, `src/content/home.ts` e `src/content/sobre.ts`.
+
+A identidade institucional, propósito, missão, visão e demais fundamentos devem permanecer subordinados ao `SGA/FOUNDATION.md`.
+
+Não há, neste documento, conteúdo institucional adicional a criar por inferência.
 
 ## Conteúdo Editorial
 
-<!-- TODO: conteúdo editorial a definir -->
+Conteúdo editorial recorrente, como blog, notícias ou publicações, não faz parte do escopo atual da V1 do site institucional.
+
+A inclusão de uma frente editorial deverá ser definida posteriormente, caso seja considerada estratégica.
 
 ## Conteúdo Comercial
 
-<!-- TODO: conteúdo comercial a definir -->
+A V1 já apresenta as áreas de solução da AllLogic na Home e conduz o visitante ao diagnóstico e contato.
+
+Não devem ser adicionados preços, resultados, depoimentos, clientes ou outras afirmações comerciais sem conteúdo real e homologado.
 
 ## Conteúdo ainda não homologado
 
-<!-- TODO: conteúdo ainda não homologado a registrar -->
+As pendências de conteúdo atualmente conhecidas são:
+
+- descrições dos projetos do portfólio, que devem ser verificadas nos respectivos projetos antes de qualquer detalhamento adicional;
+- definição dos perfis oficiais de redes sociais, atualmente ainda não informados;
+- definição formal de público-alvo comercial, ainda não estabelecida no SGA Foundation.
 
 ## Roadmap
 
-<!-- TODO: roadmap deste documento -->
+O roadmap geral do Projeto Atlas é mantido em [`docs/roadmap.md`](roadmap.md), evitando duplicação de planejamento neste documento.
+
+Este documento deve permanecer focado na arquitetura, organização, fontes e regras de conteúdo do site.

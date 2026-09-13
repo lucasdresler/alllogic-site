@@ -1,3 +1,8 @@
+## 2026-09-13
+
+- Formalizada no ADR-0004 a definição de `alllogiconline.com.br` como domínio oficial e URL canônica vigente do site institucional.
+- Preservados os registros históricos que documentam `alllogic.com.br` como domínio utilizado anteriormente pelo Projeto Atlas.
+
 # Changelog do Projeto Atlas
 
 Este documento registra, em ordem cronológica, apenas marcos relevantes da evolução do Projeto Atlas.

@@ -1,15 +1,13 @@
 // Fonte de dados da navegação institucional do site.
-// Itens limitados às rotas e seções que existem de fato hoje: a Home, suas
-// âncoras internas, e as páginas /sobre e /contato. Itens adicionais
-// (Soluções, Projetos, Conhecimento como páginas próprias) serão adicionados
-// quando essas páginas forem implementadas.
+// Os itens representam rotas reais e âncoras da versão atualmente publicada.
 //
-// Nota: "Soluções", "Portfólio" e "Diagnóstico" apontam para âncoras da Home
-// (#solucoes, #portfolio, #diagnostico) e por isso só navegam corretamente
-// quando acessados a partir da própria Home; em /sobre e /contato eles não
-// têm efeito visível, pois não existe elemento com esse id nessas páginas.
-// Isso é uma limitação preexistente da navegação baseada em âncora, fora do
-// escopo das tarefas que implementaram /contato e /sobre.
+// "Início" aponta para a Home.
+// "Soluções", "Portfólio" e "Diagnóstico" apontam para seções da Home.
+// "Sobre" e "Contato" apontam para páginas institucionais próprias.
+// A navegação do rodapé contém atualmente a Política de Privacidade.
+//
+// As rotas e âncoras devem permanecer alinhadas às páginas e seções
+// efetivamente existentes no Projeto Atlas.
 
 import type { NavigationItem } from "../types/navigation";
 

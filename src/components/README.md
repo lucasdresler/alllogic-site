@@ -31,7 +31,7 @@ Componentes de conteúdo específicos da página inicial: `HeroSection`, `Proble
 
 ### `contact/`
 
-Componentes de conteúdo específicos da página `/contato`: `ContactHeroSection`, `DiagnosisForm`, `ContactClosingSection`. Consomem `contatoContent` (`src/content/contato.ts`). `DiagnosisForm` é o único componente do projeto com script de cliente (validação e envio do formulário de diagnóstico) — depende de `src/utils/validation.ts` para validação e de `src/services/diagnosisSubmission.ts` para o envio (sem backend real conectado, ver ADR-0003).
+Componentes de conteúdo específicos da página `/contato`: `ContactHeroSection`, `DiagnosisForm`, `ContactClosingSection`. Consomem `contatoContent` (`src/content/contato.ts`). `DiagnosisForm` é o único componente do projeto com script de cliente (validação e envio do formulário de diagnóstico) — depende de `src/utils/validation.ts` para validação e de `src/services/diagnosisSubmission.ts` para o envio, conectado ao endpoint PHP `public/api/diagnosis.php` conforme ADR-0003.
 
 ### `about/`
 

@@ -21,22 +21,37 @@ Entregas concluídas:
 Próximas etapas:
 
 - Consolidar a documentação de arquitetura e registrar decisões relevantes.
-- Definir as bases do Design System.
-- Estruturar o conteúdo institucional prioritário.
-- Preparar os ambientes e os critérios de homologação necessários às próximas entregas.
+- Manter o Design System homologado documentado e alinhado à implementação.
+- Consolidar o conteúdo institucional prioritário e suas fontes homologadas.
+- Preparar e revisar os ambientes e os critérios de homologação necessários às próximas entregas.
 
 ## Fase 3 — Evolução do Site Institucional
 
 **Status: 🚧 Em andamento**
 
-Escopo homologado (ver [ADR-0002](decisions/ADR-0002-escopo-de-internacionalizacao.md)): a primeira versão pública será somente em Português do Brasil, no domínio `alllogic.com.br`, sem subdomínios ou rotas por idioma. Internacionalização (Inglês e Espanhol) permanece como direção arquitetural futura, sem bloquear esta fase.
+Escopo de internacionalização da primeira versão (ver [ADR-0002](decisions/ADR-0002-escopo-de-internacionalizacao.md)): somente Português do Brasil, sem subdomínios ou rotas por idioma. A definição histórica de domínio registrada nessa ADR foi posteriormente superada pelo [ADR-0004](decisions/ADR-0004-dominio-oficial-site-institucional.md), que estabelece `alllogiconline.com.br` como domínio oficial vigente do site institucional. Internacionalização (Inglês e Espanhol) permanece como direção arquitetural futura, sem bloquear esta fase.
 
-Etapas a planejar e aprovar:
+### Entregas implementadas
 
-- Desenvolver as páginas institucionais prioritárias (Soluções, Projetos/Portfólio, Sobre, Contato, Política de Privacidade, Termos de Uso, 404), em Português do Brasil.
-- Aplicar os padrões de acessibilidade, responsividade e desempenho.
-- Validar as entregas em ambiente apropriado antes da publicação.
-- Internacionalização (Inglês, Espanhol) permanece planejada para uma fase posterior, ainda sem data.
+- Home institucional (`/`), incluindo as seções Soluções, Portfólio e Diagnóstico.
+- Página Sobre (`/sobre`).
+- Página Contato (`/contato`), incluindo o formulário de diagnóstico integrado ao endpoint PHP.
+- Página Domínios e Hospedagem (`/dominios-e-hospedagem`).
+- Página Política de Privacidade (`/politica-de-privacidade`).
+- Navegação institucional entre páginas e seções.
+- Identidade visual e ativos públicos atualmente utilizados pela implementação.
+- Publicação do site em produção.
+- Definição do domínio oficial vigente `alllogiconline.com.br`, registrada no ADR-0004.
+
+### Pendências da V1
+
+- Avaliar e implementar, se aprovadas, as páginas institucionais ainda não existentes, incluindo Termos de Uso e página 404.
+- Concluir as validações técnicas e de homologação correspondentes às entregas atuais.
+- Consolidar e versionar a documentação relacionada à arquitetura, publicação e operação.
+
+### Direção futura
+
+- Internacionalização (Inglês e Espanhol), sem data definida.
 
 ## Atualização
 

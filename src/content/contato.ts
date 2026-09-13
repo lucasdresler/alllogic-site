@@ -9,9 +9,9 @@
 // - O envio do formulário está integrado ao endpoint próprio
 //   public/api/diagnosis.php, responsável por encaminhar as mensagens ao
 //   endereço institucional de contato.
-// - Vínculo com a Política de Privacidade: página ainda não existe no
-//   projeto; o texto de consentimento abaixo é neutro e não referencia uma
-//   política que ainda não foi criada.
+// - Vínculo com a Política de Privacidade: a página está implementada em
+//   /politica-de-privacidade/ e deve permanecer coerente com os tratamentos
+//   efetivamente realizados pelo site.
 
 export interface ContatoFormFieldContent {
   label: string;
