@@ -29,8 +29,8 @@ export const siteConfig: SiteConfig = {
     url: "https://alllogiconline.com.br",
   },
   seo: {
-    titleTemplate: "%s | AllLogic",
-    defaultTitle: "AllLogic — Engenharia de Soluções Digitais",
-    defaultDescription: "A AllLogic transforma necessidades reais em soluções digitais funcionais, combinando tecnologia, estratégia e atenção aos detalhes.",
+    titleTemplate: "%s | AllLogic Online",
+    defaultTitle: "AllLogic Online — Engenharia de Soluções Digitais",
+    defaultDescription: "A AllLogic Online transforma necessidades reais em soluções digitais funcionais, combinando tecnologia, estratégia e atenção aos detalhes.",
   },
 };

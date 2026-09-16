@@ -11,6 +11,6 @@ Este diretório reúne a documentação técnica e os processos que orientam a e
 | [Changelog](changelog.md) | Registra marcos relevantes da trajetória do projeto. |
 | [Design System](design-system.md) | Reserva a estrutura documental para os fundamentos e componentes da interface. |
 | [Decisões](decisions/README.md) | Define o repositório de ADRs para decisões arquiteturais. |
-| [MOA](MOA/README.md) | Reúne os padrões e procedimentos operacionais utilizados pela AllLogic. |
+| [MOA](MOA/README.md) | Reúne os padrões e procedimentos operacionais utilizados pela AllLogic Online. |
 
 > A tecnologia deve trabalhar para as pessoas.

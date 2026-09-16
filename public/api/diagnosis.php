@@ -35,10 +35,10 @@ if (
 }
 
 $to = 'contato@alllogiconline.com.br';
-$subject = 'Novo contato pelo site AllLogic';
+$subject = 'Novo contato pelo site AllLogic Online';
 
 $body = implode("\n", [
-    'Novo contato recebido pelo site AllLogic.',
+    'Novo contato recebido pelo site AllLogic Online.',
     '',
     'Empresa: ' . $company,
     'Contato: ' . $contactName,
@@ -57,7 +57,7 @@ $headers = implode("\r\n", [
 $sent = mail($to, $subject, $body, $headers);
 
 if (!$sent) {
-    error_log('Falha no envio do formulário AllLogic com mail().');
+    error_log('Falha no envio do formulário AllLogic Online com mail().');
     http_response_code(500);
     echo json_encode(['ok' => false]);
     exit;

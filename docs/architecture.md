@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Estabelecer a direção arquitetural do Projeto Atlas para que o site institucional da AllLogic evolua com clareza, qualidade e foco nas pessoas.
+Estabelecer a direção arquitetural do Projeto Atlas para que o site institucional da AllLogic Online evolua com clareza, qualidade e foco nas pessoas.
 
 ## Princípios Arquiteturais
 
@@ -179,7 +179,7 @@ public/api/diagnosis.php, executado pela hospedagem.
 
 ## Evolução da Arquitetura
 
-As definições arquiteturais serão amadurecidas conforme o projeto evoluir. Decisões relevantes deverão ser registradas como ADRs no diretório [decisions/](decisions/), após análise e aprovação no fluxo oficial da AllLogic.
+As definições arquiteturais serão amadurecidas conforme o projeto evoluir. Decisões relevantes deverão ser registradas como ADRs no diretório [decisions/](decisions/), após análise e aprovação no fluxo oficial da AllLogic Online.
 
 
 ## Referências

@@ -31,7 +31,7 @@ export interface SiteContent {
 
 export const siteContent: SiteContent = {
   company: {
-    name: "AllLogic",
+    name: "AllLogic Online",
     purpose: foundationContent.identity.purpose,
     mission: foundationContent.identity.mission,
     vision: foundationContent.identity.vision,

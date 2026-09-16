@@ -6,15 +6,15 @@ A primeira versão pública do Atlas será somente em Português do Brasil. A ar
 
 ## Objetivo
 
-Este documento governa a organização e a estratégia de conteúdo do site institucional da AllLogic.
+Este documento governa a organização e a estratégia de conteúdo do site institucional da AllLogic Online.
 
 ## Relação com o FOUNDATION.md
 
-O `FOUNDATION.md` (repositório `alllogic-sga`) define a identidade institucional da AllLogic. Este documento traduz essa identidade para a comunicação pública do site, sem substituí-la nem duplicá-la.
+O `FOUNDATION.md` (repositório `alllogic-sga`) define a identidade institucional da AllLogic Online. Este documento traduz essa identidade para a comunicação pública do site, sem substituí-la nem duplicá-la.
 
 ## Princípios da Comunicação
 
-A comunicação pública do site deve traduzir a identidade institucional da AllLogic sem criar novas promessas ou atributos não homologados. Como fonte institucional primária, o SGA Foundation estabelece honestidade, transparência, qualidade, compromisso com as pessoas, conhecimento compartilhado e aprendizado contínuo, além do princípio de que a tecnologia deve trabalhar para as pessoas.
+A comunicação pública do site deve traduzir a identidade institucional da AllLogic Online sem criar novas promessas ou atributos não homologados. Como fonte institucional primária, o SGA Foundation estabelece honestidade, transparência, qualidade, compromisso com as pessoas, conhecimento compartilhado e aprendizado contínuo, além do princípio de que a tecnologia deve trabalhar para as pessoas.
 
 Na comunicação do site, isso significa:
 
@@ -22,16 +22,16 @@ Na comunicação do site, isso significa:
 - apresentar tecnologia como meio para solucionar problemas reais;
 - evitar promessas, resultados, números ou capacidades que não possam ser sustentados;
 - priorizar utilidade, funcionalidade, competência e confiança;
-- manter coerência com a missão, visão, valores e código de ética da AllLogic;
+- manter coerência com a missão, visão, valores e código de ética da AllLogic Online;
 - não criar conteúdo institucional por inferência quando não houver fonte primária aprovada.
 
 A fonte institucional para esses princípios é o `SGA/FOUNDATION.md`.
 
 ## Público-alvo
 
-O `SGA/FOUNDATION.md` não define um público-alvo comercial específico para a AllLogic. Portanto, a arquitetura de conteúdo da V1 não estabelece um segmento de mercado, porte de empresa ou perfil de cliente por inferência.
+O `SGA/FOUNDATION.md` não define um público-alvo comercial específico para a AllLogic Online. Portanto, a arquitetura de conteúdo da V1 não estabelece um segmento de mercado, porte de empresa ou perfil de cliente por inferência.
 
-A comunicação deve permanecer ampla o suficiente para representar a proposta institucional da AllLogic até que um público-alvo comercial seja formalmente definido e homologado.
+A comunicação deve permanecer ampla o suficiente para representar a proposta institucional da AllLogic Online até que um público-alvo comercial seja formalmente definido e homologado.
 
 ## Jornada do Visitante
 
@@ -82,7 +82,7 @@ Campos do formulário: Empresa, Contato (nome do responsável), Tel/Whats, Mensa
 
 ## Página Sobre (`/sobre`)
 
-Complementa a narrativa da Home explicando quem é a AllLogic, como pensa e como trabalha. Conteúdo implementado em `src/content/sobre.ts` (contrato `SobreContent`), consumido por oito componentes em `src/components/about/`: Hero, Quem Somos, Nossa Forma de Pensar, Mentalidade de Engenharia, Tecnologia para as Pessoas, Experiência Prática, Como Trabalhamos e Encerramento.
+Complementa a narrativa da Home explicando quem é a AllLogic Online, como pensa e como trabalha. Conteúdo implementado em `src/content/sobre.ts` (contrato `SobreContent`), consumido por oito componentes em `src/components/about/`: Hero, Quem Somos, Nossa Forma de Pensar, Mentalidade de Engenharia, Tecnologia para as Pessoas, Experiência Prática, Como Trabalhamos e Encerramento.
 
 Duas fontes são reaproveitadas em vez de duplicadas: `experience.projects` vem de `homeContent.portfolio.projects` (os mesmos três projetos próprios do Portfólio da Home, com a mesma pendência de descrição neutra até verificação real) e `philosophy.principle` vem de `homeContent.portfolio.closing` ("Cada empresa tem seus próprios desafios e também suas soluções."). `peopleForTech.title` reaproveita `siteContent.branding.tagline`.
 
@@ -108,7 +108,7 @@ A inclusão de uma frente editorial deverá ser definida posteriormente, caso se
 
 ## Conteúdo Comercial
 
-A V1 já apresenta as áreas de solução da AllLogic na Home e conduz o visitante ao diagnóstico e contato.
+A V1 já apresenta as áreas de solução da AllLogic Online na Home e conduz o visitante ao diagnóstico e contato.
 
 Não devem ser adicionados preços, resultados, depoimentos, clientes ou outras afirmações comerciais sem conteúdo real e homologado.
 

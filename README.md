@@ -1,20 +1,20 @@
 # Projeto Atlas
 
-## Site Institucional da AllLogic
+## Site Institucional da AllLogic Online
 
-Site institucional oficial da **AllLogic**, desenvolvido com Astro e orientado por arquitetura, documentação e desempenho.
+Site institucional oficial da **AllLogic Online**, desenvolvido com Astro e orientado por arquitetura, documentação e desempenho.
 
 > A tecnologia deve trabalhar para as pessoas.
 
 ## Visão geral
 
-O Projeto Atlas é o repositório oficial do site institucional da AllLogic. Ele foi concebido para comunicar serviços, competências, cultura e visão técnica da empresa com uma experiência rápida, acessível, sustentável e fácil de manter.
+O Projeto Atlas é o repositório oficial do site institucional da AllLogic Online. Ele foi concebido para comunicar serviços, competências, cultura e visão técnica da empresa com uma experiência rápida, acessível, sustentável e fácil de manter.
 
-Além de canal de comunicação, este repositório representa a forma como a AllLogic constrói soluções: com arquitetura intencional, qualidade de engenharia e foco nas pessoas que usam e mantêm a tecnologia.
+Além de canal de comunicação, este repositório representa a forma como a AllLogic Online constrói soluções: com arquitetura intencional, qualidade de engenharia e foco nas pessoas que usam e mantêm a tecnologia.
 
 ## Objetivos
 
-- Representar institucionalmente a AllLogic.
+- Representar institucionalmente a AllLogic Online.
 - Demonstrar a qualidade técnica da empresa.
 - Servir como vitrine das soluções desenvolvidas.
 - Disponibilizar conteúdo técnico organizado.
@@ -75,7 +75,7 @@ tests/            # Testes unitários e de ponta a ponta
 
 ## Fluxo Oficial de Desenvolvimento
 
-O desenvolvimento do Projeto Atlas segue o fluxo oficial adotado pela AllLogic para orientar mudanças relevantes, com clareza de contexto, decisão e rastreabilidade:
+O desenvolvimento do Projeto Atlas segue o fluxo oficial adotado pela AllLogic Online para orientar mudanças relevantes, com clareza de contexto, decisão e rastreabilidade:
 
 1. Entender
 2. Pesquisar
@@ -125,16 +125,16 @@ Toda a documentação técnica e operacional do Projeto Atlas está organizada e
 - [Changelog](docs/changelog.md): marcos relevantes da evolução do Atlas.
 - [Design System](docs/design-system.md): estrutura dos fundamentos da interface.
 - [Decisões](docs/decisions/README.md): registros de decisões arquiteturais.
-- [MOA](docs/MOA/README.md): padrões e procedimentos operacionais da AllLogic.
+- [MOA](docs/MOA/README.md): padrões e procedimentos operacionais da AllLogic Online.
 
 ---
 
-**AllLogic — Engenharia de Soluções Digitais**
+**AllLogic Online — Engenharia de Soluções Digitais**
 
 Tecnologia que trabalha para as pessoas.
 
 ## Licença
 
-© AllLogic.
+© AllLogic Online.
 
 Todos os direitos reservados.

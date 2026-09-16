@@ -1,7 +1,7 @@
 {
   "name": "@alllogic/site",
   "private": true,
-  "description": "Site institucional da AllLogic — Projeto Atlas",
+  "description": "Site institucional da AllLogic Online — Projeto Atlas",
   "type": "module",
   "version": "0.1.0",
   "packageManager": "npm@11.16.0",

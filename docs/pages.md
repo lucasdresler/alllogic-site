@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Registrar a estrutura atual de páginas do site institucional da AllLogic, suas rotas e responsabilidades principais.
+Registrar a estrutura atual de páginas do site institucional da AllLogic Online, suas rotas e responsabilidades principais.
 
 Este documento descreve a implementação vigente e não substitui as decisões arquiteturais registradas em `docs/decisions/`.
 
@@ -17,12 +17,12 @@ Este documento descreve a implementação vigente e não substitui as decisões 
 
 Responsabilidade:
 
-- apresentar a AllLogic;
+- apresentar a AllLogic Online;
 - comunicar o posicionamento institucional;
 - apresentar as principais soluções;
 - apresentar o portfólio;
 - conduzir o visitante ao diagnóstico;
-- apresentar o fluxo conceitual da AllLogic;
+- apresentar o fluxo conceitual da AllLogic Online;
 - direcionar para as demais áreas institucionais.
 
 É a principal porta de entrada do site.
@@ -36,7 +36,7 @@ Responsabilidade:
 
 Responsabilidade:
 
-- apresentar institucionalmente a AllLogic;
+- apresentar institucionalmente a AllLogic Online;
 - comunicar sua proposta e posicionamento;
 - apresentar informações institucionais efetivamente homologadas.
 
@@ -51,7 +51,7 @@ O conteúdo deve permanecer estritamente baseado nas informações institucionai
 
 Responsabilidade:
 
-- permitir o contato com a AllLogic;
+- permitir o contato com a AllLogic Online;
 - apresentar o formulário de diagnóstico;
 - coletar as informações necessárias para uma primeira compreensão da necessidade do visitante;
 - encaminhar a solicitação por meio da integração definida em `ADR-0003`.

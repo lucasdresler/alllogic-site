@@ -90,7 +90,7 @@ export const homeContent: HomeContent = {
     // Título do Hero reutiliza a tagline institucional compartilhada, em vez de duplicar o valor.
     title: siteContent.branding.tagline,
     description:
-      "A AllLogic transforma necessidades reais de empresas em soluções digitais — com engenharia, clareza e utilidade em cada decisão técnica.",
+      "A AllLogic Online transforma necessidades reais de empresas em soluções digitais — com engenharia, clareza e utilidade em cada decisão técnica.",
     actions: [{ label: "Conheça nossas soluções", href: "#solucoes" }],
   },
   problems: {
@@ -121,7 +121,7 @@ export const homeContent: HomeContent = {
   method: {
     title: "Tecnologia começa com entendimento.",
     description:
-      "A AllLogic não começa pela ferramenta. A abordagem parte do problema, do contexto e da necessidade real de cada empresa.",
+      "A AllLogic Online não começa pela ferramenta. A abordagem parte do problema, do contexto e da necessidade real de cada empresa.",
     steps: [
       {
         order: 1,
@@ -218,6 +218,6 @@ export const homeContent: HomeContent = {
     title: "Sua empresa está pronta para o próximo passo?",
     description:
       "Tecnologia pode fazer mais quando é pensada a partir das necessidades reais da sua empresa.",
-    actions: [{ label: "Conheça a AllLogic", href: "/sobre" }],
+    actions: [{ label: "Conheça a AllLogic Online", href: "/sobre" }],
   },
 };

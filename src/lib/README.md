@@ -9,7 +9,7 @@ Diretório destinado a código de suporte e **configuração técnica** comparti
 ## Diferença entre `src/lib` (configuração técnica) e `src/content` (conteúdo)
 
 - **`src/lib`** — configuração técnica. Valores usados por mecanismos do próprio site (build, SEO, infraestrutura), sem significado institucional em si.
-- **`src/content`** — conteúdo institucional e editorial. Textos, identidade da marca, navegação e narrativa que representam a AllLogic e são exibidos ao visitante, rastreáveis a uma fonte institucional homologada (ver `src/content/README.md` para o fluxo completo, com origem no `FOUNDATION.md` do repositório `alllogic-sga`).
+- **`src/content`** — conteúdo institucional e editorial. Textos, identidade da marca, navegação e narrativa que representam a AllLogic Online e são exibidos ao visitante, rastreáveis a uma fonte institucional homologada (ver `src/content/README.md` para o fluxo completo, com origem no `FOUNDATION.md` do repositório `alllogic-sga`).
 
 Um mesmo domínio (ex.: "site") pode ter uma parte técnica em `src/lib` (a URL canônica) e uma parte institucional em `src/content` (o nome e a descrição da empresa) — a distinção não é o assunto, é a natureza da informação.
 

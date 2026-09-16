@@ -12,14 +12,14 @@ export const privacidadeContent = {
   eyebrow: "Privacidade",
   title: "Política de Privacidade",
   description:
-    "Esta Política de Privacidade explica como a AllLogic trata dados pessoais relacionados ao uso deste site, ao formulário de contato e aos recursos de análise de navegação.",
+    "Esta Política de Privacidade explica como a AllLogic Online trata dados pessoais relacionados ao uso deste site, ao formulário de contato e aos recursos de análise de navegação.",
   updatedAt: "08 de setembro de 2026",
 
   sections: [
     {
       title: "1. Quem somos",
       paragraphs: [
-        "A AllLogic é uma marca utilizada por WELLINGTON LUCAS LIMA DRESLER, inscrito no CNPJ sob o nº 08.784.339/0001-38.",
+        "A AllLogic Online é uma marca utilizada por WELLINGTON LUCAS LIMA DRESLER, inscrito no CNPJ sob o nº 08.784.339/0001-38.",
         "Endereço cadastral: Rua Feitiço da Vila, 425 — São Paulo/SP — CEP 05879-000.",
         "Para assuntos relacionados a privacidade e proteção de dados, o contato pode ser realizado pelo e-mail contato@alllogiconline.com.br.",
       ],
@@ -69,7 +69,7 @@ export const privacidadeContent = {
     {
       title: "7. Compartilhamento de dados",
       paragraphs: [
-        "Os dados enviados pelo formulário são encaminhados ao endereço institucional utilizado pela AllLogic para atendimento das solicitações.",
+        "Os dados enviados pelo formulário são encaminhados ao endereço institucional utilizado pela AllLogic Online para atendimento das solicitações.",
         "Quando o visitante consente com os cookies de análise, informações de navegação podem ser processadas pelo Google Analytics, conforme as condições e políticas aplicáveis ao serviço do Google.",
         "Não vendemos dados pessoais.",
       ],
@@ -84,7 +84,7 @@ export const privacidadeContent = {
     {
       title: "9. Segurança",
       paragraphs: [
-        "A AllLogic adota medidas técnicas e organizacionais compatíveis com a natureza dos dados e das operações realizadas pelo site para reduzir riscos de acesso não autorizado, perda, alteração ou divulgação indevida.",
+        "A AllLogic Online adota medidas técnicas e organizacionais compatíveis com a natureza dos dados e das operações realizadas pelo site para reduzir riscos de acesso não autorizado, perda, alteração ou divulgação indevida.",
         "Nenhum sistema conectado à internet pode garantir segurança absoluta. Por isso, medidas de segurança são continuamente avaliadas conforme a evolução da infraestrutura e dos serviços utilizados.",
       ],
     },
@@ -92,7 +92,7 @@ export const privacidadeContent = {
       title: "10. Direitos do titular",
       paragraphs: [
         "Nos termos da legislação aplicável, o titular de dados pessoais possui direitos relacionados ao tratamento de seus dados, incluindo aqueles previstos na Lei Geral de Proteção de Dados Pessoais (LGPD).",
-        "Solicitações relacionadas aos dados pessoais tratados pela AllLogic podem ser encaminhadas para contato@alllogiconline.com.br.",
+        "Solicitações relacionadas aos dados pessoais tratados pela AllLogic Online podem ser encaminhadas para contato@alllogiconline.com.br.",
       ],
     },
     {

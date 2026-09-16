@@ -1,21 +1,21 @@
-# AGENTS.md — Projeto Atlas / Site Institucional AllLogic
+# AGENTS.md — Projeto Atlas / Site Institucional AllLogic Online
 
 ## 1. Objetivo
 
-Este documento contém o contexto, as regras e as decisões operacionais específicas do Projeto Atlas — site institucional da AllLogic. Ele complementa o `~/AllLogic/AGENTS.md`, que contém as regras gerais da AllLogic.
+Este documento contém o contexto, as regras e as decisões operacionais específicas do Projeto Atlas — site institucional da AllLogic Online. Ele complementa o `~/AllLogic/AGENTS.md`, que contém as regras gerais da AllLogic.
 
 ## 2. Identificação do projeto
 
 - Nome: Projeto Atlas.
-- Finalidade: site institucional oficial da AllLogic.
-- Empresa: AllLogic.
+- Finalidade: site institucional oficial da AllLogic Online.
+- Empresa: AllLogic Online.
 - Descritor institucional: Engenharia de Soluções Digitais.
 - Slogan: Tecnologia que trabalha para as pessoas.
 - Stack principal: Astro, TypeScript e CSS moderno.
 - Estratégia principal: geração estática.
 - Interatividade client-side: somente quando trouxer valor claro à experiência.
 
-O site deve representar institucionalmente a AllLogic e comunicar seus serviços, competências, cultura e visão técnica com uma experiência rápida, acessível, sustentável e fácil de manter.
+O site deve representar institucionalmente a AllLogic Online e comunicar seus serviços, competências, cultura e visão técnica com uma experiência rápida, acessível, sustentável e fácil de manter.
 
 
 ## 3. Hierarquia documental específica do projeto
@@ -68,7 +68,7 @@ Alterações de conteúdo institucional ou estratégico que não estejam previam
 
 ## 6. Design System e identidade visual
 
-A identidade visual do site deve preservar a identidade institucional homologada da AllLogic.
+A identidade visual do site deve preservar a identidade institucional homologada da AllLogic Online.
 
 Direção visual do site:
 - tecnologia;
@@ -134,7 +134,7 @@ Antes de criar uma nova página ou alterar uma rota existente, consultar a docum
 
 ## 9. Home
 
-A Home é a principal porta de entrada institucional da AllLogic.
+A Home é a principal porta de entrada institucional da AllLogic Online.
 
 O conceito central da comunicação é:
 
@@ -142,14 +142,14 @@ Pessoa → necessidade → tecnologia → solução → mais tempo para o que im
 
 O Hero utiliza atualmente uma única chamada principal para ação, direcionada às soluções do site.
 
-A Home apresenta as principais categorias de soluções da AllLogic e deve manter comunicação clara, objetiva e orientada às necessidades do visitante.
+A Home apresenta as principais categorias de soluções da AllLogic Online e deve manter comunicação clara, objetiva e orientada às necessidades do visitante.
 
 Não adicionar imagens, números, depoimentos, cases ou outros elementos sem conteúdo ou fonte homologada.
 
 
 ## 10. Página Sobre
 
-A página `/sobre/` apresenta a AllLogic, sua forma de pensar e sua abordagem de trabalho.
+A página `/sobre/` apresenta a AllLogic Online, sua forma de pensar e sua abordagem de trabalho.
 
 O conteúdo deve permanecer institucional, claro e coerente com as fontes oficiais da empresa.
 
@@ -179,7 +179,7 @@ A implementação e as decisões da integração devem seguir o ADR-0003 em `doc
 
 A rota `/dominios-e-hospedagem/` faz parte do site institucional e apresenta a solução relacionada a domínios e hospedagem.
 
-Seu conteúdo deve permanecer alinhado ao portfólio oficial da AllLogic e às informações homologadas no SGA.
+Seu conteúdo deve permanecer alinhado ao portfólio oficial da AllLogic Online e às informações homologadas no SGA.
 
 Não criar preços, características, garantias ou condições comerciais por inferência.
 
@@ -255,7 +255,7 @@ Alterações no site devem seguir, quando aplicável:
 
 Não transformar uma alteração pontual em uma refatoração ou projeto paralelo sem necessidade.
 
-Alterações visuais devem preservar as decisões já homologadas e a identidade da AllLogic.
+Alterações visuais devem preservar as decisões já homologadas e a identidade da AllLogic Online.
 
 ## 17. Documentação e decisões
 

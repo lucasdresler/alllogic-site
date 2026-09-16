@@ -246,7 +246,7 @@
   text-align: center !important;
 }
 
-/* Empresarial — azul escuro da paleta AllLogic */
+/* Empresarial — azul escuro da paleta AllLogic Online */
 .hosting-section__card:last-child {
   --hosting-plan-color: var(--color-primary) !important;
 }
@@ -261,7 +261,7 @@
   text-align: right !important;
 }
 
-/* Empresarial — azul escuro da paleta AllLogic */
+/* Empresarial — azul escuro da paleta AllLogic Online */
 .hosting-section__card:last-child {
   --hosting-plan-color: var(--color-primary-dark) !important;
 }

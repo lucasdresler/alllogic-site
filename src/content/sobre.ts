@@ -59,15 +59,15 @@ export interface SobreContent {
 
 export const sobreContent: SobreContent = {
   hero: {
-    eyebrow: "Sobre a AllLogic",
+    eyebrow: "Sobre a AllLogic Online",
     title: "Tecnologia com propósito. Engenharia para resolver problemas.",
     description:
-      "A AllLogic nasceu com a proposta de aproximar tecnologia dos problemas reais das empresas, usando uma mentalidade de engenharia para compreender o cenário antes de propor qualquer solução.",
+      "A AllLogic Online nasceu com a proposta de aproximar tecnologia dos problemas reais das empresas, usando uma mentalidade de engenharia para compreender o cenário antes de propor qualquer solução.",
   },
   whoWeAre: {
     title: "Quem somos",
     description:
-      "A AllLogic é uma empresa jovem de soluções digitais. Nossa proposta é entender o problema antes de escolher a tecnologia — e trabalhar para transformar necessidades reais em soluções mais simples, organizadas, eficientes e adequadas ao contexto de cada empresa.",
+      "A AllLogic Online é uma empresa jovem de soluções digitais. Nossa proposta é entender o problema antes de escolher a tecnologia — e trabalhar para transformar necessidades reais em soluções mais simples, organizadas, eficientes e adequadas ao contexto de cada empresa.",
   },
   philosophy: {
     title: "Nossa forma de pensar",
@@ -89,7 +89,7 @@ export const sobreContent: SobreContent = {
   experience: {
     title: "Experiência na Prática",
     description:
-      "A AllLogic transforma idéias e necessidades reais em soluções digitais funcionais, combinando tecnologia, estratégia e atenção aos detalhes.",
+      "A AllLogic Online transforma idéias e necessidades reais em soluções digitais funcionais, combinando tecnologia, estratégia e atenção aos detalhes.",
     projects: homeContent.portfolio.projects,
   },
   approach: {
