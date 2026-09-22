@@ -4,7 +4,7 @@ Este é o documento oficial de onboarding para qualquer agente de IA que trabalh
 
 ## Objetivo do Projeto
 
-O Projeto Atlas é o site institucional oficial da AllLogic. Ele comunica os serviços, as competências, a cultura e a visão técnica da empresa por meio de uma experiência rápida, acessível, sustentável e fácil de manter.
+O Projeto Atlas é o site institucional oficial da AllLogic Online. Ele comunica os serviços, as competências, a cultura e a visão técnica da empresa por meio de uma experiência rápida, acessível, sustentável e fácil de manter.
 
 O repositório também expressa a forma de trabalho da AllLogic: arquitetura intencional, qualidade de engenharia e foco nas pessoas que usam e mantêm a tecnologia.
 
