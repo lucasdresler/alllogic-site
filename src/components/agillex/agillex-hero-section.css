@@ -1,0 +1,102 @@
+.agillex-hero {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: var(--space-md) 0 var(--space-lg);
+}
+
+.agillex-hero__badge {
+  display: inline-block;
+  background-color: rgba(201, 162, 39, 0.15);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: var(--space-md);
+}
+
+.agillex-hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-primary);
+  line-height: 1.2;
+  margin: 0 0 var(--space-md);
+  font-weight: 700;
+}
+
+.agillex-hero__description {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0 auto var(--space-lg);
+  max-width: 680px;
+}
+
+.agillex-hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+}
+
+.agillex-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.agillex-hero__btn:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.agillex-hero__btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: 1px solid transparent;
+}
+
+.agillex-hero__btn--primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.agillex-hero__btn--secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+}
+
+.agillex-hero__btn--secondary:hover {
+  background-color: var(--color-surface);
+  border-color: var(--color-primary);
+}
+
+.agillex-hero__trust {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.agillex-hero__trust-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}

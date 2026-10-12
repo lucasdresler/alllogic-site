@@ -1,0 +1,33 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexContent } from "../../content/agillex";
+import "./agillex-audience-section.css";
+---
+
+<Section id="publico-alvo" background="light" spacing="lg">
+  <Container>
+    <div class="agillex-audience__header">
+      <span class="agillex-audience__eyebrow">{agillexContent.audience.eyebrow}</span>
+      <h2 class="agillex-audience__title">{agillexContent.audience.title}</h2>
+      {agillexContent.audience.complement && (
+        <p class="agillex-audience__complement">
+          {agillexContent.audience.complement}
+        </p>
+      )}
+      <p class="agillex-audience__description">
+        {agillexContent.audience.description}
+      </p>
+    </div>
+
+    <div class="agillex-audience__grid">
+      {agillexContent.audience.items.map((item) => (
+        <div class="agillex-audience__card">
+          <div class="agillex-audience__icon" aria-hidden="true">{item.icon}</div>
+          <h3 class="agillex-audience__card-title">{item.title}</h3>
+          <p class="agillex-audience__card-description">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Section>

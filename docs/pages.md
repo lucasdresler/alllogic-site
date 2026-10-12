@@ -72,6 +72,28 @@ Responsabilidade:
 
 ---
 
+### Agillex Agenda
+
+**Arquivo:** `src/pages/agillex-agenda.astro`
+**Rota:** `/agillex-agenda/`
+
+Responsabilidade:
+
+- apresentar a solução comercial Agillex Agenda (Sistema de Agendamento Online);
+- comunicar sua proposta de valor e público-alvo (negócios com atendimento por hora marcada);
+- apresentar os recursos práticos e funcionalidades da ferramenta com redação conservadora e sem promessas não homologadas;
+- disponibilizar a chamada para experimentação da plataforma (`https://agenda.alllogiconline.com.br/agillex`) e canal de contato institucional;
+- compor as quatro seções modulares (`AgillexHeroSection`, `AgillexAudienceSection`, `AgillexFeaturesSection`, `AgillexTrialSection`), consumindo o conteúdo isolado em `src/content/agillex.ts`.
+
+Pendências comerciais catalogadas para futura homologação:
+
+- definição oficial de eventuais períodos de avaliação gratuita e política de onboarding;
+- especificação detalhada de limites operacionais ou recursos em cada plano;
+- política formal de retenção e descarte de dados (LGPD);
+- escopo homologado de customização visual da página pública.
+
+---
+
 ### Política de Privacidade
 
 **Arquivo:** `src/pages/politica-de-privacidade.astro`
@@ -91,6 +113,7 @@ A navegação principal atualmente contempla:
 
 - **Início** → `/`
 - **Soluções** → `/#solucoes`
+- **Agillex Agenda** → `/agillex-agenda/`
 - **Portfólio** → `/#portfolio`
 - **Diagnóstico** → `/#diagnostico`
 - **Sobre** → `/sobre/`
@@ -98,6 +121,7 @@ A navegação principal atualmente contempla:
 
 O rodapé contempla:
 
+- **Agillex Agenda** → `/agillex-agenda/`
 - **Política de Privacidade** → `/politica-de-privacidade/`
 
 As seções de Soluções, Portfólio e Diagnóstico permanecem integradas à página inicial, por meio de âncoras.

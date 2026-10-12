@@ -1,0 +1,60 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexContent } from "../../content/agillex";
+import "./agillex-hero-section.css";
+---
+
+<Section id="hero-agillex" spacing="lg">
+  <Container>
+    <div class="agillex-hero">
+      <div class="agillex-hero__badge">
+        <span>{agillexContent.hero.badge}</span>
+      </div>
+      <h1 class="agillex-hero__title">
+        {agillexContent.hero.title}
+      </h1>
+      <p class="agillex-hero__description">
+        {agillexContent.hero.description}
+      </p>
+
+      <div class="agillex-hero__actions">
+        <a
+          href={agillexContent.hero.actions.primary.href}
+          class="agillex-hero__btn agillex-hero__btn--primary"
+          target={agillexContent.hero.actions.primary.target ?? "_blank"}
+          rel={agillexContent.hero.actions.primary.rel ?? "noopener noreferrer"}
+        >
+          {agillexContent.hero.actions.primary.label}
+        </a>
+        <a
+          href={agillexContent.hero.actions.secondary.href}
+          class="agillex-hero__btn agillex-hero__btn--secondary"
+          target={agillexContent.hero.actions.secondary.target}
+          rel={agillexContent.hero.actions.secondary.rel}
+        >
+          {agillexContent.hero.actions.secondary.label}
+        </a>
+      </div>
+
+      <div class="agillex-hero__trust">
+        <svg
+          class="agillex-hero__trust-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <polyline points="9 12 11 14 15 10"></polyline>
+        </svg>
+        <span>{agillexContent.hero.trust}</span>
+      </div>
+    </div>
+  </Container>
+</Section>

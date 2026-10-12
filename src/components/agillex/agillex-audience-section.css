@@ -1,0 +1,123 @@
+.agillex-audience__header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto var(--space-xl);
+}
+
+.agillex-audience__eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-xs);
+}
+
+.agillex-audience__title {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  color: var(--color-primary);
+  margin: 0 0 var(--space-sm);
+  line-height: 1.25;
+}
+
+.agillex-audience__complement {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1.5;
+  margin: 0 0 var(--space-xs);
+}
+
+.agillex-audience__description {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Grid para os 5 cards com apresentação equilibrada em desktop, tablet e celular */
+.agillex-audience__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-md);
+}
+
+/* Telas intermediárias (tablets e telas médias): 3 cards na primeira linha, 2 centralizados na segunda */
+@media (max-width: 1140px) and (min-width: 769px) {
+  .agillex-audience__grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .agillex-audience__card:nth-child(1),
+  .agillex-audience__card:nth-child(2),
+  .agillex-audience__card:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .agillex-audience__card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .agillex-audience__card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}
+
+/* Tablets menores / mobile grande: 2 colunas */
+@media (max-width: 768px) and (min-width: 581px) {
+  .agillex-audience__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .agillex-audience__card:last-child {
+    grid-column: 1 / -1;
+    max-width: 480px;
+    justify-self: center;
+    width: 100%;
+  }
+}
+
+/* Celular: coluna única */
+@media (max-width: 580px) {
+  .agillex-audience__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.agillex-audience__card {
+  background-color: var(--color-background);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.agillex-audience__card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.agillex-audience__icon {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-sm);
+  color: var(--color-accent);
+}
+
+.agillex-audience__card-title {
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-xs);
+  line-height: 1.3;
+}
+
+.agillex-audience__card-description {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}

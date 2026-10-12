@@ -3,11 +3,9 @@
 //
 // "Início" aponta para a Home.
 // "Soluções", "Portfólio" e "Diagnóstico" apontam para seções da Home.
+// "Agillex Agenda" aponta para a página comercial da solução de agendamento online.
 // "Sobre" e "Contato" apontam para páginas institucionais próprias.
-// A navegação do rodapé contém atualmente a Política de Privacidade.
-//
-// As rotas e âncoras devem permanecer alinhadas às páginas e seções
-// efetivamente existentes no Projeto Atlas.
+// A navegação do rodapé contém atualmente o Agillex Agenda e a Política de Privacidade.
 
 import type { NavigationItem } from "../types/navigation";
 
@@ -20,12 +18,14 @@ export const navigationContent: NavigationContent = {
   main: [
     { label: "Início", href: "/" },
     { label: "Soluções", href: "/#solucoes" },
+    { label: "Agillex Agenda", href: "/agillex-agenda" },
     { label: "Portfólio", href: "/#portfolio" },
     { label: "Diagnóstico", href: "/#diagnostico" },
     { label: "Sobre", href: "/sobre" },
     { label: "Contato", href: "/contato" },
   ],
   footer: [
+    { label: "Agillex Agenda", href: "/agillex-agenda" },
     { label: "Política de Privacidade", href: "/politica-de-privacidade" },
   ],
 };

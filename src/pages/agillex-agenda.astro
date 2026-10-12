@@ -1,0 +1,18 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import AgillexHeroSection from "../components/agillex/AgillexHeroSection.astro";
+import AgillexAudienceSection from "../components/agillex/AgillexAudienceSection.astro";
+import AgillexFeaturesSection from "../components/agillex/AgillexFeaturesSection.astro";
+import AgillexTrialSection from "../components/agillex/AgillexTrialSection.astro";
+import { agillexContent } from "../content/agillex";
+---
+
+<MainLayout
+  title={agillexContent.meta.title}
+  description={agillexContent.meta.description}
+>
+  <AgillexHeroSection />
+  <AgillexAudienceSection />
+  <AgillexFeaturesSection />
+  <AgillexTrialSection />
+</MainLayout>
