@@ -101,20 +101,17 @@ O detalhamento de cada etapa está disponível no [Fluxo de Desenvolvimento](doc
 
 ## Ambientes e publicação
 
-O ambiente de produção será composto por um contêiner da aplicação, roteado pelo Traefik e exposto através da Cloudflare. As credenciais, chaves e valores específicos de cada ambiente não devem ser versionados; exemplos seguros devem ser fornecidos em arquivos `.env.example` quando a implementação exigir variáveis de ambiente.
+A publicação atual utiliza a saída estática gerada pelo Astro e hospedagem compartilhada cPanel. A homologação técnica da publicação e as evidências do ambiente de produção estão registradas em [Homologação da Publicação](docs/MOA/homologacoes/publicacao-site-alllogic-2026-09-13.md).
+
+Docker e Traefik permanecem como direção futura de infraestrutura para o site, não como componentes do ambiente de produção atual. Credenciais, chaves e outros segredos não devem ser versionados.
 
 ## Estado do Projeto
 
-O Projeto Atlas está em desenvolvimento. A fundação com Astro foi integrada, e a documentação técnica passa a contar com uma organização própria para apoiar a evolução segura do produto.
+O Projeto Atlas está publicado em produção em https://alllogiconline.com.br/. A publicação atual foi tecnicamente homologada, incluindo a validação do build estático e das páginas públicas dentro do escopo registrado na documentação.
 
-Neste estágio, o foco é consolidar a arquitetura, o Design System, o conteúdo institucional e os ambientes que sustentarão as próximas entregas.
+O Design System possui fundamentos e tokens implementados e documentados. O projeto continua em evolução: a publicação do site não significa que todas as atividades técnicas e documentais estejam concluídas.
 
-Próximas etapas:
-
-- Consolidar as decisões arquiteturais necessárias à evolução do site.
-- Definir as bases do Design System.
-- Estruturar o conteúdo institucional e as páginas prioritárias.
-- Preparar os ambientes e o processo de homologação das próximas entregas.
+As próximas entregas e pendências devem ser acompanhadas no [Roadmap](docs/roadmap.md), mantendo as decisões, validações e mudanças documentadas e versionadas.
 
 ## Documentação
 
