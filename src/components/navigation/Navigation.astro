@@ -2,14 +2,19 @@
 import { navigationContent } from "../../content/navigation";
 import "./navigation.css";
 
+interface Props {
+  id?: string;
+}
+
+const { id = "primary-navigation" } = Astro.props;
 const items = navigationContent.main;
 ---
 
-<nav aria-label="Principal">
+<nav id={id} class="navigation" aria-label="Principal">
   <ul class="navigation__list">
     {items.map((item) => (
-      <li>
-        <a href={item.href}>{item.label}</a>
+      <li class="navigation__item">
+        <a class="navigation__link" href={item.href}>{item.label}</a>
       </li>
     ))}
   </ul>

@@ -18,6 +18,17 @@ img {
   display: block;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 body {
   min-height: 100vh;
   font-family: system-ui, sans-serif;
@@ -46,6 +57,6 @@ html {
 
 @media (max-width: 768px) {
   html {
-    scroll-padding-top: 188.5px;
+    scroll-padding-top: 104px;
   }
 }

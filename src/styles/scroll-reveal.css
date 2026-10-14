@@ -10,20 +10,24 @@
     transform var(--reveal-duration, 500ms) ease;
 }
 
-[data-scroll-reveal="up"] {
-  transform: translateY(24px);
-}
-
-[data-scroll-reveal="left"] {
-  transform: translateX(-28px);
-}
-
+[data-scroll-reveal="up"],
+[data-scroll-reveal="left"],
 [data-scroll-reveal="right"] {
-  transform: translateX(28px);
+  transform: translateY(24px);
 }
 
 [data-scroll-reveal="fade"] {
   transform: none;
+}
+
+@media (min-width: 769px) {
+  [data-scroll-reveal="left"] {
+    transform: translateX(-28px);
+  }
+
+  [data-scroll-reveal="right"] {
+    transform: translateX(28px);
+  }
 }
 
 [data-scroll-reveal].scroll-reveal--visible {
