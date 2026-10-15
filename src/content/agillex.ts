@@ -79,6 +79,29 @@ export interface AgillexTrialContent {
   };
 }
 
+export interface AgillexPricingTier {
+  id: string;
+  name: string;
+  badge?: string;
+  popular?: boolean;
+  tagline: string;
+  capacity: string;
+  priceMonthly: string;
+  priceAnnualMonthly: string;
+  annualTotal: string;
+  period: string;
+  features: string[];
+  cta: AgillexCTA;
+}
+
+export interface AgillexPricingContent {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  universalNote: string;
+  tiers: AgillexPricingTier[];
+}
+
 export interface AgillexContent {
   meta: {
     title: string;
@@ -87,6 +110,7 @@ export interface AgillexContent {
   hero: AgillexHeroContent;
   audience: AgillexAudienceContent;
   features: AgillexFeaturesContent;
+  pricing: AgillexPricingContent;
   trial: AgillexTrialContent;
 }
 
@@ -198,6 +222,94 @@ export const agillexContent: AgillexContent = {
         title: "Mobilidade e Desempenho",
         description:
           "Interface 100% responsiva para celular, tablet e computador, tanto para os seus clientes quanto para a administração da agenda.",
+      },
+    ],
+  },
+  pricing: {
+    eyebrow: "PLANOS E PREÇOS",
+    title: "Plataforma completa em todos os planos",
+    subtitle:
+      "Todos os planos contam com 100% dos recursos liberados, clientes e agendamentos ilimitados. Escolha apenas a capacidade ideal para o tamanho da sua equipe.",
+    universalNote: "Todos os planos incluem 14 dias de teste grátis sem cartão de crédito e sem fidelidade.",
+    tiers: [
+      {
+        id: "inicial",
+        name: "Inicial",
+        tagline: "Para profissionais autônomos e estúdios individuais com foco em simplicidade.",
+        capacity: "1 Profissional",
+        priceMonthly: "49,90",
+        priceAnnualMonthly: "39,90",
+        annualTotal: "R$ 478,80 ao ano (20% de economia)",
+        period: "/mês",
+        features: [
+          "1 profissional com escalas e horários próprios",
+          "Plataforma completa com 100% dos recursos",
+          "Clientes, serviços e agendamentos ilimitados",
+          "Página pública exclusiva de agendamento online 24/7",
+          "Painel administrativo com visão diária, semanal e mensal",
+          "Totalmente responsivo para celular, tablet e computador",
+          "14 dias de teste grátis sem cartão de crédito",
+        ],
+        cta: {
+          label: "Começar 14 dias grátis",
+          href: "https://agenda.alllogiconline.com.br/agillex?plano=inicial",
+          target: "_blank",
+          rel: "noopener noreferrer",
+        },
+      },
+      {
+        id: "intermediario",
+        name: "Intermediário",
+        badge: "Mais Escolhido",
+        popular: true,
+        tagline: "Para barbearias, clínicas e salões com equipe em crescimento.",
+        capacity: "Até 5 Profissionais",
+        priceMonthly: "99,90",
+        priceAnnualMonthly: "79,90",
+        annualTotal: "R$ 958,80 ao ano (20% de economia)",
+        period: "/mês",
+        features: [
+          "Até 5 profissionais com jornadas e intervalos próprios",
+          "Plataforma completa com 100% dos recursos",
+          "Clientes, serviços e agendamentos ilimitados",
+          "Gestão centralizada de atendimentos da equipe",
+          "Página pública exclusiva de agendamento online 24/7",
+          "Painel administrativo com visão diária, semanal e mensal",
+          "Totalmente responsivo para celular, tablet e computador",
+          "14 dias de teste grátis sem cartão de crédito",
+        ],
+        cta: {
+          label: "Começar 14 dias grátis",
+          href: "https://agenda.alllogiconline.com.br/agillex?plano=intermediario",
+          target: "_blank",
+          rel: "noopener noreferrer",
+        },
+      },
+      {
+        id: "avancado",
+        name: "Avançado",
+        tagline: "Para estabelecimentos com grande fluxo e múltiplos profissionais.",
+        capacity: "Até 10 Profissionais",
+        priceMonthly: "169,90",
+        priceAnnualMonthly: "139,90",
+        annualTotal: "R$ 1.678,80 ao ano (economia de ~18%)",
+        period: "/mês",
+        features: [
+          "Até 10 profissionais na mesma conta",
+          "Plataforma completa com 100% dos recursos",
+          "Clientes, serviços e agendamentos ilimitados",
+          "Gestão ampla de múltiplos atendimentos simultâneos",
+          "Página pública exclusiva de agendamento online 24/7",
+          "Atendimento e suporte comercial prioritário",
+          "Totalmente responsivo para celular, tablet e computador",
+          "14 dias de teste grátis sem cartão de crédito",
+        ],
+        cta: {
+          label: "Começar 14 dias grátis",
+          href: "https://agenda.alllogiconline.com.br/agillex?plano=avancado",
+          target: "_blank",
+          rel: "noopener noreferrer",
+        },
       },
     ],
   },

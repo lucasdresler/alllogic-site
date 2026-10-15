@@ -1,0 +1,153 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexContent } from "../../content/agillex";
+import "./agillex-pricing-section.css";
+
+const { pricing } = agillexContent;
+---
+
+<Section id="planos-e-precos" background="default" spacing="lg">
+  <Container>
+    <div class="agillex-pricing">
+      <div class="agillex-pricing__header">
+        <span class="agillex-pricing__eyebrow">{pricing.eyebrow}</span>
+        <h2 class="agillex-pricing__title">{pricing.title}</h2>
+        <p class="agillex-pricing__subtitle">{pricing.subtitle}</p>
+
+        <!-- Toggle Mensal / Anual -->
+        <div class="agillex-pricing__toggle-wrapper">
+          <span class="agillex-pricing__toggle-label agillex-pricing__toggle-label--active" id="label-mensal">
+            Mensal
+          </span>
+          <label class="agillex-pricing__switch" for="pricing-toggle">
+            <input type="checkbox" id="pricing-toggle" role="switch" aria-checked="false" aria-label="Alternar para plano anual" />
+            <span class="agillex-pricing__slider"></span>
+          </label>
+          <span class="agillex-pricing__toggle-label" id="label-anual">
+            Anual
+          </span>
+          <span class="agillex-pricing__discount-badge">Até 20% OFF</span>
+        </div>
+      </div>
+
+      <!-- Grid de Planos -->
+      <div class="agillex-pricing__grid">
+        {pricing.tiers.map((tier) => (
+          <div
+            class:list={[
+              "agillex-pricing__card",
+              tier.popular && "agillex-pricing__card--popular",
+            ]}
+          >
+            {tier.badge && (
+              <span class="agillex-pricing__card-badge">{tier.badge}</span>
+            )}
+
+            <div class="agillex-pricing__card-header">
+              <h3 class="agillex-pricing__tier-name">{tier.name}</h3>
+              <span class="agillex-pricing__tier-capacity">{tier.capacity}</span>
+              <p class="agillex-pricing__tier-tagline">{tier.tagline}</p>
+            </div>
+
+            <div class="agillex-pricing__price-box">
+              <div>
+                <span class="agillex-pricing__price-currency">R$</span>
+                <span
+                  class="agillex-pricing__price-value"
+                  data-monthly={tier.priceMonthly}
+                  data-annual={tier.priceAnnualMonthly}
+                >
+                  {tier.priceMonthly}
+                </span>
+                <span class="agillex-pricing__price-period">{tier.period}</span>
+              </div>
+              <div
+                class="agillex-pricing__price-annual-note"
+                data-annual-note={tier.annualTotal}
+                style="display: none;"
+              >
+                {tier.annualTotal}
+              </div>
+            </div>
+
+            <ul class="agillex-pricing__features">
+              {tier.features.map((feature) => (
+                <li class="agillex-pricing__feature-item">
+                  <span class="agillex-pricing__feature-check" aria-hidden="true">✓</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="agillex-pricing__cta">
+              <a
+                href={tier.cta.href}
+                class:list={[
+                  "agillex-pricing__btn",
+                  tier.popular ? "agillex-pricing__btn--popular" : "agillex-pricing__btn--default",
+                ]}
+                target={tier.cta.target}
+                rel={tier.cta.rel}
+              >
+                {tier.cta.label}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="agillex-pricing__footer-note">
+        {pricing.universalNote}
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<script>
+  function initPricingToggle() {
+    const toggle = document.getElementById("pricing-toggle") as HTMLInputElement | null;
+    const labelMensal = document.getElementById("label-mensal");
+    const labelAnual = document.getElementById("label-anual");
+    const priceElements = document.querySelectorAll<HTMLElement>(".agillex-pricing__price-value");
+    const annualNotes = document.querySelectorAll<HTMLElement>(".agillex-pricing__price-annual-note");
+
+    if (!toggle) return;
+
+    toggle.addEventListener("change", () => {
+      const isAnnual = toggle.checked;
+      toggle.setAttribute("aria-checked", isAnnual ? "true" : "false");
+
+      if (labelMensal && labelAnual) {
+        if (isAnnual) {
+          labelMensal.classList.remove("agillex-pricing__toggle-label--active");
+          labelAnual.classList.add("agillex-pricing__toggle-label--active");
+        } else {
+          labelMensal.classList.add("agillex-pricing__toggle-label--active");
+          labelAnual.classList.remove("agillex-pricing__toggle-label--active");
+        }
+      }
+
+      priceElements.forEach((el) => {
+        const monthly = el.getAttribute("data-monthly");
+        const annual = el.getAttribute("data-annual");
+        if (isAnnual && annual) {
+          el.textContent = annual;
+        } else if (!isAnnual && monthly) {
+          el.textContent = monthly;
+        }
+      });
+
+      annualNotes.forEach((el) => {
+        el.style.display = isAnnual ? "block" : "none";
+      });
+    });
+  }
+
+  // Inicializa quando o DOM estiver pronto
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPricingToggle);
+  } else {
+    initPricingToggle();
+  }
+</script>
