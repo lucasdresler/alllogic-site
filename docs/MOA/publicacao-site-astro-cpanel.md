@@ -135,3 +135,19 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
 - **Sequência executada:** Suporte e imagens → nova rota `/agillex-agenda/` → páginas existentes e sitemaps → página inicial (`index.html`).
 - **Respostas HTTP:** Retorno `200` confirmado para `/`, `/agillex-agenda/`, `/contato/`, `/sobre/`, `/dominios-e-hospedagem/`, `/politica-de-privacidade/` e `/sitemap-index.xml`.
 - **Inspeção visual:** Confirmada manualmente em desktop e dispositivos móveis (mobile).
+
+## Registro de referência — Publicação Agillex Atendimento (16/10/2026)
+
+- **Commit de referência:** `e9def19`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-agillex-atendimento-e9def19.tar.gz`
+- **SHA-256 do pacote:** `a2eac78ebc57ff737a38cd8f608e99b743c4cc8c163a84dbfe666aec75fc74f4`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261016-135232.tar.gz` (SHA-256: `c9504bd184b61710ffdad851f919277692ec19964f596da15178a649b6de7fae`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-agillex-atendimento-e9def19`
+- **Validações prévias:** Backup e pacote validados com sucesso antes de qualquer cópia.
+- **Preservação de serviços:** Endpoint `api/diagnosis.php` comparado e preservado intacto.
+- **Sequência executada:** Suporte e imagens → nova rota `/agillex-atendimento/` → rotas existentes e sitemaps → página inicial (`index.html`).
+- **Respostas HTTP:** Retorno `200` confirmado para `/`, `/agillex-atendimento/`, `/agillex-agenda/`, `/contato/`, `/sobre/`, `/dominios-e-hospedagem/`, `/politica-de-privacidade/`, `/sitemap-index.xml` e `/sitemap-0.xml`.
+
