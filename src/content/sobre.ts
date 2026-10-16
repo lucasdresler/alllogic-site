@@ -89,7 +89,7 @@ export const sobreContent: SobreContent = {
   experience: {
     title: "Experiência na Prática",
     description:
-      "A AllLogic Online transforma idéias e necessidades reais em soluções digitais funcionais, combinando tecnologia, estratégia e atenção aos detalhes.",
+      "A AllLogic Online transforma ideias e necessidades reais em soluções digitais funcionais, combinando tecnologia, estratégia e atenção aos detalhes.",
     projects: homeContent.portfolio.projects,
   },
   approach: {

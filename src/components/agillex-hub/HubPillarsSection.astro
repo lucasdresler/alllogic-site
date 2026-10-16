@@ -1,0 +1,161 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexHubContent } from "../../content/agillex-hub";
+
+const { pillars } = agillexHubContent;
+---
+
+<Section id="modulos" background="default" spacing="lg">
+  <Container>
+    <div class="hub-pillars" data-scroll-reveal="up">
+      <div class="hub-pillars__header">
+        <span class="hub-pillars__eyebrow">{pillars.eyebrow}</span>
+        <h2 class="hub-pillars__title">{pillars.title}</h2>
+        <p class="hub-pillars__description">{pillars.description}</p>
+      </div>
+
+      <div class="hub-pillars__list">
+        {
+          pillars.items.map((pillar, idx) => (
+            <div class="hub-pillar-card card-interactive" data-scroll-reveal="up">
+              <div class="hub-pillar-card__badge-row">
+                <span class="hub-pillar-card__badge">{pillar.badge}</span>
+              </div>
+              <h3 class="hub-pillar-card__title">{pillar.title}</h3>
+              <p class="hub-pillar-card__tagline">{pillar.tagline}</p>
+              <p class="hub-pillar-card__desc">{pillar.description}</p>
+              <ul class="hub-pillar-card__highlights">
+                {pillar.highlights.map((item) => (
+                  <li>
+                    <span class="hub-check-icon">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .hub-pillars__header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem auto;
+  }
+
+  .hub-pillars__eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-secondary, #1f6fff);
+    margin-bottom: 0.75rem;
+  }
+
+  .hub-pillars__title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--color-primary, #0a1f44);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .hub-pillars__description {
+    font-size: 1.1rem;
+    color: var(--color-text-muted, #4a5568);
+    line-height: 1.6;
+  }
+
+  .hub-pillars__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.75rem;
+  }
+
+  .hub-pillar-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border, #dde3ee);
+    border-radius: var(--radius-lg, 16px);
+    padding: 2rem;
+    box-shadow: 0 4px 14px rgba(10, 31, 68, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+  }
+
+  .hub-pillar-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(10, 31, 68, 0.12);
+    border-color: rgba(31, 111, 255, 0.35);
+  }
+
+  .hub-pillar-card__badge-row {
+    margin-bottom: 1rem;
+  }
+
+  .hub-pillar-card__badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 99px;
+    background-color: rgba(31, 111, 255, 0.1);
+    color: var(--color-secondary, #1f6fff);
+  }
+
+  .hub-pillar-card__title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-primary, #0a1f44);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .hub-pillar-card__tagline {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-secondary, #1f6fff);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .hub-pillar-card__desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted, #4a5568);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .hub-pillar-card__highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: auto;
+    border-top: 1px solid var(--color-border, #dde3ee);
+    padding-top: 1.25rem;
+  }
+
+  .hub-pillar-card__highlights li {
+    font-size: 0.88rem;
+    color: var(--color-text, #0a1f44);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .hub-check-icon {
+    color: #10b981;
+    font-weight: 700;
+  }
+</style>

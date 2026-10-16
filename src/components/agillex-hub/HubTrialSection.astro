@@ -1,0 +1,31 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexHubContent } from "../../content/agillex-hub";
+import "../agillex/agillex-trial-section.css";
+
+const { trial } = agillexHubContent;
+---
+
+<Section id="teste-gratis" background="dark" spacing="lg">
+  <Container>
+    <div class="agillex-trial card-interactive-glow" data-scroll-reveal="up">
+      <span class="agillex-trial__eyebrow">{trial.eyebrow}</span>
+      <h2 class="agillex-trial__title">{trial.title}</h2>
+      <p class="agillex-trial__description">{trial.description}</p>
+
+      <div class="agillex-trial__action-wrapper">
+        <a
+          href={trial.action.href}
+          class="agillex-trial__action btn-interactive"
+          target={trial.action.target ?? "_blank"}
+          rel={trial.action.rel ?? "noopener noreferrer"}
+        >
+          {trial.action.label}
+        </a>
+      </div>
+
+      <p class="agillex-trial__note">{trial.note}</p>
+    </div>
+  </Container>
+</Section>

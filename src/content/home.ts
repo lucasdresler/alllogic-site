@@ -1,6 +1,6 @@
 // Conteúdo textual da Home, isolado da camada de apresentação.
 // Conteúdo institucional definitivo da narrativa da Home (Sprint de conteúdo real),
-// alinhado ao posicionamento homologado da AllLogic.
+// alinhado ao posicionamento homologado da AllLogic Online.
 // Campos que representam informação institucional compartilhada reutilizam
 // siteContent em vez de duplicar valores (ver src/content/site.ts).
 //
@@ -161,12 +161,12 @@ export const homeContent: HomeContent = {
         description: "Registro de Domínios, Desenvolvimento, Hospedagem e Manutenção de Sites e Lojas Online, e soluções para fortalecer a presença da empresa na internet.",
       },
       {
-        title: "Automação",
-        description: "Soluções para reduzir tarefas repetitivas e tornar processos mais eficientes.",
+        title: "Automação & Atendimento com IA",
+        description: "Soluções inteligentes como o Agillex Atendimento e o Agillex Hub para atendimento humanizado no WhatsApp 24/7 e redução de tarefas repetitivas.",
       },
       {
-        title: "Sistemas e Aplicações",
-        description: "Aplicações digitais desenvolvidas para necessidades específicas da empresa.",
+        title: "Sistemas de Agendamento Online",
+        description: "Plataformas como o Agillex Agenda para centralizar atendimentos, sincronizar calendários e facilitar o agendamento de clientes.",
       },
       {
         title: "Integrações",

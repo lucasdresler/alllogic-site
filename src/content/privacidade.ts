@@ -1,4 +1,4 @@
-// Conteúdo da Política de Privacidade do site institucional da AllLogic.
+// Conteúdo da Política de Privacidade do site institucional da AllLogic Online.
 // Este conteúdo deve refletir apenas os tratamentos efetivamente realizados
 // pelo site e ser atualizado sempre que esses tratamentos forem alterados.
 

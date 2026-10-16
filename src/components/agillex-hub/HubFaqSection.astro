@@ -1,0 +1,120 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexHubContent } from "../../content/agillex-hub";
+import "../agillex/agillex-faq-section.css";
+
+const { faq } = agillexHubContent;
+---
+
+<Section id="duvidas-frequentes" background="default" spacing="lg">
+  <Container>
+    <div class="agillex-faq" data-scroll-reveal="up">
+      <div class="agillex-faq__header">
+        <span class="agillex-faq__eyebrow">{faq.eyebrow}</span>
+        <h2 class="agillex-faq__title">{faq.title}</h2>
+        <p class="agillex-faq__description">{faq.description}</p>
+      </div>
+
+      <div class="agillex-faq__accordion">
+        {
+          faq.items.map((item, idx) => (
+            <div class="agillex-faq__item" data-faq-item>
+              <button
+                type="button"
+                class="agillex-faq__trigger"
+                aria-expanded="false"
+                aria-controls={`hub-faq-answer-${idx}`}
+                id={`hub-faq-trigger-${idx}`}
+              >
+                <span class="agillex-faq__question-text">{item.question}</span>
+                <span class="agillex-faq__icon" aria-hidden="true">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="agillex-faq__answer"
+                id={`hub-faq-answer-${idx}`}
+                role="region"
+                aria-labelledby={`hub-faq-trigger-${idx}`}
+                hidden
+              >
+                <p class="agillex-faq__answer-text">{item.answer}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="agillex-faq__support">
+        <p class="agillex-faq__support-text">{faq.support.text}</p>
+        <a
+          href={faq.support.cta.href}
+          class="agillex-faq__support-link btn-interactive"
+          target={faq.support.cta.target}
+          rel={faq.support.cta.rel}
+        >
+          {faq.support.cta.label}
+        </a>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<script>
+  function initHubFaqAccordion(): void {
+    const triggers = document.querySelectorAll<HTMLButtonElement>(
+      "[id^='hub-faq-trigger-']"
+    );
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+        const answerId = trigger.getAttribute("aria-controls");
+        if (!answerId) return;
+
+        const answer = document.getElementById(answerId);
+        if (!answer) return;
+
+        if (isExpanded) {
+          trigger.setAttribute("aria-expanded", "false");
+          answer.hidden = true;
+          trigger.closest("[data-faq-item]")?.classList.remove("is-open");
+        } else {
+          triggers.forEach((otherTrigger) => {
+            if (otherTrigger !== trigger) {
+              const otherAnswerId = otherTrigger.getAttribute("aria-controls");
+              otherTrigger.setAttribute("aria-expanded", "false");
+              if (otherAnswerId) {
+                const otherAnswer = document.getElementById(otherAnswerId);
+                if (otherAnswer) otherAnswer.hidden = true;
+              }
+              otherTrigger.closest("[data-faq-item]")?.classList.remove("is-open");
+            }
+          });
+
+          trigger.setAttribute("aria-expanded", "true");
+          answer.hidden = false;
+          trigger.closest("[data-faq-item]")?.classList.add("is-open");
+        }
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHubFaqAccordion);
+  } else {
+    initHubFaqAccordion();
+  }
+</script>

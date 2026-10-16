@@ -1,0 +1,37 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexHubContent } from "../../content/agillex-hub";
+import "../agillex/agillex-audience-section.css";
+
+const { audience } = agillexHubContent;
+---
+
+<Section id="quem-precisa" background="light" spacing="lg">
+  <Container>
+    <div class="agillex-audience" data-scroll-reveal="up">
+      <div class="agillex-audience__header">
+        <span class="agillex-audience__eyebrow">{audience.eyebrow}</span>
+        <h2 class="agillex-audience__title">{audience.title}</h2>
+        <p class="agillex-audience__complement">{audience.complement}</p>
+        <p class="agillex-audience__description">{audience.description}</p>
+      </div>
+
+      <div class="agillex-audience__grid">
+        {
+          audience.items.map((item) => (
+            <div class="agillex-audience__card card-interactive" data-scroll-reveal="up">
+              <span class="agillex-audience__icon" aria-hidden="true">
+                {item.icon}
+              </span>
+              <h3 class="agillex-audience__item-title">{item.title}</h3>
+              <p class="agillex-audience__item-description">
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</Section>

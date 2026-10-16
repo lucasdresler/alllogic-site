@@ -1,0 +1,624 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexHubContent } from "../../content/agillex-hub";
+import "../agillex/agillex-hero-section.css";
+---
+
+<Section id="hero-hub" spacing="lg">
+  <Container>
+    <div class="agillex-hero" data-scroll-reveal="up">
+      <div class="agillex-hero__badge micro-badge-pulse">
+        <span>{agillexHubContent.hero.badge}</span>
+      </div>
+      <h1 class="agillex-hero__title">
+        {agillexHubContent.hero.title}
+      </h1>
+      <p class="agillex-hero__description">
+        {agillexHubContent.hero.description}
+      </p>
+
+      <div class="agillex-hero__actions">
+        <a
+          href={agillexHubContent.hero.actions.primary.href}
+          class="agillex-hero__btn agillex-hero__btn--primary btn-interactive"
+          target={agillexHubContent.hero.actions.primary.target ?? "_blank"}
+          rel={agillexHubContent.hero.actions.primary.rel ?? "noopener noreferrer"}
+        >
+          {agillexHubContent.hero.actions.primary.label}
+        </a>
+        <a
+          href={agillexHubContent.hero.actions.secondary.href}
+          class="agillex-hero__btn agillex-hero__btn--secondary btn-interactive"
+          target={agillexHubContent.hero.actions.secondary.target}
+          rel={agillexHubContent.hero.actions.secondary.rel}
+        >
+          {agillexHubContent.hero.actions.secondary.label}
+        </a>
+      </div>
+
+      <div class="agillex-hero__trust">
+        <svg
+          class="agillex-hero__trust-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <polyline points="9 12 11 14 15 10"></polyline>
+        </svg>
+        <span>{agillexHubContent.hero.trust}</span>
+      </div>
+
+      <!-- Preview Visual Dinâmico do Agillex Hub Workspace -->
+      <div class="agillex-hero__preview" data-scroll-reveal="up">
+        <div class="agillex-hero__window card-interactive-glow">
+          <div class="agillex-hero__window-bar">
+            <div class="agillex-hero__window-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="agillex-hero__window-url">
+              hub.alllogiconline.com.br · Agillex Hub Unificado
+            </div>
+            <span class="agillex-hero__window-status">
+              <span class="status-indicator-live"></span>
+              Workspace Ativo 24/7
+            </span>
+          </div>
+
+          <!-- Mini Navegação de Abas da Demonstração -->
+          <div class="hub-preview__tabs">
+            <button class="hub-preview__tab-btn hub-preview__tab-btn--active" data-hub-tab="tab-crm">
+              <span>📊 Funil CRM</span>
+            </button>
+            <button class="hub-preview__tab-btn" data-hub-tab="tab-atendimento">
+              <span>🤖 Atendente IA</span>
+            </button>
+            <button class="hub-preview__tab-btn" data-hub-tab="tab-agenda">
+              <span>📅 Agenda Online</span>
+            </button>
+            <button class="hub-preview__tab-btn" data-hub-tab="tab-pay">
+              <span>💳 Agillex Pay</span>
+            </button>
+          </div>
+
+          <div class="hub-preview__body">
+            <!-- ABA 1: FUNIL CRM -->
+            <div class="hub-preview__content hub-preview__content--active" id="hub-tab-crm">
+              <div class="hub-crm-grid">
+                <div class="hub-crm-col">
+                  <div class="hub-crm-col-header">
+                    <span class="hub-crm-badge hub-crm-badge--blue">Novos Contatos</span>
+                    <span class="hub-crm-count">3</span>
+                  </div>
+                  <div class="hub-crm-card">
+                    <div class="hub-crm-lead-name">Dra. Camila Santos</div>
+                    <div class="hub-crm-lead-info">Interesse: Consulta Geral · WhatsApp</div>
+                    <div class="hub-crm-lead-val">R$ 350,00</div>
+                  </div>
+                  <div class="hub-crm-card">
+                    <div class="hub-crm-lead-name">Lucas Henrique</div>
+                    <div class="hub-crm-lead-info">Dúvida sobre horários sábado</div>
+                    <div class="hub-crm-lead-val">R$ 180,00</div>
+                  </div>
+                </div>
+
+                <div class="hub-crm-col">
+                  <div class="hub-crm-col-header">
+                    <span class="hub-crm-badge hub-crm-badge--purple">Em Atendimento IA</span>
+                    <span class="hub-crm-count">2</span>
+                  </div>
+                  <div class="hub-crm-card hub-crm-card--active">
+                    <div class="hub-crm-lead-name">Juliana Rocha</div>
+                    <div class="hub-crm-lead-info">IA respondendo áudio de voz...</div>
+                    <div class="hub-crm-tag">🤖 IA Atendendo</div>
+                  </div>
+                </div>
+
+                <div class="hub-crm-col">
+                  <div class="hub-crm-col-header">
+                    <span class="hub-crm-badge hub-crm-badge--green">Agendado & Pago</span>
+                    <span class="hub-crm-count">5</span>
+                  </div>
+                  <div class="hub-crm-card hub-crm-card--success">
+                    <div class="hub-crm-lead-name">Marcos Vinícius</div>
+                    <div class="hub-crm-lead-info">Amanhã às 14:30 · Confirmado Pix</div>
+                    <div class="hub-crm-tag-success">✓ Sincronizado Google Calendar</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ABA 2: ATENDENTE IA -->
+            <div class="hub-preview__content" id="hub-tab-atendimento">
+              <div class="hub-chat-sim">
+                <div class="hub-chat-msg hub-chat-msg--client">
+                  <p>Boa tarde! Vocês atendem convênio ou têm horário para amanhã à tarde?</p>
+                  <span class="hub-chat-time">14:02</span>
+                </div>
+                <div class="hub-chat-msg hub-chat-msg--bot">
+                  <div class="hub-chat-bot-header">
+                    <span class="hub-chat-bot-tag">Agillex Atendente IA</span>
+                  </div>
+                  <p>Olá! Tudo bem? Atendemos particular e convênios selecionados. Para amanhã à tarde temos <strong>14:30</strong> e <strong>16:00</strong> disponíveis com o Dr. Rafael!</p>
+                  <div class="hub-chat-action-box">
+                    <span>Deseja reservar às 14:30? Envio o link de confirmação instantânea para você.</span>
+                  </div>
+                  <span class="hub-chat-time">14:02 · Resposta em 2s</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ABA 3: AGENDA ONLINE -->
+            <div class="hub-preview__content" id="hub-tab-agenda">
+              <div class="hub-agenda-sim">
+                <div class="hub-agenda-header">
+                  <div class="hub-agenda-title">Agenda Integrada · Amanhã</div>
+                  <span class="hub-agenda-sync">🟢 Google Calendar Sincronizado</span>
+                </div>
+                <div class="hub-agenda-slots">
+                  <div class="hub-slot hub-slot--booked">
+                    <span class="hub-slot-time">10:00 - 11:00</span>
+                    <span class="hub-slot-name">Mariana Lima · Limpeza Completa</span>
+                    <span class="hub-slot-status">Confirmado (WhatsApp)</span>
+                  </div>
+                  <div class="hub-slot hub-slot--free">
+                    <span class="hub-slot-time">11:30 - 12:30</span>
+                    <span class="hub-slot-name">Horário Livre para Agendamento Online</span>
+                    <span class="hub-slot-status hub-slot-status--free">Disponível</span>
+                  </div>
+                  <div class="hub-slot hub-slot--booked">
+                    <span class="hub-slot-time">14:30 - 15:30</span>
+                    <span class="hub-slot-name">Marcos Vinícius · Consulta de Avaliação</span>
+                    <span class="hub-slot-status">Confirmado (Agillex Pay)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ABA 4: AGILLEX PAY -->
+            <div class="hub-preview__content" id="hub-tab-pay">
+              <div class="hub-pay-sim">
+                <div class="hub-pay-card">
+                  <div class="hub-pay-badge">Agillex Pay · Taxa Fixa R$ 1,99</div>
+                  <div class="hub-pay-amount">R$ 150,00</div>
+                  <div class="hub-pay-desc">Sinal de Agendamento · Paciente Marcos Vinícius</div>
+                  <div class="hub-pay-qr-mock">
+                    <div class="hub-pay-qr-code">QR CODE PIX</div>
+                    <div class="hub-pay-pix-key">00020126580014br.gov.bcb.pix...</div>
+                  </div>
+                  <div class="hub-pay-status-pill">✓ Liquidação Direta na Conta da sua Empresa</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .micro-badge-pulse {
+    animation: badge-pulse 3s infinite ease-in-out;
+  }
+
+  @keyframes badge-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(31, 111, 255, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(31, 111, 255, 0);
+    }
+  }
+
+  .status-indicator-live {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10b981;
+    margin-right: 6px;
+    box-shadow: 0 0 6px #10b981;
+    animation: status-blink 2s infinite ease-in-out;
+  }
+
+  @keyframes status-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hub-preview__tabs {
+    display: flex;
+    background-color: #0b1424;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 14px 0 14px;
+    gap: 8px;
+    overflow-x: auto;
+  }
+
+  .hub-preview__tab-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .hub-preview__tab-btn:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .hub-preview__tab-btn--active {
+    color: #38bdf8;
+    background-color: #0f1c30;
+    border-bottom: 2px solid #38bdf8;
+  }
+
+  .hub-preview__body {
+    background-color: #08101e;
+    padding: 20px;
+    min-height: 260px;
+  }
+
+  .hub-preview__content {
+    display: none;
+    animation: fadeInTab 0.3s ease-out;
+  }
+
+  .hub-preview__content--active {
+    display: block;
+  }
+
+  @keyframes fadeInTab {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Estilos do CRM no Preview */
+  .hub-crm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  @media (max-width: 640px) {
+    .hub-crm-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hub-crm-col {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .hub-crm-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .hub-crm-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 99px;
+  }
+
+  .hub-crm-badge--blue {
+    background-color: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+  }
+
+  .hub-crm-badge--purple {
+    background-color: rgba(168, 85, 247, 0.15);
+    color: #c084fc;
+  }
+
+  .hub-crm-badge--green {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+  }
+
+  .hub-crm-count {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+  }
+
+  .hub-crm-card {
+    background-color: #121e33;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  .hub-crm-lead-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .hub-crm-lead-info {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 3px 0;
+  }
+
+  .hub-crm-lead-val {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #34d399;
+  }
+
+  .hub-crm-tag {
+    font-size: 0.65rem;
+    background-color: rgba(168, 85, 247, 0.2);
+    color: #c084fc;
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .hub-crm-tag-success {
+    font-size: 0.65rem;
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  /* Chat Preview */
+  .hub-chat-sim {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .hub-chat-msg {
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .hub-chat-msg--client {
+    align-self: flex-start;
+    background-color: #1a283e;
+    color: #fff;
+    border-bottom-left-radius: 2px;
+  }
+
+  .hub-chat-msg--bot {
+    align-self: flex-end;
+    background-color: #0d3b66;
+    color: #f0f7ff;
+    border-bottom-right-radius: 2px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+  }
+
+  .hub-chat-bot-header {
+    margin-bottom: 4px;
+  }
+
+  .hub-chat-bot-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .hub-chat-action-box {
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    font-size: 0.78rem;
+    color: #93c5fd;
+  }
+
+  .hub-chat-time {
+    display: block;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 4px;
+    text-align: right;
+  }
+
+  /* Agenda Preview */
+  .hub-agenda-sim {
+    text-align: left;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .hub-agenda-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .hub-agenda-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .hub-agenda-sync {
+    font-size: 0.72rem;
+    color: #34d399;
+    font-weight: 600;
+  }
+
+  .hub-agenda-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hub-slot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+  }
+
+  .hub-slot--booked {
+    background-color: #121e33;
+    border-left: 3px solid #38bdf8;
+    color: #fff;
+  }
+
+  .hub-slot--free {
+    background-color: rgba(16, 185, 129, 0.08);
+    border-left: 3px solid #10b981;
+    color: #d1fae5;
+  }
+
+  .hub-slot-time {
+    font-weight: 700;
+    width: 100px;
+  }
+
+  .hub-slot-status {
+    font-size: 0.72rem;
+    color: #38bdf8;
+  }
+
+  .hub-slot-status--free {
+    color: #34d399;
+    font-weight: 600;
+  }
+
+  /* Pay Preview */
+  .hub-pay-sim {
+    max-width: 380px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hub-pay-card {
+    background-color: #121e33;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 12px;
+    padding: 18px;
+  }
+
+  .hub-pay-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #38bdf8;
+    background-color: rgba(56, 189, 248, 0.15);
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 99px;
+    margin-bottom: 10px;
+  }
+
+  .hub-pay-amount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .hub-pay-desc {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 14px;
+  }
+
+  .hub-pay-qr-mock {
+    background-color: #fff;
+    color: #0a1f44;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  .hub-pay-qr-code {
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    padding: 16px 0;
+    border: 2px dashed #0a1f44;
+    border-radius: 4px;
+  }
+
+  .hub-pay-pix-key {
+    font-size: 0.65rem;
+    color: #64748b;
+    margin-top: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hub-pay-status-pill {
+    font-size: 0.75rem;
+    color: #34d399;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  function initHubPreviewTabs(): void {
+    const tabButtons = document.querySelectorAll<HTMLButtonElement>(".hub-preview__tab-btn");
+    const tabPanels = document.querySelectorAll<HTMLElement>(".hub-preview__content");
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-hub-tab");
+        if (!targetId) return;
+
+        tabButtons.forEach((b) => b.classList.remove("hub-preview__tab-btn--active"));
+        tabPanels.forEach((p) => p.classList.remove("hub-preview__content--active"));
+
+        btn.classList.add("hub-preview__tab-btn--active");
+        const activePanel = document.getElementById(targetId);
+        if (activePanel) {
+          activePanel.classList.add("hub-preview__content--active");
+        }
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHubPreviewTabs);
+  } else {
+    initHubPreviewTabs();
+  }
+</script>

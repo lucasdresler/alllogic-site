@@ -1,4 +1,4 @@
-// Configuração técnica do site da AllLogic.
+// Configuração técnica do site da AllLogic Online.
 // Responsabilidade restrita a parâmetros técnicos de infraestrutura/SEO —
 // conteúdo institucional (marca, contato, redes sociais, CTAs, navegação)
 // pertence exclusivamente a src/content/.

@@ -1,0 +1,22 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import HubHeroSection from "../components/agillex-hub/HubHeroSection.astro";
+import HubAudienceSection from "../components/agillex-hub/HubAudienceSection.astro";
+import HubPillarsSection from "../components/agillex-hub/HubPillarsSection.astro";
+import HubPricingSection from "../components/agillex-hub/HubPricingSection.astro";
+import HubFaqSection from "../components/agillex-hub/HubFaqSection.astro";
+import HubTrialSection from "../components/agillex-hub/HubTrialSection.astro";
+import { agillexHubContent } from "../content/agillex-hub";
+---
+
+<MainLayout
+  title={agillexHubContent.meta.title}
+  description={agillexHubContent.meta.description}
+>
+  <HubHeroSection />
+  <HubAudienceSection />
+  <HubPillarsSection />
+  <HubPricingSection />
+  <HubFaqSection />
+  <HubTrialSection />
+</MainLayout>

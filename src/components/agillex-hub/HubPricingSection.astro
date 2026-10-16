@@ -1,0 +1,325 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexHubContent } from "../../content/agillex-hub";
+import "../agillex/agillex-pricing-section.css";
+
+const { pricing } = agillexHubContent;
+const proTier = pricing.tiers[0];
+const enterpriseTier = pricing.tiers[1];
+---
+
+<Section id="precos" background="light" spacing="lg">
+  <Container>
+    <div class="agillex-pricing" data-scroll-reveal="up">
+      <div class="agillex-pricing__header">
+        <span class="agillex-pricing__eyebrow">{pricing.eyebrow}</span>
+        <h2 class="agillex-pricing__title">{pricing.title}</h2>
+        <p class="agillex-pricing__subtitle">{pricing.subtitle}</p>
+
+        <!-- Toggle Mensal / Anual -->
+        <div class="agillex-pricing__toggle-wrapper">
+          <span
+            class="agillex-pricing__toggle-label agillex-pricing__toggle-label--active"
+            id="hub-label-mensal"
+          >
+            Mensal
+          </span>
+          <label class="agillex-pricing__switch" for="hub-pricing-toggle">
+            <input
+              type="checkbox"
+              id="hub-pricing-toggle"
+              role="switch"
+              aria-checked="false"
+              aria-label="Alternar para plano anual com desconto"
+            />
+            <span class="agillex-pricing__slider"></span>
+          </label>
+          <span class="agillex-pricing__toggle-label" id="hub-label-anual">
+            Anual
+          </span>
+          <span class="agillex-pricing__discount-badge">Até 20% OFF</span>
+        </div>
+      </div>
+
+      <!-- CARDS DE PLANOS -->
+      <div class="hub-pricing-grid">
+        <!-- PLANO COMBO HUB PRO (DESTAQUE) -->
+        <div class="hub-pricing-card hub-pricing-card--featured card-interactive-glow" data-scroll-reveal="up">
+          <div class="hub-pricing-badge-row">
+            <span class="hub-pricing-badge">{proTier.badge}</span>
+          </div>
+
+          <h3 class="hub-pricing-name">{proTier.name}</h3>
+          <p class="hub-pricing-tagline">{proTier.tagline}</p>
+
+          <div class="hub-pricing-amount-box">
+            <span class="hub-pricing-currency">R$</span>
+            <span class="hub-pricing-val" id="hub-price-display">{proTier.priceMonthly.replace("R$", "").trim()}</span>
+            <span class="hub-pricing-period" id="hub-period-display">{proTier.periodMonthly}</span>
+          </div>
+          <div class="hub-pricing-yearly-note" id="hub-yearly-note" style="display: none;">
+            {proTier.yearlyDiscount}
+          </div>
+
+          <p class="hub-pricing-desc">{proTier.description}</p>
+
+          <a
+            href={proTier.cta.href}
+            id="hub-cta-link"
+            class="agillex-pricing__cta agillex-pricing__cta--primary btn-interactive"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {proTier.cta.label}
+          </a>
+
+          <div class="hub-pricing-features-title">Tudo incluso no ecossistema:</div>
+          <ul class="hub-pricing-features">
+            {proTier.features.map((feat) => (
+              <li>
+                <span class="hub-check-icon">✓</span>
+                <span>{feat}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- PLANO ENTERPRISE CORPORATIVO -->
+        <div class="hub-pricing-card card-interactive" data-scroll-reveal="up">
+          <div class="hub-pricing-badge-row">
+            <span class="hub-pricing-badge hub-pricing-badge--outline">{enterpriseTier.badge}</span>
+          </div>
+
+          <h3 class="hub-pricing-name">{enterpriseTier.name}</h3>
+          <p class="hub-pricing-tagline">{enterpriseTier.tagline}</p>
+
+          <div class="hub-pricing-amount-box">
+            <span class="hub-pricing-val" style="font-size: 2rem;">{enterpriseTier.priceMonthly}</span>
+            <span class="hub-pricing-period">{enterpriseTier.periodMonthly}</span>
+          </div>
+
+          <p class="hub-pricing-desc">{enterpriseTier.description}</p>
+
+          <a
+            href={enterpriseTier.cta.href}
+            class="agillex-pricing__cta agillex-pricing__cta--secondary btn-interactive"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {enterpriseTier.cta.label}
+          </a>
+
+          <div class="hub-pricing-features-title">Recursos corporativos:</div>
+          <ul class="hub-pricing-features">
+            {enterpriseTier.features.map((feat) => (
+              <li>
+                <span class="hub-check-icon">✓</span>
+                <span>{feat}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Garantia de 14 dias -->
+      <div class="agillex-pricing__guarantee">
+        <div class="agillex-pricing__guarantee-icon" aria-hidden="true">🛡</div>
+        <div class="agillex-pricing__guarantee-text">
+          <strong>{pricing.guarantee.title}:</strong>{" "}
+          {pricing.guarantee.description}
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .hub-pricing-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+    align-items: stretch;
+  }
+
+  @media (max-width: 768px) {
+    .hub-pricing-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hub-pricing-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border, #dde3ee);
+    border-radius: var(--radius-lg, 16px);
+    padding: 2.5rem;
+    box-shadow: 0 4px 14px rgba(10, 31, 68, 0.05);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+  }
+
+  .hub-pricing-card--featured {
+    border: 2px solid var(--color-secondary, #1f6fff);
+    background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+    box-shadow: 0 12px 36px rgba(31, 111, 255, 0.12);
+    position: relative;
+  }
+
+  .hub-pricing-badge-row {
+    margin-bottom: 1rem;
+  }
+
+  .hub-pricing-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 12px;
+    border-radius: 99px;
+    background-color: var(--color-secondary, #1f6fff);
+    color: #ffffff;
+  }
+
+  .hub-pricing-badge--outline {
+    background-color: rgba(10, 31, 68, 0.08);
+    color: var(--color-primary, #0a1f44);
+  }
+
+  .hub-pricing-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-primary, #0a1f44);
+    margin-bottom: 0.4rem;
+  }
+
+  .hub-pricing-tagline {
+    font-size: 0.92rem;
+    color: var(--color-text-muted, #4a5568);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .hub-pricing-amount-box {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .hub-pricing-currency {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-primary, #0a1f44);
+  }
+
+  .hub-pricing-val {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--color-primary, #0a1f44);
+    line-height: 1;
+  }
+
+  .hub-pricing-period {
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #4a5568);
+    margin-left: 4px;
+  }
+
+  .hub-pricing-yearly-note {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #10b981;
+    margin-bottom: 1rem;
+  }
+
+  .hub-pricing-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted, #4a5568);
+    line-height: 1.5;
+    margin-bottom: 1.8rem;
+  }
+
+  .hub-pricing-features-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary, #0a1f44);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #dde3ee);
+  }
+
+  .hub-pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .hub-pricing-features li {
+    font-size: 0.88rem;
+    color: var(--color-text, #0a1f44);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .hub-check-icon {
+    color: #10b981;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+</style>
+
+<script>
+  function initHubPricingToggle(): void {
+    const toggle = document.getElementById("hub-pricing-toggle") as HTMLInputElement | null;
+    const labelMensal = document.getElementById("hub-label-mensal");
+    const labelAnual = document.getElementById("hub-label-anual");
+    const priceDisplay = document.getElementById("hub-price-display");
+    const periodDisplay = document.getElementById("hub-period-display");
+    const yearlyNote = document.getElementById("hub-yearly-note");
+    const ctaLink = document.getElementById("hub-cta-link") as HTMLAnchorElement | null;
+
+    if (!toggle || !priceDisplay || !periodDisplay) return;
+
+    toggle.addEventListener("change", () => {
+      const isYearly = toggle.checked;
+
+      if (isYearly) {
+        labelMensal?.classList.remove("agillex-pricing__toggle-label--active");
+        labelAnual?.classList.add("agillex-pricing__toggle-label--active");
+        priceDisplay.textContent = "199,90";
+        periodDisplay.textContent = "/mês no plano anual";
+        if (yearlyNote) yearlyNote.style.display = "block";
+        if (ctaLink) {
+          ctaLink.href = "https://hub.alllogiconline.com.br/checkout?modulo=combo&plano=combo&ciclo=yearly&trial=true";
+        }
+      } else {
+        labelAnual?.classList.remove("agillex-pricing__toggle-label--active");
+        labelMensal?.classList.add("agillex-pricing__toggle-label--active");
+        priceDisplay.textContent = "249,90";
+        periodDisplay.textContent = "/mês no plano mensal";
+        if (yearlyNote) yearlyNote.style.display = "none";
+        if (ctaLink) {
+          ctaLink.href = "https://hub.alllogiconline.com.br/checkout?modulo=combo&plano=combo&trial=true";
+        }
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHubPricingToggle);
+  } else {
+    initHubPricingToggle();
+  }
+</script>

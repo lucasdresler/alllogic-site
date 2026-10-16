@@ -1,8 +1,8 @@
 // Conteúdo institucional compartilhado do site, isolado da camada de apresentação.
 // Propósito, missão e visão derivam de foundation.ts, que traduz o FOUNDATION.md.
 // company.name, company.description e branding.tagline já refletem o
-// posicionamento homologado da AllLogic.
-// contact.email e contact.phone contêm os dados oficiais de contato da AllLogic.
+// posicionamento homologado da AllLogic Online.
+// contact.email e contact.phone contêm os dados oficiais de contato da AllLogic Online.
 // social.* permanece como placeholder até a definição dos perfis oficiais.
 
 import { foundationContent } from "./foundation";

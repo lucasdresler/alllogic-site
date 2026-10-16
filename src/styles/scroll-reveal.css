@@ -1,4 +1,4 @@
-/* Movimentos de entrada — usados de forma seletiva conforme a hierarquia visual. */
+/* Movimentos de entrada contemporâneos e dinâmicos para seções e cards */
 
 .scroll-reveal-enabled [data-scroll-reveal="up"],
 .scroll-reveal-enabled [data-scroll-reveal="left"],
@@ -6,14 +6,21 @@
 .scroll-reveal-enabled [data-scroll-reveal="fade"] {
   opacity: 0;
   transition:
-    opacity var(--reveal-duration, 500ms) ease,
-    transform var(--reveal-duration, 500ms) ease;
+    opacity var(--reveal-duration, 550ms) cubic-bezier(0.16, 1, 0.3, 1),
+    transform var(--reveal-duration, 550ms) cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
-[data-scroll-reveal="up"],
-[data-scroll-reveal="left"],
+[data-scroll-reveal="up"] {
+  transform: translateY(24px) scale(0.985);
+}
+
+[data-scroll-reveal="left"] {
+  transform: translateX(-24px) scale(0.985);
+}
+
 [data-scroll-reveal="right"] {
-  transform: translateY(24px);
+  transform: translateX(24px) scale(0.985);
 }
 
 [data-scroll-reveal="fade"] {
@@ -22,32 +29,34 @@
 
 @media (min-width: 769px) {
   [data-scroll-reveal="left"] {
-    transform: translateX(-28px);
+    transform: translateX(-32px) scale(0.985);
   }
 
   [data-scroll-reveal="right"] {
-    transform: translateX(28px);
+    transform: translateX(32px) scale(0.985);
   }
 }
 
 [data-scroll-reveal].scroll-reveal--visible {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: translate(0, 0) scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
   [data-scroll-reveal] {
     opacity: 1;
-    transform: none;
-    transition: none;
+    transform: none !important;
+    transition: none !important;
   }
 }
 
+/* Escalonamento harmônico de delays para grids */
 .problems-section__card:nth-child(2),
 .solutions-section__block:nth-child(2),
 .portfolio-section__block:nth-child(2),
 .agillex-audience__card:nth-child(2),
-.agillex-features__card:nth-child(2) {
+.agillex-features__card:nth-child(2),
+.hub-pillar-card:nth-child(2) {
   --reveal-duration: 650ms;
   transition-delay: 80ms;
 }
@@ -56,7 +65,8 @@
 .solutions-section__block:nth-child(3),
 .portfolio-section__block:nth-child(3),
 .agillex-audience__card:nth-child(3),
-.agillex-features__card:nth-child(3) {
+.agillex-features__card:nth-child(3),
+.hub-pillar-card:nth-child(3) {
   --reveal-duration: 700ms;
   transition-delay: 160ms;
 }
@@ -65,13 +75,15 @@
 .solutions-section__block:nth-child(4),
 .portfolio-section__block:nth-child(4),
 .agillex-audience__card:nth-child(4),
-.agillex-features__card:nth-child(4) {
+.agillex-features__card:nth-child(4),
+.hub-pillar-card:nth-child(4) {
   --reveal-duration: 750ms;
   transition-delay: 240ms;
 }
 
 .agillex-audience__card:nth-child(5),
-.agillex-features__card:nth-child(5) {
+.agillex-features__card:nth-child(5),
+.hub-pillar-card:nth-child(5) {
   --reveal-duration: 800ms;
   transition-delay: 320ms;
 }
