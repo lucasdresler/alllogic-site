@@ -120,168 +120,235 @@
   letter-spacing: 0.04em;
 }
 
-/* Grid de Cards */
-.agillex-pricing__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
-  align-items: stretch;
-  margin-bottom: var(--space-lg);
+/* Card Único Master */
+.agillex-pricing__single-card-wrapper {
+  max-width: 780px;
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--space-xs);
 }
 
-@media (max-width: 980px) {
-  .agillex-pricing__grid {
-    grid-template-columns: 1fr;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-.agillex-pricing__card {
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg) var(--space-md);
-  display: flex;
-  flex-direction: column;
+.agillex-pricing__single-card {
   position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.agillex-pricing__card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: rgba(31, 111, 255, 0.4);
-}
-
-.agillex-pricing__card--popular {
+  background: var(--color-background);
   border: 2px solid var(--color-secondary);
-  box-shadow: var(--shadow-md);
-  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  border-radius: var(--radius-lg);
+  padding: clamp(var(--space-md), 4vw, var(--space-xl)) clamp(var(--space-md), 4vw, var(--space-xl));
+  box-shadow: 0 12px 36px rgba(10, 37, 64, 0.08);
+  background: linear-gradient(180deg, #ffffff 0%, #fafcff 100%);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.agillex-pricing__single-card:hover {
+  box-shadow: 0 16px 44px rgba(10, 37, 64, 0.12);
 }
 
 .agillex-pricing__card-badge {
   position: absolute;
-  top: -13px;
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--color-secondary);
   color: var(--color-text-inverse);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 4px 14px;
+  letter-spacing: 0.06em;
+  padding: 4px 16px;
   border-radius: 999px;
   box-shadow: var(--shadow-sm);
+  white-space: nowrap;
 }
 
-.agillex-pricing__card-header {
-  margin-bottom: var(--space-md);
+/* Bloco de Capacidade de Profissionais */
+.agillex-pricing__capacity-block {
   text-align: center;
+  margin-bottom: var(--space-md);
 }
 
-.agillex-pricing__tier-name {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin: 0 0 4px;
+.agillex-pricing__capacity-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
 }
 
-.agillex-pricing__tier-capacity {
-  display: inline-block;
-  background-color: var(--color-surface);
-  color: var(--color-primary);
+.agillex-pricing__capacity-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 999px;
-  margin-top: 6px;
+  padding: 5px;
+  border-radius: var(--radius-md);
+  max-width: 580px;
+  margin: 0 auto;
 }
 
-.agillex-pricing__card--popular .agillex-pricing__tier-capacity {
-  background-color: rgba(31, 111, 255, 0.08);
-  border-color: rgba(31, 111, 255, 0.25);
+@media (max-width: 560px) {
+  .agillex-pricing__capacity-tabs {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+.agillex-pricing__capacity-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.agillex-pricing__capacity-tab:hover {
+  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.agillex-pricing__capacity-tab--active {
+  background: #ffffff !important;
+  color: var(--color-primary) !important;
+  border-color: rgba(31, 111, 255, 0.25) !important;
+  box-shadow: var(--shadow-sm);
+  font-weight: 700;
+}
+
+.agillex-pricing__tab-name {
+  line-height: 1.2;
+}
+
+.agillex-pricing__tab-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
   color: var(--color-secondary);
+  background: rgba(31, 111, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .agillex-pricing__tier-tagline {
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   color: var(--color-text-muted);
+  margin: var(--space-xs) auto 0;
+  max-width: 520px;
   line-height: 1.45;
-  margin: 8px 0 0;
-  min-height: 42px;
+  min-height: 24px;
 }
 
 /* Preço */
 .agillex-pricing__price-box {
   text-align: center;
   padding: var(--space-md) 0;
-  margin-bottom: var(--space-md);
+  margin: var(--space-sm) 0 var(--space-md);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
 
+.agillex-pricing__price-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+
 .agillex-pricing__price-currency {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: var(--color-primary);
-  vertical-align: super;
-  margin-right: 2px;
 }
 
 .agillex-pricing__price-value {
-  font-size: 2.6rem;
+  font-size: clamp(2.8rem, 6vw, 3.8rem);
   font-weight: 800;
   color: var(--color-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 1;
 }
 
 .agillex-pricing__price-period {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--color-text-muted);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .agillex-pricing__price-annual-note {
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   color: var(--color-secondary);
-  font-weight: 600;
+  font-weight: 700;
   margin-top: 6px;
-  min-height: 18px;
+  min-height: 20px;
 }
 
-/* Features */
-.agillex-pricing__features {
+/* Cabeçalho de Recursos */
+.agillex-pricing__features-header {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.agillex-pricing__features-title {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+/* Grade de Recursos Unificados */
+.agillex-pricing__features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
   list-style: none;
   padding: 0;
   margin: 0 0 var(--space-lg);
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+}
+
+@media (max-width: 680px) {
+  .agillex-pricing__features-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }
 
 .agillex-pricing__feature-item {
-  font-size: 0.88rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
   color: var(--color-text);
   line-height: 1.45;
-  position: relative;
-  padding-left: 22px;
 }
 
 .agillex-pricing__feature-check {
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--color-accent);
-  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-/* Ação CTA */
+/* CTA */
 .agillex-pricing__cta {
   display: flex;
   justify-content: center;
@@ -292,47 +359,45 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 12px 20px;
+  max-width: 440px;
+  padding: 14px 28px;
   border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 1.05rem;
   text-decoration: none;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: 0 4px 14px rgba(10, 37, 64, 0.16);
   transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
   text-align: center;
 }
 
-.agillex-pricing__btn--default {
-  background-color: var(--color-surface);
-  color: var(--color-primary);
-  border: 1px solid var(--color-border);
-}
-
-.agillex-pricing__btn--default:hover {
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
-  border-color: var(--color-primary);
-  transform: translateY(-1px);
-}
-
-.agillex-pricing__btn--popular {
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
-  border: 1px solid var(--color-primary);
-  box-shadow: var(--shadow-sm);
-}
-
-.agillex-pricing__btn--popular:hover {
+.agillex-pricing__btn:hover {
   background-color: var(--color-primary-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10, 37, 64, 0.22);
 }
 
-/* Nota de rodapé */
+.agillex-pricing__card-footer {
+  text-align: center;
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  margin: var(--space-xs) 0 0;
+  font-weight: 500;
+}
+
+/* Nota de rodapé da seção */
 .agillex-pricing__footer-note {
   text-align: center;
   margin-top: var(--space-md);
   font-size: 0.92rem;
   color: var(--color-text-muted);
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .agillex-pricing {
+    padding: 0;
+  }
 }

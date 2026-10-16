@@ -7,7 +7,7 @@ import "./agillex-hero-section.css";
 
 <Section id="hero-agillex" spacing="lg">
   <Container>
-    <div class="agillex-hero">
+    <div class="agillex-hero" data-scroll-reveal="up">
       <div class="agillex-hero__badge">
         <span>{agillexContent.hero.badge}</span>
       </div>
@@ -54,6 +54,41 @@ import "./agillex-hero-section.css";
           <polyline points="9 12 11 14 15 10"></polyline>
         </svg>
         <span>{agillexContent.hero.trust}</span>
+      </div>
+
+      <!-- Preview Visual Dinâmico do Hero -->
+      <div class="agillex-hero__preview" data-scroll-reveal="up">
+        <div class="agillex-hero__window">
+          <div class="agillex-hero__window-bar">
+            <div class="agillex-hero__window-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="agillex-hero__window-url">
+              agenda.alllogiconline.com.br/agillex
+            </div>
+            <span class="agillex-hero__window-status">● Sistema Ativo 24/7</span>
+          </div>
+
+          <div class="agillex-hero__window-content">
+            <div class="agillex-hero__preview-grid">
+              <div class="agillex-hero__slot agillex-hero__slot--confirmed">
+                <span class="agillex-hero__slot-time">09:00 - 09:45</span>
+                <strong>Corte Clássico & Barba</strong>
+                <span class="agillex-hero__slot-status">✓ Confirmado via WhatsApp</span>
+              </div>
+              <div class="agillex-hero__slot agillex-hero__slot--confirmed">
+                <span class="agillex-hero__slot-time">10:30 - 11:15</span>
+                <strong>Atendimento Agendado</strong>
+                <span class="agillex-hero__slot-status">✓ Confirmado via WhatsApp</span>
+              </div>
+              <div class="agillex-hero__slot agillex-hero__slot--open">
+                <span class="agillex-hero__slot-time">14:00 - 15:00</span>
+                <strong>Horário Disponível</strong>
+                <span class="agillex-hero__slot-status">Agendamento online 24/7</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </Container>

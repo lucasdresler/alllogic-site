@@ -45,21 +45,38 @@
 
 .problems-section__card:nth-child(2),
 .solutions-section__block:nth-child(2),
-.portfolio-section__block:nth-child(2) {
+.portfolio-section__block:nth-child(2),
+.agillex-audience__card:nth-child(2),
+.agillex-features__card:nth-child(2) {
   --reveal-duration: 650ms;
   transition-delay: 80ms;
 }
 
 .problems-section__card:nth-child(3),
 .solutions-section__block:nth-child(3),
-.portfolio-section__block:nth-child(3) {
+.portfolio-section__block:nth-child(3),
+.agillex-audience__card:nth-child(3),
+.agillex-features__card:nth-child(3) {
   --reveal-duration: 700ms;
   transition-delay: 160ms;
 }
 
 .problems-section__card:nth-child(4),
 .solutions-section__block:nth-child(4),
-.portfolio-section__block:nth-child(4) {
+.portfolio-section__block:nth-child(4),
+.agillex-audience__card:nth-child(4),
+.agillex-features__card:nth-child(4) {
   --reveal-duration: 750ms;
   transition-delay: 240ms;
+}
+
+.agillex-audience__card:nth-child(5),
+.agillex-features__card:nth-child(5) {
+  --reveal-duration: 800ms;
+  transition-delay: 320ms;
+}
+
+.agillex-features__card:nth-child(6) {
+  --reveal-duration: 850ms;
+  transition-delay: 400ms;
 }

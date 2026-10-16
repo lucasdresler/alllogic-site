@@ -1,0 +1,271 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexContent } from "../../content/agillex";
+import "./agillex-demo-section.css";
+
+const { demo } = agillexContent;
+---
+
+<Section id="como-funciona" background="light" spacing="lg">
+  <Container>
+    <div class="agillex-demo" data-scroll-reveal="up">
+      <div class="agillex-demo__header">
+        <span class="agillex-demo__eyebrow">{demo.eyebrow}</span>
+        <h2 class="agillex-demo__title">{demo.title}</h2>
+        <p class="agillex-demo__description">{demo.description}</p>
+      </div>
+
+      <!-- Abas Interativas -->
+      <div class="agillex-demo__nav" role="tablist" aria-label="Etapas de funcionamento">
+        {
+          demo.tabs.map((tab, idx) => (
+            <button
+              type="button"
+              role="tab"
+              class:list={[
+                "agillex-demo__tab-btn",
+                idx === 0 && "agillex-demo__tab-btn--active",
+              ]}
+              data-demo-target={tab.id}
+              aria-selected={idx === 0 ? "true" : "false"}
+            >
+              <span class="agillex-demo__tab-icon">{tab.icon}</span>
+              <span class="agillex-demo__tab-label">{tab.label}</span>
+            </button>
+          ))
+        }
+      </div>
+
+      <!-- Painéis Interativos -->
+      <div class="agillex-demo__panels">
+        <!-- Painel 1: Cliente Agendando -->
+        <div
+          class="agillex-demo__panel agillex-demo__panel--active"
+          id="panel-cliente"
+          role="tabpanel"
+        >
+          <div class="agillex-demo__panel-content">
+            <span class="agillex-demo__panel-badge">Passo a Passo Rápido</span>
+            <h3 class="agillex-demo__panel-title">
+              Seu cliente agenda em menos de 1 minuto pelo celular
+            </h3>
+            <p class="agillex-demo__panel-desc">
+              Sem necessidade de baixar aplicativo ou criar cadastro demorado. O cliente acessa seu link exclusivo, escolhe o serviço desejado, seleciona o profissional e o melhor horário disponível.
+            </p>
+            <ul class="agillex-demo__panel-highlights">
+              <li>✓ Funciona direto pelo link da bio do Instagram ou WhatsApp</li>
+              <li>✓ Visualização em tempo real apenas dos horários livres</li>
+              <li>✓ Confirmação instantânea sem troca de mensagens manuais</li>
+            </ul>
+          </div>
+
+          <div class="agillex-demo__mockup agillex-demo__mockup--phone">
+            <div class="mockup-phone">
+              <div class="mockup-phone__notch"></div>
+              <div class="mockup-phone__screen">
+                <div class="mockup-phone__app-header">
+                  <div class="mockup-phone__brand">
+                    <span class="mockup-phone__avatar">✂</span>
+                    <div>
+                      <strong>Barbearia Silva</strong>
+                      <span class="mockup-phone__status">● Aberto para agendamento</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mockup-phone__body">
+                  <div class="mockup-step mockup-step--done">
+                    <span class="mockup-step__num">1</span>
+                    <div class="mockup-step__info">
+                      <strong>Serviço Escolhido</strong>
+                      <span>Corte Clássico & Barba (50 min · R$ 65,00)</span>
+                    </div>
+                    <span class="mockup-step__check">✓</span>
+                  </div>
+
+                  <div class="mockup-step mockup-step--done">
+                    <span class="mockup-step__num">2</span>
+                    <div class="mockup-step__info">
+                      <strong>Profissional</strong>
+                      <span>Lucas Silva (Barbeiro Master)</span>
+                    </div>
+                    <span class="mockup-step__check">✓</span>
+                  </div>
+
+                  <div class="mockup-step mockup-step--active">
+                    <span class="mockup-step__num">3</span>
+                    <div class="mockup-step__info">
+                      <strong>Horário Disponível</strong>
+                      <div class="mockup-slots">
+                        <span class="mockup-slot">09:30</span>
+                        <span class="mockup-slot mockup-slot--selected">14:30 ✓</span>
+                        <span class="mockup-slot">16:00</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mockup-action-btn">
+                    Confirmar Agendamento
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 2: WhatsApp Automático -->
+        <div
+          class="agillex-demo__panel"
+          id="panel-whatsapp"
+          role="tabpanel"
+        >
+          <div class="agillex-demo__panel-content">
+            <span class="agillex-demo__panel-badge">Notificação Automática</span>
+            <h3 class="agillex-demo__panel-title">
+              Confirmação imediata e lembretes para evitar faltas
+            </h3>
+            <p class="agillex-demo__panel-desc">
+              Assim que o horário é agendado, uma mensagem personalizada de confirmação é enviada automaticamente no WhatsApp do cliente com todos os dados do atendimento.
+            </p>
+            <ul class="agillex-demo__panel-highlights">
+              <li>✓ Notificação instantânea com nome, data, serviço e profissional</li>
+              <li>✓ Reduz faltas de clientes e cancelamentos de última hora</li>
+              <li>✓ Mensagens profissionais com a identidade do seu negócio</li>
+            </ul>
+          </div>
+
+          <div class="agillex-demo__mockup agillex-demo__mockup--whatsapp">
+            <div class="mockup-whatsapp">
+              <div class="mockup-whatsapp__topbar">
+                <span class="mockup-whatsapp__avatar">A</span>
+                <div>
+                  <strong>Barbearia Silva</strong>
+                  <span>Online via WhatsApp</span>
+                </div>
+              </div>
+              <div class="mockup-whatsapp__chat">
+                <div class="mockup-bubble">
+                  <p>
+                    Olá, <strong>Lucas</strong>! 👋<br /><br />
+                    Seu agendamento foi <strong>confirmado com sucesso</strong> na Barbearia Silva:<br /><br />
+                    🗓 <strong>Data:</strong> Terça-feira, 15/10 às 14:30<br />
+                    ✂ <strong>Serviço:</strong> Corte Clássico & Barba<br />
+                    👤 <strong>Profissional:</strong> Lucas Silva<br />
+                    📍 <strong>Endereço:</strong> Rua das Flores, 140<br /><br />
+                    Caso precise reagendar ou cancelar, basta nos avisar por aqui. Aguardamos você!
+                  </p>
+                  <span class="mockup-bubble__meta">14:31 <span class="mockup-bubble__check">✓✓</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 3: Painel do Negócio -->
+        <div
+          class="agillex-demo__panel"
+          id="panel-painel"
+          role="tabpanel"
+        >
+          <div class="agillex-demo__panel-content">
+            <span class="agillex-demo__panel-badge">Gestão Centralizada</span>
+            <h3 class="agillex-demo__panel-title">
+              Sua agenda organizada e atualizada em tempo real
+            </h3>
+            <p class="agillex-demo__panel-desc">
+              Tenha uma visão clara dos horários do dia, da semana e da disponibilidade de cada profissional. Reagende ou cancele atendimentos com apenas alguns cliques.
+            </p>
+            <ul class="agillex-demo__panel-highlights">
+              <li>✓ Visão diária, semanal e mensal dos atendimentos</li>
+              <li>✓ Controle de jornadas, horários de almoço e folgas</li>
+              <li>✓ Histórico completo de clientes e atendimentos realizados</li>
+            </ul>
+          </div>
+
+          <div class="agillex-demo__mockup agillex-demo__mockup--dashboard">
+            <div class="mockup-dash">
+              <div class="mockup-dash__header">
+                <strong>Agenda de Atendimentos</strong>
+                <span class="mockup-dash__date">Hoje, 15 de Outubro</span>
+              </div>
+              <div class="mockup-dash__stats">
+                <div class="mockup-dash__stat">
+                  <span>Hoje</span>
+                  <strong>8 Atendimentos</strong>
+                </div>
+                <div class="mockup-dash__stat">
+                  <span>Status</span>
+                  <strong class="text-success">100% Confirmado</strong>
+                </div>
+              </div>
+              <div class="mockup-dash__list">
+                <div class="mockup-dash__item">
+                  <span class="mockup-dash__time">14:30</span>
+                  <div class="mockup-dash__detail">
+                    <strong>Lucas Santos</strong>
+                    <span>Corte Clássico & Barba · Lucas Silva</span>
+                  </div>
+                  <span class="mockup-dash__badge">Confirmado</span>
+                </div>
+                <div class="mockup-dash__item">
+                  <span class="mockup-dash__time">15:30</span>
+                  <div class="mockup-dash__detail">
+                    <strong>Rafael Oliveira</strong>
+                    <span>Barboterapia · Lucas Silva</span>
+                  </div>
+                  <span class="mockup-dash__badge">Confirmado</span>
+                </div>
+                <div class="mockup-dash__item">
+                  <span class="mockup-dash__time">16:30</span>
+                  <div class="mockup-dash__detail">
+                    <strong>Carlos Eduardo</strong>
+                    <span>Corte Degradê · Mariana Rocha</span>
+                  </div>
+                  <span class="mockup-dash__badge">Confirmado</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<script>
+  function initDemoTabs() {
+    const tabButtons = document.querySelectorAll<HTMLButtonElement>(".agillex-demo__tab-btn");
+    const panels = document.querySelectorAll<HTMLElement>(".agillex-demo__panel");
+
+    if (tabButtons.length === 0) return;
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-demo-target");
+        if (!targetId) return;
+
+        tabButtons.forEach((b) => {
+          b.classList.remove("agillex-demo__tab-btn--active");
+          b.setAttribute("aria-selected", "false");
+        });
+        btn.classList.add("agillex-demo__tab-btn--active");
+        btn.setAttribute("aria-selected", "true");
+
+        panels.forEach((p) => {
+          if (p.id === `panel-${targetId}`) {
+            p.classList.add("agillex-demo__panel--active");
+          } else {
+            p.classList.remove("agillex-demo__panel--active");
+          }
+        });
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initDemoTabs);
+  } else {
+    initDemoTabs();
+  }
+</script>

@@ -11,6 +11,20 @@
   padding-block: 6rem;
 }
 
+@media (max-width: 768px) {
+  .section--spacing-sm {
+    padding-block: 1.25rem;
+  }
+
+  .section--spacing-md {
+    padding-block: 1.75rem;
+  }
+
+  .section--spacing-lg {
+    padding-block: 2rem;
+  }
+}
+
 /* Backgrounds — Design Tokens homologados (ver src/styles/tokens.css) */
 .section--default {
   background-color: var(--color-background);

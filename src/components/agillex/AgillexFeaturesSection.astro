@@ -8,7 +8,7 @@ import "./agillex-features-section.css";
 
 <Section id="funcionalidades" spacing="lg">
   <Container>
-    <div class="agillex-features__header">
+    <div class="agillex-features__header" data-scroll-reveal="up">
       <span class="agillex-features__eyebrow">{agillexContent.features.eyebrow}</span>
       <h2 class="agillex-features__title">{agillexContent.features.title}</h2>
       <p class="agillex-features__description">
@@ -18,7 +18,7 @@ import "./agillex-features-section.css";
 
     <Grid columns={3} gap="lg">
       {agillexContent.features.items.map((item) => (
-        <div class="agillex-features__card">
+        <div class="agillex-features__card" data-scroll-reveal="up">
           <div class="agillex-features__badge">{item.badge}</div>
           <h3 class="agillex-features__card-title">{item.title}</h3>
           <p class="agillex-features__card-description">{item.description}</p>

@@ -86,11 +86,11 @@ export interface AgillexPricingTier {
   popular?: boolean;
   tagline: string;
   capacity: string;
+  professionalsCount: number;
   priceMonthly: string;
   priceAnnualMonthly: string;
   annualTotal: string;
   period: string;
-  features: string[];
   cta: AgillexCTA;
 }
 
@@ -99,7 +99,36 @@ export interface AgillexPricingContent {
   title: string;
   subtitle: string;
   universalNote: string;
+  features: string[];
   tiers: AgillexPricingTier[];
+}
+
+export interface AgillexFaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface AgillexFaqContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  items: AgillexFaqItem[];
+}
+
+export interface AgillexDemoTab {
+  id: string;
+  label: string;
+  icon: string;
+  title: string;
+  description: string;
+  badge: string;
+}
+
+export interface AgillexDemoContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  tabs: AgillexDemoTab[];
 }
 
 export interface AgillexContent {
@@ -110,7 +139,9 @@ export interface AgillexContent {
   hero: AgillexHeroContent;
   audience: AgillexAudienceContent;
   features: AgillexFeaturesContent;
+  demo: AgillexDemoContent;
   pricing: AgillexPricingContent;
+  faq: AgillexFaqContent;
   trial: AgillexTrialContent;
 }
 
@@ -225,31 +256,69 @@ export const agillexContent: AgillexContent = {
       },
     ],
   },
+  demo: {
+    eyebrow: "EXPERIÊNCIA NA PRÁTICA",
+    title: "Veja como funciona no dia a dia",
+    description:
+      "Uma jornada simples e sem atrito para o seu cliente, com controle total para a sua equipe e comunicação automatizada.",
+    tabs: [
+      {
+        id: "cliente",
+        label: "Agendamento do Cliente",
+        icon: "📱",
+        badge: "Passo a Passo Rápido",
+        title: "Seu cliente agenda em menos de 1 minuto pelo celular",
+        description:
+          "Sem necessidade de baixar aplicativo ou criar cadastro demorado. O cliente acessa seu link exclusivo, escolhe o serviço desejado, seleciona o profissional e o melhor horário disponível.",
+      },
+      {
+        id: "whatsapp",
+        label: "Confirmação via WhatsApp",
+        icon: "💬",
+        badge: "Automatização Integrada",
+        title: "Confirmação imediata e lembretes para evitar faltas",
+        description:
+          "Assim que o horário é agendado, uma mensagem personalizada de confirmação é enviada automaticamente no WhatsApp do cliente com todos os dados do atendimento.",
+      },
+      {
+        id: "painel",
+        label: "Painel de Controle",
+        icon: "📅",
+        badge: "Gestão Centralizada",
+        title: "Sua agenda organizada e atualizada em tempo real",
+        description:
+          "Tenha uma visão clara dos horários do dia, da semana e da disponibilidade de cada profissional. Reagende ou cancele atendimentos com apenas alguns cliques.",
+      },
+    ],
+  },
   pricing: {
     eyebrow: "PLANOS E PREÇOS",
     title: "Plataforma completa em todos os planos",
     subtitle:
-      "Todos os planos contam com 100% dos recursos liberados, clientes e agendamentos ilimitados. Escolha apenas a capacidade ideal para o tamanho da sua equipe.",
+      "Todos os recursos liberados, clientes e agendamentos ilimitados. Escolha apenas a capacidade ideal para o tamanho da sua equipe.",
     universalNote: "Todos os planos incluem 14 dias de teste grátis sem cartão de crédito e sem fidelidade.",
+    features: [
+      "Acesso a 100% dos recursos da plataforma em todos os planos",
+      "Clientes, serviços e agendamentos ilimitados",
+      "Página pública exclusiva do seu negócio aberta 24/7",
+      "Notificações e confirmações automáticas via WhatsApp",
+      "Painel administrativo com visão diária, semanal e mensal",
+      "Gestão de escalas, horários e intervalos de trabalho",
+      "Totalmente adaptado para celular, tablet e computador",
+      "14 dias de teste grátis — sem cartão de crédito e sem fidelidade",
+    ],
     tiers: [
       {
         id: "inicial",
-        name: "Inicial",
-        tagline: "Para profissionais autônomos e estúdios individuais com foco em simplicidade.",
+        name: "1 Profissional",
+        badge: "Autônomos",
+        tagline: "Ideal para profissionais autônomos e estúdios individuais com foco em simplicidade.",
         capacity: "1 Profissional",
+        professionalsCount: 1,
         priceMonthly: "49,90",
         priceAnnualMonthly: "39,90",
-        annualTotal: "R$ 478,80 ao ano (20% de economia)",
+        annualTotal: "Cobrado anualmente: R$ 478,80 ao ano (20% de economia)",
         period: "/mês",
-        features: [
-          "1 profissional com escalas e horários próprios",
-          "Plataforma completa com 100% dos recursos",
-          "Clientes, serviços e agendamentos ilimitados",
-          "Página pública exclusiva de agendamento online 24/7",
-          "Painel administrativo com visão diária, semanal e mensal",
-          "Totalmente responsivo para celular, tablet e computador",
-          "14 dias de teste grátis sem cartão de crédito",
-        ],
         cta: {
           label: "Começar 14 dias grátis",
           href: "https://agenda.alllogiconline.com.br/agillex?plano=inicial",
@@ -259,25 +328,16 @@ export const agillexContent: AgillexContent = {
       },
       {
         id: "intermediario",
-        name: "Intermediário",
+        name: "Até 5 Profissionais",
         badge: "Mais Escolhido",
         popular: true,
-        tagline: "Para barbearias, clínicas e salões com equipe em crescimento.",
+        tagline: "Para barbearias, clínicas, salões e estúdios com equipe em crescimento.",
         capacity: "Até 5 Profissionais",
+        professionalsCount: 5,
         priceMonthly: "99,90",
         priceAnnualMonthly: "79,90",
-        annualTotal: "R$ 958,80 ao ano (20% de economia)",
+        annualTotal: "Cobrado anualmente: R$ 958,80 ao ano (20% de economia)",
         period: "/mês",
-        features: [
-          "Até 5 profissionais com jornadas e intervalos próprios",
-          "Plataforma completa com 100% dos recursos",
-          "Clientes, serviços e agendamentos ilimitados",
-          "Gestão centralizada de atendimentos da equipe",
-          "Página pública exclusiva de agendamento online 24/7",
-          "Painel administrativo com visão diária, semanal e mensal",
-          "Totalmente responsivo para celular, tablet e computador",
-          "14 dias de teste grátis sem cartão de crédito",
-        ],
         cta: {
           label: "Começar 14 dias grátis",
           href: "https://agenda.alllogiconline.com.br/agillex?plano=intermediario",
@@ -287,29 +347,59 @@ export const agillexContent: AgillexContent = {
       },
       {
         id: "avancado",
-        name: "Avançado",
-        tagline: "Para estabelecimentos com grande fluxo e múltiplos profissionais.",
+        name: "Até 10 Profissionais",
+        badge: "Grandes Equipes",
+        tagline: "Para clínicas e estabelecimentos com múltiplos atendimentos simultâneos.",
         capacity: "Até 10 Profissionais",
+        professionalsCount: 10,
         priceMonthly: "169,90",
         priceAnnualMonthly: "139,90",
-        annualTotal: "R$ 1.678,80 ao ano (economia de ~18%)",
+        annualTotal: "Cobrado anualmente: R$ 1.678,80 ao ano (~18% de economia)",
         period: "/mês",
-        features: [
-          "Até 10 profissionais na mesma conta",
-          "Plataforma completa com 100% dos recursos",
-          "Clientes, serviços e agendamentos ilimitados",
-          "Gestão ampla de múltiplos atendimentos simultâneos",
-          "Página pública exclusiva de agendamento online 24/7",
-          "Atendimento e suporte comercial prioritário",
-          "Totalmente responsivo para celular, tablet e computador",
-          "14 dias de teste grátis sem cartão de crédito",
-        ],
         cta: {
           label: "Começar 14 dias grátis",
           href: "https://agenda.alllogiconline.com.br/agillex?plano=avancado",
           target: "_blank",
           rel: "noopener noreferrer",
         },
+      },
+    ],
+  },
+  faq: {
+    eyebrow: "DÚVIDAS FREQUENTES",
+    title: "Perguntas comuns sobre o Agillex Agenda",
+    description:
+      "Tudo o que você precisa saber para começar a usar a plataforma hoje mesmo.",
+    items: [
+      {
+        question: "Como funciona o teste gratuito de 14 dias?",
+        answer:
+          "Você cria sua conta e tem acesso ilimitado a todos os recursos da plataforma durante 14 dias. Não solicitamos dados de cartão de crédito e você só assina se o sistema fizer sentido para a rotina do seu negócio.",
+      },
+      {
+        question: "Preciso instalar algum aplicativo no celular ou computador?",
+        answer:
+          "Não! O Agillex Agenda funciona 100% na nuvem pelo navegador. Você e seus clientes podem acessar pelo celular, tablet ou computador sem precisar instalar nada das lojas de aplicativos.",
+      },
+      {
+        question: "Como funcionam as confirmações por WhatsApp?",
+        answer:
+          "Assim que o cliente conclui um agendamento na sua página pública, o sistema envia uma mensagem automática de confirmação no WhatsApp dele com a data, horário, serviço e profissional agendados.",
+      },
+      {
+        question: "Posso mudar de plano se minha equipe aumentar?",
+        answer:
+          "Sim, a qualquer momento. Se você começar com o plano individual e sua equipe crescer, basta migrar para o plano de até 5 ou até 10 profissionais diretamente no sistema, preservando todo o histórico de agendamentos e clientes.",
+      },
+      {
+        question: "Existe taxa de cancelamento ou contrato de fidelidade?",
+        answer:
+          "Não há taxa de cancelamento e nem fidelidade. No plano mensal você pode cancelar a qualquer momento sem qualquer multa.",
+      },
+      {
+        question: "Como meus clientes acessam minha agenda?",
+        answer:
+          "Você recebe um link exclusivo do seu negócio (como agenda.alllogiconline.com.br/seunegocio) para colocar na bio do Instagram, no botão do WhatsApp ou enviar diretamente aos seus clientes.",
       },
     ],
   },
@@ -335,15 +425,14 @@ export const agillexContent: AgillexContent = {
     card: {
       highlight: "ACESSO À PLATAFORMA",
       title: "Comece agora mesmo",
-      description:
-        "Acesse o sistema para conhecer a interface ou converse com nossa equipe para detalhes de implantação.",
+      description: "Acesse o sistema para conhecer a interface.",
       action: {
         label: "Acessar o Agillex Agenda",
         href: "https://agenda.alllogiconline.com.br/agillex",
         target: "_blank",
         rel: "noopener noreferrer",
       },
-      note: "Consulte nossa equipe para condições comerciais e planos disponíveis",
+      note: "",
     },
   },
 };

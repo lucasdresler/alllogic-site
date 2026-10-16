@@ -1,0 +1,122 @@
+.agillex-faq {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.agillex-faq__header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto var(--space-lg);
+}
+
+.agillex-faq__eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+}
+
+.agillex-faq__title {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  color: var(--color-primary);
+  margin: 0 0 var(--space-sm);
+  line-height: 1.25;
+}
+
+.agillex-faq__description {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Acordeão */
+.agillex-faq__accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.agillex-faq__item {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.agillex-faq__item:hover {
+  border-color: rgba(31, 111, 255, 0.3);
+}
+
+.agillex-faq__item--open {
+  border-color: var(--color-secondary);
+  box-shadow: 0 4px 16px rgba(10, 37, 64, 0.06);
+}
+
+.agillex-faq__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  user-select: none;
+}
+
+.agillex-faq__question-text {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1.4;
+}
+
+.agillex-faq__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.agillex-faq__item--open .agillex-faq__icon {
+  transform: rotate(180deg);
+  background: rgba(31, 111, 255, 0.1);
+  color: var(--color-secondary);
+}
+
+.agillex-faq__answer {
+  padding: 0 20px 18px;
+  animation: fadeIn 0.25s ease;
+}
+
+.agillex-faq__answer-text {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -8,7 +8,7 @@ import "./agillex-trial-section.css";
 <Section id="teste-gratuito" background="light" spacing="lg">
   <Container>
     <div class="agillex-trial">
-      <div class="agillex-trial__content">
+      <div class="agillex-trial__content" data-scroll-reveal="up">
         <span class="agillex-trial__eyebrow">{agillexContent.trial.eyebrow}</span>
         <h2 class="agillex-trial__title">{agillexContent.trial.title}</h2>
         <p class="agillex-trial__description">
@@ -23,7 +23,7 @@ import "./agillex-trial-section.css";
         </ul>
       </div>
 
-      <div class="agillex-trial__cta">
+      <div class="agillex-trial__cta" data-scroll-reveal="up">
         <div class="agillex-trial__card">
           <span class="agillex-trial__highlight">{agillexContent.trial.card.highlight}</span>
           <h3 class="agillex-trial__card-title">{agillexContent.trial.card.title}</h3>
@@ -36,7 +36,9 @@ import "./agillex-trial-section.css";
           >
             {agillexContent.trial.card.action.label}
           </a>
-          <span class="agillex-trial__note">{agillexContent.trial.card.note}</span>
+          {agillexContent.trial.card.note && (
+            <span class="agillex-trial__note">{agillexContent.trial.card.note}</span>
+          )}
         </div>
       </div>
     </div>
