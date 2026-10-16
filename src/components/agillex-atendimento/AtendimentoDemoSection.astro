@@ -1,0 +1,264 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexAtendimentoContent } from "../../content/agillex-atendimento";
+import "../agillex/agillex-demo-section.css";
+
+const { demo } = agillexAtendimentoContent;
+---
+
+<Section id="como-funciona" background="light" spacing="lg">
+  <Container>
+    <div class="agillex-demo" data-scroll-reveal="up">
+      <div class="agillex-demo__header">
+        <span class="agillex-demo__eyebrow">{demo.eyebrow}</span>
+        <h2 class="agillex-demo__title">{demo.title}</h2>
+        <p class="agillex-demo__description">{demo.description}</p>
+      </div>
+
+      <!-- Abas Interativas -->
+      <div class="agillex-demo__nav" role="tablist" aria-label="Etapas de atendimento">
+        {
+          demo.tabs.map((tab, idx) => (
+            <button
+              type="button"
+              role="tab"
+              class:list={[
+                "agillex-demo__tab-btn",
+                idx === 0 && "agillex-demo__tab-btn--active",
+              ]}
+              data-demo-target={tab.id}
+              aria-selected={idx === 0 ? "true" : "false"}
+            >
+              <span class="agillex-demo__tab-icon">{tab.icon}</span>
+              <span class="agillex-demo__tab-label">{tab.label}</span>
+            </button>
+          ))
+        }
+      </div>
+
+      <!-- Painéis Interativos -->
+      <div class="agillex-demo__panels">
+        <!-- Painel 1: Dúvidas e Horários -->
+        <div
+          class="agillex-demo__panel agillex-demo__panel--active"
+          id="panel-duvidas"
+          role="tabpanel"
+        >
+          <div class="agillex-demo__panel-content">
+            <span class="agillex-demo__panel-badge">Respostas Imediatas</span>
+            <h3 class="agillex-demo__panel-title">
+              Atendimento natural 24/7 sem cardápios de 'digite 1'
+            </h3>
+            <p class="agillex-demo__panel-desc">
+              O cliente pergunta sobre preços, endereço, catálogo e forma de atendimento. A inteligência artificial responde com cordialidade e precisão em poucos segundos, a qualquer hora do dia ou da noite.
+            </p>
+            <ul class="agillex-demo__panel-highlights">
+              <li>✓ Responde em linguagem natural como um atendente educado</li>
+              <li>✓ Treinado com os dados, tabela de preços e regras do seu negócio</li>
+              <li>✓ Não deixa clientes esperando na fila ou nos finais de semana</li>
+            </ul>
+          </div>
+          <div class="agillex-demo__panel-visual">
+            <div class="agillex-demo__screen">
+              <div class="agillex-demo__screen-header">
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-title">WhatsApp Business · Resposta 24h</span>
+              </div>
+              <div class="agillex-demo__screen-body">
+                <div class="agillex-demo__screen-client-view" style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="background: #202C33; color: #E9EDEF; padding: 8px 12px; border-radius: 8px 8px 8px 2px; font-size: 0.8rem; max-width: 85%;">
+                    Vocês atendem aos sábados? Qual o valor da consulta inicial?
+                  </div>
+                  <div style="background: #005C4B; color: #E9EDEF; padding: 8px 12px; border-radius: 8px 8px 2px 8px; font-size: 0.8rem; max-width: 85%; align-self: flex-end;">
+                    Sim! Atendemos aos sábados das 09h às 14h. A consulta inicial fica em R$ 150 com retorno incluso em até 20 dias. Posso verificar os horários para você?
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 2: Entendimento de Áudios -->
+        <div
+          class="agillex-demo__panel"
+          id="panel-audio"
+          role="tabpanel"
+          hidden
+        >
+          <div class="agillex-demo__panel-content">
+            <span class="agillex-demo__panel-badge">Voz e Acessibilidade</span>
+            <h3 class="agillex-demo__panel-title">
+              O cliente grava áudio e a IA ouve, transcreve e responde
+            </h3>
+            <p class="agillex-demo__panel-desc">
+              Grande parte dos usuários no Brasil prefere mandar mensagens de voz no WhatsApp. O Agillex Atendimento transcreve o áudio imediatamente, compreende o pedido e responde com agilidade.
+            </p>
+            <ul class="agillex-demo__panel-highlights">
+              <li>✓ Transcrição precisa em português brasileiro</li>
+              <li>✓ Sem perda de contexto mesmo em áudios longos</li>
+              <li>✓ Agilidade para o cliente que está na rua ou dirigindo</li>
+            </ul>
+          </div>
+          <div class="agillex-demo__panel-visual">
+            <div class="agillex-demo__screen">
+              <div class="agillex-demo__screen-header">
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-title">Reconhecimento de Voz Nativo</span>
+              </div>
+              <div class="agillex-demo__screen-body">
+                <div class="agillex-demo__screen-client-view" style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="background: #202C33; color: #E9EDEF; padding: 8px 12px; border-radius: 8px 8px 8px 2px; font-size: 0.8rem; max-width: 85%; display: flex; align-items: center; gap: 8px;">
+                    <span style="color: #00A884; font-size: 14px;">▶</span>
+                    <span>Mensagem de voz (0:18)</span>
+                  </div>
+                  <div style="background: #005C4B; color: #E9EDEF; padding: 8px 12px; border-radius: 8px 8px 2px 8px; font-size: 0.8rem; max-width: 85%; align-self: flex-end;">
+                    Entendi perfeitamente seu áudio! Nós fazemos sim esse procedimento e o tempo médio é de 45 minutos. Gostaria de agendar para esta quinta-feira?
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 3: Transbordo Humano -->
+        <div
+          class="agillex-demo__panel"
+          id="panel-transbordo"
+          role="tabpanel"
+          hidden
+        >
+          <div class="agillex-demo__panel-content">
+            <span class="agillex-demo__panel-badge">Segurança Operacional</span>
+            <h3 class="agillex-demo__panel-title">
+              Transbordo para atendentes humanos no momento certo
+            </h3>
+            <p class="agillex-demo__panel-desc">
+              A IA não inventa respostas. Se o cliente solicitar falar com uma pessoa ou a situação exigir negociação personalizada, o sistema pausa a IA e direciona a conversa para sua equipe.
+            </p>
+            <ul class="agillex-demo__panel-highlights">
+              <li>✓ Pausa imediata da IA para evitar conflito com o atendente</li>
+              <li>✓ Notificação para o setor responsável da empresa</li>
+              <li>✓ Histórico completo da conversa preservado para o atendente ler</li>
+            </ul>
+          </div>
+          <div class="agillex-demo__panel-visual">
+            <div class="agillex-demo__screen">
+              <div class="agillex-demo__screen-header">
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-title">Transbordo Seguro</span>
+              </div>
+              <div class="agillex-demo__screen-body">
+                <div class="agillex-demo__screen-client-view" style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="background: #202C33; color: #E9EDEF; padding: 8px 12px; border-radius: 8px 8px 8px 2px; font-size: 0.8rem; max-width: 85%;">
+                    Gostaria de falar diretamente com o setor financeiro sobre minha fatura.
+                  </div>
+                  <div style="background: #005C4B; color: #E9EDEF; padding: 8px 12px; border-radius: 8px 8px 2px 8px; font-size: 0.8rem; max-width: 85%; align-self: flex-end;">
+                    Com certeza! Vou registrar as suas informações e direcionar para o setor responsável dar sequência ao seu atendimento. Um instante!
+                  </div>
+                  <div style="background: rgba(16, 185, 129, 0.15); color: #34D399; padding: 6px 10px; border-radius: 6px; font-size: 0.72rem; text-align: center; border: 1px dashed rgba(16, 185, 129, 0.4);">
+                    ✓ IA pausada · Atendente notificado no painel
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 4: Fechamento de Agendamento -->
+        <div
+          class="agillex-demo__panel"
+          id="panel-agenda"
+          role="tabpanel"
+          hidden
+        >
+          <div class="agillex-demo__panel-content">
+            <span class="agillex-demo__panel-badge">Vendas e Agendamentos</span>
+            <h3 class="agillex-demo__panel-title">
+              Integração direta com o Agillex Agenda
+            </h3>
+            <p class="agillex-demo__panel-desc">
+              Conecte o atendimento ao sistema de agendamento. A inteligência artificial consulta a disponibilidade real da equipe e fecha o compromisso sem intermediários.
+            </p>
+            <ul class="agillex-demo__panel-highlights">
+              <li>✓ Consulta horários livres em tempo real</li>
+              <li>✓ Confirmação sincronizada no Google Calendar</li>
+              <li>✓ Disparo automático de lembretes antes do horário</li>
+            </ul>
+          </div>
+          <div class="agillex-demo__panel-visual">
+            <div class="agillex-demo__screen">
+              <div class="agillex-demo__screen-header">
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-dot"></span>
+                <span class="agillex-demo__screen-title">Agillex Agenda Integrada</span>
+              </div>
+              <div class="agillex-demo__screen-body">
+                <div class="agillex-demo__screen-client-view" style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="background: #005C4B; color: #E9EDEF; padding: 8px 12px; border-radius: 8px 8px 2px 8px; font-size: 0.8rem; max-width: 85%; align-self: flex-end;">
+                    ✅ Agendamento confirmado com sucesso!
+                    <br><br>
+                    📅 Data: Sexta-feira, 17/10 às 14:30
+                    <br>✂ Serviço: Corte Degradê + Barba
+                    <br>👤 Profissional: Lucas
+                    <br><br>
+                    Enviaremos um lembrete 2h antes. Até lá!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<script>
+  function initAtendimentoDemo(): void {
+    const tabButtons = document.querySelectorAll<HTMLButtonElement>(
+      ".agillex-demo__tab-btn"
+    );
+    const panels = document.querySelectorAll<HTMLElement>(
+      ".agillex-demo__panel"
+    );
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetId = button.dataset.demoTarget;
+        if (!targetId) return;
+
+        tabButtons.forEach((btn) => {
+          btn.classList.remove("agillex-demo__tab-btn--active");
+          btn.setAttribute("aria-selected", "false");
+        });
+
+        button.classList.add("agillex-demo__tab-btn--active");
+        button.setAttribute("aria-selected", "true");
+
+        panels.forEach((panel) => {
+          if (panel.id === `panel-${targetId}`) {
+            panel.classList.add("agillex-demo__panel--active");
+            panel.removeAttribute("hidden");
+          } else {
+            panel.classList.remove("agillex-demo__panel--active");
+            panel.setAttribute("hidden", "true");
+          }
+        });
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAtendimentoDemo);
+  } else {
+    initAtendimentoDemo();
+  }
+</script>

@@ -1,0 +1,24 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import AtendimentoHeroSection from "../components/agillex-atendimento/AtendimentoHeroSection.astro";
+import AtendimentoAudienceSection from "../components/agillex-atendimento/AtendimentoAudienceSection.astro";
+import AtendimentoFeaturesSection from "../components/agillex-atendimento/AtendimentoFeaturesSection.astro";
+import AtendimentoDemoSection from "../components/agillex-atendimento/AtendimentoDemoSection.astro";
+import AtendimentoPricingSection from "../components/agillex-atendimento/AtendimentoPricingSection.astro";
+import AtendimentoFaqSection from "../components/agillex-atendimento/AtendimentoFaqSection.astro";
+import AtendimentoTrialSection from "../components/agillex-atendimento/AtendimentoTrialSection.astro";
+import { agillexAtendimentoContent } from "../content/agillex-atendimento";
+---
+
+<MainLayout
+  title={agillexAtendimentoContent.meta.title}
+  description={agillexAtendimentoContent.meta.description}
+>
+  <AtendimentoHeroSection />
+  <AtendimentoAudienceSection />
+  <AtendimentoFeaturesSection />
+  <AtendimentoDemoSection />
+  <AtendimentoPricingSection />
+  <AtendimentoFaqSection />
+  <AtendimentoTrialSection />
+</MainLayout>

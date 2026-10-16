@@ -1,0 +1,278 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexAtendimentoContent } from "../../content/agillex-atendimento";
+import "../agillex/agillex-pricing-section.css";
+
+const { pricing } = agillexAtendimentoContent;
+const defaultTier = pricing.tiers.find((t) => t.popular) ?? pricing.tiers[1];
+---
+
+<Section id="planos-e-precos" background="default" spacing="lg">
+  <Container>
+    <div class="agillex-pricing" data-scroll-reveal="up">
+      <div class="agillex-pricing__header">
+        <span class="agillex-pricing__eyebrow">{pricing.eyebrow}</span>
+        <h2 class="agillex-pricing__title">{pricing.title}</h2>
+        <p class="agillex-pricing__subtitle">{pricing.subtitle}</p>
+
+        <!-- Toggle Mensal / Anual -->
+        <div class="agillex-pricing__toggle-wrapper">
+          <span
+            class="agillex-pricing__toggle-label agillex-pricing__toggle-label--active"
+            id="atend-label-mensal"
+          >
+            Mensal
+          </span>
+          <label class="agillex-pricing__switch" for="atend-pricing-toggle">
+            <input
+              type="checkbox"
+              id="atend-pricing-toggle"
+              role="switch"
+              aria-checked="false"
+              aria-label="Alternar para plano anual"
+            />
+            <span class="agillex-pricing__slider"></span>
+          </label>
+          <span class="agillex-pricing__toggle-label" id="atend-label-anual">
+            Anual
+          </span>
+          <span class="agillex-pricing__discount-badge">Até 20% OFF</span>
+        </div>
+      </div>
+
+      <!-- CARD ÚNICO MASTER COM SELETOR DE PLANOS -->
+      <div class="agillex-pricing__single-card-wrapper">
+        <div
+          class="agillex-pricing__single-card"
+          id="atend-pricing-card"
+          data-current-tier={defaultTier.id}
+        >
+          <!-- Badge de Destaque -->
+          <span class="agillex-pricing__card-badge" id="atend-pricing-badge">
+            {defaultTier.badge ?? "Mais Escolhido"}
+          </span>
+
+          <!-- Seletor de Franquia / Capacidade -->
+          <div class="agillex-pricing__capacity-block">
+            <label class="agillex-pricing__capacity-label">
+              Selecione o plano ideal para o fluxo da sua empresa:
+            </label>
+            <div
+              class="agillex-pricing__capacity-tabs"
+              role="tablist"
+              aria-label="Franquia de atendimentos"
+            >
+              {
+                pricing.tiers.map((tier) => (
+                  <button
+                    type="button"
+                    role="tab"
+                    class:list={[
+                      "agillex-pricing__capacity-tab",
+                      tier.id === defaultTier.id &&
+                        "agillex-pricing__capacity-tab--active",
+                    ]}
+                    data-tier-id={tier.id}
+                    aria-selected={tier.id === defaultTier.id ? "true" : "false"}
+                  >
+                    <span class="agillex-pricing__tab-name">{tier.name}</span>
+                    {tier.badge && (
+                      <span class="agillex-pricing__tab-badge">{tier.badge}</span>
+                    )}
+                  </button>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Tagline Descritiva do Plano Selecionado -->
+          <p class="agillex-pricing__tagline" id="atend-pricing-tagline">
+            {defaultTier.tagline}
+          </p>
+
+          <!-- Preço Dinâmico -->
+          <div class="agillex-pricing__price-block">
+            <div class="agillex-pricing__price-main">
+              <span class="agillex-pricing__currency">R$</span>
+              <span class="agillex-pricing__amount" id="atend-pricing-amount">
+                {defaultTier.priceMonthly}
+              </span>
+              <span class="agillex-pricing__period">{defaultTier.period}</span>
+            </div>
+            <p class="agillex-pricing__annual-note" id="atend-pricing-annual-note" style="display: none;">
+              {defaultTier.annualTotal}
+            </p>
+          </div>
+
+          <!-- Botão de Ação -->
+          <div class="agillex-pricing__card-actions">
+            <a
+              href={defaultTier.cta.href}
+              class="agillex-pricing__cta-btn"
+              id="atend-pricing-cta-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {defaultTier.cta.label}
+            </a>
+            <span class="agillex-pricing__card-trial-info">
+              ✓ 14 dias de teste grátis · Sem cartão de crédito · Sem fidelidade
+            </span>
+          </div>
+
+          <!-- Divisor -->
+          <div class="agillex-pricing__divider"></div>
+
+          <!-- Lista de Recursos Universais Inclusos -->
+          <div class="agillex-pricing__features-block">
+            <h3 class="agillex-pricing__features-title">
+              Incluso em todos os planos do Agillex Atendimento:
+            </h3>
+            <ul class="agillex-pricing__features-list">
+              {
+                pricing.features.map((feature) => (
+                  <li class="agillex-pricing__feature-item">
+                    <svg
+                      class="agillex-pricing__check-icon"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="agillex-pricing__footer-note">
+        {pricing.universalNote}
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<!-- Dados dos Planos para Script Interativo -->
+<script
+  id="atend-pricing-data"
+  type="application/json"
+  set:html={JSON.stringify(pricing.tiers)}
+/>
+
+<script>
+  interface AtendTierData {
+    id: string;
+    name: string;
+    badge?: string;
+    tagline: string;
+    capacity: string;
+    priceMonthly: string;
+    priceAnnualMonthly: string;
+    annualTotal: string;
+    cta: {
+      label: string;
+      href: string;
+    };
+  }
+
+  function initAtendimentoPricing() {
+    const dataEl = document.getElementById("atend-pricing-data");
+    if (!dataEl) return;
+
+    let tiers: AtendTierData[] = [];
+    try {
+      tiers = JSON.parse(dataEl.textContent || "[]");
+    } catch {
+      return;
+    }
+
+    const toggle = document.getElementById("atend-pricing-toggle") as HTMLInputElement | null;
+    const labelMensal = document.getElementById("atend-label-mensal");
+    const labelAnual = document.getElementById("atend-label-anual");
+    const amountEl = document.getElementById("atend-pricing-amount");
+    const annualNoteEl = document.getElementById("atend-pricing-annual-note");
+    const taglineEl = document.getElementById("atend-pricing-tagline");
+    const badgeEl = document.getElementById("atend-pricing-badge");
+    const ctaBtn = document.getElementById("atend-pricing-cta-btn") as HTMLAnchorElement | null;
+    const tabs = document.querySelectorAll<HTMLButtonElement>("#planos-e-precos .agillex-pricing__capacity-tab");
+
+    let activeTierId = "pro";
+    let isAnnual = false;
+
+    function renderPricing() {
+      const tier = tiers.find((t) => t.id === activeTierId) || tiers[1];
+      if (!tier) return;
+
+      tabs.forEach((tab) => {
+        const isSelected = tab.getAttribute("data-tier-id") === activeTierId;
+        tab.classList.toggle("agillex-pricing__capacity-tab--active", isSelected);
+        tab.setAttribute("aria-selected", isSelected ? "true" : "false");
+      });
+
+      if (taglineEl) taglineEl.textContent = tier.tagline;
+      if (badgeEl) {
+        if (tier.badge) {
+          badgeEl.textContent = tier.badge;
+          badgeEl.style.display = "inline-block";
+        } else {
+          badgeEl.style.display = "none";
+        }
+      }
+
+      if (amountEl) {
+        amountEl.textContent = isAnnual ? tier.priceAnnualMonthly : tier.priceMonthly;
+      }
+      if (annualNoteEl) {
+        annualNoteEl.textContent = tier.annualTotal;
+        annualNoteEl.style.display = isAnnual ? "block" : "none";
+      }
+
+      if (ctaBtn) {
+        ctaBtn.href = tier.cta.href;
+      }
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const tierId = tab.getAttribute("data-tier-id");
+        if (tierId && tierId !== activeTierId) {
+          activeTierId = tierId;
+          renderPricing();
+        }
+      });
+    });
+
+    if (toggle) {
+      toggle.addEventListener("change", () => {
+        isAnnual = toggle.checked;
+        toggle.setAttribute("aria-checked", isAnnual ? "true" : "false");
+
+        if (labelMensal && labelAnual) {
+          labelMensal.classList.toggle("agillex-pricing__toggle-label--active", !isAnnual);
+          labelAnual.classList.toggle("agillex-pricing__toggle-label--active", isAnnual);
+        }
+
+        renderPricing();
+      });
+    }
+
+    renderPricing();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAtendimentoPricing);
+  } else {
+    initAtendimentoPricing();
+  }
+</script>

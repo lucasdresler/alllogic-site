@@ -1,0 +1,29 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import Grid from "../layout/Grid.astro";
+import { agillexAtendimentoContent } from "../../content/agillex-atendimento";
+import "../agillex/agillex-features-section.css";
+---
+
+<Section id="funcionalidades" spacing="lg">
+  <Container>
+    <div class="agillex-features__header" data-scroll-reveal="up">
+      <span class="agillex-features__eyebrow">{agillexAtendimentoContent.features.eyebrow}</span>
+      <h2 class="agillex-features__title">{agillexAtendimentoContent.features.title}</h2>
+      <p class="agillex-features__description">
+        {agillexAtendimentoContent.features.description}
+      </p>
+    </div>
+
+    <Grid columns={3} gap="lg">
+      {agillexAtendimentoContent.features.items.map((item) => (
+        <div class="agillex-features__card" data-scroll-reveal="up">
+          <div class="agillex-features__badge">{item.badge}</div>
+          <h3 class="agillex-features__card-title">{item.title}</h3>
+          <p class="agillex-features__card-description">{item.description}</p>
+        </div>
+      ))}
+    </Grid>
+  </Container>
+</Section>

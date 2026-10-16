@@ -1,0 +1,46 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexAtendimentoContent } from "../../content/agillex-atendimento";
+import "../agillex/agillex-trial-section.css";
+---
+
+<Section id="teste-gratuito" background="light" spacing="lg">
+  <Container>
+    <div class="agillex-trial">
+      <div class="agillex-trial__content" data-scroll-reveal="up">
+        <span class="agillex-trial__eyebrow">{agillexAtendimentoContent.trial.eyebrow}</span>
+        <h2 class="agillex-trial__title">{agillexAtendimentoContent.trial.title}</h2>
+        <p class="agillex-trial__description">
+          {agillexAtendimentoContent.trial.description}
+        </p>
+        <ul class="agillex-trial__list">
+          {agillexAtendimentoContent.trial.points.map((point) => (
+            <li class="agillex-trial__list-item">
+              <strong>{point.label}:</strong> {point.text}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="agillex-trial__cta" data-scroll-reveal="up">
+        <div class="agillex-trial__card">
+          <span class="agillex-trial__highlight">{agillexAtendimentoContent.trial.card.highlight}</span>
+          <h3 class="agillex-trial__card-title">{agillexAtendimentoContent.trial.card.title}</h3>
+          <p class="agillex-trial__card-description">{agillexAtendimentoContent.trial.card.description}</p>
+          <a
+            href={agillexAtendimentoContent.trial.card.action.href}
+            class="agillex-trial__btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {agillexAtendimentoContent.trial.card.action.label}
+          </a>
+          {agillexAtendimentoContent.trial.card.note && (
+            <span class="agillex-trial__note">{agillexAtendimentoContent.trial.card.note}</span>
+          )}
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>

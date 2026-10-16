@@ -1,0 +1,109 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexAtendimentoContent } from "../../content/agillex-atendimento";
+import "../agillex/agillex-hero-section.css";
+---
+
+<Section id="hero-atendimento" spacing="lg">
+  <Container>
+    <div class="agillex-hero" data-scroll-reveal="up">
+      <div class="agillex-hero__badge">
+        <span>{agillexAtendimentoContent.hero.badge}</span>
+      </div>
+      <h1 class="agillex-hero__title">
+        {agillexAtendimentoContent.hero.title}
+      </h1>
+      <p class="agillex-hero__description">
+        {agillexAtendimentoContent.hero.description}
+      </p>
+
+      <div class="agillex-hero__actions">
+        <a
+          href={agillexAtendimentoContent.hero.actions.primary.href}
+          class="agillex-hero__btn agillex-hero__btn--primary"
+          target={agillexAtendimentoContent.hero.actions.primary.target ?? "_blank"}
+          rel={agillexAtendimentoContent.hero.actions.primary.rel ?? "noopener noreferrer"}
+        >
+          {agillexAtendimentoContent.hero.actions.primary.label}
+        </a>
+        <a
+          href={agillexAtendimentoContent.hero.actions.secondary.href}
+          class="agillex-hero__btn agillex-hero__btn--secondary"
+          target={agillexAtendimentoContent.hero.actions.secondary.target}
+          rel={agillexAtendimentoContent.hero.actions.secondary.rel}
+        >
+          {agillexAtendimentoContent.hero.actions.secondary.label}
+        </a>
+      </div>
+
+      <div class="agillex-hero__trust">
+        <svg
+          class="agillex-hero__trust-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <polyline points="9 12 11 14 15 10"></polyline>
+        </svg>
+        <span>{agillexAtendimentoContent.hero.trust}</span>
+      </div>
+
+      <!-- Preview Visual Dinâmico do WhatsApp Chat -->
+      <div class="agillex-hero__preview" data-scroll-reveal="up">
+        <div class="agillex-hero__window">
+          <div class="agillex-hero__window-bar">
+            <div class="agillex-hero__window-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="agillex-hero__window-url">
+              WhatsApp Comercial Oficial · AllLogic Online
+            </div>
+            <span class="agillex-hero__window-status">● Atendente IA Online 24/7</span>
+          </div>
+
+          <div class="agillex-hero__window-content" style="background: #0B141A; padding: 22px; font-family: inherit;">
+            <div style="display: flex; flex-direction: column; gap: 14px; max-width: 580px; margin: 0 auto;">
+              <!-- Mensagem do Cliente 1 -->
+              <div style="align-self: flex-start; background: #202C33; color: #E9EDEF; padding: 12px 16px; border-radius: 12px 12px 12px 2px; max-width: 85%; font-size: 0.9rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                <span>Olá! Gostaria de saber os horários para atendimento esta semana e os valores.</span>
+                <span style="display: block; text-align: right; font-size: 0.68rem; color: #8696A0; margin-top: 4px;">14:32</span>
+              </div>
+
+              <!-- Resposta da IA 1 -->
+              <div style="align-self: flex-end; background: #005C4B; color: #E9EDEF; padding: 12px 16px; border-radius: 12px 12px 2px 12px; max-width: 85%; font-size: 0.9rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                <div style="display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: #25D366; font-weight: 700; margin-bottom: 4px;">
+                  <span>🤖 Agillex Atendimento</span>
+                </div>
+                <span>Olá! Seja muito bem-vindo. Atendemos de segunda a sábado das 09h às 19h. Nossos valores variam conforme o serviço desejado. Gostaria que eu verificasse os horários livres para hoje ou prefere que eu envie nosso catálogo completo?</span>
+                <span style="display: block; text-align: right; font-size: 0.68rem; color: #8696A0; margin-top: 4px;">14:32 · ✓✓</span>
+              </div>
+
+              <!-- Mensagem de Áudio do Cliente 2 -->
+              <div style="align-self: flex-start; background: #202C33; color: #E9EDEF; padding: 10px 14px; border-radius: 12px 12px 12px 2px; max-width: 85%; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 10px;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #00A884; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px;">▶</div>
+                <div style="flex: 1;">
+                  <div style="height: 4px; background: #8696A0; border-radius: 99px; margin-bottom: 4px; width: 120px;"></div>
+                  <div style="font-size: 0.72rem; color: #8696A0;">Mensagem de voz (0:12)</div>
+                </div>
+              </div>
+
+              <!-- Resposta da IA 2 (Reconhecendo o áudio) -->
+              <div style="align-self: flex-end; background: #005C4B; color: #E9EDEF; padding: 12px 16px; border-radius: 12px 12px 2px 12px; max-width: 85%; font-size: 0.9rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                <span>Perfeito! Ouvi seu áudio e temos sim vaga para amanhã às 15:30. Já posso confirmar na sua agenda? Se preferir falar com nossa equipe, é só me avisar!</span>
+                <span style="display: block; text-align: right; font-size: 0.68rem; color: #8696A0; margin-top: 4px;">14:33 · ✓✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>

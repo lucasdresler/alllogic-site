@@ -19,6 +19,7 @@ export const navigationContent: NavigationContent = {
     { label: "Início", href: "/" },
     { label: "Soluções", href: "/#solucoes" },
     { label: "Agillex Agenda", href: "/agillex-agenda" },
+    { label: "Agillex Atendimento", href: "/agillex-atendimento" },
     { label: "Portfólio", href: "/#portfolio" },
     { label: "Diagnóstico", href: "/#diagnostico" },
     { label: "Sobre", href: "/sobre" },
@@ -26,6 +27,7 @@ export const navigationContent: NavigationContent = {
   ],
   footer: [
     { label: "Agillex Agenda", href: "/agillex-agenda" },
+    { label: "Agillex Atendimento", href: "/agillex-atendimento" },
     { label: "Política de Privacidade", href: "/politica-de-privacidade" },
   ],
 };
