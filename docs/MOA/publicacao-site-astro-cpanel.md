@@ -151,3 +151,20 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
 - **Sequência executada:** Suporte e imagens → nova rota `/agillex-atendimento/` → rotas existentes e sitemaps → página inicial (`index.html`).
 - **Respostas HTTP:** Retorno `200` confirmado para `/`, `/agillex-atendimento/`, `/agillex-agenda/`, `/contato/`, `/sobre/`, `/dominios-e-hospedagem/`, `/politica-de-privacidade/`, `/sitemap-index.xml` e `/sitemap-0.xml`.
 
+## Registro de referência — Publicação Agillex Hub e Modernização Visual (16/10/2026)
+
+- **Commit de referência:** `0a7ddd9`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-hub-0a7ddd9.tar.gz`
+- **SHA-256 do pacote:** `49662c566b74b32e84ba57a6b6e98f89c67bb8db209ee7d2366eb1099da471f8`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261016-194606.tar.gz` (SHA-256: `a69ab0e872827ad813fce54a9c89048489ce01429c4e1041256a4e4df4b7085e`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-hub-0a7ddd9`
+- **Validações prévias:** Backup e integridade do pacote validados com sucesso antes da substituição.
+- **Preservação de serviços:** Endpoint `api/diagnosis.php` preservado e verificado intacto.
+- **Sequência executada:** Suporte e imagens → nova rota `/agillex-hub/` → rotas existentes e sitemaps → página inicial (`index.html`).
+- **Respostas HTTP:** Retorno `200` confirmado para `/`, `/agillex-hub/`, `/agillex-agenda/`, `/agillex-atendimento/`, `/contato/`, `/sobre/`, `/dominios-e-hospedagem/`, `/politica-de-privacidade/` e `/sitemap-index.xml`.
+- **Inspeção de conformidade:** 100% de uso do nome oficial "AllLogic Online" em todas as páginas e correções ortográficas aplicadas.
+
+
