@@ -150,16 +150,16 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
       "Esqueça robôs engessados e cardápios de 'digite 1'. O Agillex Atendimento conversa com seus clientes de forma natural, entende mensagens de texto e áudio por voz, tira dúvidas sobre serviços e encaminha para atendentes humanos sempre que necessário.",
     actions: {
       primary: {
-        label: "Testar 14 dias grátis",
-        href: "https://wa.me/5511966381915?text=Ol%C3%A1%2C%20gostaria%20de%20testar%20o%20Agillex%20Atendimento%20por%2014%20dias%20gr%C3%A1tis.",
+        label: "Começar 14 dias grátis",
+        href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=pro&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },
       secondary: {
-        label: "Falar com especialista",
-        href: "https://wa.me/5511966381915",
-        target: "_blank",
-        rel: "noopener noreferrer",
+        label: "Ver planos e preços",
+        href: "#precos",
+        target: "_self",
+        rel: "",
       },
     },
     trust: "Sem taxa de setup · Compreensão de áudios · Transbordo humano integrado",
@@ -321,8 +321,8 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         annualTotal: "Cobrado anualmente: R$ 958,80 ao ano (20% de economia)",
         period: "/mês",
         cta: {
-          label: "Começar 14 dias grátis",
-          href: "https://wa.me/5511966381915?text=Ol%C3%A1%2C%20gostaria%20de%20come%C3%A7ar%20o%20teste%20de%2014%20dias%20do%20Agillex%20Atendimento%20Starter.",
+          label: "Assinar Starter Online",
+          href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=starter",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -340,8 +340,8 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         annualTotal: "Cobrado anualmente: R$ 1.798,80 ao ano (~17% de economia)",
         period: "/mês",
         cta: {
-          label: "Começar 14 dias grátis",
-          href: "https://wa.me/5511966381915?text=Ol%C3%A1%2C%20gostaria%20de%20come%C3%A7ar%20o%20teste%20de%2014%20dias%20do%20Agillex%20Atendimento%20Pro.",
+          label: "Assinar Pro Online",
+          href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=pro",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -358,8 +358,8 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         annualTotal: "Cobrado anualmente: R$ 2.398,80 ao ano (20% de economia)",
         period: "/mês",
         cta: {
-          label: "Começar 14 dias grátis",
-          href: "https://wa.me/5511966381915?text=Ol%C3%A1%2C%20gostaria%20de%20come%C3%A7ar%20o%20teste%20de%2014%20dias%20do%20Combo%20Agillex%20(Atendimento%20%2B%20Agenda).",
+          label: "Assinar Combo Online",
+          href: "https://hub.alllogiconline.com.br/checkout?modulo=combo&plano=combo",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -400,7 +400,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
       {
         question: "Como funciona o teste gratuito de 14 dias?",
         answer:
-          "Você entra em contato pelo nosso WhatsApp oficial, nós configuramos o seu atendimento de teste e você valida na prática durante 14 dias. Não solicitamos cartão de crédito e não há nenhuma fidelidade contratual.",
+          "Você cria sua conta online em menos de 2 minutos e valida na prática durante 14 dias. Não solicitamos cartão de crédito para iniciar o teste e não há nenhuma fidelidade contratual.",
       },
     ],
   },
@@ -408,7 +408,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
     eyebrow: "TESTE SEM COMPROMISSO",
     title: "Pronto para atender seus clientes com agilidade e inteligência?",
     description:
-      "Comece hoje mesmo com 14 dias de teste grátis. Nossa equipe cuida da configuração inicial e você valida os resultados no seu WhatsApp.",
+      "Comece hoje mesmo com 14 dias de teste grátis. Ativação online simplificada para você validar os resultados no seu WhatsApp imediatamente.",
     points: [
       {
         label: "Sem cartão de crédito",
@@ -427,14 +427,14 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
       highlight: "14 DIAS GRÁTIS",
       title: "Comece seu teste agora mesmo",
       description:
-        "Fale conosco pelo WhatsApp oficial e ative o Agillex Atendimento na sua empresa em poucos minutos.",
+        "Crie sua conta online em minutos e conecte seu WhatsApp para começar a atender seus clientes com inteligência artificial agora mesmo.",
       action: {
-        label: "Iniciar teste gratuito no WhatsApp",
-        href: "https://wa.me/5511966381915?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20meu%20teste%20de%2014%20dias%20do%20Agillex%20Atendimento.",
+        label: "Iniciar teste gratuito de 14 dias",
+        href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=pro&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },
-      note: "Atendimento imediato pelo canal comercial oficial da AllLogic Online.",
+      note: "Ativação 100% online sem necessidade de cartão de crédito.",
     },
   },
 };
