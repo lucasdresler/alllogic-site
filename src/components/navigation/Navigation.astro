@@ -13,8 +13,55 @@ const items = navigationContent.main;
 <nav id={id} class="navigation" aria-label="Principal">
   <ul class="navigation__list">
     {items.map((item) => (
-      <li class="navigation__item">
-        <a class="navigation__link" href={item.href}>{item.label}</a>
+      <li class={`navigation__item ${item.children ? "navigation__item--has-dropdown" : ""}`}>
+        {item.children ? (
+          <div class="navigation__dropdown">
+            <button
+              type="button"
+              class="navigation__link navigation__dropdown-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+              id={`dropdown-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+            >
+              <span>{item.label}</span>
+              <svg
+                class="navigation__dropdown-icon"
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 6L8 10L12 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <ul
+              class="navigation__dropdown-menu"
+              role="menu"
+              aria-labelledby={`dropdown-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+            >
+              {item.children.map((subItem) => (
+                <li class="navigation__dropdown-item" role="none">
+                  <a
+                    class="navigation__dropdown-link"
+                    href={subItem.href}
+                    role="menuitem"
+                  >
+                    {subItem.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <a class="navigation__link" href={item.href}>{item.label}</a>
+        )}
       </li>
     ))}
   </ul>
