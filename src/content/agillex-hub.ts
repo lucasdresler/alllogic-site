@@ -96,12 +96,25 @@ export interface HubFaqContent {
   };
 }
 
+export interface HubTrialPoint {
+  label: string;
+  text: string;
+}
+
+export interface HubTrialCard {
+  highlight: string;
+  title: string;
+  description: string;
+  action: HubCTA;
+  note?: string;
+}
+
 export interface HubTrialContent {
   eyebrow: string;
   title: string;
   description: string;
-  action: HubCTA;
-  note: string;
+  points: HubTrialPoint[];
+  card: HubTrialCard;
 }
 
 export interface AgillexHubContent {
@@ -266,7 +279,7 @@ export const agillexHubContent: AgillexHubContent = {
       {
         id: "combo-pro",
         name: "Combo Agillex Hub Pro",
-        badge: "Mais Escolhido · Solução Completa",
+        badge: "Solução Completa",
         popular: true,
         tagline: "Tudo o que sua empresa precisa para atender com IA, agendar horários e gerenciar vendas.",
         priceMonthly: "R$ 249,90",
@@ -332,7 +345,7 @@ export const agillexHubContent: AgillexHubContent = {
     guarantee: {
       title: "14 dias de teste com risco zero",
       description:
-        "Experimente o Agillex Hub na rotina da sua empresa. Se você não notar ganho imediato de tempo e organização no atendimento e agendamento dos seus clientes, cancele a qualquer momento sem custos adicionais.",
+        "Experimente o Agillex Hub na rotina da sua empresa, ganhe tempo e organização no atendimento e agendamento dos seus clientes, cancele a qualquer momento sem custos adicionais.",
     },
   },
   faq: {
@@ -387,12 +400,32 @@ export const agillexHubContent: AgillexHubContent = {
     title: "Pronto para modernizar o atendimento e os agendamentos da sua empresa?",
     description:
       "Junte-se às empresas que já utilizam a engenharia de soluções da AllLogic Online para automatizar rotinas, encantar clientes e faturar mais com menos esforço.",
-    action: {
-      label: "Iniciar teste gratuito de 14 dias",
-      href: "https://hub.alllogiconline.com.br/checkout?modulo=combo&plano=combo&trial=true",
-      target: "_blank",
-      rel: "noopener noreferrer",
+    points: [
+      {
+        label: "Ativação imediata e sem atrito",
+        text: "Inicie seus 14 dias de teste em poucos minutos com suporte da equipe AllLogic.",
+      },
+      {
+        label: "Ecossistema 100% integrado",
+        text: "Atendimento IA no WhatsApp, Agenda sincronizada, CRM Kanban e Cobrança via Pix em um único painel.",
+      },
+      {
+        label: "Risco zero comprovado",
+        text: "Sem fidelidade, sem taxa de setup e cancelamento a qualquer momento sem custos adicionais.",
+      },
+    ],
+    card: {
+      highlight: "14 DIAS SEM RISCO",
+      title: "Comece seu teste gratuito",
+      description:
+        "Experimente o Agillex Hub na rotina da sua empresa e ganhe tempo e organização.",
+      action: {
+        label: "Iniciar teste gratuito de 14 dias",
+        href: "https://hub.alllogiconline.com.br/checkout?modulo=combo&plano=combo&trial=true",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      note: "Sem taxa de adesão · Ativação imediata · Suporte especializado",
     },
-    note: "Sem taxa de adesão · Ativação imediata · Suporte especializado",
   },
 };

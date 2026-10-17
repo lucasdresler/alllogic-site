@@ -8,7 +8,7 @@ const { audience } = agillexHubContent;
 ---
 
 <Section id="quem-precisa" background="light" spacing="lg">
-  <Container>
+  <Container size="xl">
     <div class="agillex-audience" data-scroll-reveal="up">
       <div class="agillex-audience__header">
         <span class="agillex-audience__eyebrow">{audience.eyebrow}</span>
@@ -24,8 +24,8 @@ const { audience } = agillexHubContent;
               <span class="agillex-audience__icon" aria-hidden="true">
                 {item.icon}
               </span>
-              <h3 class="agillex-audience__item-title">{item.title}</h3>
-              <p class="agillex-audience__item-description">
+              <h3 class="agillex-audience__card-title">{item.title}</h3>
+              <p class="agillex-audience__card-description">
                 {item.description}
               </p>
             </div>

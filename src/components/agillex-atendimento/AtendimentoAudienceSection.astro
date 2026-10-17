@@ -6,7 +6,7 @@ import "../agillex/agillex-audience-section.css";
 ---
 
 <Section id="publico-alvo" background="light" spacing="lg">
-  <Container>
+  <Container size="xl">
     <div class="agillex-audience__header" data-scroll-reveal="up">
       <span class="agillex-audience__eyebrow">{agillexAtendimentoContent.audience.eyebrow}</span>
       <h2 class="agillex-audience__title">{agillexAtendimentoContent.audience.title}</h2>
@@ -22,7 +22,7 @@ import "../agillex/agillex-audience-section.css";
 
     <div class="agillex-audience__grid">
       {agillexAtendimentoContent.audience.items.map((item) => (
-        <div class="agillex-audience__card" data-scroll-reveal="up">
+        <div class="agillex-audience__card card-interactive" data-scroll-reveal="up">
           <div class="agillex-audience__icon" aria-hidden="true">{item.icon}</div>
           <h3 class="agillex-audience__card-title">{item.title}</h3>
           <p class="agillex-audience__card-description">{item.description}</p>

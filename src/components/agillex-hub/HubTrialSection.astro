@@ -7,25 +7,42 @@ import "../agillex/agillex-trial-section.css";
 const { trial } = agillexHubContent;
 ---
 
-<Section id="teste-gratis" background="dark" spacing="lg">
+<Section id="teste-gratuito" background="light" spacing="lg">
   <Container>
-    <div class="agillex-trial card-interactive-glow" data-scroll-reveal="up">
-      <span class="agillex-trial__eyebrow">{trial.eyebrow}</span>
-      <h2 class="agillex-trial__title">{trial.title}</h2>
-      <p class="agillex-trial__description">{trial.description}</p>
-
-      <div class="agillex-trial__action-wrapper">
-        <a
-          href={trial.action.href}
-          class="agillex-trial__action btn-interactive"
-          target={trial.action.target ?? "_blank"}
-          rel={trial.action.rel ?? "noopener noreferrer"}
-        >
-          {trial.action.label}
-        </a>
+    <div class="agillex-trial">
+      <div class="agillex-trial__content" data-scroll-reveal="up">
+        <span class="agillex-trial__eyebrow">{trial.eyebrow}</span>
+        <h2 class="agillex-trial__title">{trial.title}</h2>
+        <p class="agillex-trial__description">
+          {trial.description}
+        </p>
+        <ul class="agillex-trial__list">
+          {trial.points.map((point) => (
+            <li class="agillex-trial__list-item">
+              <strong>{point.label}:</strong> {point.text}
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <p class="agillex-trial__note">{trial.note}</p>
+      <div class="agillex-trial__cta" data-scroll-reveal="up">
+        <div class="agillex-trial__card card-interactive-glow">
+          <span class="agillex-trial__highlight">{trial.card.highlight}</span>
+          <h3 class="agillex-trial__card-title">{trial.card.title}</h3>
+          <p class="agillex-trial__card-description">{trial.card.description}</p>
+          <a
+            href={trial.card.action.href}
+            class="agillex-trial__btn btn-interactive"
+            target={trial.card.action.target ?? "_blank"}
+            rel={trial.card.action.rel ?? "noopener noreferrer"}
+          >
+            {trial.card.action.label}
+          </a>
+          {trial.card.note && (
+            <span class="agillex-trial__note">{trial.card.note}</span>
+          )}
+        </div>
+      </div>
     </div>
   </Container>
 </Section>
