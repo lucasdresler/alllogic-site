@@ -25,8 +25,53 @@ import "./footer.css";
         <nav aria-label="Navegação institucional">
           <ul>
             {navigationContent.footer.map((item) => (
-              <li>
-                <a href={item.href}>{item.label}</a>
+              <li class={item.children ? "footer__nav-item--has-dropdown" : ""}>
+                {item.children ? (
+                  <div class="footer__dropdown">
+                    <button
+                      type="button"
+                      class="footer__dropdown-toggle"
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      id={`footer-dropdown-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      <span>{item.label}</span>
+                      <svg
+                        class="footer__dropdown-icon"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+                    <ul
+                      class="footer__dropdown-menu"
+                      role="menu"
+                      aria-labelledby={`footer-dropdown-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {item.children.map((subItem) => (
+                        <li class="footer__dropdown-item" role="none">
+                          <a
+                            class="footer__dropdown-link"
+                            href={subItem.href}
+                            role="menuitem"
+                          >
+                            {subItem.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <a href={item.href}>{item.label}</a>
+                )}
               </li>
             ))}
           </ul>
@@ -74,3 +119,31 @@ import "./footer.css";
     </div>
   </Container>
 </footer>
+
+<script>
+  function initFooterDropdown(): void {
+    const dropdowns = document.querySelectorAll<HTMLElement>(".footer__dropdown");
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector<HTMLButtonElement>(".footer__dropdown-toggle");
+      if (!toggle || toggle.dataset.initialized === "true") return;
+      toggle.dataset.initialized = "true";
+
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    });
+
+    document.addEventListener("click", () => {
+      dropdowns.forEach((dropdown) => {
+        dropdown.classList.remove("is-open");
+        dropdown.querySelector(".footer__dropdown-toggle")?.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  initFooterDropdown();
+  document.addEventListener("astro:page-load", initFooterDropdown);
+</script>
+
