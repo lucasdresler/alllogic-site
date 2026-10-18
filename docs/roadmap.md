@@ -37,6 +37,11 @@ Escopo de internacionalização da primeira versão (ver [ADR-0002](decisions/AD
 - Página Sobre (`/sobre`).
 - Página Contato (`/contato`), incluindo o formulário de diagnóstico integrado ao endpoint PHP.
 - Página Domínios e Hospedagem (`/dominios-e-hospedagem`).
+- Soluções da Família Agillex:
+  - Agillex Hub (`/agillex-hub/`) — Plataforma Integrada de Operações com Sticky Showcase e Vitrine de Recursos;
+  - Agillex Agenda (`/agillex-agenda/`) — Sistema de Agendamento Online;
+  - Agillex Atendimento (`/agillex-atendimento/`) — Agente de IA Oficial para WhatsApp 24/7.
+- Navegação integrada com menu dropdown "Família Agillex" e rodapé categorizado.
 - Página Política de Privacidade (`/politica-de-privacidade`).
 - Navegação institucional entre páginas e seções.
 - Identidade visual e ativos públicos atualmente utilizados pela implementação.

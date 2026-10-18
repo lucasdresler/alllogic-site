@@ -1,11 +1,23 @@
-## 2026-09-13
-
-- Formalizada no ADR-0004 a definição de `alllogiconline.com.br` como domínio oficial e URL canônica vigente do site institucional.
-- Preservados os registros históricos que documentam `alllogic.com.br` como domínio utilizado anteriormente pelo Projeto Atlas.
-
 # Changelog do Projeto Atlas
 
 Este documento registra, em ordem cronológica, apenas marcos relevantes da evolução do Projeto Atlas.
+
+## 2026-10-17 — Lançamento da Família Agillex e Experiência Visual Interativa
+
+- **Páginas da Família Agillex:** Implementação das landing pages comerciais `/agillex-hub/` (Agillex Hub — Plataforma Integrada de Operações) e `/agillex-atendimento/` (Agillex Atendimento — Agente de IA Oficial para WhatsApp 24/7), integrando-se com a página já existente `/agillex-agenda/` (Agillex Agenda).
+- **Navegação Integrada:** Adicionado menu dropdown "Família Agillex" no Header (`Header.astro`) e agrupamento das soluções comerciais no rodapé (`Footer.astro`).
+- **Sticky Scroll Showcase:** Implementado recurso de vitrine visual com rolagem fixa (sticky showcase) e alternância fluida de painéis em `/agillex-hub/`.
+- **Aprimoramento de Animações:** Modernização das animações da página `/sobre/` com stagger reveal dinâmico, revelação sequencial de blocos conceituais e cards interativos.
+- **Navegação Suave e Checkout:** Correção de âncoras para os botões "Ver Planos e Preços" (`#planos`) nas páginas da família Agillex e direcionamento direto dos CTAs de planos para o fluxo de checkout unificado.
+
+## 2026-09-15 — Marca Pública AllLogic Online
+
+- Alinhamento da denominação institucional para **AllLogic Online**, conforme formalizado no ADR-002 da governança da empresa e ADR-0004 do Projeto Atlas.
+
+## 2026-09-13 — Domínio Oficial e URL Canônica
+
+- Formalizada no ADR-0004 a definição de `alllogiconline.com.br` como domínio oficial e URL canônica vigente do site institucional.
+- Preservados os registros históricos que documentam `alllogic.com.br` como domínio utilizado anteriormente pelo Projeto Atlas.
 
 ## 2026-08-28 — Página Sobre
 

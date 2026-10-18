@@ -14,7 +14,10 @@ components/
 ├── navigation/
 ├── sections/
 ├── contact/
-└── about/
+├── about/
+├── agillex/
+├── agillex-hub/
+└── agillex-atendimento/
 ```
 
 ### `layout/`
@@ -23,7 +26,7 @@ Componentes estruturais e genéricos, sem conhecimento de domínio ou de conteú
 
 ### `navigation/`
 
-Componentes responsáveis pela navegação e pelo envelope estrutural comum a todas as páginas: `Header`, `Navigation`, `Footer`. Conhecem a fonte de conteúdo de navegação (`navigationContent`, de `src/content/navigation.ts`), mas não conhecem o conteúdo específico de nenhuma página.
+Componentes responsáveis pela navegação e pelo envelope estrutural comum a todas as páginas: `Header` (com suporte a dropdowns como Família Agillex), `Navigation`, `Footer`. Conhecem a fonte de conteúdo de navegação (`navigationContent`, de `src/content/navigation.ts`), mas não conhecem o conteúdo específico de nenhuma página.
 
 ### `sections/`
 
@@ -35,7 +38,19 @@ Componentes de conteúdo específicos da página `/contato`: `ContactHeroSection
 
 ### `about/`
 
-Componentes de conteúdo específicos da página `/sobre`: `AboutHeroSection`, `WhoWeAreSection`, `PhilosophySection`, `EngineeringMindsetSection`, `PeopleForTechSection`, `ExperienceSection`, `ApproachSection`, `AboutClosingSection`. Consomem `sobreContent` (`src/content/sobre.ts`). `ExperienceSection` reaproveita os mesmos projetos já usados no Portfólio da Home (via `sobreContent.experience.projects`, que vem de `homeContent.portfolio.projects`), evitando duplicar a lista.
+Componentes de conteúdo específicos da página `/sobre`: `AboutHeroSection`, `WhoWeAreSection`, `PhilosophySection`, `EngineeringMindsetSection`, `PeopleForTechSection`, `ExperienceSection`, `ApproachSection`, `AboutClosingSection`. Consomem `sobreContent` (`src/content/sobre.ts`) e contam com animações reveladoras (stagger reveal).
+
+### `agillex/`
+
+Componentes da solução Agillex Agenda (`AgillexHeroSection`, `AgillexAudienceSection`, `AgillexFeaturesSection`, `AgillexTrialSection`).
+
+### `agillex-hub/`
+
+Componentes da plataforma Agillex Hub (`AgillexHubHero`, `AgillexHubStickyShowcase`, `AgillexHubFeatures`, `AgillexHubMultiTenant`, `AgillexHubPricing`, `AgillexHubCTA`). Inclui vitrine interativa com Sticky Scroll Showcase e guias dinâmicas.
+
+### `agillex-atendimento/`
+
+Componentes do Agillex Atendimento (`AgillexAtendimentoHero`, `AgillexAtendimentoHowItWorks`, `AgillexAtendimentoFeatures`, `AgillexAtendimentoPricing`, `AgillexAtendimentoCTA`).
 
 ## Diferença entre componentes estruturais, de navegação e de conteúdo
 

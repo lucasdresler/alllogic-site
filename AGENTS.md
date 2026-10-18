@@ -127,7 +127,12 @@ As páginas atualmente publicadas no site são:
 - `/sobre/` — Sobre;
 - `/contato/` — Contato e Diagnóstico;
 - `/dominios-e-hospedagem/` — Domínios e Hospedagem;
+- `/agillex-hub/` — Agillex Hub (Plataforma integrada de operações: WhatsApp IA, Agenda, CRM Kanban e Pagamentos);
+- `/agillex-agenda/` — Agillex Agenda (Sistema de agendamento online integrado com WhatsApp e Google Agenda);
+- `/agillex-atendimento/` — Agillex Atendimento (Agente de IA Oficial para WhatsApp 24/7 com base de conhecimento);
 - `/politica-de-privacidade/` — Política de Privacidade.
+
+O menu de navegação (`Header.astro`) conta com o dropdown "Família Agillex" reunindo as três soluções comerciais.
 
 Antes de criar uma nova página ou alterar uma rota existente, consultar a documentação e a arquitetura atuais do projeto.
 

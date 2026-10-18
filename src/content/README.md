@@ -18,15 +18,31 @@ Conteúdo institucional compartilhado entre múltiplas páginas do site — iden
 
 ### `home.ts`
 
-Conteúdo textual específico da página inicial (Hero, Problems, Method, Diagnosis, Solutions, Portfolio, CTA final) — títulos, descrições e ações (`actions: HomeCTA[]`) de cada seção da jornada do visitante. Reutiliza `site.ts` sempre que um campo representa informação institucional compartilhada (ex.: `hero.title` reutiliza `site.ts` → `branding.tagline`), evitando duplicar a mesma informação em dois lugares. Cada seção expressa suas chamadas para ação exclusivamente via `actions[]`, consumido diretamente por `HeroSection.astro`, `DiagnosisSection.astro` e `CTASection.astro`.
+Conteúdo textual específico da página inicial (Hero, Problems, Method, Diagnosis, Solutions, Portfolio, CTA final) — títulos, descrições e ações (`actions: HomeCTA[]`) de cada seção da jornada do visitante. Reutiliza `site.ts` sempre que um campo representa informação institucional compartilhada.
 
-**Fonte de dados:** `site.ts`, para os campos institucionais compartilhados; conteúdo editorial próprio da Home para os demais campos.
+### `sobre.ts`
+
+Conteúdo textual estruturado da página `/sobre/` (Hero, Quem Somos, Nossa Forma de Pensar, Mentalidade de Engenharia, Tecnologia para as Pessoas, Experiência Prática, Como Trabalhamos e Encerramento). Reutiliza `site.ts` e `home.ts` para dados institucionais compartilhados.
+
+### `contato.ts`
+
+Conteúdo da página `/contato/` e textos do formulário de diagnóstico.
+
+### `agillex.ts`
+
+Conteúdo comercial da solução Agillex Agenda (Hero, Público-alvo, Recursos, Planos e Experimentação).
+
+### `agillex-hub.ts`
+
+Conteúdo comercial da plataforma Agillex Hub (Hero, Pilares operacionais, Sticky Showcase, Multi-tenant, Tabela comparativa de planos e Checkout).
+
+### `agillex-atendimento.ts`
+
+Conteúdo comercial da solução Agillex Atendimento (Hero, Atendimento Humanizado com IA, Casos de uso, Recursos, Tabela de planos e Checkout).
 
 ### `navigation.ts`
 
-Fonte única dos itens de navegação do site — menu principal (`main`) e menu do rodapé (`footer`). Consumido diretamente por `Navigation.astro` e `Footer.astro`.
-
-**Fonte de dados futura:** arquitetura de navegação do site, a homologar separadamente.
+Fonte única dos itens de navegação do site — menu principal (`main`, incluindo dropdowns como "Família Agillex") e menu do rodapé (`footer`). Consumido diretamente por `Header.astro`, `Navigation.astro` e `Footer.astro`.
 
 ## Fluxo oficial de conteúdo
 

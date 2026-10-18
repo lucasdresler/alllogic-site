@@ -72,9 +72,25 @@ Responsabilidade:
 
 ---
 
+### Agillex Hub
+
+**Arquivo:** `src/pages/agillex-hub.astro`  
+**Rota:** `/agillex-hub/`
+
+Responsabilidade:
+
+- apresentar a plataforma central e unificada de operações da Família Agillex;
+- detalhar os quatro pilares integrados: WhatsApp Oficial com IA, Sistema de Agendamento Online, CRM & Pipeline Kanban e Agillex Pay (split e taxa fixa de R$ 1,99 por PIX/cartão sem percentual);
+- demonstrar a arquitetura multi-tenant (gestão de múltiplos estabelecimentos em um único painel), controle de permissões por perfil e relatórios preditivos;
+- apresentar a vitrine interativa com Sticky Scroll Showcase e guias visuais interativas;
+- disponibilizar tabela comparativa de planos (Autônomo, Negócio e Escala) com botão direto de contratação (`/checkout`);
+- compor componentes modulares em `src/components/agillex-hub/`, consumindo o conteúdo isolado em `src/content/agillex-hub.ts`.
+
+---
+
 ### Agillex Agenda
 
-**Arquivo:** `src/pages/agillex-agenda.astro`
+**Arquivo:** `src/pages/agillex-agenda.astro`  
 **Rota:** `/agillex-agenda/`
 
 Responsabilidade:
@@ -82,21 +98,30 @@ Responsabilidade:
 - apresentar a solução comercial Agillex Agenda (Sistema de Agendamento Online);
 - comunicar sua proposta de valor e público-alvo (negócios com atendimento por hora marcada);
 - apresentar os recursos práticos e funcionalidades da ferramenta com redação conservadora e sem promessas não homologadas;
+- apresentar tabela de planos com navegação suave para contratação;
 - disponibilizar a chamada para experimentação da plataforma (`https://agenda.alllogiconline.com.br/agillex`) e canal de contato institucional;
 - compor as quatro seções modulares (`AgillexHeroSection`, `AgillexAudienceSection`, `AgillexFeaturesSection`, `AgillexTrialSection`), consumindo o conteúdo isolado em `src/content/agillex.ts`.
 
-Pendências comerciais catalogadas para futura homologação:
+---
 
-- definição oficial de eventuais períodos de avaliação gratuita e política de onboarding;
-- especificação detalhada de limites operacionais ou recursos em cada plano;
-- política formal de retenção e descarte de dados (LGPD);
-- escopo homologado de customização visual da página pública.
+### Agillex Atendimento
+
+**Arquivo:** `src/pages/agillex-atendimento.astro`  
+**Rota:** `/agillex-atendimento/`
+
+Responsabilidade:
+
+- apresentar o Agente de IA Oficial para WhatsApp 24/7 com inteligência de ponta a ponta;
+- comunicar os pilares de atendimento humanizado com IA treinada na base de conhecimento da empresa, sem alucinações e com transição transparente para atendente humano quando necessário;
+- detalhar recursos: triagem inteligente, agendamento automatizado integrado, histórico de conversas e métricas de satisfação;
+- apresentar tabela comparativa de planos com botão direto para contratação;
+- compor componentes em `src/components/agillex-atendimento/`, consumindo o conteúdo isolado em `src/content/agillex-atendimento.ts`.
 
 ---
 
 ### Política de Privacidade
 
-**Arquivo:** `src/pages/politica-de-privacidade.astro`
+**Arquivo:** `src/pages/politica-de-privacidade.astro`  
 **Rota:** `/politica-de-privacidade/`
 
 Responsabilidade:
@@ -113,7 +138,10 @@ A navegação principal atualmente contempla:
 
 - **Início** → `/`
 - **Soluções** → `/#solucoes`
-- **Agillex Agenda** → `/agillex-agenda/`
+- **Família Agillex (Dropdown)**:
+  - **Agillex Hub** → `/agillex-hub/`
+  - **Agillex Agenda** → `/agillex-agenda/`
+  - **Agillex Atendimento** → `/agillex-atendimento/`
 - **Portfólio** → `/#portfolio`
 - **Diagnóstico** → `/#diagnostico`
 - **Sobre** → `/sobre/`
@@ -121,8 +149,16 @@ A navegação principal atualmente contempla:
 
 O rodapé contempla:
 
-- **Agillex Agenda** → `/agillex-agenda/`
-- **Política de Privacidade** → `/politica-de-privacidade/`
+- **Família Agillex**:
+  - **Agillex Hub** → `/agillex-hub/`
+  - **Agillex Agenda** → `/agillex-agenda/`
+  - **Agillex Atendimento** → `/agillex-atendimento/`
+- **Institucional**:
+  - **Sobre** → `/sobre/`
+  - **Domínios e Hospedagem** → `/dominios-e-hospedagem/`
+  - **Contato** → `/contato/`
+- **Legal**:
+  - **Política de Privacidade** → `/politica-de-privacidade/`
 
 As seções de Soluções, Portfólio e Diagnóstico permanecem integradas à página inicial, por meio de âncoras.
 
