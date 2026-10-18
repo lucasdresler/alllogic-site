@@ -53,6 +53,7 @@ a {
 
 html {
   scroll-padding-top: 142px;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 768px) {

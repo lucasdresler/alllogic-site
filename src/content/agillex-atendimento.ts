@@ -157,7 +157,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
       },
       secondary: {
         label: "Ver planos e preços",
-        href: "#precos",
+        href: "#planos-e-precos",
         target: "_self",
         rel: "",
       },
