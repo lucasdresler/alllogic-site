@@ -11,6 +11,31 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  padding: 1.5rem 1.75rem;
+  border-radius: var(--radius-md, 12px);
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s ease,
+              background-color 0.28s ease,
+              border-color 0.28s ease;
+}
+
+.problems-section__card:hover {
+  background-color: #ffffff;
+  border-color: rgba(201, 162, 39, 0.4);
+  box-shadow: 0 14px 32px rgba(10, 31, 68, 0.1), 0 0 16px rgba(201, 162, 39, 0.08);
+  transform: translateY(-4px);
+}
+
+@media (max-width: 640px) {
+  .problems-section__card {
+    padding: 1.25rem 1rem;
+  }
+
+  .problems-section__card:hover {
+    transform: none;
+  }
 }
 
 .problems-section__closing {

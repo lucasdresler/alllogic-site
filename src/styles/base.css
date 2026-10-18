@@ -34,6 +34,7 @@ body {
   font-family: system-ui, sans-serif;
   background-color: var(--color-background);
   color: var(--color-text);
+  overflow-x: clip;
 }
 
 a {
@@ -54,6 +55,7 @@ a {
 html {
   scroll-padding-top: 142px;
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 @media (max-width: 768px) {

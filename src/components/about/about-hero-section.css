@@ -1,9 +1,11 @@
 .about-hero {
   text-align: center;
   max-width: 860px;
+  width: 100%;
   margin: 0 auto;
   padding: var(--space-md) 0 var(--space-xl);
   position: relative;
+  overflow-x: clip;
 }
 
 .about-hero__ambient-glow {
@@ -18,6 +20,12 @@
   z-index: -1;
   pointer-events: none;
   animation: orbPulse 8s infinite alternate ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .about-hero__ambient-glow {
+    display: none !important;
+  }
 }
 
 @keyframes orbPulse {

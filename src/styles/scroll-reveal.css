@@ -27,6 +27,13 @@
   transform: none;
 }
 
+@media (max-width: 768px) {
+  [data-scroll-reveal="left"],
+  [data-scroll-reveal="right"] {
+    transform: translateY(16px) scale(0.985);
+  }
+}
+
 @media (min-width: 769px) {
   [data-scroll-reveal="left"] {
     transform: translateX(-32px) scale(0.985);

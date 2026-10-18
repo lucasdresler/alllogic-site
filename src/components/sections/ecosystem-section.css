@@ -41,6 +41,13 @@
   margin-top: var(--space-md);
 }
 
+@media (max-width: 640px) {
+  .ecosystem-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+}
+
 .ecosystem-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);

@@ -1,3 +1,9 @@
+.section {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 /* padding-block por spacing */
 .section--spacing-sm {
   padding-block: 2rem;
