@@ -538,6 +538,21 @@
   font-weight: 600;
 }
 
+.hosting-guarantee-card__note {
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px dashed rgba(30, 142, 62, 0.25);
+  font-size: 0.825rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.hosting-guarantee-card__note strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+
 @media (max-width: 640px) {
   .hosting-guarantee-card {
     flex-direction: column;
