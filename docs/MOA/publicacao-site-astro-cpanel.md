@@ -197,3 +197,19 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
 - **Sequência executada:** Suporte e assets (`_astro/`, `images/`) → nova rota `/termos-de-uso/` → rotas existentes (`/`, `/agillex-hub/`, `/agillex-agenda/`, `/agillex-atendimento/`, `/contato/`, `/sobre/`, `/dominios-e-hospedagem/`, `/politica-de-privacidade/`) → sitemaps.
 - **Respostas HTTP:** Retorno `200` confirmado para `/`, `/termos-de-uso/`, `/agillex-hub/`, `/agillex-agenda/`, `/agillex-atendimento/`, `/contato/`, `/sobre/`, `/dominios-e-hospedagem/`, `/politica-de-privacidade/`, `/sitemap-index.xml`.
 - **Navegação:** Link "Termos de Uso" incorporado e validado no rodapé de todas as páginas públicas do site.
+
+## Registro de referência — Correção de Sequência de CTAs na Home (18/10/2026)
+
+- **Commit de referência:** `970e556`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-cta-fix-970e556.tar.gz`
+- **SHA-256 do pacote:** `bd8dcfddcc25528192ca6f573a2d2e1191065773abeaf32fb3026333fe4f2ad8`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261018-091604.tar.gz` (SHA-256: `b01bb8786c009733f25988b00bc9d107290e0efac8192773251c5da9efecdc3e`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-cta-fix-970e556`
+- **Validações prévias:** Backup íntegro e validado com `gzip -t`, SHA-256 verificado remotamente antes de qualquer substituição.
+- **Preservação de serviços:** Endpoint `api/diagnosis.php` comparado via `cmp -s` e verificado 100% idêntico.
+- **Sequência executada:** Suporte e assets atualizados → rotas públicas sincronizadas.
+- **Respostas HTTP:** Retorno `200` confirmado para `/` e todas as rotas públicas.
+- **Ordem das seções:** `#metodo` → `#diagnostico` → `#solucoes` → `#ecossistema` → `#portfolio` → `#faq` → `#cta-final`, eliminando duplicação consecutiva de CTAs no final da Home.
