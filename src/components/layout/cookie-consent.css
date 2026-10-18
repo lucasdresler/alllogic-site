@@ -49,8 +49,17 @@
 }
 
 .cookie-consent__actions button:last-child {
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 8px rgba(201, 162, 39, 0.3);
+  transition: all 0.2s ease;
+}
+
+.cookie-consent__actions button:last-child:hover {
+  background-color: #b59122;
+  border-color: #b59122;
+  color: #ffffff;
 }
 
 .cookie-consent__actions button:focus-visible {

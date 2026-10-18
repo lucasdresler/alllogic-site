@@ -296,6 +296,48 @@ const enterpriseTier = pricing.tiers[1];
     font-weight: 700;
     flex-shrink: 0;
   }
+
+  .agillex-pricing__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: var(--radius-md, 8px);
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .agillex-pricing__cta--primary {
+    background-color: var(--color-accent, #c9a227) !important;
+    color: #ffffff !important;
+    border: 1px solid var(--color-accent, #c9a227) !important;
+    box-shadow: 0 4px 14px rgba(201, 162, 39, 0.4) !important;
+  }
+
+  .agillex-pricing__cta--primary:hover {
+    background-color: #b59122 !important;
+    border-color: #b59122 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201, 162, 39, 0.55) !important;
+  }
+
+  .agillex-pricing__cta--secondary {
+    background-color: transparent !important;
+    color: var(--color-primary, #0a1f44) !important;
+    border: 1.5px solid var(--color-border, #dde3ee) !important;
+  }
+
+  .agillex-pricing__cta--secondary:hover {
+    background-color: var(--color-surface, #f4f6fa) !important;
+    border-color: var(--color-primary, #0a1f44) !important;
+    transform: translateY(-2px);
+  }
 </style>
 
 <script>

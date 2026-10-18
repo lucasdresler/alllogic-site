@@ -91,23 +91,26 @@
   gap: 10px;
   padding: 1rem 1.75rem;
   border-radius: var(--radius-md, 8px);
-  background: linear-gradient(135deg, var(--color-accent, #c9a227) 0%, #e0bc46 100%);
-  color: #061530;
+  background-color: var(--color-accent, #c9a227);
+  color: #ffffff;
+  border: 1px solid var(--color-accent, #c9a227);
   font-size: 1.02rem;
   font-weight: 800;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.35);
+  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.4);
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.22s ease,
-              background 0.22s ease,
+              background-color 0.22s ease,
               border-color 0.22s ease;
   white-space: nowrap;
 }
 
 .about-closing-btn:hover {
-  background: linear-gradient(135deg, #dfb83b 0%, #ecd067 100%);
+  background-color: #b59122;
+  border-color: #b59122;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.45);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.55);
 }
 
 .about-closing-btn--secondary {

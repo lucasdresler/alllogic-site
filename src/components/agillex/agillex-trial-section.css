@@ -109,19 +109,24 @@
   border-radius: var(--radius-md);
   font-weight: 600;
   text-decoration: none;
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 4px 14px rgba(201, 162, 39, 0.4);
   transition:
     background-color 0.2s ease,
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
   cursor: pointer;
 }
 
 .agillex-trial__btn:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
+  background-color: #b59122;
+  border-color: #b59122;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.55);
 }
 
 .agillex-trial__btn:focus-visible {

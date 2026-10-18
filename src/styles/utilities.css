@@ -135,7 +135,7 @@
 .agillex-pricing__cta:hover,
 .agillex-trial__action:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(31, 111, 255, 0.28);
+  box-shadow: 0 8px 22px rgba(201, 162, 39, 0.35);
 }
 
 .btn-interactive:active,
@@ -145,7 +145,7 @@
 .agillex-pricing__cta:active,
 .agillex-trial__action:active {
   transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(31, 111, 255, 0.2);
+  box-shadow: 0 3px 8px rgba(201, 162, 39, 0.25);
 }
 
 /* 7. Hover suave nos links de navegação com linha expansível */

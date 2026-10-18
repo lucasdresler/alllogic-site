@@ -26,14 +26,17 @@
 
 .cta-link__primary {
   background-color: var(--color-accent);
-  color: var(--color-primary-dark);
+  color: #ffffff;
   border: 1px solid var(--color-accent);
+  box-shadow: 0 4px 14px rgba(201, 162, 39, 0.4);
 }
 
 .cta-link__primary:hover {
-  background-color: #B59020;
-  border-color: #B59020;
+  background-color: #b59122;
+  border-color: #b59122;
+  color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.55);
 }
 
 .cta-link__secondary {

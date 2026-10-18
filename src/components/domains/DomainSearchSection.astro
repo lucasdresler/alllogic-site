@@ -7,27 +7,228 @@ import "./domain-search-section.css";
 <Section id="busca-dominio" spacing="lg">
   <Container>
     <div class="domain-search-section__content">
-      <p class="domain-search-section__eyebrow">Registro de Domínios</p>
+      <p class="domain-search-section__eyebrow">Registro e Consulta de Domínios</p>
       <h2>Encontre o domínio ideal para sua empresa.</h2>
       <p class="domain-search-section__description">
-        Consulte um domínio para sua empresa e veja as opções disponíveis para
-        registrar sua presença na internet.
+        Consulte em tempo real a disponibilidade do seu domínio nos registros oficiais (.br e internacionais) e garanta sua marca na internet com a infraestrutura AllLogic Online.
       </p>
 
-      <form class="domain-search-section__form">
-        <label for="domain-search">Digite o domínio que deseja pesquisar</label>
+      <form class="domain-search-section__form" id="domain-search-form" novalidate>
+        <label for="domain-search-input">Digite o nome ou endereço do domínio desejado</label>
 
         <div class="domain-search-section__input-group">
           <input
-            id="domain-search"
+            id="domain-search-input"
             name="domain"
             type="text"
-            placeholder="exemplo.com.br"
+            placeholder="ex.: suaempresa ou suaempresa.com.br"
             autocomplete="url"
+            required
           />
-          <button type="submit">Buscar domínio</button>
+          <button type="submit" id="domain-search-submit" class="domain-search-btn">
+            <span class="domain-search-btn-text">Buscar domínio</span>
+            <span class="domain-search-btn-spinner" aria-hidden="true" style="display: none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="spinner-svg"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>
+            </span>
+          </button>
+        </div>
+
+        <div class="domain-search-chips">
+          <span class="domain-search-chips-label">Extensões mais registradas:</span>
+          <button type="button" class="domain-chip" data-tld=".com.br">.com.br (R$ 40/ano)</button>
+          <button type="button" class="domain-chip" data-tld=".com">.com</button>
+          <button type="button" class="domain-chip" data-tld=".net.br">.net.br</button>
         </div>
       </form>
+
+      <!-- Container Dinâmico de Resultados -->
+      <div id="domain-search-results" class="domain-results-area" style="display: none;">
+        <!-- Card do Domínio Principal -->
+        <div id="domain-primary-card" class="domain-primary-card">
+          <!-- Injetado dinamicamente via JS -->
+        </div>
+
+        <!-- Grid de Extensões Alternativas -->
+        <div id="domain-alternatives-section" style="display: none;">
+          <h3 class="domain-alternatives-title">Outras opções disponíveis para o mesmo nome:</h3>
+          <div id="domain-alternatives-grid" class="domain-alternatives-grid">
+            <!-- Injetado dinamicamente via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensagem de Erro / Alerta -->
+      <div id="domain-search-error" class="domain-search-error" style="display: none;" role="alert">
+        <!-- Injetado dinamicamente via JS -->
+      </div>
     </div>
   </Container>
 </Section>
+
+<script>
+  function initDomainSearch(): void {
+    const form = document.getElementById("domain-search-form") as HTMLFormElement | null;
+    const input = document.getElementById("domain-search-input") as HTMLInputElement | null;
+    const submitBtn = document.getElementById("domain-search-submit") as HTMLButtonElement | null;
+    const btnText = submitBtn?.querySelector(".domain-search-btn-text") as HTMLElement | null;
+    const btnSpinner = submitBtn?.querySelector(".domain-search-btn-spinner") as HTMLElement | null;
+    const resultsContainer = document.getElementById("domain-search-results");
+    const primaryCard = document.getElementById("domain-primary-card");
+    const alternativesSection = document.getElementById("domain-alternatives-section");
+    const alternativesGrid = document.getElementById("domain-alternatives-grid");
+    const errorBox = document.getElementById("domain-search-error");
+    const chips = document.querySelectorAll<HTMLButtonElement>(".domain-chip");
+
+    if (!form || !input || !submitBtn || !resultsContainer || !primaryCard) return;
+
+    // Clique em chips para autocompletar
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const tld = chip.getAttribute("data-tld") || "";
+        let val = input.value.trim();
+        if (val === "") {
+          input.value = "suaempresa" + tld;
+        } else if (!val.includes(".")) {
+          input.value = val + tld;
+        } else {
+          const parts = val.split(".");
+          input.value = parts[0] + tld;
+        }
+        input.focus();
+      });
+    });
+
+    function setLoading(loading: boolean): void {
+      if (!submitBtn || !btnText || !btnSpinner) return;
+      submitBtn.disabled = loading;
+      if (loading) {
+        btnText.textContent = "Consultando...";
+        btnSpinner.style.display = "inline-flex";
+      } else {
+        btnText.textContent = "Buscar domínio";
+        btnSpinner.style.display = "none";
+      }
+    }
+
+    function showError(msg: string): void {
+      if (!errorBox) return;
+      errorBox.textContent = msg;
+      errorBox.style.display = "block";
+      if (resultsContainer) resultsContainer.style.display = "none";
+    }
+
+    function hideError(): void {
+      if (!errorBox) return;
+      errorBox.textContent = "";
+      errorBox.style.display = "none";
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      hideError();
+
+      const query = input.value.trim();
+      if (!query) {
+        showError("Por favor, digite o nome do domínio que deseja consultar.");
+        input.focus();
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        const response = await fetch(`/api/domain-check.php?domain=${encodeURIComponent(query)}`);
+        const data = await response.json();
+
+        if (!response.ok || !data.ok) {
+          showError(data.error || "Não foi possível verificar a disponibilidade no momento. Tente novamente.");
+          return;
+        }
+
+        const results = data.results || [];
+        if (results.length === 0) {
+          showError("Nenhum resultado retornado para a consulta.");
+          return;
+        }
+
+        const primary = results[0];
+        const alternatives = results.slice(1);
+
+        // Renderiza card principal
+        if (primary.available) {
+          primaryCard.className = "domain-primary-card domain-primary-card--available";
+          primaryCard.innerHTML = `
+            <div class="domain-card-header">
+              <div class="domain-card-badge domain-badge--success">✓ Disponível para Registro</div>
+              <div class="domain-card-price">${primary.price} <span>/ ${primary.period}</span></div>
+            </div>
+            <div class="domain-card-name">${primary.domain}</div>
+            <p class="domain-card-desc">
+              Excelente escolha! Este domínio está 100% disponível para registro oficial com proteção e gestão da AllLogic Online.
+            </p>
+            <div class="domain-card-actions">
+              <a href="#hospedagem-sites" class="domain-btn-action domain-btn-action--primary" onclick="window.sessionStorage.setItem('selectedDomain', '${primary.domain}')">
+                Garantir Domínio e Escolher Hospedagem &rarr;
+              </a>
+              <a href="https://wa.me/5511966381915?text=Ol%C3%A1%2C%20gostaria%20de%20registrar%20o%20dom%C3%ADnio%20${encodeURIComponent(primary.domain)}%20com%20a%20AllLogic" target="_blank" rel="noopener noreferrer" class="domain-btn-action domain-btn-action--secondary">
+                Falar no WhatsApp
+              </a>
+            </div>
+          `;
+        } else {
+          primaryCard.className = "domain-primary-card domain-primary-card--registered";
+          primaryCard.innerHTML = `
+            <div class="domain-card-header">
+              <div class="domain-card-badge domain-badge--registered">✕ Já Registrado</div>
+            </div>
+            <div class="domain-card-name">${primary.domain}</div>
+            <p class="domain-card-desc">
+              Este domínio já possui um titular registrado. Você pode escolher uma das extensões alternativas disponíveis abaixo ou, se você já for o dono deste domínio, contratar nossa hospedagem e apontar seus servidores DNS.
+            </p>
+            <div class="domain-card-actions">
+              <a href="#hospedagem-sites" class="domain-btn-action domain-btn-action--secondary">
+                Já sou dono deste domínio: Contratar Hospedagem
+              </a>
+            </div>
+          `;
+        }
+
+        // Renderiza alternativas
+        if (alternativesGrid && alternativesSection) {
+          if (alternatives.length > 0) {
+            alternativesGrid.innerHTML = alternatives.map((alt: any) => `
+              <div class="domain-alt-card ${alt.available ? 'domain-alt-card--available' : 'domain-alt-card--registered'}">
+                <div class="domain-alt-name">${alt.domain}</div>
+                <div class="domain-alt-status">
+                  ${alt.available
+                    ? `<span class="domain-alt-badge-ok">✓ Disponível</span> <span class="domain-alt-price">${alt.price}/${alt.period}</span>`
+                    : `<span class="domain-alt-badge-no">✕ Ocupado</span>`
+                  }
+                </div>
+                ${alt.available ? `
+                  <a href="#hospedagem-sites" class="domain-alt-link" onclick="window.sessionStorage.setItem('selectedDomain', '${alt.domain}')">
+                    Escolher este &rarr;
+                  </a>
+                ` : ''}
+              </div>
+            `).join("");
+            alternativesSection.style.display = "block";
+          } else {
+            alternativesSection.style.display = "none";
+          }
+        }
+
+        resultsContainer.style.display = "block";
+        resultsContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+      } catch (err) {
+        showError("Ocorreu uma falha na conexão ao consultar o domínio. Verifique sua internet ou tente novamente em instantes.");
+      } finally {
+        setLoading(false);
+      }
+    });
+  }
+
+  initDomainSearch();
+  document.addEventListener("astro:page-load", initDomainSearch);
+</script>
