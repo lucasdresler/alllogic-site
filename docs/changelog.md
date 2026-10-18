@@ -8,6 +8,7 @@ Este documento registra, em ordem cronológica, apenas marcos relevantes da evol
 - **Ecossistema e Parceiros Oficiais (`EcosystemSection`):** Nova seção na Home destacando a infraestrutura robusta e parceiros certificados (Meta WhatsApp Cloud API Oficial, Oracle Cloud OCI, Cloudflare Enterprise CDN/WAF, Asaas Gateway de Pagamentos e PostgreSQL com Docker).
 - **FAQ com Dados Estruturados (`FAQSection`):** Seção de perguntas frequentes na Home com interface acessível de accordion e marcação JSON-LD `FAQPage` (Schema.org) para rich snippets nos mecanismos de busca do Google, cobrindo transparência de IA sem alucinações (RAG), taxa fixa de R$ 1,99 no Agillex Pay, conformidade com a LGPD e política anti-hype.
 - **Narrativa Anti-Hype e Engenharia:** Refinamento dos textos nas seções de Problemas, Método e Sobre, reforçando o compromisso com a utilidade prática antes da adoção de modismos tecnológicos.
+- **Página Pública de Termos de Uso (`/termos-de-uso/`):** Implementada página pública detalhando os Termos de Uso e Contrato de Prestação de Serviços da AllLogic Online, refletindo os termos homologados no SGA, sem fidelidade forçada, taxa fixa no Agillex Pay (R$ 1,99), propriedade absoluta dos dados e conformidade com a LGPD, integrada ao rodapé institucional.
 
 ## 2026-10-17 — Lançamento da Família Agillex e Experiência Visual Interativa
 

@@ -134,6 +134,20 @@ Responsabilidade:
 
 ---
 
+### Termos de Uso e Prestação de Serviços
+
+**Arquivo:** `src/pages/termos-de-uso.astro`  
+**Rota:** `/termos-de-uso/`
+
+Responsabilidade:
+
+- apresentar publicamente os Termos de Uso e Contrato de Prestação de Serviços da AllLogic Online;
+- regular o licenciamento e uso das plataformas em nuvem da Família Agillex (Hub, Agenda, Atendimento e Agillex Pay);
+- documentar o SLA (99,5%), a ausência de fidelidade compulsória nos planos SaaS, as taxas fixas do Agillex Pay (R$ 1,99) e a propriedade integral dos dados pelo cliente em conformidade com a LGPD;
+- servir de referência contratual e jurídica homologada no SGA.
+
+---
+
 ## Navegação
 
 A navegação principal atualmente contempla:
@@ -155,12 +169,9 @@ O rodapé contempla:
   - **Agillex Hub** → `/agillex-hub/`
   - **Agillex Agenda** → `/agillex-agenda/`
   - **Agillex Atendimento** → `/agillex-atendimento/`
-- **Institucional**:
-  - **Sobre** → `/sobre/`
-  - **Domínios e Hospedagem** → `/dominios-e-hospedagem/`
-  - **Contato** → `/contato/`
 - **Legal**:
   - **Política de Privacidade** → `/politica-de-privacidade/`
+  - **Termos de Uso** → `/termos-de-uso/`
 
 As seções de Soluções, Portfólio e Diagnóstico permanecem integradas à página inicial, por meio de âncoras.
 

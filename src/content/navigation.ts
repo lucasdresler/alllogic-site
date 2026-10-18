@@ -36,5 +36,6 @@ export const navigationContent: NavigationContent = {
     { label: "Agillex Agenda", href: "/agillex-agenda" },
     { label: "Agillex Atendimento", href: "/agillex-atendimento" },
     { label: "Política de Privacidade", href: "/politica-de-privacidade" },
+    { label: "Termos de Uso", href: "/termos-de-uso" },
   ],
 };

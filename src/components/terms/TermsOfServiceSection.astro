@@ -1,0 +1,39 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { termosContent } from "../../content/termos";
+import "./terms-of-service-section.css";
+---
+
+<Section id="termos-de-uso" background="light">
+  <Container>
+    <article class="terms-of-service">
+      <header class="terms-of-service__header" data-scroll-reveal="up">
+        <p class="terms-of-service__eyebrow">{termosContent.eyebrow}</p>
+        <h1>{termosContent.title}</h1>
+        <p class="terms-of-service__description">
+          {termosContent.description}
+        </p>
+        <p class="terms-of-service__updated">
+          Última atualização: {termosContent.updatedAt}
+        </p>
+      </header>
+
+      <div class="terms-of-service__content">
+        {termosContent.sections.map((section) => (
+          <section data-scroll-reveal="up">
+            <h2>{section.title}</h2>
+
+            {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+
+            {section.items && (
+              <ul>
+                {section.items.map((item) => <li>{item}</li>)}
+              </ul>
+            )}
+          </section>
+        ))}
+      </div>
+    </article>
+  </Container>
+</Section>
