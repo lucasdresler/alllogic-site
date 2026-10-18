@@ -233,3 +233,21 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
   - Segundo CTA da Home (`#cta-final`): botão "Agendar horário online" removido; botão principal alterado para "Vamos conversar?" apontando para o WhatsApp oficial (`https://wa.me/5511966381915`).
   - Páginas Sobre e Contato: links indevidos para a demonstração do Agillex Agenda saneados.
 
+## Registro de referência — Refinamento Visual e Sede Cadastral São Paulo/SP (18/10/2026)
+
+- **Commit de referência:** `997925d`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-visual-fix-997925d.tar.gz`
+- **SHA-256 do pacote:** `7ab55246393a829ac77f4befdc060e47f3bd4ab5d6c7283e7c01dd3f79f38605`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261018-094520.tar.gz` (SHA-256: `e1ae44f8e73a14ac817950083dbccb83e3e1cc6264e77929d83434a5dab4ee0b`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-visual-fix-997925d`
+- **Validações prévias:** Backup íntegro e validado com `gzip -t`, SHA-256 verificado remotamente.
+- **Preservação de serviços:** Endpoint `api/diagnosis.php` comparado via `cmp -s` e verificado 100% idêntico.
+- **Sequência executada:** Suporte e assets atualizados → rotas públicas sincronizadas.
+- **Respostas HTTP:** Retorno `200` confirmado para todas as rotas públicas.
+- **Ajustes aplicados:**
+  - Botão "Voltar ao topo" (`scroll-to-top`): seta atualizada de preto para branco puro (`#ffffff`) com `text-shadow` para máxima legibilidade e destaque.
+  - Termos de Uso e Política de Privacidade: endereço cadastral padronizado para "com sede cadastral em São Paulo/SP".
+
