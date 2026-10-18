@@ -182,5 +182,18 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
 - **Sequência executada:** Suporte e imagens (`_astro/`, `images/`) → rotas `/agillex-hub/`, `/agillex-agenda/`, `/agillex-atendimento/`, `/contato/`, `/sobre/`, `/dominios-e-hospedagem/`, `/politica-de-privacidade/` → sitemaps → página inicial (`index.html`).
 - **Respostas HTTP:** Retorno `200` confirmado em todas as rotas e validação do Schema.org `FAQPage` e links para `agenda.alllogiconline.com.br` ativos em produção.
 
+## Registro de referência — Publicação dos Termos de Uso e Contrato Mestre (18/10/2026)
 
-
+- **Commit de referência:** `74c43fa`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-termos-74c43fa.tar.gz`
+- **SHA-256 do pacote:** `e077c89b56c6250920c426eb3e5989652a9d9500f1a059272b2b5a67b3f9f92f`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261018-020244.tar.gz` (SHA-256: `4a985a5294ba53a06c3ab6b1acc2f8a400eb2179a98ce29af36ff666aceeea87`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-termos-74c43fa`
+- **Validações prévias:** Backup íntegro e validado com `gzip -t` e `tar -tzf`, SHA-256 verificado remotamente antes de qualquer substituição.
+- **Preservação de serviços:** Endpoint `api/diagnosis.php` comparado via `cmp -s` e verificado 100% idêntico.
+- **Sequência executada:** Suporte e assets (`_astro/`, `images/`) → nova rota `/termos-de-uso/` → rotas existentes (`/`, `/agillex-hub/`, `/agillex-agenda/`, `/agillex-atendimento/`, `/contato/`, `/sobre/`, `/dominios-e-hospedagem/`, `/politica-de-privacidade/`) → sitemaps.
+- **Respostas HTTP:** Retorno `200` confirmado para `/`, `/termos-de-uso/`, `/agillex-hub/`, `/agillex-agenda/`, `/agillex-atendimento/`, `/contato/`, `/sobre/`, `/dominios-e-hospedagem/`, `/politica-de-privacidade/`, `/sitemap-index.xml`.
+- **Navegação:** Link "Termos de Uso" incorporado e validado no rodapé de todas as páginas públicas do site.
