@@ -11,8 +11,10 @@ const { audience } = agillexHubContent;
   <Container size="xl">
     <div class="agillex-audience" data-scroll-reveal="up">
       <div class="agillex-audience__header">
-        <span class="agillex-audience__eyebrow">{audience.eyebrow}</span>
-        <h2 class="agillex-audience__title">{audience.title}</h2>
+        <span class="hub-audience__eyebrow">{audience.eyebrow}</span>
+        <h2 class="agillex-audience__title">
+          Ideal para empresas que precisam de organização total e <span class="hub-audience__gold-text">velocidade de resposta</span>
+        </h2>
         <p class="agillex-audience__complement">{audience.complement}</p>
         <p class="agillex-audience__description">{audience.description}</p>
       </div>
@@ -20,8 +22,8 @@ const { audience } = agillexHubContent;
       <div class="agillex-audience__grid">
         {
           audience.items.map((item) => (
-            <div class="agillex-audience__card card-interactive" data-scroll-reveal="up">
-              <span class="agillex-audience__icon" aria-hidden="true">
+            <div class="agillex-audience__card hub-audience__card card-interactive" data-scroll-reveal="up">
+              <span class="hub-audience__icon-badge" aria-hidden="true">
                 {item.icon}
               </span>
               <h3 class="agillex-audience__card-title">{item.title}</h3>
@@ -35,3 +37,70 @@ const { audience } = agillexHubContent;
     </div>
   </Container>
 </Section>
+
+<style>
+  .hub-audience__eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-accent, #c9a227);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+
+  .hub-audience__gold-text {
+    color: var(--color-accent, #c9a227);
+    background: linear-gradient(135deg, #c9a227 0%, #e0bc46 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  .hub-audience__card {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid var(--color-border, #dde3ee);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hub-audience__card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    transition: background 0.3s ease;
+  }
+
+  .hub-audience__card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201, 162, 39, 0.45);
+    box-shadow: 0 16px 32px rgba(10, 31, 68, 0.08), 0 0 18px rgba(201, 162, 39, 0.12);
+  }
+
+  .hub-audience__card:hover::before {
+    background: linear-gradient(90deg, var(--color-accent, #c9a227), #1f6fff);
+  }
+
+  .hub-audience__icon-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(201, 162, 39, 0.1);
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .hub-audience__card:hover .hub-audience__icon-badge {
+    transform: scale(1.1);
+    background: rgba(201, 162, 39, 0.18);
+  }
+</style>

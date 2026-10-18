@@ -5,11 +5,40 @@ import { sobreContent } from "../../content/sobre";
 import "./who-we-are-section.css";
 ---
 
-<Section id="quem-somos">
+<Section id="quem-somos" spacing="lg">
   <Container>
-    <div class="who-we-are-section__content">
-      <h2>{sobreContent.whoWeAre.title}</h2>
-      <p>{sobreContent.whoWeAre.description}</p>
+    <div class="who-we-are-grid">
+      <!-- Coluna de Texto com Reveal à Esquerda -->
+      <div class="who-we-are-text" data-scroll-reveal="left">
+        <span class="who-we-are-eyebrow">Origem & Identidade</span>
+        <h2 class="who-we-are-title">{sobreContent.whoWeAre.title}</h2>
+        <p class="who-we-are-desc">{sobreContent.whoWeAre.description}</p>
+      </div>
+
+      <!-- Card em Destaque Interativo com Reveal à Direita -->
+      <div class="who-we-are-card card-interactive" data-scroll-reveal="right">
+        <div class="who-we-are-card__header">
+          <span class="who-we-are-card__icon" aria-hidden="true">💡</span>
+          <span class="who-we-are-card__badge">Nosso Compromisso</span>
+        </div>
+        <blockquote class="who-we-are-card__quote">
+          "Entender o cenário real antes de escolher ou propor qualquer tecnologia."
+        </blockquote>
+        <ul class="who-we-are-card__list">
+          <li>
+            <span class="who-check" aria-hidden="true">✓</span>
+            <span>Diagnóstico neutro e focado em problemas práticos</span>
+          </li>
+          <li>
+            <span class="who-check" aria-hidden="true">✓</span>
+            <span>Sem complexidade desnecessária ou modismos</span>
+          </li>
+          <li>
+            <span class="who-check" aria-hidden="true">✓</span>
+            <span>Rigor técnico de engenharia com foco nas pessoas</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </Container>
 </Section>

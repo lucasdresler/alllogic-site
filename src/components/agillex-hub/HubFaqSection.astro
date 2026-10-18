@@ -72,6 +72,30 @@ const { faq } = agillexHubContent;
   </Container>
 </Section>
 
+<style>
+  .agillex-faq__eyebrow {
+    color: var(--color-accent, #c9a227) !important;
+    font-weight: 700;
+  }
+
+  .agillex-faq__item {
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .agillex-faq__item:hover {
+    border-color: rgba(201, 162, 39, 0.4);
+    box-shadow: 0 4px 16px rgba(10, 31, 68, 0.06);
+  }
+
+  .agillex-faq__item.is-open {
+    border-color: var(--color-accent, #c9a227);
+  }
+
+  .agillex-faq__icon {
+    color: var(--color-accent, #c9a227);
+  }
+</style>
+
 <script>
   function initHubFaqAccordion(): void {
     const triggers = document.querySelectorAll<HTMLButtonElement>(

@@ -1,6 +1,123 @@
-.people-for-tech-section__content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  max-width: 640px;
+.people-tech {
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.people-tech__glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 280px;
+  background: radial-gradient(ellipse at top, rgba(31, 111, 255, 0.18) 0%, rgba(201, 162, 39, 0.1) 45%, transparent 70%);
+  filter: blur(45px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.people-tech__header {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto 3rem auto;
+}
+
+.people-tech__badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: rgba(201, 162, 39, 0.15);
+  color: var(--color-accent, #c9a227);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  margin-bottom: 1rem;
+}
+
+.people-tech__title {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0 0 1.25rem 0;
+}
+
+.people-tech__gold {
+  color: var(--color-accent, #c9a227);
+  background: linear-gradient(135deg, #c9a227 0%, #ecd067 50%, #c9a227 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.people-tech__desc {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Grid com 3 Cards de Impacto */
+.people-tech__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .people-tech__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.people-tech__item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg, 16px);
+  padding: 1.75rem;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s ease,
+              border-color 0.28s ease;
+}
+
+.people-tech__item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 162, 39, 0.5);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 162, 39, 0.15);
+}
+
+.people-tech__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 1.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.people-tech__item h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.people-tech__item p {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.55;
+  margin: 0;
 }

@@ -1,16 +1,107 @@
-.philosophy-section__content {
+.philosophy-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.philosophy-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.philosophy-eyebrow {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent, #c9a227);
+  margin-bottom: 0.75rem;
+}
+
+.philosophy-title {
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 800;
+  color: var(--color-primary, #0a1f44);
+  line-height: 1.25;
+  margin: 0 0 1rem 0;
+}
+
+.philosophy-desc {
+  font-size: 1.1rem;
+  color: var(--color-text-muted, #4a5568);
+  line-height: 1.65;
+  margin: 0 auto;
+}
+
+/* Card Iluminado do Princípio */
+.philosophy-principle-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(201, 162, 39, 0.4);
+  border-radius: var(--radius-lg, 16px);
+  padding: 2.25rem;
+  box-shadow: 0 12px 32px rgba(10, 31, 68, 0.06), 0 0 20px rgba(201, 162, 39, 0.1);
   display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  max-width: 640px;
+  align-items: flex-start;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
 }
 
-.philosophy-section__description {
-  color: var(--color-text-muted);
+.philosophy-principle-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--color-accent, #c9a227) 0%, #ecd067 100%);
 }
 
-.philosophy-section__principle {
-  margin-block-start: var(--space-sm);
-  font-weight: 600;
-  color: var(--color-primary);
+.philosophy-principle-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent, #c9a227);
+  box-shadow: 0 18px 40px rgba(10, 31, 68, 0.1), 0 0 28px rgba(201, 162, 39, 0.2);
+}
+
+.philosophy-principle-icon {
+  font-size: 3.5rem;
+  font-family: Georgia, serif;
+  line-height: 1;
+  color: var(--color-accent, #c9a227);
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.philosophy-principle-content {
+  flex: 1;
+}
+
+.philosophy-principle-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary, #0a1f44);
+  line-height: 1.45;
+  margin: 0 0 1rem 0;
+}
+
+.philosophy-principle-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-accent, #c9a227);
+  background: rgba(201, 162, 39, 0.1);
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+
+.philosophy-principle-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent, #c9a227);
 }

@@ -1,19 +1,125 @@
-.about-hero-section__content {
+.about-hero {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--space-md) 0 var(--space-xl);
+  position: relative;
+}
+
+.about-hero__ambient-glow {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(31, 111, 255, 0.08) 0%, rgba(201, 162, 39, 0.06) 50%, transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
+  pointer-events: none;
+  animation: orbPulse 8s infinite alternate ease-in-out;
+}
+
+@keyframes orbPulse {
+  0% { transform: translateX(-50%) scale(0.9); opacity: 0.6; }
+  100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+}
+
+.about-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  color: var(--color-accent, #c9a227);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: var(--space-md);
+}
+
+.about-hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent, #c9a227);
+  box-shadow: 0 0 6px var(--color-accent, #c9a227);
+}
+
+.about-hero__title {
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  font-weight: 800;
+  color: var(--color-primary, #0a1f44);
+  line-height: 1.2;
+  margin: 0 0 var(--space-md);
+}
+
+.about-hero__gold-text {
+  color: var(--color-accent, #c9a227);
+  background: linear-gradient(135deg, #c9a227 0%, #ecd067 50%, #c9a227 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
+}
+
+.about-hero__description {
+  font-size: 1.15rem;
+  color: var(--color-text-muted, #4a5568);
+  line-height: 1.65;
+  margin: 0 auto var(--space-xl);
+  max-width: 680px;
+}
+
+/* Chips interativos dos pilares */
+.about-hero__pillars {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: var(--space-md);
+}
+
+.about-pillar-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid var(--color-border, #dde3ee);
+  border-radius: var(--radius-md, 8px);
+  padding: 12px 18px;
+  text-align: left;
+  box-shadow: 0 4px 14px rgba(10, 31, 68, 0.04);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s ease,
+              border-color 0.28s ease;
+}
+
+.about-pillar-chip:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 162, 39, 0.45);
+  box-shadow: 0 12px 24px rgba(10, 31, 68, 0.08), 0 0 12px rgba(201, 162, 39, 0.15);
+}
+
+.about-pillar-chip__icon {
+  font-size: 1.4rem;
+}
+
+.about-pillar-chip__text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  max-width: 640px;
 }
 
-.about-hero-section__eyebrow {
-  margin: 0;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-accent);
+.about-pillar-chip__text strong {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-primary, #0a1f44);
 }
 
-.about-hero-section__description {
-  color: var(--color-text-muted);
+.about-pillar-chip__text span {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #64748b);
 }

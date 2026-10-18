@@ -1,10 +1,124 @@
-.who-we-are-section__content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  max-width: 640px;
+.who-we-are-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3rem;
+  align-items: center;
 }
 
-.who-we-are-section__content p {
-  color: var(--color-text-muted);
+@media (max-width: 860px) {
+  .who-we-are-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.who-we-are-eyebrow {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent, #c9a227);
+  margin-bottom: 0.75rem;
+}
+
+.who-we-are-title {
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 800;
+  color: var(--color-primary, #0a1f44);
+  line-height: 1.25;
+  margin: 0 0 1.25rem 0;
+}
+
+.who-we-are-desc {
+  font-size: 1.1rem;
+  color: var(--color-text-muted, #4a5568);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Card Interativo da Direita */
+.who-we-are-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f9fbfd 100%);
+  border: 1.5px solid var(--color-border, #dde3ee);
+  border-radius: var(--radius-lg, 16px);
+  padding: 2.25rem;
+  box-shadow: 0 8px 24px rgba(10, 31, 68, 0.05);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.who-we-are-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent, #c9a227), #1f6fff);
+}
+
+.who-we-are-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(201, 162, 39, 0.5);
+  box-shadow: 0 16px 36px rgba(10, 31, 68, 0.09), 0 0 20px rgba(201, 162, 39, 0.12);
+}
+
+.who-we-are-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.who-we-are-card__icon {
+  font-size: 1.5rem;
+}
+
+.who-we-are-card__badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: rgba(201, 162, 39, 0.12);
+  color: var(--color-accent, #c9a227);
+}
+
+.who-we-are-card__quote {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary, #0a1f44);
+  line-height: 1.45;
+  margin: 0 0 1.5rem 0;
+  font-style: italic;
+}
+
+.who-we-are-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid var(--color-border, #dde3ee);
+  padding-top: 1.25rem;
+}
+
+.who-we-are-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--color-text, #0a1f44);
+  line-height: 1.4;
+}
+
+.who-check {
+  color: #10b981;
+  font-weight: 800;
 }

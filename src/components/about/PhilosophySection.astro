@@ -5,12 +5,26 @@ import { sobreContent } from "../../content/sobre";
 import "./philosophy-section.css";
 ---
 
-<Section id="forma-de-pensar" background="light">
+<Section id="forma-de-pensar" background="light" spacing="lg">
   <Container>
-    <div class="philosophy-section__content">
-      <h2>{sobreContent.philosophy.title}</h2>
-      <p class="philosophy-section__description">{sobreContent.philosophy.description}</p>
-      <p class="philosophy-section__principle">{sobreContent.philosophy.principle}</p>
+    <div class="philosophy-container">
+      <div class="philosophy-header" data-scroll-reveal="up">
+        <span class="philosophy-eyebrow">Filosofia de Trabalho</span>
+        <h2 class="philosophy-title">{sobreContent.philosophy.title}</h2>
+        <p class="philosophy-desc">{sobreContent.philosophy.description}</p>
+      </div>
+
+      <!-- Card Destaque do Princípio Fundamental -->
+      <div class="philosophy-principle-card card-interactive" data-scroll-reveal="up">
+        <div class="philosophy-principle-icon" aria-hidden="true">“</div>
+        <div class="philosophy-principle-content">
+          <p class="philosophy-principle-text">{sobreContent.philosophy.principle}</p>
+          <span class="philosophy-principle-badge">
+            <span class="philosophy-principle-dot"></span>
+            AllLogic Online · Princípio Fundamental
+          </span>
+        </div>
+      </div>
     </div>
   </Container>
 </Section>

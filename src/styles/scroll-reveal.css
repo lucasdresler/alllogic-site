@@ -56,7 +56,9 @@
 .portfolio-section__block:nth-child(2),
 .agillex-audience__card:nth-child(2),
 .agillex-features__card:nth-child(2),
-.hub-pillar-card:nth-child(2) {
+.hub-pillar-card:nth-child(2),
+.mindset-step-card:nth-child(2),
+.people-tech__item:nth-child(2) {
   --reveal-duration: 650ms;
   transition-delay: 80ms;
 }
@@ -66,7 +68,9 @@
 .portfolio-section__block:nth-child(3),
 .agillex-audience__card:nth-child(3),
 .agillex-features__card:nth-child(3),
-.hub-pillar-card:nth-child(3) {
+.hub-pillar-card:nth-child(3),
+.mindset-step-card:nth-child(3),
+.people-tech__item:nth-child(3) {
   --reveal-duration: 700ms;
   transition-delay: 160ms;
 }
@@ -76,19 +80,22 @@
 .portfolio-section__block:nth-child(4),
 .agillex-audience__card:nth-child(4),
 .agillex-features__card:nth-child(4),
-.hub-pillar-card:nth-child(4) {
+.hub-pillar-card:nth-child(4),
+.mindset-step-card:nth-child(4) {
   --reveal-duration: 750ms;
   transition-delay: 240ms;
 }
 
 .agillex-audience__card:nth-child(5),
 .agillex-features__card:nth-child(5),
-.hub-pillar-card:nth-child(5) {
+.hub-pillar-card:nth-child(5),
+.mindset-step-card:nth-child(5) {
   --reveal-duration: 800ms;
   transition-delay: 320ms;
 }
 
-.agillex-features__card:nth-child(6) {
+.agillex-features__card:nth-child(6),
+.mindset-step-card:nth-child(6) {
   --reveal-duration: 850ms;
   transition-delay: 400ms;
 }

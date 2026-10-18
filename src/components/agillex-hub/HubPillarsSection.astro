@@ -7,145 +7,722 @@ const { pillars } = agillexHubContent;
 ---
 
 <Section id="modulos" background="default" spacing="lg">
-  <Container>
-    <div class="hub-pillars" data-scroll-reveal="up">
-      <div class="hub-pillars__header">
-        <span class="hub-pillars__eyebrow">{pillars.eyebrow}</span>
-        <h2 class="hub-pillars__title">{pillars.title}</h2>
-        <p class="hub-pillars__description">{pillars.description}</p>
+  <Container size="xl">
+    <div class="hub-showcase">
+      <!-- Cabeçalho da Seção -->
+      <div class="hub-showcase__header" data-scroll-reveal="up">
+        <span class="hub-showcase__eyebrow">{pillars.eyebrow}</span>
+        <h2 class="hub-showcase__title">
+          5 pilares integrados trabalhando juntos <span class="hub-showcase__gold">pelo seu crescimento</span>
+        </h2>
+        <p class="hub-showcase__description">{pillars.description}</p>
       </div>
 
-      <div class="hub-pillars__list">
-        {
-          pillars.items.map((pillar, idx) => (
-            <div class="hub-pillar-card card-interactive" data-scroll-reveal="up">
-              <div class="hub-pillar-card__badge-row">
-                <span class="hub-pillar-card__badge">{pillar.badge}</span>
+      <!-- Estrutura Sticky Scroll: Coluna de Passos (Esquerda) + Janela Fixa (Direita) -->
+      <div class="hub-sticky-layout">
+        <!-- Coluna 1: Passos/Cards que rolam verticalmente -->
+        <div class="hub-steps-column" id="hub-steps-list">
+          {
+            pillars.items.map((pillar, idx) => (
+              <div
+                class={`hub-step-card ${idx === 0 ? "is-active" : ""}`}
+                data-step-index={idx}
+                id={`hub-step-${idx}`}
+                role="button"
+                tabindex="0"
+                aria-label={`Ver demonstração de ${pillar.title}`}
+              >
+                <div class="hub-step-card__header-row">
+                  <span class="hub-step-card__number">0{idx + 1}</span>
+                  <span class="hub-step-card__badge">{pillar.badge}</span>
+                  <span class="hub-step-card__indicator-pill">Módulo {idx + 1}</span>
+                </div>
+
+                <h3 class="hub-step-card__title">{pillar.title}</h3>
+                <p class="hub-step-card__tagline">{pillar.tagline}</p>
+                <p class="hub-step-card__desc">{pillar.description}</p>
+
+                <ul class="hub-step-card__highlights">
+                  {pillar.highlights.map((item) => (
+                    <li>
+                      <span class="hub-check-icon" aria-hidden="true">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div class="hub-step-card__cta-hint">
+                  <span class="hub-step-card__cta-text">Visualizar módulo na janela fixa</span>
+                  <span class="hub-step-card__cta-arrow" aria-hidden="true">→</span>
+                </div>
               </div>
-              <h3 class="hub-pillar-card__title">{pillar.title}</h3>
-              <p class="hub-pillar-card__tagline">{pillar.tagline}</p>
-              <p class="hub-pillar-card__desc">{pillar.description}</p>
-              <ul class="hub-pillar-card__highlights">
-                {pillar.highlights.map((item) => (
-                  <li>
-                    <span class="hub-check-icon">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+            ))
+          }
+        </div>
+
+        <!-- Coluna 2: Janela Fixa (Sticky Preview) -->
+        <div class="hub-sticky-column">
+          <div class="hub-sticky-window-wrapper">
+            <!-- Efeito de brilho de fundo decorativo -->
+            <div class="hub-ambient-glow" aria-hidden="true"></div>
+
+            <div class="hub-showcase-window" id="hub-showcase-window">
+              <!-- Barra de Janela Estilo App Moderno -->
+              <div class="hub-window-topbar">
+                <div class="hub-window-dots" aria-hidden="true">
+                  <span class="dot dot--red"></span>
+                  <span class="dot dot--yellow"></span>
+                  <span class="dot dot--green"></span>
+                </div>
+                <div class="hub-window-url">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span>hub.alllogiconline.com.br/ecossistema</span>
+                </div>
+                <div class="hub-window-status">
+                  <span class="hub-status-radar" aria-hidden="true"></span>
+                  <span class="hub-status-text" id="hub-live-status-label">Ativo 24/7</span>
+                </div>
+              </div>
+
+              <!-- Mini-Switcher de Módulos da Janela -->
+              <nav class="hub-window-tabs" aria-label="Navegação rápida de módulos">
+                <button type="button" class="hub-window-tab is-active" data-switch-to="0">
+                  <span class="hub-tab-num">01</span> IA WhatsApp
+                </button>
+                <button type="button" class="hub-window-tab" data-switch-to="1">
+                  <span class="hub-tab-num">02</span> Agenda
+                </button>
+                <button type="button" class="hub-window-tab" data-switch-to="2">
+                  <span class="hub-tab-num">03</span> CRM Kanban
+                </button>
+                <button type="button" class="hub-window-tab" data-switch-to="3">
+                  <span class="hub-tab-num">04</span> Agillex Pay
+                </button>
+                <button type="button" class="hub-window-tab" data-switch-to="4">
+                  <span class="hub-tab-num">05</span> Gestão Multi
+                </button>
+              </nav>
+
+              <!-- Telas Interativas Dinâmicas (1 por pilar) -->
+              <div class="hub-window-body">
+                <!-- TELA 0: ATENDIMENTO IA WHATSAPP -->
+                <div class="hub-screen-view is-active" data-screen-index="0" id="hub-screen-0">
+                  <div class="hub-screen-header">
+                    <div class="hub-screen-avatar">
+                      <span>🤖</span>
+                      <span class="hub-screen-avatar__online" aria-hidden="true"></span>
+                    </div>
+                    <div class="hub-screen-info">
+                      <div class="hub-screen-title-row">
+                        <span class="hub-screen-name">Agillex Atendimento IA</span>
+                        <span class="hub-screen-verified" title="Canal Oficial Verificado">✓ Verificado</span>
+                      </div>
+                      <span class="hub-screen-sub">WhatsApp Oficial Conectado · Tempo médio de resposta: 1.8s</span>
+                    </div>
+                    <div class="hub-screen-pill">IA 24/7 Ativa</div>
+                  </div>
+
+                  <div class="hub-chat-thread">
+                    <!-- Mensagem de áudio recebida do cliente -->
+                    <div class="hub-chat-bubble hub-chat-bubble--client">
+                      <div class="hub-audio-player">
+                        <button type="button" class="hub-audio-play" aria-label="Reproduzir áudio recebido">▶</button>
+                        <div class="hub-audio-waveform" aria-hidden="true">
+                          <span class="hub-wave-bar w1"></span>
+                          <span class="hub-wave-bar w2"></span>
+                          <span class="hub-wave-bar w3"></span>
+                          <span class="hub-wave-bar w4"></span>
+                          <span class="hub-wave-bar w5"></span>
+                          <span class="hub-wave-bar w6"></span>
+                          <span class="hub-wave-bar w7"></span>
+                          <span class="hub-wave-bar w8"></span>
+                        </div>
+                        <span class="hub-audio-time">0:18</span>
+                      </div>
+                      <div class="hub-bubble-meta">
+                        <span class="hub-bubble-tag">🎙 Áudio de voz processado pela IA</span>
+                        <span class="hub-bubble-time">14:20</span>
+                      </div>
+                    </div>
+
+                    <!-- Mensagem de texto de contexto -->
+                    <div class="hub-chat-bubble hub-chat-bubble--client">
+                      <p>Vocês têm horário disponível para este sábado à tarde? Gostaria de saber os valores da consulta.</p>
+                      <span class="hub-bubble-time">14:20</span>
+                    </div>
+
+                    <!-- Resposta instantânea da IA treinada -->
+                    <div class="hub-chat-bubble hub-chat-bubble--bot">
+                      <div class="hub-bot-badge-row">
+                        <span class="hub-bot-tag">⚡ Resposta Inteligente IA</span>
+                        <span class="hub-bot-rag">Base RAG AllLogic</span>
+                      </div>
+                      <p>
+                        Olá! Tudo bem? Ouvi seu áudio! Atendemos aos sábados das <strong>08h às 13h</strong>. Para este sábado temos horários com o <strong>Dr. Rafael</strong> às <strong>09:30</strong> e às <strong>11:00</strong>.
+                      </p>
+                      <p class="hub-bubble-highlight">
+                        A consulta de avaliação é de <strong>R$ 180,00</strong> com retorno incluso em até 30 dias.
+                      </p>
+
+                      <!-- Ações de 1 toque no WhatsApp -->
+                      <div class="hub-quick-actions">
+                        <button type="button" class="hub-action-chip hub-action-chip--gold">
+                          <span>📅 Reservar Horário de Sábado</span>
+                        </button>
+                        <button type="button" class="hub-action-chip">
+                          <span>👤 Falar com Atendente Humano</span>
+                        </button>
+                      </div>
+                      <span class="hub-bubble-time">14:20 · Respondido em 1.6s</span>
+                    </div>
+
+                    <!-- Simulador de Digitação / Transcrição -->
+                    <div class="hub-typing-indicator" aria-label="IA digitando">
+                      <div class="hub-typing-dots" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                      </div>
+                      <span class="hub-typing-text">IA pronta para registrar o agendamento...</span>
+                    </div>
+                  </div>
+
+                  <!-- Rodapé com transbordo humano de segurança -->
+                  <div class="hub-screen-footer-badge">
+                    <span class="hub-footer-icon" aria-hidden="true">🛡</span>
+                    <span>Transbordo humano em 1 clique: Pausa e retoma a IA a qualquer momento sem perder o histórico</span>
+                  </div>
+                </div>
+
+                <!-- TELA 1: AGILLEX AGENDA SINCRONIZADA -->
+                <div class="hub-screen-view" data-screen-index="1" id="hub-screen-1">
+                  <div class="hub-screen-header">
+                    <div class="hub-screen-avatar hub-screen-avatar--calendar">
+                      <span>📅</span>
+                    </div>
+                    <div class="hub-screen-info">
+                      <div class="hub-screen-title-row">
+                        <span class="hub-screen-name">Agillex Agenda Online</span>
+                        <span class="hub-screen-tag-gold">Página Pública 24/7</span>
+                      </div>
+                      <span class="hub-screen-sub">agenda.alllogiconline.com.br/sua-empresa</span>
+                    </div>
+                    <div class="hub-screen-sync-badge">
+                      <span class="hub-sync-dot"></span>
+                      Google Calendar Sincronizado
+                    </div>
+                  </div>
+
+                  <div class="hub-calendar-showcase">
+                    <!-- Barra de Profissional e Mês -->
+                    <div class="hub-calendar-controls">
+                      <div class="hub-doctor-select">
+                        <span class="hub-doctor-avatar">👨‍⚕️</span>
+                        <div>
+                          <strong>Dr. Rafael Silveira</strong>
+                          <span class="hub-doctor-spec">Especialista · Duração 45 min</span>
+                        </div>
+                      </div>
+                      <div class="hub-calendar-month">Outubro 2026</div>
+                    </div>
+
+                    <!-- Grade de Dias da Semana -->
+                    <div class="hub-days-strip">
+                      <div class="hub-day-slot">
+                        <span class="hub-day-name">SEG</span>
+                        <span class="hub-day-num">19</span>
+                      </div>
+                      <div class="hub-day-slot">
+                        <span class="hub-day-name">TER</span>
+                        <span class="hub-day-num">20</span>
+                      </div>
+                      <div class="hub-day-slot is-selected">
+                        <span class="hub-day-name">QUA</span>
+                        <span class="hub-day-num">21</span>
+                        <span class="hub-day-dot"></span>
+                      </div>
+                      <div class="hub-day-slot">
+                        <span class="hub-day-name">QUI</span>
+                        <span class="hub-day-num">22</span>
+                      </div>
+                      <div class="hub-day-slot">
+                        <span class="hub-day-name">SEX</span>
+                        <span class="hub-day-num">23</span>
+                      </div>
+                      <div class="hub-day-slot is-special">
+                        <span class="hub-day-name">SÁB</span>
+                        <span class="hub-day-num">24</span>
+                      </div>
+                    </div>
+
+                    <!-- Horários Disponíveis para o dia -->
+                    <div class="hub-slots-container">
+                      <div class="hub-slots-label">Horários para Quarta-feira, 21 de Outubro:</div>
+                      <div class="hub-slots-grid">
+                        <span class="hub-slot-chip is-booked">09:00 (Ocupado)</span>
+                        <span class="hub-slot-chip is-available">10:30 Livre</span>
+                        <span class="hub-slot-chip is-chosen">
+                          <span class="hub-slot-check">✓</span> 14:00 (Escolhido)
+                        </span>
+                        <span class="hub-slot-chip is-available">15:30 Livre</span>
+                        <span class="hub-slot-chip is-available">17:00 Livre</span>
+                      </div>
+                    </div>
+
+                    <!-- Alerta de Confirmação e Redução de No-Shows -->
+                    <div class="hub-calendar-impact">
+                      <div class="hub-impact-item">
+                        <span class="hub-impact-icon">📲</span>
+                        <div>
+                          <strong>Lembretes Automáticos no WhatsApp:</strong>
+                          <span>Disparo 24 horas e 2 horas antes da consulta com botão de confirmação.</span>
+                        </div>
+                      </div>
+                      <div class="hub-impact-badge">
+                        <span>-85%</span> Faltas de Clientes (No-Shows)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TELA 2: AGILLEX CRM KANBAN -->
+                <div class="hub-screen-view" data-screen-index="2" id="hub-screen-2">
+                  <div class="hub-screen-header">
+                    <div class="hub-screen-avatar hub-screen-avatar--crm">
+                      <span>📊</span>
+                    </div>
+                    <div class="hub-screen-info">
+                      <div class="hub-screen-title-row">
+                        <span class="hub-screen-name">Agillex CRM · Pipeline Visual Kanban</span>
+                        <span class="hub-screen-tag-gold">Tempo Real</span>
+                      </div>
+                      <span class="hub-screen-sub">Mova leads, aplique tags e acompanhe o valor em negociação</span>
+                    </div>
+                    <div class="hub-pipeline-total">
+                      <span class="hub-pipeline-total__label">Total em Pipeline:</span>
+                      <span class="hub-pipeline-total__val">R$ 18.940,00</span>
+                    </div>
+                  </div>
+
+                  <div class="hub-crm-board">
+                    <!-- Coluna 1: Novos Contatos -->
+                    <div class="hub-crm-column">
+                      <div class="hub-crm-column-header">
+                        <div class="hub-crm-col-title">
+                          <span class="hub-col-bullet hub-col-bullet--blue"></span>
+                          <span>Novos Leads</span>
+                        </div>
+                        <span class="hub-crm-col-count">3</span>
+                      </div>
+                      <div class="hub-crm-cards">
+                        <div class="hub-kanban-card">
+                          <div class="hub-kanban-card__name">Camila Vasconcelos</div>
+                          <div class="hub-kanban-card__meta">Interesse: Implante · Via WhatsApp</div>
+                          <div class="hub-kanban-card__bottom">
+                            <span class="hub-kanban-card__tag">Novo</span>
+                            <span class="hub-kanban-card__val">R$ 2.400,00</span>
+                          </div>
+                        </div>
+                        <div class="hub-kanban-card">
+                          <div class="hub-kanban-card__name">Rodrigo Peixoto</div>
+                          <div class="hub-kanban-card__meta">Dúvida valores clareamento</div>
+                          <div class="hub-kanban-card__bottom">
+                            <span class="hub-kanban-card__tag">Qualificar</span>
+                            <span class="hub-kanban-card__val">R$ 480,00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Coluna 2: Em Atendimento IA -->
+                    <div class="hub-crm-column hub-crm-column--active">
+                      <div class="hub-crm-column-header">
+                        <div class="hub-crm-col-title">
+                          <span class="hub-col-bullet hub-col-bullet--gold"></span>
+                          <span>Em Atendimento IA</span>
+                        </div>
+                        <span class="hub-crm-col-count">4</span>
+                      </div>
+                      <div class="hub-crm-cards">
+                        <div class="hub-kanban-card hub-kanban-card--pulse">
+                          <div class="hub-kanban-card__header-tag">
+                            <span class="hub-ia-live-badge">🤖 IA Atendendo Agora</span>
+                          </div>
+                          <div class="hub-kanban-card__name">Mariana Bittencourt</div>
+                          <div class="hub-kanban-card__meta">Escolhendo horário para quarta-feira...</div>
+                          <div class="hub-kanban-card__bottom">
+                            <span class="hub-kanban-card__tag hub-kanban-card__tag--gold">Alta Chance</span>
+                            <span class="hub-kanban-card__val">R$ 350,00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Coluna 3: Agendado & Pago -->
+                    <div class="hub-crm-column">
+                      <div class="hub-crm-column-header">
+                        <div class="hub-crm-col-title">
+                          <span class="hub-col-bullet hub-col-bullet--green"></span>
+                          <span>Agendado & Pago</span>
+                        </div>
+                        <span class="hub-crm-col-count">8</span>
+                      </div>
+                      <div class="hub-crm-cards">
+                        <div class="hub-kanban-card hub-kanban-card--success">
+                          <div class="hub-kanban-card__name">Carlos Eduardo Mendes</div>
+                          <div class="hub-kanban-card__meta">Qua 21/10 às 14:00 · Dr. Rafael</div>
+                          <div class="hub-kanban-card__bottom">
+                            <span class="hub-kanban-card__tag hub-kanban-card__tag--green">✓ Sinal Pago Pix</span>
+                            <span class="hub-kanban-card__val hub-kanban-card__val--green">R$ 180,00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TELA 3: AGILLEX PAY TAXA FIXA R$ 1,99 -->
+                <div class="hub-screen-view" data-screen-index="3" id="hub-screen-3">
+                  <div class="hub-screen-header">
+                    <div class="hub-screen-avatar hub-screen-avatar--pay">
+                      <span>💳</span>
+                    </div>
+                    <div class="hub-screen-info">
+                      <div class="hub-screen-title-row">
+                        <span class="hub-screen-name">Agillex Pay · Cobrança Integrada Asaas</span>
+                        <span class="hub-screen-tag-gold">Taxa Fixa R$ 1,99</span>
+                      </div>
+                      <span class="hub-screen-sub">Receba adiantamentos e pagamentos com taxa justa sem porcentagem</span>
+                    </div>
+                  </div>
+
+                  <div class="hub-pay-showcase">
+                    <!-- Destaque de Economia Transparente -->
+                    <div class="hub-pay-economy-box">
+                      <div class="hub-pay-economy-icon">💰</div>
+                      <div class="hub-pay-economy-info">
+                        <strong>Economia direta para sua empresa:</strong>
+                        <span>Em uma consulta de R$ 300,00, outros gateways cobram até <strong>R$ 12,50</strong> (3,99% + taxa). No Agillex Pay você paga <strong>apenas R$ 1,99</strong> fixo.</span>
+                      </div>
+                    </div>
+
+                    <div class="hub-pay-receipt-grid">
+                      <!-- Mockup do QR Code Pix -->
+                      <div class="hub-pix-checkout">
+                        <div class="hub-pix-checkout__header">
+                          <span class="hub-pix-title">Cobrança Instantânea Pix</span>
+                          <span class="hub-pix-badge">Depósito Direto</span>
+                        </div>
+                        <div class="hub-pix-amount">R$ 180,00</div>
+                        <div class="hub-pix-service">Sinal de Confirmação de Agendamento</div>
+
+                        <div class="hub-pix-qrcode-box">
+                          <div class="hub-qrcode-graphic" aria-label="QR Code Pix gerado instantaneamente">
+                            <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14 0h4v4h-4v-4zm-4 4h4v4h-4v-4zm4-4v-4h4v4h-4zm-4-4h4v4h-4v-4z"></path>
+                            </svg>
+                          </div>
+                          <span class="hub-pix-key-preview">00020126580014br.gov.bcb.pix2536...</span>
+                        </div>
+
+                        <button type="button" class="hub-pix-copy-btn">
+                          <span>📋 Copiar Código Pix Copia e Cola</span>
+                        </button>
+                      </div>
+
+                      <!-- Detalhes da Liquidação Asaas -->
+                      <div class="hub-pay-perks">
+                        <div class="hub-perk-item">
+                          <span class="hub-perk-check">✓</span>
+                          <div>
+                            <strong>Sem Intermediários:</strong>
+                            <span>O valor entra diretamente na conta bancária vinculada à sua empresa.</span>
+                          </div>
+                        </div>
+                        <div class="hub-perk-item">
+                          <span class="hub-perk-check">✓</span>
+                          <div>
+                            <strong>Cartão de Crédito e Boleto:</strong>
+                            <span>Opções completas com conciliação automática no seu painel.</span>
+                          </div>
+                        </div>
+                        <div class="hub-perk-item">
+                          <span class="hub-perk-check">✓</span>
+                          <div>
+                            <strong>Zero Taxa de Setup:</strong>
+                            <span>Ativação simples sem custos ocultos ou cobranças inesperadas.</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TELA 4: GESTÃO CENTRALIZADA & MULTI-TENANT -->
+                <div class="hub-screen-view" data-screen-index="4" id="hub-screen-4">
+                  <div class="hub-screen-header">
+                    <div class="hub-screen-avatar hub-screen-avatar--multi">
+                      <span>🏢</span>
+                    </div>
+                    <div class="hub-screen-info">
+                      <div class="hub-screen-title-row">
+                        <span class="hub-screen-name">Painel Executivo Unificado & Multi-Tenant</span>
+                        <span class="hub-screen-tag-gold">Multi-Unidades</span>
+                      </div>
+                      <span class="hub-screen-sub">Gerencie matriz, filiais e franquias com 1 único login e visão 360°</span>
+                    </div>
+                  </div>
+
+                  <div class="hub-multi-showcase">
+                    <!-- Switcher de Unidades -->
+                    <div class="hub-unit-switcher-bar">
+                      <span class="hub-unit-label">Unidade Atual:</span>
+                      <div class="hub-unit-pill">
+                        <span>🏥 Unidade Jardins (Matriz)</span>
+                        <span class="hub-unit-arrow">▼</span>
+                      </div>
+                      <span class="hub-unit-other">Filial Barra</span>
+                      <span class="hub-unit-other">Filial Campinas</span>
+                    </div>
+
+                    <!-- Métricas de Alto Nível -->
+                    <div class="hub-metrics-grid">
+                      <div class="hub-metric-tile">
+                        <span class="hub-metric-label">Taxa Resposta IA</span>
+                        <span class="hub-metric-val">99.4%</span>
+                        <span class="hub-metric-trend">⚡ Menos de 2 segundos</span>
+                      </div>
+                      <div class="hub-metric-tile">
+                        <span class="hub-metric-label">Agendamentos no Mês</span>
+                        <span class="hub-metric-val">142</span>
+                        <span class="hub-metric-trend hub-metric-trend--up">▲ +28% vs mês ant.</span>
+                      </div>
+                      <div class="hub-metric-tile">
+                        <span class="hub-metric-label">Faturamento Pay</span>
+                        <span class="hub-metric-val">R$ 24.890,00</span>
+                        <span class="hub-metric-trend hub-metric-trend--gold">Taxa fixa mantida</span>
+                      </div>
+                    </div>
+
+                    <!-- Base de Conhecimento RAG Integrada -->
+                    <div class="hub-rag-box">
+                      <div class="hub-rag-header">
+                        <div class="hub-rag-title">
+                          <span class="hub-rag-icon">🧠</span>
+                          <strong>Base de Conhecimento RAG Customizada</strong>
+                        </div>
+                        <span class="hub-rag-badge">Atualizada Hoje</span>
+                      </div>
+                      <p class="hub-rag-desc">
+                        A IA da sua empresa consulta dados atualizados sobre seus serviços, equipe, convênios e políticas internas em tempo real, garantindo respostas precisas e livres de alucinações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          ))
-        }
+          </div>
+        </div>
       </div>
     </div>
   </Container>
 </Section>
 
 <style>
-  .hub-pillars__header {
+  /* ==========================================================================
+     HUB SHOWCASE — HEADER E ESTRUTURA GERAL
+     ========================================================================== */
+  .hub-showcase__header {
     text-align: center;
-    max-width: 760px;
-    margin: 0 auto 3rem auto;
+    max-width: 820px;
+    margin: 0 auto 3.5rem auto;
   }
 
-  .hub-pillars__eyebrow {
+  .hub-showcase__eyebrow {
     display: inline-block;
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--color-secondary, #1f6fff);
+    color: var(--color-accent, #c9a227);
     margin-bottom: 0.75rem;
   }
 
-  .hub-pillars__title {
-    font-size: 2.25rem;
+  .hub-showcase__title {
+    font-size: clamp(2rem, 3.5vw, 2.65rem);
     font-weight: 800;
     color: var(--color-primary, #0a1f44);
     line-height: 1.25;
     margin-bottom: 1rem;
   }
 
-  .hub-pillars__description {
-    font-size: 1.1rem;
+  .hub-showcase__gold {
+    color: var(--color-accent, #c9a227);
+    background: linear-gradient(135deg, #c9a227 0%, #ecd067 50%, #c9a227 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  .hub-showcase__description {
+    font-size: 1.125rem;
     color: var(--color-text-muted, #4a5568);
     line-height: 1.6;
+    margin: 0;
   }
 
-  .hub-pillars__list {
+  /* ==========================================================================
+     LAYOUT STICKY EM 2 COLUNAS (DESKTOP)
+     ========================================================================== */
+  .hub-sticky-layout {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.75rem;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3.5rem;
+    align-items: start;
+    position: relative;
   }
 
-  .hub-pillar-card {
-    background-color: #ffffff;
-    border: 1px solid var(--color-border, #dde3ee);
-    border-radius: var(--radius-lg, 16px);
-    padding: 2rem;
-    box-shadow: 0 4px 14px rgba(10, 31, 68, 0.05);
+  @media (max-width: 991px) {
+    .hub-sticky-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* ==========================================================================
+     COLUNA 1: CARDS DE PASSOS (ROLAM AO LONGO DA PÁGINA)
+     ========================================================================== */
+  .hub-steps-column {
     display: flex;
     flex-direction: column;
-    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+    gap: 2rem;
   }
 
-  .hub-pillar-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 36px rgba(10, 31, 68, 0.12);
-    border-color: rgba(31, 111, 255, 0.35);
+  .hub-step-card {
+    background-color: #ffffff;
+    border: 1.5px solid var(--color-border, #dde3ee);
+    border-radius: var(--radius-lg, 16px);
+    padding: 2.25rem;
+    box-shadow: 0 4px 14px rgba(10, 31, 68, 0.04);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
   }
 
-  .hub-pillar-card__badge-row {
+  /* Linha vertical ativa dourada no lado esquerdo do card */
+  .hub-step-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    background: transparent;
+    transition: background-color 0.3s ease;
+  }
+
+  .hub-step-card:hover {
+    transform: translateX(4px);
+    border-color: rgba(201, 162, 39, 0.45);
+    box-shadow: 0 12px 28px rgba(10, 31, 68, 0.08);
+  }
+
+  /* Estado ATIVO do card quando está em foco ou no scroll */
+  .hub-step-card.is-active {
+    border-color: var(--color-accent, #c9a227);
+    box-shadow: 0 16px 36px rgba(10, 31, 68, 0.1), 0 0 24px rgba(201, 162, 39, 0.15);
+    transform: translateX(6px);
+    background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%);
+  }
+
+  .hub-step-card.is-active::before {
+    background: linear-gradient(180deg, var(--color-accent, #c9a227) 0%, #dfb83b 100%);
+  }
+
+  .hub-step-card__header-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
   }
 
-  .hub-pillar-card__badge {
-    font-size: 0.75rem;
+  .hub-step-card__number {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #061530;
+    background: linear-gradient(135deg, #c9a227 0%, #e0bc46 100%);
+    padding: 3px 9px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  .hub-step-card__badge {
+    font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     padding: 4px 10px;
     border-radius: 99px;
-    background-color: rgba(31, 111, 255, 0.1);
+    background-color: rgba(31, 111, 255, 0.08);
     color: var(--color-secondary, #1f6fff);
   }
 
-  .hub-pillar-card__title {
+  .hub-step-card.is-active .hub-step-card__badge {
+    background-color: rgba(201, 162, 39, 0.15);
+    color: var(--color-accent, #c9a227);
+  }
+
+  .hub-step-card__indicator-pill {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted, #64748b);
+  }
+
+  .hub-step-card__title {
     font-size: 1.35rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--color-primary, #0a1f44);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     line-height: 1.3;
   }
 
-  .hub-pillar-card__tagline {
-    font-size: 0.92rem;
+  .hub-step-card__tagline {
+    font-size: 0.94rem;
     font-weight: 600;
     color: var(--color-secondary, #1f6fff);
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
     line-height: 1.4;
   }
 
-  .hub-pillar-card__desc {
+  .hub-step-card.is-active .hub-step-card__tagline {
+    color: #b58d19;
+  }
+
+  .hub-step-card__desc {
     font-size: 0.95rem;
     color: var(--color-text-muted, #4a5568);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
 
-  .hub-pillar-card__highlights {
+  .hub-step-card__highlights {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 1.25rem 0;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    margin-top: auto;
+    gap: 0.55rem;
     border-top: 1px solid var(--color-border, #dde3ee);
-    padding-top: 1.25rem;
+    padding-top: 1rem;
   }
 
-  .hub-pillar-card__highlights li {
+  .hub-step-card__highlights li {
     font-size: 0.88rem;
     color: var(--color-text, #0a1f44);
     display: flex;
@@ -156,6 +733,1316 @@ const { pillars } = agillexHubContent;
 
   .hub-check-icon {
     color: #10b981;
+    font-weight: 800;
+  }
+
+  .hub-step-card__cta-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-secondary, #1f6fff);
+    margin-top: auto;
+    transition: color 0.2s ease, gap 0.2s ease;
+  }
+
+  .hub-step-card.is-active .hub-step-card__cta-hint {
+    color: var(--color-accent, #c9a227);
+  }
+
+  .hub-step-card:hover .hub-step-card__cta-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ==========================================================================
+     COLUNA 2: JANELA STICKY (FIXA DURANTE O SCROLL)
+     ========================================================================== */
+  .hub-sticky-column {
+    position: sticky;
+    top: 96px;
+    align-self: flex-start;
+    z-index: 10;
+  }
+
+  @media (max-width: 991px) {
+    .hub-sticky-column {
+      position: relative;
+      top: 0;
+      order: -1; /* Exibe a janela no topo para fácil visualização em mobile/tablet */
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .hub-sticky-window-wrapper {
+    position: relative;
+  }
+
+  .hub-ambient-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle at 50% 30%, rgba(31, 111, 255, 0.12) 0%, rgba(201, 162, 39, 0.08) 50%, transparent 75%);
+    filter: blur(28px);
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 24px;
+  }
+
+  .hub-showcase-window {
+    background-color: #061530;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(6, 21, 48, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+  }
+
+  /* Barra Superior da Janela */
+  .hub-window-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background-color: #040e22;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 12px;
+  }
+
+  .hub-window-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .hub-window-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .dot--red { background-color: #ff5f56; }
+  .dot--yellow { background-color: #ffbd2e; }
+  .dot--green { background-color: #27c93f; }
+
+  .hub-window-url {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    padding: 3px 12px;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .hub-window-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #34d399;
+  }
+
+  .hub-status-radar {
+    position: relative;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10b981;
+    box-shadow: 0 0 8px #10b981;
+  }
+
+  .hub-status-radar::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1.5px solid #10b981;
+    animation: radarPulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes radarPulse {
+    0% { transform: scale(0.6); opacity: 1; }
+    100% { transform: scale(2.2); opacity: 0; }
+  }
+
+  /* Abas / Mini-Switcher dentro da Janela */
+  .hub-window-tabs {
+    display: flex;
+    background-color: #08162e;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    overflow-x: auto;
+    padding: 4px 8px 0 8px;
+    gap: 4px;
+    scrollbar-width: none;
+  }
+
+  .hub-window-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hub-window-tab {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .hub-window-tab:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  .hub-window-tab.is-active {
+    color: #ffffff;
+    background-color: #0b1c3d;
+    border-bottom: 2px solid var(--color-accent, #c9a227);
+  }
+
+  .hub-tab-num {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--color-accent, #c9a227);
+  }
+
+  /* Corpo da Janela */
+  .hub-window-body {
+    background-color: #0b1c3d;
+    padding: 1.5rem;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: 640px) {
+    .hub-window-body {
+      padding: 1rem;
+      min-height: auto;
+    }
+  }
+
+  /* Transição entre Telas */
+  .hub-screen-view {
+    display: none;
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+  }
+
+  .hub-screen-view.is-active {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: fadeInScreen 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes fadeInScreen {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Topo Comum de Cada Tela */
+  .hub-screen-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 1.25rem;
+  }
+
+  .hub-screen-avatar {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #1e3a6c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+
+  .hub-screen-avatar--calendar { background: #065f46; }
+  .hub-screen-avatar--crm { background: #5b21b6; }
+  .hub-screen-avatar--pay { background: #9a6800; }
+  .hub-screen-avatar--multi { background: #1e293b; }
+
+  .hub-screen-avatar__online {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #10b981;
+    border: 2px solid #061530;
+  }
+
+  .hub-screen-info {
+    flex: 1;
+    text-align: left;
+  }
+
+  .hub-screen-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .hub-screen-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .hub-screen-verified {
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    padding: 2px 7px;
+    border-radius: 99px;
+  }
+
+  .hub-screen-tag-gold {
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: rgba(201, 162, 39, 0.2);
+    color: #ecd067;
+    padding: 2px 7px;
+    border-radius: 99px;
+  }
+
+  .hub-screen-sub {
+    display: block;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 2px;
+  }
+
+  .hub-screen-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+    padding: 4px 10px;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+
+  .hub-screen-sync-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.12);
+    padding: 4px 10px;
+    border-radius: 99px;
+  }
+
+  .hub-sync-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #10b981;
+  }
+
+  /* ==========================================================================
+     TELA 0: DETALHES DO WHATSAPP IA
+     ========================================================================== */
+  .hub-chat-thread {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    margin-bottom: 1.25rem;
+  }
+
+  .hub-chat-bubble {
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    max-width: 90%;
+  }
+
+  .hub-chat-bubble--client {
+    align-self: flex-start;
+    background-color: #152642;
+    color: #ffffff;
+    border-bottom-left-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .hub-chat-bubble--client p {
+    margin: 0;
+  }
+
+  .hub-chat-bubble--bot {
+    align-self: flex-end;
+    background-color: #0c3359;
+    color: #f0f7ff;
+    border-bottom-right-radius: 2px;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  }
+
+  .hub-chat-bubble--bot p {
+    margin: 0 0 8px 0;
+  }
+
+  .hub-bubble-highlight {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 6px 10px;
+    border-radius: 6px;
+    border-left: 2px solid var(--color-accent, #c9a227);
+    font-size: 0.82rem;
+  }
+
+  .hub-bot-badge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  .hub-bot-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .hub-bot-rag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--color-accent, #c9a227);
+  }
+
+  .hub-bubble-time {
+    display: block;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 4px;
+    text-align: right;
+  }
+
+  /* Player de Áudio do Chat */
+  .hub-audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hub-audio-play {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--color-accent, #c9a227);
+    color: #061530;
+    border: none;
+    font-size: 0.72rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .hub-audio-waveform {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 18px;
+  }
+
+  .hub-wave-bar {
+    width: 3px;
+    background-color: #38bdf8;
+    border-radius: 2px;
+    animation: waveBounce 1.2s ease-in-out infinite alternate;
+  }
+
+  .w1 { height: 6px; animation-delay: 0.1s; }
+  .w2 { height: 14px; animation-delay: 0.25s; }
+  .w3 { height: 18px; animation-delay: 0.1s; }
+  .w4 { height: 8px; animation-delay: 0.4s; }
+  .w5 { height: 16px; animation-delay: 0.3s; }
+  .w6 { height: 12px; animation-delay: 0.05s; }
+  .w7 { height: 15px; animation-delay: 0.2s; }
+  .w8 { height: 7px; animation-delay: 0.35s; }
+
+  @keyframes waveBounce {
+    0% { transform: scaleY(0.4); }
+    100% { transform: scaleY(1.3); }
+  }
+
+  .hub-audio-time {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+  }
+
+  .hub-bubble-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  .hub-bubble-tag {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  /* Botões de Ação Rápida no Chat */
+  .hub-quick-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  .hub-action-chip {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .hub-action-chip--gold {
+    background: rgba(201, 162, 39, 0.2);
+    border-color: var(--color-accent, #c9a227);
+    color: #ecd067;
+  }
+
+  .hub-action-chip:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Indicador de Digitação */
+  .hub-typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px 12px;
+    border-radius: 6px;
+    align-self: flex-start;
+  }
+
+  .hub-typing-dots {
+    display: flex;
+    gap: 4px;
+  }
+
+  .hub-typing-dots span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--color-accent, #c9a227);
+    animation: typingPulse 1.4s infinite ease-in-out both;
+  }
+
+  .hub-typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+  .hub-typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+  @keyframes typingPulse {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1.1); opacity: 1; }
+  }
+
+  .hub-typing-text {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hub-screen-footer-badge {
+    margin-top: auto;
+    padding: 8px 12px;
+    background: rgba(10, 31, 68, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: left;
+  }
+
+  /* ==========================================================================
+     TELA 1: DETALHES DA AGENDA ONLINE
+     ========================================================================== */
+  .hub-calendar-showcase {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .hub-calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 10px 14px;
+    border-radius: 8px;
+  }
+
+  .hub-doctor-select {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-size: 0.85rem;
+  }
+
+  .hub-doctor-spec {
+    display: block;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hub-calendar-month {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-accent, #c9a227);
+  }
+
+  .hub-days-strip {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+  }
+
+  .hub-day-slot {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 8px 4px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hub-day-slot.is-selected {
+    background: rgba(201, 162, 39, 0.15);
+    border-color: var(--color-accent, #c9a227);
+  }
+
+  .hub-day-slot.is-selected .hub-day-name,
+  .hub-day-slot.is-selected .hub-day-num {
+    color: var(--color-accent, #c9a227);
+    font-weight: 800;
+  }
+
+  .hub-day-name {
+    display: block;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+  }
+
+  .hub-day-num {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 2px;
+  }
+
+  .hub-day-dot {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--color-accent, #c9a227);
+  }
+
+  .hub-slots-container {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .hub-slots-label {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+  }
+
+  .hub-slots-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hub-slot-chip {
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  .hub-slot-chip.is-booked {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: line-through;
+  }
+
+  .hub-slot-chip.is-available {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #34d399;
+  }
+
+  .hub-slot-chip.is-chosen {
+    background: var(--color-accent, #c9a227);
+    color: #061530;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(201, 162, 39, 0.35);
+  }
+
+  .hub-calendar-impact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(201, 162, 39, 0.08);
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    border-radius: 8px;
+    padding: 10px 14px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hub-impact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: #ffffff;
+    flex: 1;
+  }
+
+  .hub-impact-item strong {
+    color: #ecd067;
+    display: block;
+  }
+
+  .hub-impact-badge {
+    background: #061530;
+    border: 1px solid var(--color-accent, #c9a227);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .hub-impact-badge span {
+    color: #34d399;
+    font-weight: 800;
+  }
+
+  /* ==========================================================================
+     TELA 2: DETALHES DO CRM KANBAN
+     ========================================================================== */
+  .hub-pipeline-total {
+    text-align: right;
+  }
+
+  .hub-pipeline-total__label {
+    display: block;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .hub-pipeline-total__val {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #34d399;
+  }
+
+  .hub-crm-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: left;
+  }
+
+  @media (max-width: 640px) {
+    .hub-crm-board {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hub-crm-column {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .hub-crm-column--active {
+    border-color: rgba(201, 162, 39, 0.35);
+    background: rgba(201, 162, 39, 0.03);
+  }
+
+  .hub-crm-column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .hub-crm-col-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .hub-col-bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .hub-col-bullet--blue { background-color: #38bdf8; }
+  .hub-col-bullet--gold { background-color: var(--color-accent, #c9a227); }
+  .hub-col-bullet--green { background-color: #10b981; }
+
+  .hub-crm-col-count {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.45);
     font-weight: 700;
   }
+
+  .hub-crm-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hub-kanban-card {
+    background: #102242;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 8px 10px;
+  }
+
+  .hub-kanban-card--pulse {
+    border-color: rgba(201, 162, 39, 0.5);
+    box-shadow: 0 4px 12px rgba(201, 162, 39, 0.15);
+  }
+
+  .hub-kanban-card--success {
+    border-color: rgba(16, 185, 129, 0.4);
+  }
+
+  .hub-ia-live-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #ecd067;
+    background: rgba(201, 162, 39, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+
+  .hub-kanban-card__name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .hub-kanban-card__meta {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 3px 0 6px 0;
+  }
+
+  .hub-kanban-card__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hub-kanban-card__tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .hub-kanban-card__tag--gold {
+    background: rgba(201, 162, 39, 0.2);
+    color: #ecd067;
+  }
+
+  .hub-kanban-card__tag--green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+  }
+
+  .hub-kanban-card__val {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .hub-kanban-card__val--green {
+    color: #34d399;
+  }
+
+  /* ==========================================================================
+     TELA 3: DETALHES DO AGILLEX PAY
+     ========================================================================== */
+  .hub-pay-showcase {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hub-pay-economy-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(201, 162, 39, 0.12);
+    border: 1px solid rgba(201, 162, 39, 0.35);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #ffffff;
+  }
+
+  .hub-pay-economy-icon {
+    font-size: 1.5rem;
+  }
+
+  .hub-pay-economy-info strong {
+    color: #ecd067;
+  }
+
+  .hub-pay-receipt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  @media (max-width: 640px) {
+    .hub-pay-receipt-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hub-pix-checkout {
+    background: #07152b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+
+  .hub-pix-checkout__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .hub-pix-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .hub-pix-badge {
+    font-size: 0.65rem;
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    padding: 2px 6px;
+    border-radius: 99px;
+    font-weight: 700;
+  }
+
+  .hub-pix-amount {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #ffffff;
+  }
+
+  .hub-pix-service {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+  }
+
+  .hub-pix-qrcode-box {
+    background: #ffffff;
+    color: #061530;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hub-qrcode-graphic {
+    padding: 4px;
+  }
+
+  .hub-pix-key-preview {
+    font-size: 0.62rem;
+    color: #64748b;
+    font-family: monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .hub-pix-copy-btn {
+    width: 100%;
+    background: var(--color-accent, #c9a227);
+    color: #061530;
+    border: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .hub-pix-copy-btn:hover {
+    background-color: #dfb83b;
+    transform: translateY(-1px);
+  }
+
+  .hub-pay-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .hub-perk-item {
+    display: flex;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .hub-perk-check {
+    color: var(--color-accent, #c9a227);
+    font-weight: 900;
+  }
+
+  .hub-perk-item strong {
+    color: #ffffff;
+    display: block;
+  }
+
+  /* ==========================================================================
+     TELA 4: DETALHES DE GESTÃO MULTI-TENANT
+     ========================================================================== */
+  .hub-multi-showcase {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hub-unit-switcher-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 8px 12px;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+  }
+
+  .hub-unit-label {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .hub-unit-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #132a52;
+    border: 1px solid var(--color-accent, #c9a227);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .hub-unit-arrow {
+    font-size: 0.65rem;
+    color: var(--color-accent, #c9a227);
+  }
+
+  .hub-unit-other {
+    color: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+  }
+
+  .hub-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  @media (max-width: 640px) {
+    .hub-metrics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hub-metric-tile {
+    background: #09172e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .hub-metric-label {
+    display: block;
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 4px;
+  }
+
+  .hub-metric-val {
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .hub-metric-trend {
+    display: block;
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .hub-metric-trend--up {
+    color: #34d399;
+    font-weight: 700;
+  }
+
+  .hub-metric-trend--gold {
+    color: var(--color-accent, #c9a227);
+    font-weight: 700;
+  }
+
+  .hub-rag-box {
+    background: rgba(201, 162, 39, 0.08);
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .hub-rag-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  .hub-rag-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #ffffff;
+  }
+
+  .hub-rag-title strong {
+    color: #ecd067;
+  }
+
+  .hub-rag-badge {
+    font-size: 0.65rem;
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    padding: 2px 6px;
+    border-radius: 99px;
+    font-weight: 700;
+  }
+
+  .hub-rag-desc {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.45;
+    margin: 0;
+  }
 </style>
+
+<script>
+  function initHubStickyShowcase(): void {
+    const stepCards = Array.from(document.querySelectorAll<HTMLElement>(".hub-step-card"));
+    const screenViews = Array.from(document.querySelectorAll<HTMLElement>(".hub-screen-view"));
+    const windowTabs = Array.from(document.querySelectorAll<HTMLButtonElement>(".hub-window-tab"));
+    const liveStatusLabel = document.getElementById("hub-live-status-label");
+
+    if (stepCards.length === 0 || screenViews.length === 0) return;
+
+    const moduleStatusNames = [
+      "IA WhatsApp Conectado",
+      "Agenda Sincronizada",
+      "CRM Kanban Ativo",
+      "Pay Taxa R$ 1,99 Ativo",
+      "Multi-Tenant Matriz/Filiais"
+    ];
+
+    let currentActiveIdx = 0;
+
+    function activateModule(index: number, shouldScroll = false): void {
+      if (index === currentActiveIdx && !shouldScroll) return;
+      currentActiveIdx = index;
+
+      // Atualiza os cards da esquerda
+      stepCards.forEach((card, idx) => {
+        if (idx === index) {
+          card.classList.add("is-active");
+        } else {
+          card.classList.remove("is-active");
+        }
+      });
+
+      // Atualiza as telas da janela fixa
+      screenViews.forEach((view, idx) => {
+        if (idx === index) {
+          view.classList.add("is-active");
+        } else {
+          view.classList.remove("is-active");
+        }
+      });
+
+      // Atualiza as abas da janela
+      windowTabs.forEach((tab, idx) => {
+        if (idx === index) {
+          tab.classList.add("is-active");
+        } else {
+          tab.classList.remove("is-active");
+        }
+      });
+
+      // Atualiza o texto de status
+      if (liveStatusLabel && moduleStatusNames[index]) {
+        liveStatusLabel.textContent = moduleStatusNames[index];
+      }
+
+      // Se solicitado, rola suavemente até o card correspondente
+      if (shouldScroll && stepCards[index]) {
+        stepCards[index].scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+
+    // Clique nos cards da esquerda ativa a tela correspondente
+    stepCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const idx = Number(card.getAttribute("data-step-index"));
+        if (!isNaN(idx)) {
+          activateModule(idx, false);
+        }
+      });
+
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          const idx = Number(card.getAttribute("data-step-index"));
+          if (!isNaN(idx)) {
+            activateModule(idx, true);
+          }
+        }
+      });
+    });
+
+    // Clique nas abas superiores da janela ativa a tela e rola até o passo
+    windowTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const targetIdx = Number(tab.getAttribute("data-switch-to"));
+        if (!isNaN(targetIdx)) {
+          activateModule(targetIdx, true);
+        }
+      });
+    });
+
+    // IntersectionObserver para detectar qual card está no centro da tela ao rolar
+    if ("IntersectionObserver" in window) {
+      const observerOptions: IntersectionObserverInit = {
+        root: null,
+        // Detecta quando o card cruza o terço central da tela
+        rootMargin: "-25% 0px -40% 0px",
+        threshold: 0.15,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number(entry.target.getAttribute("data-step-index"));
+            if (!isNaN(idx)) {
+              activateModule(idx, false);
+            }
+          }
+        });
+      }, observerOptions);
+
+      stepCards.forEach((card) => observer.observe(card));
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHubStickyShowcase);
+  } else {
+    initHubStickyShowcase();
+  }
+</script>

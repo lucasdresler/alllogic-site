@@ -7,10 +7,48 @@ import "./about-hero-section.css";
 
 <Section id="sobre-hero" spacing="lg">
   <Container>
-    <div class="about-hero-section__content">
-      <p class="about-hero-section__eyebrow">{sobreContent.hero.eyebrow}</p>
-      <h1>{sobreContent.hero.title}</h1>
-      <p class="about-hero-section__description">{sobreContent.hero.description}</p>
+    <div class="about-hero" data-scroll-reveal="up">
+      <!-- Brilho ambiente suave -->
+      <div class="about-hero__ambient-glow" aria-hidden="true"></div>
+
+      <!-- Badge institucional com pulso -->
+      <div class="about-hero__badge micro-badge-pulse">
+        <span class="about-hero__badge-dot" aria-hidden="true"></span>
+        <span>{sobreContent.hero.eyebrow}</span>
+      </div>
+
+      <h1 class="about-hero__title">
+        Tecnologia com propósito. <span class="about-hero__gold-text">Engenharia para resolver problemas.</span>
+      </h1>
+
+      <p class="about-hero__description">
+        {sobreContent.hero.description}
+      </p>
+
+      <!-- Chips de princípios da empresa com micro-interações -->
+      <div class="about-hero__pillars">
+        <div class="about-pillar-chip card-interactive">
+          <span class="about-pillar-chip__icon" aria-hidden="true">🔍</span>
+          <div class="about-pillar-chip__text">
+            <strong>Compreender</strong>
+            <span>O cenário antes da ferramenta</span>
+          </div>
+        </div>
+        <div class="about-pillar-chip card-interactive">
+          <span class="about-pillar-chip__icon" aria-hidden="true">⚙️</span>
+          <div class="about-pillar-chip__text">
+            <strong>Construir</strong>
+            <span>Com rigor e simplicidade</span>
+          </div>
+        </div>
+        <div class="about-pillar-chip card-interactive">
+          <span class="about-pillar-chip__icon" aria-hidden="true">🚀</span>
+          <div class="about-pillar-chip__text">
+            <strong>Evoluir</strong>
+            <span>Soluções sustentáveis</span>
+          </div>
+        </div>
+      </div>
     </div>
   </Container>
 </Section>

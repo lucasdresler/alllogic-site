@@ -5,13 +5,22 @@ import { sobreContent } from "../../content/sobre";
 import "./about-closing-section.css";
 ---
 
-<Section id="sobre-encerramento" background="dark">
+<Section id="sobre-encerramento" background="light" spacing="lg">
   <Container>
-    <div class="about-closing-section__content">
-      <p>{sobreContent.closing.description}</p>
-      {sobreContent.closing.actions.map((action) => (
-        <a class="about-closing-section__link" href={action.href}>{action.label}</a>
-      ))}
+    <div class="about-closing-card" data-scroll-reveal="up">
+      <div class="about-closing-content">
+        <span class="about-closing-eyebrow">Próximo Passo</span>
+        <h2 class="about-closing-title">Vamos conversar sobre o seu cenário</h2>
+        <p class="about-closing-desc">{sobreContent.closing.description}</p>
+      </div>
+      <div class="about-closing-actions">
+        {sobreContent.closing.actions.map((action) => (
+          <a class="about-closing-btn btn-interactive" href={action.href}>
+            <span>{action.label}</span>
+            <span class="about-closing-arrow" aria-hidden="true">→</span>
+          </a>
+        ))}
+      </div>
     </div>
   </Container>
 </Section>
