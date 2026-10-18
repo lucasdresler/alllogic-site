@@ -43,15 +43,21 @@
   outline-offset: 3px;
 }
 
-.scroll-to-top span {
-  font-size: 1.25rem;
-  line-height: 1;
-  font-weight: 700;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+.scroll-to-top__icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
+  transition: transform 180ms ease;
+}
+
+.scroll-to-top:hover .scroll-to-top__icon {
+  transform: translateY(-2px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scroll-to-top {
+  .scroll-to-top,
+  .scroll-to-top__icon {
     transition: none;
   }
 }
