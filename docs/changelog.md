@@ -2,6 +2,13 @@
 
 Este documento registra, em ordem cronológica, apenas marcos relevantes da evolução do Projeto Atlas.
 
+## 2026-10-18 — Ecossistema de Infraestrutura, FAQ Estruturado e Agendamento Direto
+
+- **Agendamento Direto Agillex Agenda:** Integração de CTAs diretos para o sistema de agendamento online (`https://agenda.alllogiconline.com.br/`) nas seções de Diagnóstico, CTA Final, Hero de Contato e Encerramento da página Sobre, permitindo ao visitante agendar reuniões instantaneamente sem atrito.
+- **Ecossistema e Parceiros Oficiais (`EcosystemSection`):** Nova seção na Home destacando a infraestrutura robusta e parceiros certificados (Meta WhatsApp Cloud API Oficial, Oracle Cloud OCI, Cloudflare Enterprise CDN/WAF, Asaas Gateway de Pagamentos e PostgreSQL com Docker).
+- **FAQ com Dados Estruturados (`FAQSection`):** Seção de perguntas frequentes na Home com interface acessível de accordion e marcação JSON-LD `FAQPage` (Schema.org) para rich snippets nos mecanismos de busca do Google, cobrindo transparência de IA sem alucinações (RAG), taxa fixa de R$ 1,99 no Agillex Pay, conformidade com a LGPD e política anti-hype.
+- **Narrativa Anti-Hype e Engenharia:** Refinamento dos textos nas seções de Problemas, Método e Sobre, reforçando o compromisso com a utilidade prática antes da adoção de modismos tecnológicos.
+
 ## 2026-10-17 — Lançamento da Família Agillex e Experiência Visual Interativa
 
 - **Páginas da Família Agillex:** Implementação das landing pages comerciais `/agillex-hub/` (Agillex Hub — Plataforma Integrada de Operações) e `/agillex-atendimento/` (Agillex Atendimento — Agente de IA Oficial para WhatsApp 24/7), integrando-se com a página já existente `/agillex-agenda/` (Agillex Agenda).

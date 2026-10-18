@@ -5,16 +5,48 @@
   max-width: 640px;
 }
 
+.diagnosis-section__cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
 .diagnosis-section__cta a {
   display: inline-flex;
   align-items: center;
   padding-block: var(--space-xs);
   padding-inline: var(--space-md);
   border-radius: var(--radius-sm);
-  background-color: var(--color-accent);
-  color: var(--color-primary-dark);
   font-weight: 600;
   text-decoration: none;
+  font-size: var(--font-size-body);
+  transition: all 0.2s ease-in-out;
+}
+
+.diagnosis-cta__primary {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  border: 1px solid var(--color-accent);
+}
+
+.diagnosis-cta__primary:hover {
+  background-color: #B59020;
+  border-color: #B59020;
+  transform: translateY(-2px);
+}
+
+.diagnosis-cta__secondary {
+  background-color: transparent;
+  color: var(--color-text-inverse);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.diagnosis-cta__secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-2px);
 }
 
 .diagnosis-section__cta a:focus-visible {

@@ -1,0 +1,51 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { faqContent } from "../../content/faq";
+import "./faq-section.css";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqContent.items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<Section id="faq" background="surface">
+  <Container>
+    <div class="faq-header" data-scroll-reveal="up">
+      <span class="faq-eyebrow">{faqContent.eyebrow}</span>
+      <h2>{faqContent.title}</h2>
+      <p>{faqContent.description}</p>
+    </div>
+
+    <div class="faq-list">
+      {faqContent.items.map((item, index) => (
+        <details class="faq-item" data-scroll-reveal="up">
+          <summary class="faq-summary">
+            <h3 class="faq-question">{item.question}</h3>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </span>
+          </summary>
+          <div class="faq-answer">
+            <p>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </Container>
+
+  <!-- Schema.org JSON-LD estruturado para snippets ricos do Google -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Section>

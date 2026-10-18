@@ -1,0 +1,33 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { ecosystemContent } from "../../content/ecosystem";
+import "./ecosystem-section.css";
+---
+
+<Section id="ecossistema" background="light">
+  <Container>
+    <div class="ecosystem-header" data-scroll-reveal="up">
+      <span class="ecosystem-eyebrow">{ecosystemContent.eyebrow}</span>
+      <h2>{ecosystemContent.title}</h2>
+      <p>{ecosystemContent.description}</p>
+    </div>
+
+    <div class="ecosystem-grid">
+      {ecosystemContent.pillars.map((pillar, idx) => (
+        <div class="ecosystem-card" data-scroll-reveal="up">
+          <div class="ecosystem-card__top">
+            <span class="ecosystem-badge">{pillar.badge}</span>
+            <h3 class="ecosystem-card__title">{pillar.title}</h3>
+            <p class="ecosystem-card__desc">{pillar.description}</p>
+          </div>
+          <div class="ecosystem-tags">
+            {pillar.tags.map((tag) => (
+              <span class="ecosystem-tag">{tag}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Section>

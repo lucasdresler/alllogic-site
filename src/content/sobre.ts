@@ -108,6 +108,9 @@ export const sobreContent: SobreContent = {
   closing: {
     description:
       "Não é necessário chegar com uma solução pronta. Basta compartilhar o cenário da sua empresa e o desafio que está enfrentando.",
-    actions: [{ label: "Vamos conversar", href: "/contato" }],
+    actions: [
+      { label: "Vamos conversar", href: "/contato" },
+      { label: "Agendar Horário Online", href: "https://agenda.alllogiconline.com.br/" },
+    ],
   },
 };

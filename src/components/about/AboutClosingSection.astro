@@ -14,8 +14,13 @@ import "./about-closing-section.css";
         <p class="about-closing-desc">{sobreContent.closing.description}</p>
       </div>
       <div class="about-closing-actions">
-        {sobreContent.closing.actions.map((action) => (
-          <a class="about-closing-btn btn-interactive" href={action.href}>
+        {sobreContent.closing.actions.map((action, idx) => (
+          <a
+            class={`about-closing-btn btn-interactive ${idx > 0 ? "about-closing-btn--secondary" : ""}`}
+            href={action.href}
+            target={action.href.startsWith("http") ? "_blank" : undefined}
+            rel={action.href.startsWith("http") ? "noopener noreferrer" : undefined}
+          >
             <span>{action.label}</span>
             <span class="about-closing-arrow" aria-hidden="true">→</span>
           </a>

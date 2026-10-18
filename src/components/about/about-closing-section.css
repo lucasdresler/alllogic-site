@@ -72,29 +72,55 @@
 
 .about-closing-actions {
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .about-closing-actions {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .about-closing-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 1rem 2rem;
+  padding: 1rem 1.75rem;
   border-radius: var(--radius-md, 8px);
   background: linear-gradient(135deg, var(--color-accent, #c9a227) 0%, #e0bc46 100%);
   color: #061530;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   font-weight: 800;
   text-decoration: none;
   box-shadow: 0 4px 16px rgba(201, 162, 39, 0.35);
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.22s ease,
-              background 0.22s ease;
+              background 0.22s ease,
+              border-color 0.22s ease;
+  white-space: nowrap;
 }
 
 .about-closing-btn:hover {
   background: linear-gradient(135deg, #dfb83b 0%, #ecd067 100%);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(201, 162, 39, 0.45);
+}
+
+.about-closing-btn--secondary {
+  background: #ffffff;
+  color: var(--color-primary, #0a1f44);
+  border: 1.5px solid var(--color-border, #dde3ee);
+  box-shadow: 0 2px 8px rgba(10, 31, 68, 0.04);
+}
+
+.about-closing-btn--secondary:hover {
+  background: #f8fafc;
+  border-color: var(--color-primary, #0a1f44);
+  box-shadow: 0 6px 18px rgba(10, 31, 68, 0.08);
 }
 
 .about-closing-arrow {

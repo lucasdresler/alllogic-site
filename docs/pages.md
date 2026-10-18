@@ -18,10 +18,12 @@ Este documento descreve a implementação vigente e não substitui as decisões 
 Responsabilidade:
 
 - apresentar a AllLogic Online;
-- comunicar o posicionamento institucional;
-- apresentar as principais soluções;
-- apresentar o portfólio;
-- conduzir o visitante ao diagnóstico;
+- comunicar o posicionamento institucional e a mentalidade de engenharia anti-hype;
+- apresentar as principais soluções da Família Agillex e sob medida;
+- apresentar o ecossistema tecnológico e parceiros homologados;
+- apresentar o portfólio de projetos reais;
+- esclarecer dúvidas frequentes com FAQ indexável (Schema.org FAQPage);
+- conduzir o visitante ao diagnóstico ou agendamento direto online;
 - apresentar o fluxo conceitual da AllLogic Online;
 - direcionar para as demais áreas institucionais.
 

@@ -116,12 +116,12 @@ export const homeContent: HomeContent = {
       },
     ],
     closing:
-      "Nem todo problema precisa de mais uma ferramenta. Às vezes, precisa de uma solução melhor pensada.",
+      "Nem todo problema precisa de mais uma ferramenta ou de promessas mágicas de IA. Precisa de engenharia séria, processos claros e soluções que funcionam na prática.",
   },
   method: {
     title: "Tecnologia começa com entendimento.",
     description:
-      "A AllLogic Online não começa pela ferramenta. A abordagem parte do problema, do contexto e da necessidade real de cada empresa.",
+      "A AllLogic Online não vende tecnologia por modismo ou hype. A abordagem parte do problema real de negócio, da análise honesta de viabilidade e da entrega de soluções sustentáveis.",
     steps: [
       {
         order: 1,
@@ -149,7 +149,10 @@ export const homeContent: HomeContent = {
     title: "Tem um desafio na sua empresa? Vamos entender juntos.",
     description:
       "Conte-nos sobre sua empresa, o desafio que está enfrentando ou o que gostaria de melhorar. A partir disso, podemos entender o cenário e identificar caminhos possíveis.",
-    actions: [{ label: "Vamos conversar", href: "/contato" }],
+    actions: [
+      { label: "Enviar Diagnóstico", href: "/contato" },
+      { label: "Agendar Conversa Online", href: "https://agenda.alllogiconline.com.br/" },
+    ],
   },
   solutions: {
     title: "Soluções digitais para o que realmente importa.",
@@ -218,6 +221,9 @@ export const homeContent: HomeContent = {
     title: "Sua empresa está pronta para o próximo passo?",
     description:
       "Tecnologia pode fazer mais quando é pensada a partir das necessidades reais da sua empresa.",
-    actions: [{ label: "Conheça a AllLogic Online", href: "/sobre" }],
+    actions: [
+      { label: "Conheça a AllLogic Online", href: "/sobre" },
+      { label: "Agendar Horário Online", href: "https://agenda.alllogiconline.com.br/" },
+    ],
   },
 };
