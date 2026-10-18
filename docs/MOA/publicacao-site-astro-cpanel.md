@@ -213,3 +213,23 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
 - **Sequência executada:** Suporte e assets atualizados → rotas públicas sincronizadas.
 - **Respostas HTTP:** Retorno `200` confirmado para `/` e todas as rotas públicas.
 - **Ordem das seções:** `#metodo` → `#diagnostico` → `#solucoes` → `#ecossistema` → `#portfolio` → `#faq` → `#cta-final`, eliminando duplicação consecutiva de CTAs no final da Home.
+
+## Registro de referência — Saneamento de CTAs Institucionais e WhatsApp Oficial (18/10/2026)
+
+- **Commit de referência:** `6a10fba`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-cta-url-fix-6a10fba.tar.gz`
+- **SHA-256 do pacote:** `322d2d2f6f47083c4ed4386b4a466bcaebd50a30d86cee87a28dfc0d3c820fcc`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261018-093517.tar.gz` (SHA-256: `99369b7f5af653c1adfed187ce62d5bf1175cfaa66e8014505cbc82d0523211e`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-cta-url-fix-6a10fba`
+- **Validações prévias:** Backup íntegro e validado com `gzip -t`, SHA-256 verificado remotamente.
+- **Preservação de serviços:** Endpoint `api/diagnosis.php` comparado via `cmp -s` e verificado 100% idêntico.
+- **Sequência executada:** Suporte e assets atualizados → rotas públicas sincronizadas.
+- **Respostas HTTP:** Retorno `200` confirmado para `/`, `/sobre/`, `/contato/` e todas as rotas.
+- **Ajustes de CTAs aplicados:**
+  - Primeiro CTA da Home (`#diagnostico`): botão "Agendar conversa online" removido; mantido exclusivamente "Enviar Diagnóstico" (`/contato`).
+  - Segundo CTA da Home (`#cta-final`): botão "Agendar horário online" removido; botão principal alterado para "Vamos conversar?" apontando para o WhatsApp oficial (`https://wa.me/5511966381915`).
+  - Páginas Sobre e Contato: links indevidos para a demonstração do Agillex Agenda saneados.
+
