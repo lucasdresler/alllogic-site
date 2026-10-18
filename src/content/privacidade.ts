@@ -20,7 +20,7 @@ export const privacidadeContent = {
       title: "1. Quem somos",
       paragraphs: [
         "A AllLogic Online é uma marca utilizada por WELLINGTON LUCAS LIMA DRESLER, inscrito no CNPJ sob o nº 08.784.339/0001-38.",
-        "Endereço cadastral: Rua Feitiço da Vila, 425 — São Paulo/SP — CEP 05879-000.",
+        "Sede cadastral em São Paulo/SP.",
         "Para assuntos relacionados a privacidade e proteção de dados, o contato pode ser realizado pelo e-mail contato@alllogiconline.com.br.",
       ],
     },

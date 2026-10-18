@@ -18,7 +18,7 @@ export const termosContent = {
     {
       title: "1. Identificação da Contratada",
       paragraphs: [
-        "A AllLogic Online — Engenharia de Soluções Digitais é uma marca registrada utilizada por WELLINGTON LUCAS LIMA DRESLER - ME, pessoa jurídica de direito privado inscrita no CNPJ/MF sob o nº 08.784.339/0001-38, com sede cadastral na Rua Feitiço da Vila, 425 — São Paulo/SP — CEP 05879-000.",
+        "A AllLogic Online — Engenharia de Soluções Digitais é uma marca registrada utilizada por WELLINGTON LUCAS LIMA DRESLER - ME, pessoa jurídica de direito privado inscrita no CNPJ/MF sob o nº 08.784.339/0001-38, com sede cadastral em São Paulo/SP.",
         "Para comunicações formais, suporte técnico ou dúvidas contratuais, os canais oficiais de atendimento são o e-mail contato@alllogiconline.com.br e o WhatsApp oficial (11) 96638-1915.",
       ],
     },
