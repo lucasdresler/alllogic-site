@@ -151,7 +151,6 @@ export const homeContent: HomeContent = {
       "Conte-nos sobre sua empresa, o desafio que está enfrentando ou o que gostaria de melhorar. A partir disso, podemos entender o cenário e identificar caminhos possíveis.",
     actions: [
       { label: "Enviar Diagnóstico", href: "/contato" },
-      { label: "Agendar Conversa Online", href: "https://agenda.alllogiconline.com.br/" },
     ],
   },
   solutions: {
@@ -222,8 +221,7 @@ export const homeContent: HomeContent = {
     description:
       "Tecnologia pode fazer mais quando é pensada a partir das necessidades reais da sua empresa.",
     actions: [
-      { label: "Conheça a AllLogic Online", href: "/sobre" },
-      { label: "Agendar Horário Online", href: "https://agenda.alllogiconline.com.br/" },
+      { label: "Vamos conversar?", href: "https://wa.me/5511966381915" },
     ],
   },
 };

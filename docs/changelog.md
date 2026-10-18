@@ -10,6 +10,7 @@ Este documento registra, em ordem cronológica, apenas marcos relevantes da evol
 - **Narrativa Anti-Hype e Engenharia:** Refinamento dos textos nas seções de Problemas, Método e Sobre, reforçando o compromisso com a utilidade prática antes da adoção de modismos tecnológicos.
 - **Página Pública de Termos de Uso (`/termos-de-uso/`):** Implementada página pública detalhando os Termos de Uso e Contrato de Prestação de Serviços da AllLogic Online, refletindo os termos homologados no SGA, sem fidelidade forçada, taxa fixa no Agillex Pay (R$ 1,99), propriedade absoluta dos dados e conformidade com a LGPD, integrada ao rodapé institucional.
 - **Correção de Sequência de CTAs na Home:** Retorno da `DiagnosisSection` para sua posição intermediária lógica (logo após o Método e antes de Soluções), eliminando a duplicação consecutiva de banners azuis escuros no final da página e restabelecendo o ritmo narrativo e a alternância estética da Home.
+- **Alinhamento de CTAs Institucionais e WhatsApp Oficial:** Removidos botões de agendamento que direcionavam para o ambiente de demonstração do Agillex Agenda. No primeiro CTA da Home (Diagnóstico), mantido exclusivamente o botão de envio para `/contato`. No segundo CTA da Home (Fechamento), o botão foi atualizado para "Vamos conversar?" apontando diretamente para o WhatsApp oficial (`https://wa.me/5511966381915`). Em Sobre e Contato, links indevidos para a demo foram igualmente saneados.
 
 ## 2026-10-17 — Lançamento da Família Agillex e Experiência Visual Interativa
 
