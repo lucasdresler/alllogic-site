@@ -251,3 +251,24 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
   - Botão "Voltar ao topo" (`scroll-to-top`): seta atualizada de preto para branco puro (`#ffffff`) com `text-shadow` para máxima legibilidade e destaque.
   - Termos de Uso e Política de Privacidade: endereço cadastral padronizado para "com sede cadastral em São Paulo/SP".
 
+## Registro de referência — Atualização Integral da Política de Privacidade (18/10/2026)
+
+- **Commit de referência:** `e3ef801`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-privacy-e3ef801.tar.gz`
+- **SHA-256 do pacote:** `64d85ceff12a9947da3c7d76fcc61a892afb8d9837881e02699121760e149133`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261018-101247.tar.gz` (SHA-256: `2f10073a97858f711112612f0777f25e1997cf27fd524d5a2dd6bf170956864b`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-privacy-e3ef801`
+- **Validações prévias:** Backup íntegro e validado com `gzip -t`, SHA-256 verificado remotamente.
+- **Preservação de serviços:** Endpoint `api/diagnosis.php` comparado via `cmp -s` e verificado 100% idêntico.
+- **Sequência executada:** Suporte e assets atualizados → rotas públicas sincronizadas.
+- **Respostas HTTP:** Retorno `200` confirmado para todas as rotas públicas.
+- **Ajustes aplicados:**
+  - Política de Privacidade integralmente reestruturada e alinhada à LGPD (Lei nº 13.709/2018).
+  - Distinção entre Controladora (portal e leads) e Operadora (Família Agillex com isolamento multi-tenant).
+  - Detalhamento de atendimento via WhatsApp oficial (Meta Cloud API), segurança em pagamentos via Asaas/Pix (sem retenção de cartões) e provedores de infraestrutura (Cloudflare, Meta, Asaas, Google).
+  - Enumeração expressa de todos os direitos dos titulares do Artigo 18 da LGPD com canal oficial e prazo de atendimento.
+
+
