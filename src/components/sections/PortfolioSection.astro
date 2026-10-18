@@ -18,7 +18,7 @@ import "./portfolio-section.css";
         <article class="portfolio-section__block" data-scroll-reveal="right">
           {project.image && (
             <div class="portfolio-section__image">
-              <img src={project.image} alt={`Prévia do projeto ${project.title}`} />
+              <img src={project.image} alt={`Prévia do projeto ${project.title}`} loading="lazy" decoding="async" />
             </div>
           )}
 

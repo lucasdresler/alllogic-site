@@ -28,3 +28,21 @@
   box-shadow: var(--shadow-hover);
   transform: translateY(-2px);
 }
+
+.solutions-section__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: var(--space-xs);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.solutions-section__link:hover {
+  color: var(--color-primary);
+  gap: 10px;
+}

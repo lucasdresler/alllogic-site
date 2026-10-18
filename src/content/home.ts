@@ -32,6 +32,8 @@ export interface HomeMethodStep {
 export interface HomeSolution {
   title: string;
   description: string;
+  href?: string;
+  linkText?: string;
 }
 
 export interface HomePortfolioProject {
@@ -161,26 +163,38 @@ export const homeContent: HomeContent = {
       {
         title: "Presença Digital",
         description: "Registro de Domínios, Desenvolvimento, Hospedagem e Manutenção de Sites e Lojas Online, e soluções para fortalecer a presença da empresa na internet.",
+        href: "/dominios-e-hospedagem",
+        linkText: "Ver domínios e hospedagem",
       },
       {
         title: "Automação & Atendimento com IA",
         description: "Soluções inteligentes como o Agillex Atendimento e o Agillex Hub para atendimento humanizado no WhatsApp 24/7 e redução de tarefas repetitivas.",
+        href: "/agillex-atendimento",
+        linkText: "Conhecer Agillex Atendimento",
       },
       {
         title: "Sistemas de Agendamento Online",
         description: "Plataformas como o Agillex Agenda para centralizar atendimentos, sincronizar calendários e facilitar o agendamento de clientes.",
+        href: "/agillex-agenda",
+        linkText: "Conhecer Agillex Agenda",
       },
       {
-        title: "Integrações",
-        description: "Conexão entre ferramentas e sistemas para simplificar fluxos de trabalho.",
+        title: "Plataforma SaaS Integrada",
+        description: "O Agillex Hub reúne atendimento com IA, funil CRM Kanban, agendamento sincronizado e pagamentos em uma operação única.",
+        href: "/agillex-hub",
+        linkText: "Conhecer Agillex Hub",
       },
       {
-        title: "Inteligência Artificial",
-        description: "Aplicações de IA para apoiar atendimento, processos e tomada de decisão.",
+        title: "Inteligência Artificial & Automações",
+        description: "Aplicações práticas de IA para apoiar atendimento, otimizar fluxos de trabalho e simplificar rotinas empresariais.",
+        href: "/contato",
+        linkText: "Solicitar diagnóstico",
       },
       {
-        title: "Infraestrutura Digital",
-        description: "Ambientes, segurança e tecnologia necessários para manter as soluções funcionando.",
+        title: "Infraestrutura Digital de Alta Disponibilidade",
+        description: "Ambientes isolados em nuvem, cPanel com CloudLinux, segurança e tecnologia de ponta para sustentar suas soluções.",
+        href: "/sobre",
+        linkText: "Conhecer nossa engenharia",
       },
     ],
   },

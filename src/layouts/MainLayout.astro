@@ -10,9 +10,10 @@ import "../styles/index.css";
 interface Props {
   title?: string;
   description?: string;
+  schema?: Record<string, any> | Record<string, any>[];
 }
 
-const { title, description } = Astro.props;
+const { title, description, schema } = Astro.props;
 
 const resolvedTitle =
   title ?? siteConfig.seo.defaultTitle;
@@ -65,6 +66,7 @@ const websiteSchema = {
     <meta name="description" content={resolvedDescription} />
 
     <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
     <link rel="icon" href="/images/favicon/favicon.ico" sizes="any" />
     <link
@@ -121,6 +123,14 @@ const websiteSchema = {
       type="application/ld+json"
       set:html={JSON.stringify(websiteSchema)}
     />
+    {
+      schema && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(schema)}
+        />
+      )
+    }
 
     <!-- Analytics é carregado somente após consentimento. -->
     <!-- TODO: Scripts externos (tarefa futura) -->

@@ -7,11 +7,71 @@ import HubPricingSection from "../components/agillex-hub/HubPricingSection.astro
 import HubFaqSection from "../components/agillex-hub/HubFaqSection.astro";
 import HubTrialSection from "../components/agillex-hub/HubTrialSection.astro";
 import { agillexHubContent } from "../content/agillex-hub";
+
+const hubSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Agillex Hub",
+    operatingSystem: "Web, Cloud",
+    applicationCategory: "BusinessApplication",
+    description: agillexHubContent.meta.description,
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "BRL",
+      lowPrice: "197.00",
+      highPrice: "697.00",
+      offerCount: "3",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "AllLogic Online",
+      url: "https://alllogiconline.com.br",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: agillexHubContent.faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Início",
+        item: "https://alllogiconline.com.br",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Família Agillex",
+        item: "https://alllogiconline.com.br/#solucoes",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Agillex Hub",
+        item: "https://alllogiconline.com.br/agillex-hub",
+      },
+    ],
+  },
+];
 ---
 
 <MainLayout
   title={agillexHubContent.meta.title}
   description={agillexHubContent.meta.description}
+  schema={hubSchema}
 >
   <HubHeroSection />
   <HubAudienceSection />

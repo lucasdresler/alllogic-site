@@ -8,11 +8,71 @@ import AgillexPricingSection from "../components/agillex/AgillexPricingSection.a
 import AgillexFaqSection from "../components/agillex/AgillexFaqSection.astro";
 import AgillexTrialSection from "../components/agillex/AgillexTrialSection.astro";
 import { agillexContent } from "../content/agillex";
+
+const agendaSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Agillex Agenda",
+    operatingSystem: "Web, Cloud, Google Calendar Sync",
+    applicationCategory: "BusinessApplication",
+    description: agillexContent.meta.description,
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "BRL",
+      lowPrice: "47.00",
+      highPrice: "147.00",
+      offerCount: "3",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "AllLogic Online",
+      url: "https://alllogiconline.com.br",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: agillexContent.faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Início",
+        item: "https://alllogiconline.com.br",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Família Agillex",
+        item: "https://alllogiconline.com.br/#solucoes",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Agillex Agenda",
+        item: "https://alllogiconline.com.br/agillex-agenda",
+      },
+    ],
+  },
+];
 ---
 
 <MainLayout
   title={agillexContent.meta.title}
   description={agillexContent.meta.description}
+  schema={agendaSchema}
 >
   <AgillexHeroSection />
   <AgillexAudienceSection />

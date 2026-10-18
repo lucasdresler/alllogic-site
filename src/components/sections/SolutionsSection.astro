@@ -18,6 +18,11 @@ import "./solutions-section.css";
         <div class="solutions-section__block" data-scroll-reveal="up">
           <h3>{solution.title}</h3>
           <p>{solution.description}</p>
+          {solution.href && (
+            <a href={solution.href} class="solutions-section__link">
+              {solution.linkText ?? "Saiba mais"} <span aria-hidden="true">→</span>
+            </a>
+          )}
         </div>
       ))}
     </Grid>

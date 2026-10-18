@@ -11,10 +11,15 @@ import "./footer.css";
       <!-- Marca -->
       <div class="footer__brand">
         <a href="/" class="footer__logo" aria-label="AllLogic Online">
-          <img
-            src="/images/logo-alllogic.png"
-            alt="AllLogic Online — Engenharia de Soluções Digitais"
-          />
+          <picture>
+            <source srcset="/images/logo-alllogic.webp" type="image/webp" />
+            <img
+              src="/images/logo-alllogic.png"
+              alt="AllLogic Online — Engenharia de Soluções Digitais"
+              width="170"
+              height="96"
+            />
+          </picture>
         </a>
         <p>{siteContent.branding.tagline}</p>
       </div>
