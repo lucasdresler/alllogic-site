@@ -35,8 +35,8 @@ import "./domain-search-section.css";
 
         <div class="domain-search-chips">
           <span class="domain-search-chips-label">Extensões mais registradas:</span>
-          <button type="button" class="domain-chip" data-tld=".com.br">.com.br (R$ 40/ano)</button>
-          <button type="button" class="domain-chip" data-tld=".com">.com</button>
+          <button type="button" class="domain-chip" data-tld=".com.br">.com.br (R$ 59,90/ano)</button>
+          <button type="button" class="domain-chip" data-tld=".com">.com (R$ 89,90/ano)</button>
           <button type="button" class="domain-chip" data-tld=".net.br">.net.br</button>
         </div>
       </form>
@@ -174,10 +174,10 @@ import "./domain-search-section.css";
             </p>
             <div class="domain-card-actions">
               <a href="#hospedagem-sites" class="domain-btn-action domain-btn-action--primary js-select-domain-btn" data-domain="${primary.domain}">
-                Contratar Hospedagem com Registro Assistido &rarr;
+                Contratar Hospedagem com Domínio Grátis &rarr;
               </a>
-              <a href="https://wa.me/5511966381915?text=Ol%C3%A1%2C%20consultei%20a%20disponibilidade%20do%20dom%C3%ADnio%20${encodeURIComponent(primary.domain)}%20e%20gostaria%20da%20assessoria%20da%20AllLogic%20para%20registrar%20no%20meu%20CPF%2FCNPJ%20e%20configurar%20o%20DNS." target="_blank" rel="noopener noreferrer" class="domain-btn-action domain-btn-action--secondary">
-                Registrar com Especialista no WhatsApp
+              <a href="https://wa.me/5511966381915?text=Ol%C3%A1%2C%20consultei%20a%20disponibilidade%20do%20dom%C3%ADnio%20${encodeURIComponent(primary.domain)}%20e%20gostaria%20de%20contratar%20o%20Registro%20e%20Gest%C3%A3o%20T%C3%A9cnica%20AllLogic%20por%20${encodeURIComponent(primary.price)}%2Fano." target="_blank" rel="noopener noreferrer" class="domain-btn-action domain-btn-action--secondary">
+                Registrar Domínio Avulso (${primary.price}/ano)
               </a>
             </div>
           `;

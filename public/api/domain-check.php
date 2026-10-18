@@ -83,11 +83,11 @@ if ($parsedTld === '.com.br' || $parsedTld === '.com' || $parsedTld === '.net.br
     ];
 }
 
-// Preços de referência oficiais homologados
+// Preços de referência para Registro e Gestão Técnica AllLogic
 $pricingReference = [
-    '.com.br' => 'R$ 40,00',
-    '.com' => 'R$ 79,90',
-    '.net.br' => 'R$ 40,00',
+    '.com.br' => 'R$ 59,90',
+    '.com' => 'R$ 89,90',
+    '.net.br' => 'R$ 59,90',
 ];
 
 /**

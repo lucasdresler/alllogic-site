@@ -5,8 +5,12 @@ import "./hosting-section.css";
 
 const plans = [
   {
+    id: "essencial",
     name: "Essencial",
     description: "Para empresas que estão começando sua presença digital.",
+    popular: false,
+    priceMonthly: "29,90",
+    priceYearly: "23,90",
     sites: 1,
     storage: "5 GB",
     bandwidth: "50 GB/mês",
@@ -19,8 +23,12 @@ const plans = [
     ssl: "Grátis e Automático",
   },
   {
+    id: "profissional",
     name: "Profissional",
     description: "Para empresas que já precisam de uma estrutura profissional.",
+    popular: true,
+    priceMonthly: "49,90",
+    priceYearly: "39,90",
     sites: 2,
     storage: "10 GB",
     bandwidth: "100 GB/mês",
@@ -33,8 +41,12 @@ const plans = [
     ssl: "Grátis e Automático",
   },
   {
+    id: "avancado",
     name: "Avançado",
     description: "Para empresas em crescimento e operações maiores.",
+    popular: false,
+    priceMonthly: "89,90",
+    priceYearly: "69,90",
     sites: 5,
     storage: "25 GB",
     bandwidth: "150 GB/mês",
@@ -47,8 +59,12 @@ const plans = [
     ssl: "Grátis e Automático",
   },
   {
+    id: "empresarial",
     name: "Empresarial",
     description: "Para empresas que precisam de uma estrutura mais robusta.",
+    popular: false,
+    priceMonthly: "149,90",
+    priceYearly: "119,90",
     sites: 10,
     storage: "50 GB",
     bandwidth: "200 GB/mês",
@@ -85,6 +101,23 @@ const items = [
       <p class="hosting-section__description">
         Hospedagem para sites e lojas online, com alta performance, gestão técnica de DNS, ativação de certificados SSL e suporte especializado AllLogic Online.
       </p>
+
+      <!-- Seletor de Ciclos de Faturamento -->
+      <div class="hosting-cycle-bar">
+        <div class="hosting-cycle-selector" role="radiogroup" aria-label="Ciclo de Faturamento">
+          <button type="button" class="hosting-cycle-btn is-active" data-cycle="monthly">
+            Mensal
+          </button>
+          <button type="button" class="hosting-cycle-btn" data-cycle="yearly">
+            <span>Anual</span>
+            <span class="hosting-cycle-badge">20% OFF</span>
+          </button>
+        </div>
+        <div class="hosting-cycle-note">
+          <span class="hosting-cycle-note-icon">🎁</span>
+          <span>No plano anual: <strong>1º ano do domínio .com.br grátis</strong></span>
+        </div>
+      </div>
     </div>
 
     <!-- Banner dinâmico exibido quando um domínio é selecionado na busca -->
@@ -107,7 +140,10 @@ const items = [
       <div class="hosting-section__labels">
         <div class="hosting-section__labels-header">
           <h3>Recursos</h3>
-          <p>Confira os limites incluídos em cada plano.</p>
+          <p>Estrutura cPanel com isolamento CloudLinux.</p>
+          <div class="hosting-labels-price-placeholder">
+            <span>Investimento</span>
+          </div>
         </div>
         {
           items.map((item) => (
@@ -121,10 +157,28 @@ const items = [
 
       {
         plans.map((plan) => (
-          <article class="hosting-section__card">
+          <article class={`hosting-section__card ${plan.popular ? 'hosting-section__card--popular' : ''}`}>
             <div class="hosting-section__card-header">
-              <h3>{plan.name}</h3>
-              <p>{plan.description}</p>
+              <div class="hosting-card-title-wrap">
+                <h3 class="hosting-card-title">{plan.name}</h3>
+                {plan.popular && <span class="hosting-popular-badge">Mais Escolhido</span>}
+              </div>
+              <p class="hosting-card-desc">{plan.description}</p>
+
+              <div class="hosting-card-price-area">
+                <div class="hosting-card-price">
+                  <span class="hosting-card-currency">R$</span>
+                  <span
+                    class="hosting-card-amount js-hosting-price"
+                    data-monthly={plan.priceMonthly}
+                    data-yearly={plan.priceYearly}
+                  >
+                    {plan.priceMonthly}
+                  </span>
+                  <span class="hosting-card-period js-hosting-period">/mês</span>
+                </div>
+                <span class="hosting-card-cycle-note js-hosting-subnote">no plano mensal</span>
+              </div>
             </div>
 
             <div class="hosting-section__values">
@@ -142,7 +196,7 @@ const items = [
 
             <div class="hosting-section__card-action">
               <a
-                href={`https://wa.me/5511966381915?text=${encodeURIComponent(`Olá! Gostaria de saber mais e contratar o plano de Hospedagem ${plan.name} da AllLogic Online.`)}`}
+                href={`https://wa.me/5511966381915?text=${encodeURIComponent(`Olá! Gostaria de saber mais e contratar o plano de Hospedagem ${plan.name} (Mensal) da AllLogic Online.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="hosting-card__btn js-hosting-plan-btn"
@@ -164,28 +218,64 @@ const items = [
     const domainNameEl = document.getElementById("hosting-selected-domain-name");
     const clearBtn = document.getElementById("hosting-clear-domain-btn");
     const planBtns = document.querySelectorAll<HTMLAnchorElement>(".js-hosting-plan-btn");
+    const cycleBtns = document.querySelectorAll<HTMLButtonElement>(".hosting-cycle-btn");
+    const priceEls = document.querySelectorAll<HTMLElement>(".js-hosting-price");
+    const subnoteEls = document.querySelectorAll<HTMLElement>(".js-hosting-subnote");
+
+    let currentCycle: "monthly" | "yearly" = "monthly";
 
     function updateContext(domain: string | null): void {
-      if (!banner || !domainNameEl) return;
-
-      if (domain && domain.trim() !== "") {
-        domainNameEl.textContent = domain;
-        banner.style.display = "flex";
-
-        planBtns.forEach((btn) => {
-          const planName = btn.getAttribute("data-plan") || "Hospedagem";
-          const msg = `Olá! Gostaria de contratar a Hospedagem AllLogic (Plano ${planName}) para o domínio ${domain} com registro e assessoria técnica de DNS inclusos.`;
-          btn.href = `https://wa.me/5511966381915?text=${encodeURIComponent(msg)}`;
-        });
-      } else {
-        banner.style.display = "none";
-        planBtns.forEach((btn) => {
-          const planName = btn.getAttribute("data-plan") || "Hospedagem";
-          const msg = `Olá! Gostaria de saber mais e contratar o plano de Hospedagem ${planName} da AllLogic Online.`;
-          btn.href = `https://wa.me/5511966381915?text=${encodeURIComponent(msg)}`;
-        });
+      if (banner && domainNameEl) {
+        if (domain && domain.trim() !== "") {
+          domainNameEl.textContent = domain;
+          banner.style.display = "flex";
+        } else {
+          banner.style.display = "none";
+        }
       }
+
+      const cycleLabel = currentCycle === "yearly" ? "Anual com desconto e domínio incluso" : "Mensal";
+
+      planBtns.forEach((btn) => {
+        const planName = btn.getAttribute("data-plan") || "Hospedagem";
+        if (domain && domain.trim() !== "") {
+          const msg = `Olá! Gostaria de contratar a Hospedagem AllLogic (Plano ${planName} no ciclo ${cycleLabel}) para o domínio ${domain} com registro e assessoria técnica de DNS inclusos.`;
+          btn.href = `https://wa.me/5511966381915?text=${encodeURIComponent(msg)}`;
+        } else {
+          const msg = `Olá! Gostaria de saber mais e contratar o plano de Hospedagem ${planName} (${cycleLabel}) da AllLogic Online.`;
+          btn.href = `https://wa.me/5511966381915?text=${encodeURIComponent(msg)}`;
+        }
+      });
     }
+
+    function updateCycle(cycle: "monthly" | "yearly"): void {
+      currentCycle = cycle;
+      cycleBtns.forEach((btn) => {
+        if (btn.getAttribute("data-cycle") === cycle) {
+          btn.classList.add("is-active");
+        } else {
+          btn.classList.remove("is-active");
+        }
+      });
+
+      priceEls.forEach((el) => {
+        const val = cycle === "yearly" ? el.getAttribute("data-yearly") : el.getAttribute("data-monthly");
+        if (val) el.textContent = val;
+      });
+
+      subnoteEls.forEach((el) => {
+        el.textContent = cycle === "yearly" ? "cobrado anualmente (-20% OFF)" : "no plano mensal";
+      });
+
+      updateContext(window.sessionStorage.getItem("selectedDomain"));
+    }
+
+    cycleBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const cycle = (btn.getAttribute("data-cycle") as "monthly" | "yearly") || "monthly";
+        updateCycle(cycle);
+      });
+    });
 
     const currentDomain = window.sessionStorage.getItem("selectedDomain");
     updateContext(currentDomain);
