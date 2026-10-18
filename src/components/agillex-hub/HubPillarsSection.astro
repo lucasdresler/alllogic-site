@@ -569,6 +569,12 @@ const { pillars } = agillexHubContent;
     margin: 0;
   }
 
+  .hub-showcase {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
   /* ==========================================================================
      LAYOUT STICKY EM 2 COLUNAS (DESKTOP)
      ========================================================================== */
@@ -578,12 +584,33 @@ const { pillars } = agillexHubContent;
     gap: 3.5rem;
     align-items: start;
     position: relative;
+    width: 100%;
+    max-width: 100%;
   }
 
   @media (max-width: 991px) {
     .hub-sticky-layout {
       grid-template-columns: 1fr;
       gap: 2rem;
+    }
+
+    .hub-step-card {
+      padding: 1.5rem 1.25rem;
+    }
+
+    .hub-step-card:hover,
+    .hub-step-card.is-active {
+      transform: none !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hub-step-card {
+      padding: 1.25rem 1rem;
+    }
+
+    .hub-step-card__title {
+      font-size: 1.2rem;
     }
   }
 
@@ -763,6 +790,7 @@ const { pillars } = agillexHubContent;
     top: 96px;
     align-self: flex-start;
     z-index: 10;
+    max-width: 100%;
   }
 
   @media (max-width: 991px) {
@@ -771,16 +799,24 @@ const { pillars } = agillexHubContent;
       top: 0;
       order: -1; /* Exibe a janela no topo para fácil visualização em mobile/tablet */
       margin-bottom: 1.5rem;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hub-ambient-glow {
+      display: none !important;
     }
   }
 
   .hub-sticky-window-wrapper {
     position: relative;
+    width: 100%;
+    max-width: 100%;
   }
 
   .hub-ambient-glow {
     position: absolute;
-    inset: -20px;
+    inset: -10px;
     background: radial-gradient(circle at 50% 30%, rgba(31, 111, 255, 0.12) 0%, rgba(201, 162, 39, 0.08) 50%, transparent 75%);
     filter: blur(28px);
     z-index: -1;
@@ -794,6 +830,8 @@ const { pillars } = agillexHubContent;
     border-radius: 16px;
     box-shadow: 0 24px 60px rgba(6, 21, 48, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.05);
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
   }
 
   /* Barra Superior da Janela */
@@ -805,6 +843,31 @@ const { pillars } = agillexHubContent;
     background-color: #040e22;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     gap: 12px;
+    max-width: 100%;
+  }
+
+  @media (max-width: 640px) {
+    .hub-window-topbar {
+      padding: 8px 10px;
+      gap: 6px;
+    }
+
+    .hub-window-dots {
+      display: none;
+    }
+
+    .hub-window-url {
+      min-width: 0;
+      flex: 1;
+      font-size: 0.65rem;
+      padding: 2px 6px;
+    }
+
+    .hub-window-status {
+      font-size: 0.65rem;
+      flex-shrink: 0;
+      gap: 4px;
+    }
   }
 
   .hub-window-dots {
@@ -1346,6 +1409,19 @@ const { pillars } = agillexHubContent;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 6px;
+  }
+
+  @media (max-width: 540px) {
+    .hub-days-strip {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .hub-calendar-controls {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
   }
 
   .hub-day-slot {

@@ -1,3 +1,7 @@
+#hospedagem-sites {
+  scroll-margin-top: 110px;
+}
+
 .hosting-section__content {
   display: flex;
   flex-direction: column;

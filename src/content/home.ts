@@ -150,7 +150,7 @@ export const homeContent: HomeContent = {
     description:
       "Conte-nos sobre sua empresa, o desafio que está enfrentando ou o que gostaria de melhorar. A partir disso, podemos entender o cenário e identificar caminhos possíveis.",
     actions: [
-      { label: "Enviar Diagnóstico", href: "/contato" },
+      { label: "Enviar Informações", href: "/contato" },
     ],
   },
   solutions: {
