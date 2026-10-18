@@ -268,7 +268,21 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
 - **Ajustes aplicados:**
   - Política de Privacidade integralmente reestruturada e alinhada à LGPD (Lei nº 13.709/2018).
   - Distinção entre Controladora (portal e leads) e Operadora (Família Agillex com isolamento multi-tenant).
-  - Detalhamento de atendimento via WhatsApp oficial (Meta Cloud API), segurança em pagamentos via Asaas/Pix (sem retenção de cartões) e provedores de infraestrutura (Cloudflare, Meta, Asaas, Google).
-  - Enumeração expressa de todos os direitos dos titulares do Artigo 18 da LGPD com canal oficial e prazo de atendimento.
+  ## Registro de referência — Automação da Contratação de Hospedagem (18/10/2026)
+
+- **Commit de referência:** `170f33c`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `pacote-site.tar.gz`
+- **SHA-256 do pacote:** `c99b86e14bc2a6aa8fb905ae2eaca2200c6438000773dfeaf41461c6d17cd2ef`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261018-150638.tar.gz` (SHA-256: `7d28f6014a2005302a78d1d4e20aa08f3b4fe795fb4dc4319298fa77df87e98e`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-deploy`
+- **Validações prévias:** Backup íntegro e validado com `gzip -t`, SHA-256 verificado remotamente.
+- **Respostas HTTP:** Retorno `200` confirmado para `/dominios-e-hospedagem/`.
+- **Ajustes aplicados:**
+  - Substituição dos links manuais de WhatsApp dos botões "Contratar Plano" na seção de Hospedagem.
+  - Conexão direta e parametrizada com o Checkout Central (`hub.alllogiconline.com.br/checkout?modulo=hospedagem&plano=...&ciclo=...&dominio=...`).
+  - Sincronização dinâmica com alternância de ciclo (Mensal e Anual -20% OFF) e domínio selecionado na busca.
 
 
