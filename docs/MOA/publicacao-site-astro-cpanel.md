@@ -167,4 +167,20 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
 - **Respostas HTTP:** Retorno `200` confirmado para `/`, `/agillex-hub/`, `/agillex-agenda/`, `/agillex-atendimento/`, `/contato/`, `/sobre/`, `/dominios-e-hospedagem/`, `/politica-de-privacidade/` e `/sitemap-index.xml`.
 - **Inspeção de conformidade:** 100% de uso do nome oficial "AllLogic Online" em todas as páginas e correções ortográficas aplicadas.
 
+## Registro de referência — Publicação Ecossistema, FAQ Estruturado e Agendamento Direto (18/10/2026)
+
+- **Commit de referência:** `0173119`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-ecosystem-0173119.tar.gz`
+- **SHA-256 do pacote:** `99e8997075131d5cdcb7402c4917a0eba62cf85c83d95c9e222a087840728aa1`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261018-002909.tar.gz` (SHA-256: `8ae3e476dfbca55094eac0531deb6fee53cd2171688a088397c32ba8673c54b9`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-ecosystem-0173119`
+- **Validações prévias:** Backup íntegro e validado com `gzip -t` e `tar -tzf`, SHA-256 verificado remotamente.
+- **Preservação de serviços:** Endpoint `api/diagnosis.php` comparado com `cmp -s` e verificado 100% idêntico.
+- **Sequência executada:** Suporte e imagens (`_astro/`, `images/`) → rotas `/agillex-hub/`, `/agillex-agenda/`, `/agillex-atendimento/`, `/contato/`, `/sobre/`, `/dominios-e-hospedagem/`, `/politica-de-privacidade/` → sitemaps → página inicial (`index.html`).
+- **Respostas HTTP:** Retorno `200` confirmado em todas as rotas e validação do Schema.org `FAQPage` e links para `agenda.alllogiconline.com.br` ativos em produção.
+
+
 
