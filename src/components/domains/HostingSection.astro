@@ -196,10 +196,9 @@ const items = [
 
             <div class="hosting-section__card-action">
               <a
-                href={`https://wa.me/5511966381915?text=${encodeURIComponent(`Olá! Gostaria de saber mais e contratar o plano de Hospedagem ${plan.name} (Mensal) da AllLogic Online.`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`https://hub.alllogiconline.com.br/checkout?modulo=hospedagem&plano=${plan.id}&ciclo=monthly`}
                 class="hosting-card__btn js-hosting-plan-btn"
+                data-plan-id={plan.id}
                 data-plan={plan.name}
               >
                 Contratar Plano
@@ -234,17 +233,13 @@ const items = [
         }
       }
 
-      const cycleLabel = currentCycle === "yearly" ? "Anual com desconto e domínio incluso" : "Mensal";
-
       planBtns.forEach((btn) => {
-        const planName = btn.getAttribute("data-plan") || "Hospedagem";
+        const planId = btn.getAttribute("data-plan-id") || "profissional";
+        let checkoutUrl = `https://hub.alllogiconline.com.br/checkout?modulo=hospedagem&plano=${planId}&ciclo=${currentCycle}`;
         if (domain && domain.trim() !== "") {
-          const msg = `Olá! Gostaria de contratar a Hospedagem AllLogic (Plano ${planName} no ciclo ${cycleLabel}) para o domínio ${domain} com registro e assessoria técnica de DNS inclusos.`;
-          btn.href = `https://wa.me/5511966381915?text=${encodeURIComponent(msg)}`;
-        } else {
-          const msg = `Olá! Gostaria de saber mais e contratar o plano de Hospedagem ${planName} (${cycleLabel}) da AllLogic Online.`;
-          btn.href = `https://wa.me/5511966381915?text=${encodeURIComponent(msg)}`;
+          checkoutUrl += `&dominio=${encodeURIComponent(domain.trim())}`;
         }
+        btn.href = checkoutUrl;
       });
     }
 
