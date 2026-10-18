@@ -168,7 +168,7 @@
 .hosting-section__labels,
 .hosting-section__card {
   height: 100%;
-  min-height: 28rem;
+  min-height: 42.5rem;
 }
 
 .hosting-section__labels {
@@ -289,4 +289,134 @@
 
 .hosting-section__card:last-child .hosting-section__card-header h3 {
   color: var(--color-text) !important;
+}
+
+/* Banner de Domínio Selecionado */
+.hosting-domain-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 1rem 1.25rem;
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.08) 0%, rgba(31, 111, 255, 0.05) 100%);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  box-shadow: 0 4px 14px rgba(10, 31, 68, 0.04);
+  animation: domainBannerIn 0.3s ease;
+}
+
+@keyframes domainBannerIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hosting-domain-banner__icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.hosting-domain-banner__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.hosting-domain-banner__title {
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.hosting-domain-banner__title strong {
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-left: 4px;
+}
+
+.hosting-domain-banner__subtitle {
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.hosting-domain-banner__clear {
+  padding: 6px 14px;
+  font-size: 0.825rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.hosting-domain-banner__clear:hover {
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+/* Linha de Ação / Contratação no Rodapé dos Cards */
+.hosting-section__labels-action,
+.hosting-section__card-action {
+  height: 4.5rem;
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.hosting-section__labels-action {
+  justify-content: flex-start;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  font-size: 0.825rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hosting-section__card-action {
+  justify-content: center;
+}
+
+.hosting-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2.75rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent);
+  color: #ffffff !important;
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 2px 8px rgba(201, 162, 39, 0.35);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.hosting-card__btn:hover {
+  background-color: #b59122;
+  border-color: #b59122;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(201, 162, 39, 0.5);
+}
+
+@media (max-width: 640px) {
+  .hosting-domain-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hosting-domain-banner__clear {
+    align-self: flex-end;
+  }
 }

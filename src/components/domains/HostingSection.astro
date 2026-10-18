@@ -15,6 +15,8 @@ const plans = [
     ftp: 1,
     subdomains: 5,
     additionalDomains: 0,
+    domainBenefit: "Assistência e DNS inclusos",
+    ssl: "Grátis e Automático",
   },
   {
     name: "Profissional",
@@ -27,6 +29,8 @@ const plans = [
     ftp: 2,
     subdomains: 10,
     additionalDomains: 1,
+    domainBenefit: "1º ano grátis no anual",
+    ssl: "Grátis e Automático",
   },
   {
     name: "Avançado",
@@ -39,6 +43,8 @@ const plans = [
     ftp: 3,
     subdomains: 20,
     additionalDomains: 4,
+    domainBenefit: "1º ano grátis no anual",
+    ssl: "Grátis e Automático",
   },
   {
     name: "Empresarial",
@@ -51,6 +57,8 @@ const plans = [
     ftp: 5,
     subdomains: 30,
     additionalDomains: 9,
+    domainBenefit: "1º ano grátis no anual",
+    ssl: "Grátis e Automático",
   },
 ];
 
@@ -63,6 +71,8 @@ const items = [
   "Contas FTP",
   "Subdomínios",
   "Domínios adicionais",
+  "Gestão Técnica & DNS",
+  "Certificado SSL",
 ];
 ---
 
@@ -73,9 +83,24 @@ const items = [
       <p class="hosting-section__eyebrow">Hospedagem de Sites</p>
       <h2>Uma estrutura para manter sua empresa online.</h2>
       <p class="hosting-section__description">
-        Hospedagem para sites e lojas online, integrada às necessidades da
-        presença digital da sua empresa.
+        Hospedagem para sites e lojas online, com alta performance, gestão técnica de DNS, ativação de certificados SSL e suporte especializado AllLogic Online.
       </p>
+    </div>
+
+    <!-- Banner dinâmico exibido quando um domínio é selecionado na busca -->
+    <div id="hosting-domain-banner" class="hosting-domain-banner" style="display: none;">
+      <div class="hosting-domain-banner__icon">🌐</div>
+      <div class="hosting-domain-banner__body">
+        <div class="hosting-domain-banner__title">
+          Domínio selecionado para ativação: <strong id="hosting-selected-domain-name"></strong>
+        </div>
+        <div class="hosting-domain-banner__subtitle">
+          Assessoria completa da AllLogic: registro oficial no seu CPF/CNPJ, apontamento e gestão de DNS e SSL inclusos.
+        </div>
+      </div>
+      <button type="button" id="hosting-clear-domain-btn" class="hosting-domain-banner__clear" title="Consultar ou alterar domínio">
+        Alterar domínio
+      </button>
     </div>
 
     <div class="hosting-section__comparison">
@@ -89,6 +114,9 @@ const items = [
             <div class="hosting-section__label">{item}</div>
           ))
         }
+        <div class="hosting-section__labels-action">
+          <span>Contratação</span>
+        </div>
       </div>
 
       {
@@ -108,6 +136,20 @@ const items = [
               <div>{plan.ftp}</div>
               <div>{plan.subdomains}</div>
               <div>{plan.additionalDomains}</div>
+              <div style="font-size: 0.825rem;">{plan.domainBenefit}</div>
+              <div style="font-size: 0.825rem; color: var(--color-success); font-weight: 700;">{plan.ssl}</div>
+            </div>
+
+            <div class="hosting-section__card-action">
+              <a
+                href={`https://wa.me/5511966381915?text=${encodeURIComponent(`Olá! Gostaria de saber mais e contratar o plano de Hospedagem ${plan.name} da AllLogic Online.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hosting-card__btn js-hosting-plan-btn"
+                data-plan={plan.name}
+              >
+                Contratar Plano
+              </a>
             </div>
           </article>
         ))
@@ -115,3 +157,54 @@ const items = [
     </div>
   </Container>
 </Section>
+
+<script>
+  function initHostingDomainContext(): void {
+    const banner = document.getElementById("hosting-domain-banner");
+    const domainNameEl = document.getElementById("hosting-selected-domain-name");
+    const clearBtn = document.getElementById("hosting-clear-domain-btn");
+    const planBtns = document.querySelectorAll<HTMLAnchorElement>(".js-hosting-plan-btn");
+
+    function updateContext(domain: string | null): void {
+      if (!banner || !domainNameEl) return;
+
+      if (domain && domain.trim() !== "") {
+        domainNameEl.textContent = domain;
+        banner.style.display = "flex";
+
+        planBtns.forEach((btn) => {
+          const planName = btn.getAttribute("data-plan") || "Hospedagem";
+          const msg = `Olá! Gostaria de contratar a Hospedagem AllLogic (Plano ${planName}) para o domínio ${domain} com registro e assessoria técnica de DNS inclusos.`;
+          btn.href = `https://wa.me/5511966381915?text=${encodeURIComponent(msg)}`;
+        });
+      } else {
+        banner.style.display = "none";
+        planBtns.forEach((btn) => {
+          const planName = btn.getAttribute("data-plan") || "Hospedagem";
+          const msg = `Olá! Gostaria de saber mais e contratar o plano de Hospedagem ${planName} da AllLogic Online.`;
+          btn.href = `https://wa.me/5511966381915?text=${encodeURIComponent(msg)}`;
+        });
+      }
+    }
+
+    const currentDomain = window.sessionStorage.getItem("selectedDomain");
+    updateContext(currentDomain);
+
+    window.addEventListener("domainSelected", ((e: CustomEvent) => {
+      const selected = e.detail?.domain || window.sessionStorage.getItem("selectedDomain");
+      updateContext(selected);
+    }) as EventListener);
+
+    clearBtn?.addEventListener("click", () => {
+      window.sessionStorage.removeItem("selectedDomain");
+      updateContext(null);
+      const searchSection = document.getElementById("busca-dominio");
+      searchSection?.scrollIntoView({ behavior: "smooth" });
+      const searchInput = document.getElementById("domain-search-input") as HTMLInputElement | null;
+      searchInput?.focus();
+    });
+  }
+
+  initHostingDomainContext();
+  document.addEventListener("astro:page-load", initHostingDomainContext);
+</script>

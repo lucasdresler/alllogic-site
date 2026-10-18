@@ -221,6 +221,35 @@
   word-break: break-all;
 }
 
+.domain-card-benefit {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 12px;
+  margin: 6px 0 16px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+}
+
+.domain-benefit-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #795700;
+  background: #ffffff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  white-space: nowrap;
+}
+
+.domain-benefit-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
 .domain-card-desc {
   font-size: 0.95rem;
   color: var(--color-text-muted);
