@@ -1,0 +1,100 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { afiliadosContent } from "../../content/afiliados";
+import "./affiliates-commission-section.css";
+---
+
+<Section id="comissoes" background="light" spacing="lg">
+  <Container>
+    <div class="affiliates-section-header" data-scroll-reveal="fade">
+      <p class="affiliates-eyebrow">{afiliadosContent.commissions.badge}</p>
+      <h2>{afiliadosContent.commissions.title}</h2>
+      <p class="affiliates-section-desc">{afiliadosContent.commissions.description}</p>
+    </div>
+
+    <!-- Categoria A: Produtos SaaS Recorrentes -->
+    <div class="commission-group" data-scroll-reveal="up">
+      <div class="commission-group__header">
+        <div class="commission-group__title-wrap">
+          <span class="commission-tag commission-tag--saas">Recorrência Mensal</span>
+          <h3>{afiliadosContent.commissions.categoryA.title}</h3>
+        </div>
+        <p class="commission-group__subtitle">{afiliadosContent.commissions.categoryA.subtitle}</p>
+      </div>
+
+      <div class="commission-cards-grid">
+        {
+          afiliadosContent.commissions.categoryA.items.map((item) => (
+            <div class={`commission-card ${item.highlight ? 'commission-card--featured' : ''} card-interactive`}>
+              <div class="commission-card__top">
+                <span class="commission-rate-badge">20% Recorrente</span>
+                <h4 class="commission-card__name">{item.name}</h4>
+                <p class="commission-card__type">{item.type}</p>
+              </div>
+              <div class="commission-card__bottom">
+                <span class="commission-earning-label">Seu ganho mensal por cliente:</span>
+                <strong class="commission-earning-value">{item.example}</strong>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Simulação de Renda Recorrente -->
+    <div class="commission-simulation-block" data-scroll-reveal="up">
+      <div class="simulation-header">
+        <div class="simulation-icon-wrap">📈</div>
+        <div>
+          <h3>{afiliadosContent.commissions.simulation.title}</h3>
+          <p>{afiliadosContent.commissions.simulation.subtitle}</p>
+        </div>
+      </div>
+
+      <div class="simulation-tiers-grid">
+        {
+          afiliadosContent.commissions.simulation.tiers.map((tier) => (
+            <div class="simulation-tier-card card-interactive">
+              <div class="simulation-tier-count">
+                <span>{tier.clients}</span>
+                <small>clientes ativos</small>
+              </div>
+              <div class="simulation-tier-val">{tier.monthlyRevenue}</div>
+              <p class="simulation-tier-desc">{tier.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Categoria B: Serviços e Hospedagem -->
+    <div class="commission-group" data-scroll-reveal="up">
+      <div class="commission-group__header">
+        <div class="commission-group__title-wrap">
+          <span class="commission-tag commission-tag--services">Engenharia & Hospedagem</span>
+          <h3>{afiliadosContent.commissions.categoryB.title}</h3>
+        </div>
+        <p class="commission-group__subtitle">{afiliadosContent.commissions.categoryB.subtitle}</p>
+      </div>
+
+      <div class="commission-cards-grid commission-cards-grid--three">
+        {
+          afiliadosContent.commissions.categoryB.items.map((item) => (
+            <div class="commission-card card-interactive">
+              <div class="commission-card__top">
+                <span class="commission-rate-badge commission-rate-badge--secondary">{item.commission}</span>
+                <h4 class="commission-card__name">{item.name}</h4>
+                <p class="commission-card__type">{item.type}</p>
+              </div>
+              <div class="commission-card__bottom">
+                <span class="commission-earning-label">Exemplo de remuneração:</span>
+                <strong class="commission-earning-value">{item.example}</strong>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</Section>

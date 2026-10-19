@@ -41,6 +41,7 @@ export const navigationContent: NavigationContent = {
       ],
     },
     { label: "Domínios e Hospedagem", href: "/dominios-e-hospedagem" },
+    { label: "Programa de Afiliados", href: "/afiliados" },
     { label: "Política de Privacidade", href: "/politica-de-privacidade" },
     { label: "Termos de Uso", href: "/termos-de-uso" },
   ],

@@ -1,0 +1,33 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { afiliadosContent } from "../../content/afiliados";
+import "./affiliates-faq-section.css";
+---
+
+<Section id="duvidas-frequentes" spacing="lg">
+  <Container>
+    <div class="affiliates-section-header" data-scroll-reveal="fade">
+      <p class="affiliates-eyebrow">{afiliadosContent.faq.badge}</p>
+      <h2>{afiliadosContent.faq.title}</h2>
+    </div>
+
+    <div class="affiliates-faq-list" data-scroll-reveal="up">
+      {
+        afiliadosContent.faq.items.map((item, index) => (
+          <details class="affiliates-faq-item card-interactive">
+            <summary class="affiliates-faq-question">
+              <span>{item.question}</span>
+              <svg class="affiliates-faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="affiliates-faq-answer">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </Container>
+</Section>

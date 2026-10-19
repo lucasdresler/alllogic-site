@@ -65,7 +65,8 @@
 .agillex-features__card:nth-child(2),
 .hub-pillar-card:nth-child(2),
 .mindset-step-card:nth-child(2),
-.people-tech__item:nth-child(2) {
+.people-tech__item:nth-child(2),
+.hosting-section__card:nth-child(2) {
   --reveal-duration: 650ms;
   transition-delay: 80ms;
 }
@@ -77,7 +78,8 @@
 .agillex-features__card:nth-child(3),
 .hub-pillar-card:nth-child(3),
 .mindset-step-card:nth-child(3),
-.people-tech__item:nth-child(3) {
+.people-tech__item:nth-child(3),
+.hosting-section__card:nth-child(3) {
   --reveal-duration: 700ms;
   transition-delay: 160ms;
 }
@@ -88,7 +90,8 @@
 .agillex-audience__card:nth-child(4),
 .agillex-features__card:nth-child(4),
 .hub-pillar-card:nth-child(4),
-.mindset-step-card:nth-child(4) {
+.mindset-step-card:nth-child(4),
+.hosting-section__card:nth-child(4) {
   --reveal-duration: 750ms;
   transition-delay: 240ms;
 }

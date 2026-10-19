@@ -1,0 +1,42 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { afiliadosContent } from "../../content/afiliados";
+import "./affiliates-cta-section.css";
+---
+
+<Section id="afiliados-cta" spacing="lg">
+  <Container>
+    <div class="affiliates-cta-card" data-scroll-reveal="up">
+      <div class="affiliates-cta-card__content">
+        <span class="affiliates-cta-badge">Adesão 100% Gratuita</span>
+        <h2 class="affiliates-cta-title">{afiliadosContent.cta.title}</h2>
+        <p class="affiliates-cta-desc">{afiliadosContent.cta.description}</p>
+
+        <div class="affiliates-cta-actions">
+          <a
+            href={afiliadosContent.cta.buttonHref}
+            class="affiliates-cta-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="btn-afiliados-cta-final"
+          >
+            <span>{afiliadosContent.cta.buttonLabel}</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <p class="affiliates-cta-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <polyline points="9 12 11 14 15 10"></polyline>
+          </svg>
+          <span>{afiliadosContent.cta.note}</span>
+        </p>
+      </div>
+    </div>
+  </Container>
+</Section>

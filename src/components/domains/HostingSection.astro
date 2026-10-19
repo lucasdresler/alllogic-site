@@ -95,7 +95,7 @@ const items = [
 <Section id="hospedagem-sites" spacing="lg">
   <div id="hospedagem" style="scroll-margin-top: 110px;"></div>
   <Container>
-    <div class="hosting-section__content">
+    <div class="hosting-section__content" data-scroll-reveal="fade">
       <p class="hosting-section__eyebrow">Hospedagem de Sites</p>
       <h2>Uma estrutura para manter sua empresa online.</h2>
       <p class="hosting-section__description">
@@ -136,7 +136,7 @@ const items = [
       </button>
     </div>
 
-    <div class="hosting-section__comparison">
+    <div class="hosting-section__comparison" data-scroll-reveal="up">
       <div class="hosting-section__labels">
         <div class="hosting-section__labels-header">
           <h3>Recursos</h3>
@@ -157,7 +157,7 @@ const items = [
 
       {
         plans.map((plan) => (
-          <article class={`hosting-section__card ${plan.popular ? 'hosting-section__card--popular' : ''}`}>
+          <article class={`hosting-section__card ${plan.popular ? 'hosting-section__card--popular' : ''}`} data-scroll-reveal="up">
             <div class="hosting-section__card-header">
               <div class="hosting-card-title-wrap">
                 <h3 class="hosting-card-title">{plan.name}</h3>

@@ -8,7 +8,7 @@ import "./privacy-policy-section.css";
 <Section id="politica-de-privacidade">
   <Container>
     <article class="privacy-policy">
-      <header class="privacy-policy__header">
+      <header class="privacy-policy__header" data-scroll-reveal="up">
         <p class="privacy-policy__eyebrow">{privacidadeContent.eyebrow}</p>
         <h1>{privacidadeContent.title}</h1>
         <p class="privacy-policy__description">
@@ -21,7 +21,7 @@ import "./privacy-policy-section.css";
 
       <div class="privacy-policy__content">
         {privacidadeContent.sections.map((section) => (
-          <section>
+          <section data-scroll-reveal="up">
             <h2>{section.title}</h2>
 
             {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}

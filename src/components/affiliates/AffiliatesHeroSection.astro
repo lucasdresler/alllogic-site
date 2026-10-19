@@ -1,0 +1,64 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { afiliadosContent } from "../../content/afiliados";
+import "./affiliates-hero-section.css";
+---
+
+<Section id="afiliados-hero" spacing="lg">
+  <Container>
+    <div class="affiliates-hero" data-scroll-reveal="up">
+      <div class="affiliates-hero__badge">
+        <span class="affiliates-hero__badge-pulse"></span>
+        <span>{afiliadosContent.hero.badge}</span>
+      </div>
+
+      <h1 class="affiliates-hero__title">
+        {afiliadosContent.hero.title}
+        <span class="affiliates-hero__title-highlight">{afiliadosContent.hero.highlight}</span>
+      </h1>
+
+      <p class="affiliates-hero__description">
+        {afiliadosContent.hero.description}
+      </p>
+
+      <div class="affiliates-hero__actions">
+        <a
+          href={afiliadosContent.hero.ctaPrimary.href}
+          class="affiliates-hero__btn affiliates-hero__btn--primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="btn-afiliados-hero-primary"
+        >
+          <span>{afiliadosContent.hero.ctaPrimary.label}</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a
+          href={afiliadosContent.hero.ctaSecondary.href}
+          class="affiliates-hero__btn affiliates-hero__btn--secondary"
+          id="btn-afiliados-hero-secondary"
+        >
+          {afiliadosContent.hero.ctaSecondary.label}
+        </a>
+      </div>
+
+      <!-- Barra de Destaques / Confiança -->
+      <div class="affiliates-hero__trust-grid" data-scroll-reveal="up">
+        {
+          afiliadosContent.hero.trustPoints.map((point) => (
+            <div class="affiliates-trust-item">
+              <svg class="affiliates-trust-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>{point}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</Section>

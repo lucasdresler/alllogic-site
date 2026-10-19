@@ -1,0 +1,65 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { afiliadosContent } from "../../content/afiliados";
+import "./affiliates-benefits-section.css";
+---
+
+<Section id="diferenciais" spacing="lg">
+  <Container>
+    <div class="affiliates-section-header" data-scroll-reveal="fade">
+      <p class="affiliates-eyebrow">{afiliadosContent.benefits.badge}</p>
+      <h2>{afiliadosContent.benefits.title}</h2>
+    </div>
+
+    <div class="benefits-grid">
+      {
+        afiliadosContent.benefits.items.map((item) => (
+          <div class="benefit-card card-interactive" data-scroll-reveal="up">
+            <div class="benefit-icon-wrapper">
+              {item.icon === "repeat" && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="17 1 21 5 17 9"></polyline>
+                  <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                  <polyline points="7 23 3 19 7 15"></polyline>
+                  <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                </svg>
+              )}
+              {item.icon === "clock" && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              )}
+              {item.icon === "shield-check" && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+              )}
+              {item.icon === "zap" && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              )}
+              {item.icon === "credit-card" && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                  <line x1="1" y1="10" x2="23" y2="10"></line>
+                </svg>
+              )}
+              {item.icon === "award" && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+              )}
+            </div>
+            <h3 class="benefit-card__title">{item.title}</h3>
+            <p class="benefit-card__desc">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</Section>
