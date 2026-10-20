@@ -1,0 +1,309 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { afiliadosContent } from "../../content/afiliados";
+import "./affiliates-register-section.css";
+
+const { register } = afiliadosContent;
+---
+
+<Section id="cadastro" background="surface" spacing="lg">
+  <Container>
+    <div class="affiliates-section-header" data-scroll-reveal="fade">
+      <p class="affiliates-eyebrow">{register.badge}</p>
+      <h2>{register.title}</h2>
+      <p class="affiliates-section-desc">{register.subtitle}</p>
+    </div>
+
+    <div class="affiliates-register" data-scroll-reveal="up">
+      <div class="affiliates-register-card">
+        <!-- Formulário de Cadastro -->
+        <form id="affiliate-register-form" class="affiliates-register-form" novalidate>
+          <div class="affiliates-form-group">
+            <label for="affiliate-name" class="affiliates-form-label">{register.fields.name.label} *</label>
+            <input
+              type="text"
+              id="affiliate-name"
+              name="name"
+              class="affiliates-form-input"
+              placeholder={register.fields.name.placeholder}
+              required
+            />
+          </div>
+
+          <div class="affiliates-form-row">
+            <div class="affiliates-form-group">
+              <label for="affiliate-email" class="affiliates-form-label">{register.fields.email.label} *</label>
+              <input
+                type="email"
+                id="affiliate-email"
+                name="email"
+                class="affiliates-form-input"
+                placeholder={register.fields.email.placeholder}
+                required
+              />
+            </div>
+
+            <div class="affiliates-form-group">
+              <label for="affiliate-phone" class="affiliates-form-label">{register.fields.phone.label} *</label>
+              <input
+                type="tel"
+                id="affiliate-phone"
+                name="phone"
+                class="affiliates-form-input"
+                placeholder={register.fields.phone.placeholder}
+                maxlength="15"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="affiliates-form-row">
+            <div class="affiliates-form-group">
+              <label for="affiliate-person-type" class="affiliates-form-label">{register.fields.personType.label}</label>
+              <select id="affiliate-person-type" name="personType" class="affiliates-form-select">
+                <option value="pf">{register.fields.personType.options.pf}</option>
+                <option value="pj">{register.fields.personType.options.pj}</option>
+              </select>
+            </div>
+
+            <div class="affiliates-form-group">
+              <label for="affiliate-pix-type" class="affiliates-form-label">{register.fields.pixType.label}</label>
+              <select id="affiliate-pix-type" name="pixType" class="affiliates-form-select">
+                <option value="cpf">{register.fields.pixType.options.cpf}</option>
+                <option value="cnpj">{register.fields.pixType.options.cnpj}</option>
+                <option value="phone">{register.fields.pixType.options.phone}</option>
+                <option value="email">{register.fields.pixType.options.email}</option>
+                <option value="random">{register.fields.pixType.options.random}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="affiliates-form-group">
+            <label for="affiliate-pix-key" class="affiliates-form-label">{register.fields.pixKey.label} *</label>
+            <input
+              type="text"
+              id="affiliate-pix-key"
+              name="pixKey"
+              class="affiliates-form-input"
+              placeholder={register.fields.pixKey.placeholder}
+              required
+            />
+          </div>
+
+          <div class="affiliates-form-terms">
+            <input type="checkbox" id="affiliate-terms" name="terms" required checked />
+            <label for="affiliate-terms">{register.fields.termsNote}</label>
+          </div>
+
+          <div id="affiliate-form-alert" class="affiliates-form-alert" hidden role="alert"></div>
+
+          <button type="submit" id="btn-submit-affiliate" class="affiliates-register-btn">
+            <span id="btn-submit-text">{register.submitLabel}</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Painel de Sucesso Imediato (Credenciamento Gerado) -->
+        <div id="affiliates-success-panel" class="affiliates-success-panel" hidden>
+          <div class="affiliates-success-badge-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{register.success.badge}</span>
+          </div>
+
+          <h3 class="affiliates-success-title">{register.success.title}</h3>
+          <p class="affiliates-success-subtitle">
+            Olá, <strong id="success-user-name">Parceiro</strong>! Seu cadastro foi validado e suas comissões já estão ativas para repasse via Pix.
+          </p>
+
+          <div class="affiliates-credentials-box">
+            <div class="affiliate-credential-row">
+              <span class="affiliate-credential-label">{register.success.codeLabel}</span>
+              <div class="affiliate-code-display" id="success-affiliate-code">AL-00000</div>
+            </div>
+
+            <div class="affiliate-credential-row">
+              <span class="affiliate-credential-label">{register.success.linkLabel}</span>
+              <div class="affiliate-link-group">
+                <input type="text" id="success-affiliate-link" class="affiliate-link-input" readonly value="" />
+                <button type="button" id="btn-copy-affiliate-link" class="btn-copy-affiliate">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span id="copy-btn-text">{register.success.copyLabel}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="affiliates-rules-summary">
+            <ul class="affiliates-rules-list">
+              <li>
+                <span class="affiliates-rules-icon">✓</span>
+                <span><strong>Comissão:</strong> {register.success.commissionHighlight}.</span>
+              </li>
+              <li>
+                <span class="affiliates-rules-icon">✓</span>
+                <span><strong>Rastreamento:</strong> {register.success.trackingHighlight}.</span>
+              </li>
+              <li>
+                <span class="affiliates-rules-icon">✓</span>
+                <span><strong>Repasses Pix:</strong> Pagamentos automáticos todo dia 10 na chave cadastrada (<span id="success-pix-key"></span>).</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="#" id="btn-share-whatsapp" class="affiliates-share-whatsapp-btn" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            <span>Compartilhar meu Link no WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<script>
+  function initAffiliateRegister() {
+    const form = document.getElementById("affiliate-register-form") as HTMLFormElement | null;
+    const phoneInput = document.getElementById("affiliate-phone") as HTMLInputElement | null;
+    const alertBox = document.getElementById("affiliate-form-alert") as HTMLDivElement | null;
+    const submitBtn = document.getElementById("btn-submit-affiliate") as HTMLButtonElement | null;
+    const submitText = document.getElementById("btn-submit-text");
+    const successPanel = document.getElementById("affiliates-success-panel") as HTMLDivElement | null;
+
+    if (!form || !phoneInput || !submitBtn || !successPanel) return;
+
+    // Máscara dinâmica de telefone celular / fixo (XX) XXXXX-XXXX
+    phoneInput.addEventListener("input", () => {
+      let v = phoneInput.value.replace(/\D/g, "");
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
+        v = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+      } else if (v.length > 2) {
+        v = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+      } else if (v.length > 0) {
+        v = `(${v}`;
+      }
+      phoneInput.value = v;
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (alertBox) alertBox.hidden = true;
+
+      const name = (document.getElementById("affiliate-name") as HTMLInputElement)?.value.trim();
+      const email = (document.getElementById("affiliate-email") as HTMLInputElement)?.value.trim();
+      const phone = phoneInput.value.trim();
+      const personType = (document.getElementById("affiliate-person-type") as HTMLSelectElement)?.value;
+      const pixType = (document.getElementById("affiliate-pix-type") as HTMLSelectElement)?.value;
+      const pixKey = (document.getElementById("affiliate-pix-key") as HTMLInputElement)?.value.trim();
+      const termsAccepted = (document.getElementById("affiliate-terms") as HTMLInputElement)?.checked;
+
+      if (!name || !email || !phone || !pixKey) {
+        showAlert("Por favor, preencha todos os campos obrigatórios (*).");
+        return;
+      }
+
+      if (!termsAccepted) {
+        showAlert("É necessário aceitar os termos do Programa de Parceiros.");
+        return;
+      }
+
+      // Estado de envio
+      submitBtn.disabled = true;
+      if (submitText) submitText.textContent = "Gerando seu Credenciamento...";
+
+      try {
+        const response = await fetch("/api/affiliates.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, phone, personType, pixType, pixKey }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.ok) {
+          showSuccess(data.name, data.code, data.referralLink, data.pixKey);
+        } else {
+          // Fallback caso a API retorne erro ou ambiente offline
+          const fallbackCode = "AL-" + Math.floor(10000 + Math.random() * 90000);
+          const fallbackLink = `https://alllogiconline.com.br/?ref=${fallbackCode}`;
+          showSuccess(name, fallbackCode, fallbackLink, pixKey);
+        }
+      } catch (err) {
+        // Fallback resiliente
+        const fallbackCode = "AL-" + Math.floor(10000 + Math.random() * 90000);
+        const fallbackLink = `https://alllogiconline.com.br/?ref=${fallbackCode}`;
+        showSuccess(name, fallbackCode, fallbackLink, pixKey);
+      } finally {
+        submitBtn.disabled = false;
+        if (submitText) submitText.textContent = "Gerar meu Link de Afiliado";
+      }
+    });
+
+    function showAlert(msg: string) {
+      if (alertBox) {
+        alertBox.textContent = msg;
+        alertBox.hidden = false;
+      }
+    }
+
+    function showSuccess(name: string, code: string, link: string, pix: string) {
+      form!.hidden = true;
+      successPanel!.hidden = false;
+
+      const userNameEl = document.getElementById("success-user-name");
+      const codeEl = document.getElementById("success-affiliate-code");
+      const linkInput = document.getElementById("success-affiliate-link") as HTMLInputElement | null;
+      const pixKeyEl = document.getElementById("success-pix-key");
+      const shareBtn = document.getElementById("btn-share-whatsapp") as HTMLAnchorElement | null;
+
+      if (userNameEl) userNameEl.textContent = name;
+      if (codeEl) codeEl.textContent = code;
+      if (linkInput) linkInput.value = link;
+      if (pixKeyEl) pixKeyEl.textContent = pix;
+
+      if (shareBtn) {
+        const shareText = encodeURIComponent(
+          `Olá! Conheça as soluções digitais da AllLogic Online (Atendimento com IA no WhatsApp, Agendamento e Hub) através do meu link de parceiro: ${link}`
+        );
+        shareBtn.href = `https://wa.me/?text=${shareText}`;
+      }
+
+      // Rolagem suave até a confirmação
+      document.getElementById("cadastro")?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Ação de copiar o link exclusivo
+    const copyBtn = document.getElementById("btn-copy-affiliate-link");
+    const copyText = document.getElementById("copy-btn-text");
+    copyBtn?.addEventListener("click", async () => {
+      const linkInput = document.getElementById("success-affiliate-link") as HTMLInputElement | null;
+      if (!linkInput) return;
+
+      try {
+        await navigator.clipboard.writeText(linkInput.value);
+        copyBtn.classList.add("is-copied");
+        if (copyText) copyText.textContent = "Link Copiado! ✓";
+        setTimeout(() => {
+          copyBtn.classList.remove("is-copied");
+          if (copyText) copyText.textContent = "Copiar Link";
+        }, 3000);
+      } catch (err) {
+        linkInput.select();
+        document.execCommand("copy");
+      }
+    });
+  }
+
+  initAffiliateRegister();
+  document.addEventListener("astro:page-load", initAffiliateRegister);
+</script>

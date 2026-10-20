@@ -1,0 +1,359 @@
+.affiliates-register {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.affiliates-register-card {
+  position: relative;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.affiliates-register-card:hover {
+  border-color: rgba(31, 111, 255, 0.3);
+  box-shadow: 0 12px 35px rgba(10, 31, 68, 0.1);
+}
+
+.affiliates-register-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+}
+
+.affiliates-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: opacity 0.3s ease;
+}
+
+.affiliates-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.affiliates-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.affiliates-form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.affiliates-form-input,
+.affiliates-form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.affiliates-form-input:focus,
+.affiliates-form-select:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(31, 111, 255, 0.15);
+}
+
+.affiliates-form-terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: var(--space-xs);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.affiliates-form-terms input[type="checkbox"] {
+  margin-top: 0.2rem;
+  accent-color: var(--color-secondary);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.affiliates-register-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 1rem 1.75rem;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #ffffff !important;
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 14px rgba(201, 162, 39, 0.4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: var(--space-xs);
+}
+
+.affiliates-register-btn:hover:not(:disabled) {
+  background-color: #b59122;
+  border-color: #b59122;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.55);
+}
+
+.affiliates-register-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.affiliates-form-alert {
+  padding: 0.85rem 1rem;
+  background-color: rgba(179, 38, 30, 0.08);
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius-sm);
+  color: var(--color-error);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Painel de Credenciamento Ativo (Card de Sucesso Imediato)
+   ========================================================================== */
+
+.affiliates-success-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeInPanel 0.4s ease-out forwards;
+}
+
+@keyframes fadeInPanel {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.affiliates-success-badge-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background-color: rgba(30, 142, 62, 0.1);
+  border: 1px solid rgba(30, 142, 62, 0.25);
+  color: var(--color-success);
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-md);
+}
+
+.affiliates-success-title {
+  font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+  font-weight: 800;
+}
+
+.affiliates-success-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 580px;
+  margin: 0 auto var(--space-lg);
+  line-height: 1.5;
+}
+
+.affiliates-credentials-box {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.affiliate-credential-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.affiliate-credential-label {
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.affiliate-code-display {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.25rem;
+  background: #ffffff;
+  border: 1.5px dashed var(--color-secondary);
+  border-radius: var(--radius-sm);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-secondary);
+  letter-spacing: 0.08em;
+  box-shadow: 0 2px 8px rgba(31, 111, 255, 0.08);
+}
+
+.affiliate-link-group {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.affiliate-link-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  outline: none;
+}
+
+.btn-copy-affiliate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-copy-affiliate:hover {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.btn-copy-affiliate.is-copied {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.affiliates-rules-summary {
+  width: 100%;
+  background: rgba(31, 111, 255, 0.05);
+  border: 1px solid rgba(31, 111, 255, 0.15);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  text-align: left;
+}
+
+.affiliates-rules-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.925rem;
+  color: var(--color-primary);
+}
+
+.affiliates-rules-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  line-height: 1.45;
+}
+
+.affiliates-rules-icon {
+  color: var(--color-secondary);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.affiliates-share-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: all 0.2s ease;
+}
+
+.affiliates-share-whatsapp-btn:hover {
+  background-color: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+@media (max-width: 640px) {
+  .affiliates-register-card {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .affiliates-form-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .affiliate-link-group {
+    flex-direction: column;
+  }
+
+  .btn-copy-affiliate {
+    width: 100%;
+    justify-content: center;
+  }
+}

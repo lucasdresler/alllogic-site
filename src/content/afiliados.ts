@@ -33,6 +33,44 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface AffiliatesRegisterContent {
+  badge: string;
+  title: string;
+  subtitle: string;
+  fields: {
+    name: { label: string; placeholder: string; requiredMessage: string };
+    email: { label: string; placeholder: string; requiredMessage: string };
+    phone: { label: string; placeholder: string; requiredMessage: string };
+    personType: { label: string; options: { pf: string; pj: string } };
+    pixType: {
+      label: string;
+      options: {
+        cpf: string;
+        cnpj: string;
+        phone: string;
+        email: string;
+        random: string;
+      };
+    };
+    pixKey: { label: string; placeholder: string; requiredMessage: string };
+    termsNote: string;
+  };
+  submitLabel: string;
+  submittingLabel: string;
+  success: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    codeLabel: string;
+    linkLabel: string;
+    copyLabel: string;
+    copiedLabel: string;
+    commissionHighlight: string;
+    trackingHighlight: string;
+    pixConfirmation: string;
+  };
+}
+
 export interface AffiliatesContent {
   meta: {
     title: string;
@@ -85,6 +123,7 @@ export interface AffiliatesContent {
     description: string;
     items: TargetAudienceItem[];
   };
+  register: AffiliatesRegisterContent;
   faq: {
     badge: string;
     title: string;
@@ -103,24 +142,24 @@ export const afiliadosContent: AffiliatesContent = {
   meta: {
     title: "Programa de Afiliados e Parceiros | AllLogic Partners — Comissões Recorrentes",
     description:
-      "Seja um parceiro oficial da AllLogic Online. Ganhe 20% de comissão recorrente mensal indicando as soluções da Família Agillex e até 20% em projetos de tecnologia. Pagamento via Pix todo dia 10.",
+      "Seja um parceiro oficial da AllLogic Online. Ganhe comissão recorrente enquanto o cliente permanecer ativo indicando as soluções da Família Agillex e até 20% em projetos. Pagamento via Pix todo dia 10.",
   },
   hero: {
     badge: "AllLogic Partners",
     title: "Construa uma renda recorrente sólida com a tecnologia da",
     highlight: "AllLogic Online.",
     description:
-      "Indique soluções digitais comprovadas de atendimento inteligente no WhatsApp, agendamento online e infraestrutura web para empresas e receba 20% de comissão todo mês, enquanto o cliente permanecer ativo.",
+      "Indique soluções digitais comprovadas de atendimento inteligente no WhatsApp, agendamento online e infraestrutura web para empresas e receba comissão todo mês, enquanto o cliente permanecer ativo.",
     ctaPrimary: {
-      label: "Quero ser um Parceiro Oficial",
-      href: "https://wa.me/5511966381915?text=Ol%C3%A1%2C%20gostaria%20de%20me%20cadastrar%20no%20Programa%20de%20Parceiros%20e%20Afiliados%20da%20AllLogic%20Online.",
+      label: "Quero meu Link de Parceiro",
+      href: "#cadastro",
     },
     ctaSecondary: {
       label: "Conhecer as Comissões",
       href: "#comissoes",
     },
     trustPoints: [
-      "20% de Comissão Recorrente Mensal",
+      "Comissão recorrente enquanto o cliente permanecer ativo",
       "Pagamentos via Pix todo dia 10",
       "Cookie de 60 dias com atribuição garantida",
       "Adesão 100% gratuita sem taxas de entrada",
@@ -306,6 +345,68 @@ export const afiliadosContent: AffiliatesContent = {
       },
     ],
   },
+  register: {
+    badge: "Credenciamento Oficial",
+    title: "Cadastre-se e receba seu Link Exclusivo de Parceiro",
+    subtitle:
+      "Preencha seus dados para gerar seu código único de afiliado e sua chave de repasses Pix.",
+    fields: {
+      name: {
+        label: "Nome Completo ou Razão Social",
+        placeholder: "Seu nome ou nome da sua empresa",
+        requiredMessage: "Informe seu nome completo ou razão social.",
+      },
+      email: {
+        label: "E-mail Profissional",
+        placeholder: "seuemail@exemplo.com.br",
+        requiredMessage: "Informe um e-mail válido para comunicações do programa.",
+      },
+      phone: {
+        label: "WhatsApp de Contato",
+        placeholder: "(11) 99999-9999",
+        requiredMessage: "Informe seu WhatsApp com DDD.",
+      },
+      personType: {
+        label: "Tipo de Pessoa",
+        options: {
+          pf: "Pessoa Física (CPF)",
+          pj: "Pessoa Jurídica (CNPJ)",
+        },
+      },
+      pixType: {
+        label: "Tipo de Chave Pix",
+        options: {
+          cpf: "CPF",
+          cnpj: "CNPJ",
+          phone: "Celular / WhatsApp",
+          email: "E-mail",
+          random: "Chave Aleatória (EVP)",
+        },
+      },
+      pixKey: {
+        label: "Chave Pix para Repasses",
+        placeholder: "Digite sua chave Pix cadastrada",
+        requiredMessage: "Informe sua chave Pix para repasses todo dia 10.",
+      },
+      termsNote:
+        "Ao se cadastrar, você concorda com os termos e regras operacionais do Programa de Parceiros AllLogic Online.",
+    },
+    submitLabel: "Gerar meu Link de Afiliado",
+    submittingLabel: "Gerando seu Credenciamento...",
+    success: {
+      badge: "Credenciamento Ativo",
+      title: "Parabéns! Seu Código de Parceiro foi Gerado",
+      subtitle:
+        "Compartilhe seu link exclusivo abaixo. Qualquer contratação iniciada por ele será automaticamente atribuída a você.",
+      codeLabel: "Seu Código Exclusivo de Afiliado",
+      linkLabel: "Seu Link Oficial de Indicação",
+      copyLabel: "Copiar Link",
+      copiedLabel: "Link Copiado!",
+      commissionHighlight: "Comissão recorrente enquanto o cliente permanecer ativo",
+      trackingHighlight: "Janela de rastreamento com cookie de 60 dias",
+      pixConfirmation: "Repasses automáticos todo dia 10 na chave Pix cadastrada",
+    },
+  },
   faq: {
     badge: "Tire suas Dúvidas",
     title: "Perguntas frequentes sobre o programa",
@@ -351,8 +452,8 @@ export const afiliadosContent: AffiliatesContent = {
     title: "Comece a lucrar com o ecossistema da <span class=\"brand-name brand-name--dark\"><span class=\"brand-name__all\">All</span><span class=\"brand-name__logic\">Logic</span> <span class=\"brand-name__online\">Online</span></span> hoje mesmo.",
     description:
       "Cadastre-se gratuitamente, receba seus links de parceiro e comece a construir sua carteira de comissões recorrentes.",
-    buttonLabel: "Falar com a Equipe de Parcerias",
-    buttonHref: "https://wa.me/5511966381915?text=Ol%C3%A1%2C%20gostaria%20de%20me%20cadastrar%20no%20Programa%20de%20Parceiros%20e%20Afiliados%20da%20AllLogic%20Online.",
-    note: "Aprovação rápida e suporte direto pelo WhatsApp corporativo da AllLogic Online.",
+    buttonLabel: "Cadastrar Gratuitamente",
+    buttonHref: "#cadastro",
+    note: "Adesão 100% gratuita com geração imediata do seu código e link exclusivo.",
   },
 };
