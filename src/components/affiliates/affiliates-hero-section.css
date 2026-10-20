@@ -92,15 +92,18 @@
 }
 
 .affiliates-hero__btn--primary {
-  background-color: var(--color-secondary);
+  background-color: var(--color-accent);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(31, 111, 255, 0.35);
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 4px 14px rgba(201, 162, 39, 0.4);
 }
 
 .affiliates-hero__btn--primary:hover {
-  background-color: #175cd3;
+  background-color: #b59122;
+  border-color: #b59122;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(31, 111, 255, 0.45);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.55);
 }
 
 .affiliates-hero__btn--secondary {

@@ -57,10 +57,9 @@ Componente `Grid` (`src/components/layout/Grid.astro`) com 1 a 4 colunas, respon
 
 ## Componentes
 
-Botões/CTAs seguem duas variações, aplicadas localmente em cada seção (`hero-section.css`, `diagnosis-section.css`, `cta-section.css`):
-- **Primário** (`--color-secondary`, texto invertido): ação principal do Hero.
-- **Secundário** (contorno com `--color-border`, texto `--color-primary`): ação de apoio do Hero.
-- **Destaque** (`--color-accent`, texto `--color-primary-dark`): CTA de Diagnóstico e CTA final, sobre fundo escuro.
+Botões/CTAs seguem o padrão visual homologado:
+- **CTA Principal / Conversão** (`--color-accent` / dourado com texto branco `#ffffff` e sombra dourada): ação principal de todas as páginas e seções de conversão (Hero, Planos, Teste Grátis, Diagnóstico, Afiliados e CTA Final).
+- **Secundário / Apoio** (fundo transparente ou branco, contorno com `--color-border`, texto `--color-primary`): ações de suporte e navegação secundária.
 
 ## Ícones
 
