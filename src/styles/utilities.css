@@ -184,45 +184,46 @@
   white-space: nowrap;
 }
 
+/* Modo Cápsula/Selo: fundo escuro idêntico ao logotipo que valoriza o prata e o azul */
+.brand-name--capsule {
+  display: inline-flex;
+  align-items: baseline;
+  background: linear-gradient(145deg, #0e2a5c 0%, #061530 100%);
+  padding: 0.12em 0.55em 0.16em;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 4px 16px rgba(6, 21, 48, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  vertical-align: baseline;
+  line-height: 1.15;
+}
+
 .brand-name__all {
   background: linear-gradient(180deg, #38bdf8 0%, #1f6fff 45%, #004ecc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
   font-weight: 800;
-  filter: drop-shadow(0 1px 1px rgba(31, 111, 255, 0.18));
+  filter: drop-shadow(0 0 6px rgba(31, 111, 255, 0.4));
 }
 
-/* Logic em fundos claros: prata metálico autêntico com reflexo e brilho cromado */
-.brand-name__logic {
+/* Logic: prata metálico cromado reluzente com reflexo de luz */
+.brand-name__logic,
+.brand-name--capsule .brand-name__logic,
+.brand-name--dark .brand-name__logic {
   background: linear-gradient(
     135deg,
-    #7a889b 0%,
-    #cbd5e1 25%,
-    #ffffff 45%,
-    #94a3b8 70%,
+    #ffffff 0%,
+    #f8fafc 20%,
+    #e2e8f0 40%,
+    #cbd5e1 60%,
+    #94a3b8 80%,
     #64748b 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
   font-weight: 800;
-  filter: drop-shadow(0 1px 1px rgba(10, 31, 68, 0.22));
-}
-
-/* Logic em fundos escuros: prata cromado intenso */
-.brand-name--dark .brand-name__logic {
-  background: linear-gradient(
-    135deg,
-    #ffffff 0%,
-    #f1f5f9 25%,
-    #cbd5e1 50%,
-    #94a3b8 75%,
-    #64748b 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.3));
+  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.45));
 }
 
 .brand-name__online {
@@ -232,8 +233,10 @@
   display: inline-block;
 }
 
+.brand-name--capsule .brand-name__online,
 .brand-name--dark .brand-name__online {
   color: #ffffff;
+  opacity: 0.95;
 }
 
 @supports not (-webkit-background-clip: text) {
@@ -241,9 +244,6 @@
     color: var(--color-secondary, #1f6fff);
   }
   .brand-name__logic {
-    color: #4b5563;
-  }
-  .brand-name--dark .brand-name__logic {
     color: #cbd5e1;
   }
 }

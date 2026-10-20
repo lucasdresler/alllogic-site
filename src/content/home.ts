@@ -92,7 +92,7 @@ export const homeContent: HomeContent = {
     // Título do Hero reutiliza a tagline institucional compartilhada, em vez de duplicar o valor.
     title: siteContent.branding.tagline,
     description:
-      "A <span class=\"brand-name\"><span class=\"brand-name__all\">All</span><span class=\"brand-name__logic\">Logic</span> <span class=\"brand-name__online\">Online</span></span> transforma necessidades reais de empresas em soluções digitais — com engenharia, clareza e utilidade em cada decisão técnica.",
+      "A <span class=\"brand-name brand-name--capsule\"><span class=\"brand-name__all\">All</span><span class=\"brand-name__logic\">Logic</span> <span class=\"brand-name__online\">Online</span></span> transforma necessidades reais de empresas em soluções digitais — com engenharia, clareza e utilidade em cada decisão técnica.",
     actions: [{ label: "Conheça nossas soluções", href: "#solucoes" }],
   },
   problems: {
