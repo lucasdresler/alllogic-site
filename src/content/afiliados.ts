@@ -130,7 +130,7 @@ export const afiliadosContent: AffiliatesContent = {
     badge: "Remuneração Transparente",
     title: "Comissões pensadas para o seu crescimento contínuo",
     description:
-      "Ao contrário de programas tradicionais que pagam apenas uma vez, a AllLogic compartilha a receita das assinaturas com você mensalmente (MRR Sharing).",
+      "Ao contrário de programas tradicionais que pagam apenas uma vez, a AllLogic Online compartilha a receita das assinaturas com você mensalmente (MRR Sharing).",
     categoryA: {
       title: "Categoria A: Soluções SaaS Recorrentes (Família Agillex)",
       subtitle: "20% de comissão recorrente todos os meses durante toda a vigência da assinatura do cliente.",
@@ -230,7 +230,7 @@ export const afiliadosContent: AffiliatesContent = {
   },
   benefits: {
     badge: "Diferenciais",
-    title: "Por que se tornar um Parceiro da AllLogic Online?",
+    title: "Por que se tornar um Parceiro da<br class=\"hide-on-mobile\" /> AllLogic&nbsp;Online?",
     items: [
       {
         icon: "repeat",
@@ -248,7 +248,7 @@ export const afiliadosContent: AffiliatesContent = {
         icon: "shield-check",
         title: "Suporte e Infraestrutura por Nossa Conta",
         description:
-          "Você cuida apenas da indicação. Toda a hospedagem, manutenção técnica, atualizações de IA e suporte ao cliente final ficam a cargo da equipe AllLogic.",
+          "Você cuida apenas da indicação. Toda a hospedagem, manutenção técnica, atualizações de IA e suporte ao cliente final ficam a cargo da equipe da AllLogic Online.",
       },
       {
         icon: "zap",
@@ -260,7 +260,7 @@ export const afiliadosContent: AffiliatesContent = {
         icon: "credit-card",
         title: "Repasses Automáticos via Pix",
         description:
-          "Fechamento no último dia do mês e repasse garantido todo dia 10 direto na sua chave Pix cadastrada (CPF ou CNPJ).",
+          "Fechamento no último dia do mês e repasse garantido todo dia 10 direto na sua chave Pix cadastrada.",
       },
       {
         icon: "award",
@@ -274,7 +274,7 @@ export const afiliadosContent: AffiliatesContent = {
     badge: "Para Quem é",
     title: "O programa perfeito para quem conecta empresas à tecnologia",
     description:
-      "Seja você um profissional autônomo, agência ou consultor, a AllLogic oferece as soluções que seus clientes já procuram.",
+      "Seja você um profissional autônomo, agência ou consultor, a AllLogic Online oferece as soluções que seus clientes já procuram.",
     items: [
       {
         icon: "layout",
@@ -323,7 +323,7 @@ export const afiliadosContent: AffiliatesContent = {
       {
         question: "Preciso ter empresa aberta (CNPJ) para receber?",
         answer:
-          "Não é obrigatório. Aceitamos tanto pessoas físicas (com chave Pix vinculada ao CPF) quanto pessoas jurídicas (chave Pix vinculada ao CNPJ).",
+          "Aceitamos tanto pessoas físicas quanto pessoas jurídicas. Basta cadastrar sua chave Pix.",
       },
       {
         question: "Como funciona a janela do cookie de 60 dias?",

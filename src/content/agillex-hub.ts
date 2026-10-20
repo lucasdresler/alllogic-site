@@ -403,7 +403,7 @@ export const agillexHubContent: AgillexHubContent = {
     points: [
       {
         label: "Ativação imediata e sem atrito",
-        text: "Inicie seus 14 dias de teste em poucos minutos com suporte da equipe AllLogic.",
+        text: "Inicie seus 14 dias de teste em poucos minutos com suporte da equipe da AllLogic Online.",
       },
       {
         label: "Ecossistema 100% integrado",

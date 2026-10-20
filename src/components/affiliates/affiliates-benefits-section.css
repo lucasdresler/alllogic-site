@@ -45,3 +45,9 @@
   color: var(--color-text-muted);
   margin: 0;
 }
+
+@media (max-width: 640px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}

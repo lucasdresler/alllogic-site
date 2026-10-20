@@ -9,7 +9,7 @@ import "./affiliates-benefits-section.css";
   <Container>
     <div class="affiliates-section-header" data-scroll-reveal="fade">
       <p class="affiliates-eyebrow">{afiliadosContent.benefits.badge}</p>
-      <h2>{afiliadosContent.benefits.title}</h2>
+      <h2 set:html={afiliadosContent.benefits.title} />
     </div>
 
     <div class="benefits-grid">
