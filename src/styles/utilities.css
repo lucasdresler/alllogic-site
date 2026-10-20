@@ -148,7 +148,7 @@
   box-shadow: 0 3px 8px rgba(201, 162, 39, 0.25);
 }
 
-/* 7. Hover suave nos links de navegação com linha expansível */
+/* 7. Hover suave nos links de navegação com linha expansível branca */
 .navigation__link {
   position: relative;
   transition: color 0.2s ease;
@@ -161,11 +161,12 @@
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: var(--color-secondary, #1f6fff);
+  background-color: #ffffff;
   transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.navigation__link:hover::after {
+.navigation__link:hover::after,
+.navigation__link:focus-visible::after {
   width: 100%;
 }
 
