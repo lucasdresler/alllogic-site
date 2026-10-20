@@ -193,22 +193,36 @@
   filter: drop-shadow(0 1px 1px rgba(31, 111, 255, 0.18));
 }
 
-/* Logic em fundos claros: prata metálico escovado com platina/titânio */
+/* Logic em fundos claros: prata metálico autêntico com reflexo e brilho cromado */
 .brand-name__logic {
-  background: linear-gradient(180deg, #8492a6 0%, #4b5563 45%, #1f2937 100%);
+  background: linear-gradient(
+    135deg,
+    #7a889b 0%,
+    #cbd5e1 25%,
+    #ffffff 45%,
+    #94a3b8 70%,
+    #64748b 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
   font-weight: 800;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08));
+  filter: drop-shadow(0 1px 1px rgba(10, 31, 68, 0.22));
 }
 
-/* Logic em fundos escuros: prata cromado com reflexo brilhante */
+/* Logic em fundos escuros: prata cromado intenso */
 .brand-name--dark .brand-name__logic {
-  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 35%, #94a3b8 70%, #64748b 100%);
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f1f5f9 25%,
+    #cbd5e1 50%,
+    #94a3b8 75%,
+    #64748b 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.25));
+  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.3));
 }
 
 .brand-name__online {
