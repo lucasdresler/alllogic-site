@@ -10,7 +10,7 @@ import "./hero-section.css";
     <div class="hero-section__content" data-scroll-reveal="up">
       <p class="hero-section__eyebrow micro-float">{homeContent.hero.eyebrow}</p>
       <h1>{homeContent.hero.title}</h1>
-      <p class="hero-section__description">{homeContent.hero.description}</p>
+      <p class="hero-section__description" set:html={homeContent.hero.description} />
 
       <div class="hero-section__ctas">
         {homeContent.hero.actions.map((action, index) => (

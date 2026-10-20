@@ -230,7 +230,7 @@ export const afiliadosContent: AffiliatesContent = {
   },
   benefits: {
     badge: "Diferenciais",
-    title: "Por que se tornar um Parceiro da<br class=\"hide-on-mobile\" /> AllLogic&nbsp;Online?",
+    title: "Por que se tornar um Parceiro da<br class=\"hide-on-mobile\" /> <span class=\"brand-name\"><span class=\"brand-name__all\">All</span><span class=\"brand-name__logic\">Logic</span> <span class=\"brand-name__online\">Online</span></span>?",
     items: [
       {
         icon: "repeat",
@@ -348,7 +348,7 @@ export const afiliadosContent: AffiliatesContent = {
     ],
   },
   cta: {
-    title: "Comece a lucrar com o ecossistema da AllLogic Online hoje mesmo.",
+    title: "Comece a lucrar com o ecossistema da <span class=\"brand-name brand-name--dark\"><span class=\"brand-name__all\">All</span><span class=\"brand-name__logic\">Logic</span> <span class=\"brand-name__online\">Online</span></span> hoje mesmo.",
     description:
       "Cadastre-se gratuitamente, receba seus links de parceiro e comece a construir sua carteira de comissões recorrentes.",
     buttonLabel: "Falar com a Equipe de Parcerias",

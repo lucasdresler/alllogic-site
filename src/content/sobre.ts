@@ -62,7 +62,7 @@ export const sobreContent: SobreContent = {
     eyebrow: "Sobre a AllLogic Online",
     title: "Tecnologia com propósito. Engenharia para resolver problemas.",
     description:
-      "A AllLogic Online nasceu com a proposta de aproximar tecnologia dos problemas reais das empresas, usando uma mentalidade de engenharia para compreender o cenário antes de propor qualquer solução.",
+      "A <span class=\"brand-name\"><span class=\"brand-name__all\">All</span><span class=\"brand-name__logic\">Logic</span> <span class=\"brand-name__online\">Online</span></span> nasceu com a proposta de aproximar tecnologia dos problemas reais das empresas, usando uma mentalidade de engenharia para compreender o cenário antes de propor qualquer solução.",
   },
   whoWeAre: {
     title: "Quem somos",

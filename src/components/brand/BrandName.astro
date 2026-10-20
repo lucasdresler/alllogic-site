@@ -1,0 +1,13 @@
+---
+interface Props {
+  theme?: "light" | "dark";
+  showOnline?: boolean;
+  class?: string;
+}
+
+const { theme = "light", showOnline = true, class: className = "" } = Astro.props;
+---
+
+<span class:list={["brand-name", theme === "dark" && "brand-name--dark", className]}>
+  <span class="brand-name__all">All</span><span class="brand-name__logic">Logic</span>{showOnline && <span class="brand-name__online"> Online</span>}
+</span>

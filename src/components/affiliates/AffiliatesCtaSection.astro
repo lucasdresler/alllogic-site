@@ -10,7 +10,7 @@ import "./affiliates-cta-section.css";
     <div class="affiliates-cta-card" data-scroll-reveal="up">
       <div class="affiliates-cta-card__content">
         <span class="affiliates-cta-badge">Adesão 100% Gratuita</span>
-        <h2 class="affiliates-cta-title">{afiliadosContent.cta.title}</h2>
+        <h2 class="affiliates-cta-title" set:html={afiliadosContent.cta.title} />
         <p class="affiliates-cta-desc">{afiliadosContent.cta.description}</p>
 
         <div class="affiliates-cta-actions">
