@@ -56,6 +56,9 @@
 
 .affiliates-hero__title-highlight {
   display: inline-block;
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #0052cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .affiliates-hero__description {

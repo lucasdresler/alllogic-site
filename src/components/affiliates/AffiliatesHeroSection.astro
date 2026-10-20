@@ -2,7 +2,6 @@
 import Section from "../layout/Section.astro";
 import Container from "../layout/Container.astro";
 import { afiliadosContent } from "../../content/afiliados";
-import BrandName from "../brand/BrandName.astro";
 import "./affiliates-hero-section.css";
 ---
 
@@ -16,9 +15,7 @@ import "./affiliates-hero-section.css";
 
       <h1 class="affiliates-hero__title">
         {afiliadosContent.hero.title}{" "}
-        <span class="affiliates-hero__title-highlight">
-          <BrandName theme="capsule" />.
-        </span>
+        <span class="affiliates-hero__title-highlight">{afiliadosContent.hero.highlight}</span>
       </h1>
 
       <p class="affiliates-hero__description">
