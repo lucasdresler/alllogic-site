@@ -185,7 +185,7 @@ export const homeContent: HomeContent = {
         linkText: "Conhecer Agillex Hub",
       },
       {
-        title: "Inteligência Artificial & Automações",
+        title: "IA & Automações",
         description: "Aplicações práticas de IA para apoiar atendimento, otimizar fluxos de trabalho e simplificar rotinas empresariais.",
         href: "/contato",
         linkText: "Solicitar diagnóstico",
