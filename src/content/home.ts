@@ -167,8 +167,8 @@ export const homeContent: HomeContent = {
         linkText: "Ver domínios e hospedagem",
       },
       {
-        title: "Automação & Atendimento com IA",
-        description: "Soluções inteligentes como o Agillex Atendimento e o Agillex Hub para atendimento humanizado no WhatsApp 24/7 e redução de tarefas repetitivas.",
+        title: "Atendimento com IA",
+        description: "Soluções inteligentes como o Agillex Atendimento para atendimento humanizado no WhatsApp 24/7 e redução de tarefas repetitivas.",
         href: "/agillex-atendimento",
         linkText: "Conhecer Agillex Atendimento",
       },
