@@ -305,5 +305,25 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
   - Renomeação oficial do produto para **Agilex Atende** em todas as páginas, rotas e documentações, mantendo rota de compatibilidade em `/agillex-atendimento/`.
   - Padronização do nome institucional para **AllLogic Online**.
 
+## Registro de referência — Correção do Botão Compartilhar WhatsApp no Programa de Afiliados (22/10/2026)
+
+- **Commit de referência:** `e87863f`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-whatsapp-share-e87863f.tar.gz`
+- **SHA-256 do pacote:** `80bcd29f6e689e9f0e3d954a77ed94e021bd788178f3f49dd27e58c9611261f0`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261022-000500.tar.gz` (SHA-256: `660f274b2a03966e7e4e58698992c5ab9b7403216c70ab90290c04e3bb306ff2`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-whatsapp-share-e87863f`
+- **Validações prévias:** Backup íntegro e validado com `gzip -t`, SHA-256 do pacote verificado remotamente antes de qualquer substituição.
+- **Preservação de serviços:** Endpoints `api/diagnosis.php` e `api/affiliates.php` comparados via `cmp -s` e verificados 100% íntegros; base local de afiliados (`api/data/`) preservada intacta.
+- **Sequência executada:** Suporte e assets (`_astro/`, `images/`) → rotas `/afiliados/`, `/agilex-atende/`, `/agillex-atendimento/` → rotas existentes e sitemaps → página inicial (`index.html`).
+- **Respostas HTTP:** Retorno `200` confirmado para todas as rotas públicas.
+- **Ajustes aplicados:**
+  - Substituição da tag âncora com `href="#"` do botão "Compartilhar meu Link no WhatsApp" por `<button type="button">`.
+  - Implementação de listener de clique direto abrindo a API oficial do WhatsApp (`https://wa.me/?text=...`) com o link dinâmico de afiliado gerado, eliminando completamente o salto da página para `/#`.
+  - Atualização do texto de compartilhamento para a nomenclatura oficial **Agilex Atende**.
+
+
 
 
