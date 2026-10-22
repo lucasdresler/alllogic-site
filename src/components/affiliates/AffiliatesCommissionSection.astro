@@ -26,7 +26,7 @@ import "./affiliates-commission-section.css";
       <div class="commission-cards-grid">
         {
           afiliadosContent.commissions.categoryA.items.map((item) => (
-            <div class={`commission-card ${item.highlight ? 'commission-card--featured' : ''} card-interactive`}>
+            <div class={`commission-card ${item.highlight ? 'commission-card--featured' : ''} card-interactive`} data-scroll-reveal="up">
               <div class="commission-card__top">
                 <span class="commission-rate-badge">20% Recorrente</span>
                 <h4 class="commission-card__name">{item.name}</h4>
@@ -55,7 +55,7 @@ import "./affiliates-commission-section.css";
       <div class="simulation-tiers-grid">
         {
           afiliadosContent.commissions.simulation.tiers.map((tier) => (
-            <div class="simulation-tier-card card-interactive">
+            <div class="simulation-tier-card card-interactive" data-scroll-reveal="up">
               <div class="simulation-tier-count">
                 <span>{tier.clients}</span>
                 <small>clientes ativos</small>
@@ -81,7 +81,7 @@ import "./affiliates-commission-section.css";
       <div class="commission-cards-grid commission-cards-grid--three">
         {
           afiliadosContent.commissions.categoryB.items.map((item) => (
-            <div class="commission-card card-interactive">
+            <div class="commission-card card-interactive" data-scroll-reveal="up">
               <div class="commission-card__top">
                 <span class="commission-rate-badge commission-rate-badge--secondary">{item.commission}</span>
                 <h4 class="commission-card__name">{item.name}</h4>

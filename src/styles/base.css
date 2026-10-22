@@ -37,6 +37,22 @@ body {
   overflow-x: clip;
 }
 
+@keyframes pageEntranceFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: pageEntranceFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
 a {
   color: var(--color-secondary);
 }

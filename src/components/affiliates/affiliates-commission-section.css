@@ -88,19 +88,26 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-md);
-  transition: all 250ms ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  will-change: transform, box-shadow;
 }
 
 .commission-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: rgba(31, 111, 255, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+  border-color: var(--color-secondary);
 }
 
 .commission-card--featured {
   border-color: var(--color-secondary);
   background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
   box-shadow: 0 4px 16px rgba(31, 111, 255, 0.12);
+}
+
+.commission-card--featured:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(31, 111, 255, 0.22);
+  border-color: var(--color-secondary);
 }
 
 .commission-rate-badge {

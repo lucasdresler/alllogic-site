@@ -161,6 +161,9 @@ const { tutorials } = afiliadosContent;
           const category = card.getAttribute("data-category");
           if (filter === "all" || category === filter) {
             card.style.display = "flex";
+            card.classList.remove("is-filtering");
+            void card.offsetWidth;
+            card.classList.add("is-filtering");
           } else {
             card.style.display = "none";
           }
@@ -207,4 +210,5 @@ const { tutorials } = afiliadosContent;
   } else {
     initAffiliatesTutorials();
   }
+  document.addEventListener("astro:page-load", initAffiliatesTutorials);
 </script>

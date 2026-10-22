@@ -14,9 +14,14 @@
   transition: all 250ms ease;
 }
 
+.affiliates-faq-item:hover {
+  border-color: rgba(31, 111, 255, 0.35);
+  box-shadow: 0 4px 14px rgba(10, 31, 68, 0.06);
+}
+
 .affiliates-faq-item[open] {
   border-color: var(--color-secondary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 6px 20px rgba(31, 111, 255, 0.12);
 }
 
 .affiliates-faq-question {
@@ -52,6 +57,18 @@
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--color-text-muted);
+  animation: faqAnswerFade 0.25s ease-out;
+}
+
+@keyframes faqAnswerFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .affiliates-faq-answer p {

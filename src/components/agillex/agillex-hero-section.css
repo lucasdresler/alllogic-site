@@ -1,3 +1,36 @@
+@keyframes agillexHeroFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes agillexHeroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes agillexWindowPop {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .agillex-hero {
   text-align: center;
   max-width: 920px;
@@ -17,6 +50,7 @@
   padding: 6px 16px;
   border-radius: 999px;
   margin-bottom: var(--space-md);
+  animation: agillexHeroFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .agillex-hero__title {
@@ -25,6 +59,7 @@
   line-height: 1.2;
   margin: 0 0 var(--space-md);
   font-weight: 700;
+  animation: agillexHeroFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
 }
 
 .agillex-hero__description {
@@ -33,6 +68,7 @@
   line-height: 1.6;
   margin: 0 auto var(--space-lg);
   max-width: 680px;
+  animation: agillexHeroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
 }
 
 .agillex-hero__actions {
@@ -41,6 +77,7 @@
   gap: var(--space-md);
   flex-wrap: wrap;
   margin-bottom: var(--space-md);
+  animation: agillexHeroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
 }
 
 .agillex-hero__btn {
@@ -99,6 +136,7 @@
   color: var(--color-text-muted);
   font-weight: 500;
   margin-bottom: var(--space-xl);
+  animation: agillexHeroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both;
 }
 
 .agillex-hero__trust-icon {
@@ -109,6 +147,7 @@
 /* Preview Visual do Hero */
 .agillex-hero__preview {
   margin-top: var(--space-md);
+  animation: agillexWindowPop 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
 }
 
 .agillex-hero__window {

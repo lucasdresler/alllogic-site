@@ -86,10 +86,31 @@
 .problems-section__card,
 .solutions-section__block,
 .portfolio-section__block,
+.ecosystem-card,
 .agillex-audience__card,
 .agillex-features__card,
 .hub-pillar-card,
-.hub-pricing-card {
+.hub-audience__card,
+.hub-pricing-card,
+.atendimento-audience__card,
+.atendimento-features__card,
+.hosting-plan-card,
+.hosting-section__card,
+.hosting-feature-card,
+.domain-feature-card,
+.who-we-are__card,
+.philosophy__card,
+.mindset-step-card,
+.people-tech__item,
+.experience__card,
+.about-pillar-chip,
+.commission-card,
+.simulation-tier-card,
+.benefit-card,
+.audience-card,
+.affiliate-product-card,
+.affiliates-faq-item,
+.faq-item {
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
   will-change: transform;
 }
@@ -98,23 +119,55 @@
 .problems-section__card:hover,
 .solutions-section__block:hover,
 .portfolio-section__block:hover,
+.ecosystem-card:hover,
 .agillex-audience__card:hover,
 .agillex-features__card:hover,
 .hub-pillar-card:hover,
-.hub-pricing-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(10, 31, 68, 0.12);
-  border-color: rgba(31, 111, 255, 0.3);
+.hub-audience__card:hover,
+.hub-pricing-card:hover,
+.atendimento-audience__card:hover,
+.atendimento-features__card:hover,
+.hosting-plan-card:hover,
+.hosting-section__card:hover,
+.hosting-feature-card:hover,
+.domain-feature-card:hover,
+.who-we-are__card:hover,
+.philosophy__card:hover,
+.mindset-step-card:hover,
+.people-tech__item:hover,
+.experience__card:hover,
+.about-pillar-chip:hover,
+.commission-card:hover,
+.simulation-tier-card:hover,
+.benefit-card:hover,
+.audience-card:hover,
+.affiliate-product-card:hover,
+.affiliates-faq-item:hover,
+.faq-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(10, 31, 68, 0.12);
+  border-color: rgba(31, 111, 255, 0.35);
 }
 
-/* 5. Efeito de leve brilho / glow em cards de destaque */
+/* 5. Efeito de leve brilho / glow em cards de destaque e CTAs */
 .card-interactive-glow {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .card-interactive-glow:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: 0 20px 45px rgba(31, 111, 255, 0.18);
+}
+
+@keyframes ctaGlowPulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.15);
+    opacity: 0.9;
+  }
 }
 
 /* 6. Botões interativos com elevação refinada e feedback tátil */

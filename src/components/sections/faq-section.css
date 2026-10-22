@@ -108,6 +108,17 @@
   transform: rotate(45deg);
 }
 
+@keyframes faqAnswerFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .faq-answer {
   padding: 0 22px 20px 22px;
   color: var(--color-text-muted);
@@ -116,6 +127,7 @@
   border-top: 1px solid rgba(10, 31, 68, 0.06);
   margin-top: 4px;
   padding-top: 14px;
+  animation: faqAnswerFade 0.25s ease-out;
 }
 
 .faq-summary:focus-visible {

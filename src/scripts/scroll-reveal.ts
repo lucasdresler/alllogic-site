@@ -63,3 +63,5 @@ if (document.readyState === "loading") {
 } else {
   initScrollReveal();
 }
+
+document.addEventListener("astro:page-load", initScrollReveal);

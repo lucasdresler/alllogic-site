@@ -33,6 +33,28 @@
   100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
 }
 
+@keyframes aboutHeroFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aboutHeroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .about-hero__badge {
   display: inline-flex;
   align-items: center;
@@ -47,6 +69,7 @@
   padding: 6px 16px;
   border-radius: 999px;
   margin-bottom: var(--space-md);
+  animation: aboutHeroFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .about-hero__badge-dot {
@@ -63,6 +86,7 @@
   color: var(--color-primary, #0a1f44);
   line-height: 1.2;
   margin: 0 0 var(--space-md);
+  animation: aboutHeroFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
 }
 
 .about-hero__gold-text {
@@ -80,6 +104,7 @@
   line-height: 1.65;
   margin: 0 auto var(--space-xl);
   max-width: 680px;
+  animation: aboutHeroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
 }
 
 /* Chips interativos dos pilares */
@@ -89,6 +114,7 @@
   gap: 1.25rem;
   flex-wrap: wrap;
   margin-top: var(--space-md);
+  animation: aboutHeroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
 }
 
 .about-pillar-chip {
