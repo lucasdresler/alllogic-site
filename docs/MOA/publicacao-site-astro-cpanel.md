@@ -285,4 +285,25 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
   - Conexão direta e parametrizada com o Checkout Central (`hub.alllogiconline.com.br/checkout?modulo=hospedagem&plano=...&ciclo=...&dominio=...`).
   - Sincronização dinâmica com alternância de ciclo (Mensal e Anual -20% OFF) e domínio selecionado na busca.
 
+## Registro de referência — Mini-guia de Vendas para Afiliados e Agilex Atende (21/10/2026)
+
+- **Commit de referência:** `f056db1`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-afiliados-tutorial-f056db1.tar.gz`
+- **SHA-256 do pacote:** `87c27f58f50c8e6e2cf7d5bd6fd3391f9754a5711ee35feb5d28d17c4a95090b`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261021-223301.tar.gz` (SHA-256: `d354c1485331f67ba46656934ab8bf5e4c0e83416f0d3ba7960378f2f7fac34d`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-afiliados-f056db1`
+- **Validações prévias:** Backup íntegro e testado com `gzip -t` e `tar -tzf`, SHA-256 do pacote verificado remotamente antes de qualquer substituição.
+- **Preservação de serviços:** Endpoints `api/diagnosis.php` e `api/affiliates.php` comparados via `cmp -s` e verificados 100% idênticos; diretório de dados (`api/data/`) preservado intacto.
+- **Sequência executada:** Suporte e assets (`_astro/`, `images/`) → rotas `/agilex-atende/`, `/agillex-atendimento/`, `/afiliados/` → rotas existentes e sitemaps → página inicial (`index.html`).
+- **Respostas HTTP:** Retorno `200` confirmado para `/`, `/afiliados/`, `/agilex-atende/`, `/agillex-atendimento/`, `/dominios-e-hospedagem/`, `/agillex-agenda/`, `/agillex-hub/`, `/contato/`, `/sobre/`, `/politica-de-privacidade/`, `/termos-de-uso/` e `/sitemap-index.xml`.
+- **Ajustes aplicados:**
+  - Mini-guia prático de vendas na página de afiliados (`/afiliados#guia-vendas`) cobrindo 8 produtos/serviços com dores, público-alvo, scripts/pitches prontos para WhatsApp e comissões.
+  - Paleta nobre e diversificada aplicada ao guia de vendas, combinando Preto Grafite, Dourado/Âmbar e Verde Esmeralda/WhatsApp para evitar saturação azul.
+  - Renomeação oficial do produto para **Agilex Atende** em todas as páginas, rotas e documentações, mantendo rota de compatibilidade em `/agillex-atendimento/`.
+  - Padronização do nome institucional para **AllLogic Online**.
+
+
 
