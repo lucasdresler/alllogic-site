@@ -324,9 +324,12 @@
   padding: 0.9rem 1.5rem;
   background-color: #25d366;
   color: #ffffff;
+  border: none;
   border-radius: var(--radius-md);
   font-size: 1rem;
   font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
   transition: all 0.2s ease;
