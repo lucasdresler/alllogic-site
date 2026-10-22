@@ -324,6 +324,27 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
   - Implementação de listener de clique direto abrindo a API oficial do WhatsApp (`https://wa.me/?text=...`) com o link dinâmico de afiliado gerado, eliminando completamente o salto da página para `/#`.
   - Atualização do texto de compartilhamento para a nomenclatura oficial **Agilex Atende**.
 
+## Registro de referência — Sistema Completo de Animações em Todas as Páginas (22/10/2026)
+
+- **Commit de referência:** `73ef5dd`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-animations-73ef5dd.tar.gz`
+- **SHA-256 do pacote:** `fe879c6ab24dbafb3dcf954202778d3e3ba1c198931a0596620f0326e9bed136`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261022-204047.tar.gz` (SHA-256: `edfd358c339424ac61ef32a07a24fcff0fcd2eed2692ecfa9c55431fca6ce672`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-animations-73ef5dd`
+- **Validações prévias:** Backup integral criado e validado com `gzip -t` e `tar -tzf`, integridade do pacote checada via SHA-256 remotamente antes de qualquer substituição.
+- **Preservação de serviços:** Endpoints `api/diagnosis.php` e `api/affiliates.php` comparados via `cmp -s` e confirmados 100% idênticos; persistência de dados em `api/data/` mantida intocada.
+- **Sequência executada:** Suporte e assets compilados (`_astro/`, `images/`) → todas as 10 rotas públicas atualizadas → sitemaps e robots → página inicial (`index.html`) por último.
+- **Respostas HTTP:** Retorno `200` confirmado para `/`, `/afiliados/`, `/agilex-atende/`, `/agillex-agenda/`, `/agillex-atendimento/`, `/agillex-hub/`, `/dominios-e-hospedagem/`, `/contato/`, `/sobre/`, `/termos-de-uso/`, `/politica-de-privacidade/` e `/sitemap-index.xml`.
+- **Ajustes aplicados:**
+  - Animação global de entrada no `<main>` (`pageEntranceFade`) assegurando transição suave em 100% das páginas ao carregar ou navegar.
+  - Cascatas contemporâneas de entrada em todos os topos/heroes (`heroEntranceFadeDown`, `heroEntranceFadeUp`, `agillexWindowPop`).
+  - Escalonamento harmônico de revelação na rolagem (`scroll-reveal`) em todas as grades e listas de cards com atrasos progressivos de 80ms a 480ms.
+  - Elevação e bordas luminosas em hover em todos os cartões interativos do site.
+  - Animação de expansão suave nas respostas do FAQ (`faqAnswerFade`) e conformidade total com acessibilidade (`prefers-reduced-motion`).
+
 
 
 
