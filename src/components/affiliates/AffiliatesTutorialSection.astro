@@ -1,0 +1,210 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { afiliadosContent } from "../../content/afiliados";
+import "./affiliates-tutorial-section.css";
+
+const { tutorials } = afiliadosContent;
+---
+
+<Section id="guia-vendas" background="default" spacing="lg">
+  <Container>
+    <div class="affiliates-tutorial-header" data-scroll-reveal="fade">
+      <p class="affiliates-tutorial-eyebrow">{tutorials.badge}</p>
+      <h2>{tutorials.title}</h2>
+      <p class="affiliates-section-desc">{tutorials.subtitle}</p>
+    </div>
+
+    <!-- Filtros de Categoria -->
+    <div class="affiliates-tutorial-tabs" role="tablist" aria-label="Categorias de produtos e serviços">
+      <button type="button" class="affiliates-tab-btn active" data-filter="all" role="tab" aria-selected="true">
+        {tutorials.tabs.all}
+      </button>
+      <button type="button" class="affiliates-tab-btn" data-filter="saas" role="tab" aria-selected="false">
+        {tutorials.tabs.saas}
+      </button>
+      <button type="button" class="affiliates-tab-btn" data-filter="hosting" role="tab" aria-selected="false">
+        {tutorials.tabs.hosting}
+      </button>
+      <button type="button" class="affiliates-tab-btn" data-filter="custom" role="tab" aria-selected="false">
+        {tutorials.tabs.custom}
+      </button>
+    </div>
+
+    <!-- Grid de Mini-Tutoriais de Vendas -->
+    <div class="affiliates-tutorial-grid" id="tutorial-grid">
+      {
+        tutorials.items.map((item) => (
+          <div class="affiliate-product-card" data-category={item.category} data-scroll-reveal="up">
+            <div class="affiliate-product-top">
+              <span class={`affiliate-product-badge badge-category-${item.category}`}>{item.badge}</span>
+              <span class="affiliate-category-pill">
+                {item.category === "saas"
+                  ? "SaaS Recorrente"
+                  : item.category === "hosting"
+                  ? "Hospedagem & Nuvem"
+                  : "Engenharia sob Medida"}
+              </span>
+            </div>
+
+            <h3 class="affiliate-product-title">{item.name}</h3>
+            <p class="affiliate-product-tagline">{item.tagline}</p>
+
+            <div class="affiliate-info-block">
+              <div class="affiliate-info-label">
+                <span>🎯 Para quem indicar:</span>
+              </div>
+              <p class="affiliate-info-text">{item.targetAudience}</p>
+            </div>
+
+            <div class="affiliate-info-block">
+              <div class="affiliate-info-label">
+                <span>⚡ Qual dor resolve:</span>
+              </div>
+              <p class="affiliate-info-text">{item.painSolved}</p>
+            </div>
+
+            <ul class="affiliate-benefits-list">
+              {item.keyBenefits.map((benefit) => (
+                <li>
+                  <span class="benefit-check">✓</span>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+
+            <!-- Bloco do Script de Abordagem WhatsApp -->
+            <div class="affiliate-script-box">
+              <div class="affiliate-script-header">
+                <span class="affiliate-script-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                  Script de Abordagem
+                </span>
+                <button
+                  type="button"
+                  class="btn-copy-script"
+                  data-script={item.pitchScript}
+                  title="Copiar mensagem pronta para enviar no WhatsApp"
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span class="copy-script-text">Copiar</span>
+                </button>
+              </div>
+              <p class="affiliate-script-content">"{item.pitchScript}"</p>
+            </div>
+
+            <!-- Rodapé com Ganhos e Links -->
+            <div class="affiliate-card-footer">
+              <div class="affiliate-commission-pill">
+                <strong>Ganhos do Parceiro:</strong> {item.commissionSummary}
+              </div>
+
+              <div class="affiliate-card-actions">
+                {item.demoUrl && (
+                  <a
+                    href={item.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-card-demo"
+                    title={`Abrir demonstração ao vivo de ${item.name}`}
+                  >
+                    <span>{item.demoLabel || "Ver Demonstração"}</span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
+                )}
+                <a
+                  href={item.detailsUrl}
+                  class="btn-card-details"
+                  title={`Conhecer mais detalhes sobre ${item.name}`}
+                >
+                  <span>Página Oficial</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</Section>
+
+<script>
+  function initAffiliatesTutorials() {
+    const tabButtons = document.querySelectorAll<HTMLButtonElement>(".affiliates-tab-btn");
+    const cards = document.querySelectorAll<HTMLElement>(".affiliate-product-card");
+    const copyButtons = document.querySelectorAll<HTMLButtonElement>(".btn-copy-script");
+
+    // Filtragem por categoria
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter") || "all";
+
+        tabButtons.forEach((b) => {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+        btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
+
+        cards.forEach((card) => {
+          const category = card.getAttribute("data-category");
+          if (filter === "all" || category === filter) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Copiar script de abordagem com feedback visual
+    copyButtons.forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const scriptText = btn.getAttribute("data-script") || "";
+        const labelSpan = btn.querySelector(".copy-script-text");
+
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(scriptText);
+          } else {
+            const textarea = document.createElement("textarea");
+            textarea.value = scriptText;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+          }
+
+          btn.classList.add("copied");
+          if (labelSpan) labelSpan.textContent = "Copiado!";
+
+          setTimeout(() => {
+            btn.classList.remove("copied");
+            if (labelSpan) labelSpan.textContent = "Copiar";
+          }, 2000);
+        } catch (err) {
+          console.error("Erro ao copiar script:", err);
+        }
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAffiliatesTutorials);
+  } else {
+    initAffiliatesTutorials();
+  }
+</script>

@@ -205,7 +205,7 @@ export const agillexHubContent: AgillexHubContent = {
     items: [
       {
         badge: "01 · Atendimento Inteligente",
-        title: "Agillex Atendimento (IA no WhatsApp 24/7)",
+        title: "Agilex Atende (IA no WhatsApp 24/7)",
         tagline: "Inteligência artificial humanizada treinada na realidade da sua empresa.",
         description:
           "Responde em segundos qualquer dúvida sobre produtos, serviços, valores e horários. Ouve áudios de voz, interpreta contexto de mensagens de texto e realiza transbordo automático para um atendente humano com histórico preservado quando necessário.",

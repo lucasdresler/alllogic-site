@@ -27,7 +27,7 @@ export const faqContent: FAQContent = {
     {
       question: "Como funciona a Inteligência Artificial no WhatsApp? Ela pode inventar respostas ou 'alucinar'?",
       answer:
-        "Não. O Agillex Atendimento opera com arquitetura RAG (Retrieval-Augmented Generation) sobre a base de conhecimento oficial da sua empresa. Ele responde estritamente com base nos dados, tabelas, serviços e regras homologados por você. Se um cliente fizer uma pergunta fora do escopo ou solicitar atendimento humano, a IA realiza o transbordo imediato para sua equipe em 1 clique, preservando todo o histórico da conversa.",
+        "Não. O Agilex Atende opera com arquitetura RAG (Retrieval-Augmented Generation) sobre a base de conhecimento oficial da sua empresa. Ele responde estritamente com base nos dados, tabelas, serviços e regras homologados por você. Se um cliente fizer uma pergunta fora do escopo ou solicitar atendimento humano, a IA realiza o transbordo imediato para sua equipe em 1 clique, preservando todo o histórico da conversa.",
     },
     {
       question: "Como funciona a taxa fixa de R$ 1,99 no Agillex Pay?",

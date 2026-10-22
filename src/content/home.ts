@@ -168,9 +168,9 @@ export const homeContent: HomeContent = {
       },
       {
         title: "Atendimento com IA",
-        description: "Soluções inteligentes como o Agillex Atendimento para atendimento humanizado no WhatsApp 24/7 e redução de tarefas repetitivas.",
+        description: "Soluções inteligentes como o Agilex Atende para atendimento humanizado no WhatsApp 24/7 e redução de tarefas repetitivas.",
         href: "/agillex-atendimento",
-        linkText: "Conhecer Agillex Atendimento",
+        linkText: "Conhecer Agilex Atende",
       },
       {
         title: "Sistemas de Agendamento Online",

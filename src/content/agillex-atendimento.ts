@@ -1,6 +1,6 @@
 // Conteúdo textual e dados da página /agillex-atendimento, isolados da apresentação.
 //
-// Solução comercial: Agillex Atendimento (Atendimento Inteligente no WhatsApp com IA).
+// Solução comercial: Agilex Atende (Atendimento Inteligente no WhatsApp com IA).
 // Rota pública: /agillex-atendimento/
 //
 // Família: Agillex
@@ -139,15 +139,15 @@ export interface AgillexAtendimentoContent {
 
 export const agillexAtendimentoContent: AgillexAtendimentoContent = {
   meta: {
-    title: "Agillex Atendimento — Atendente com IA no WhatsApp 24/7 | AllLogic Online",
+    title: "Agilex Atende — Atendente com IA no WhatsApp 24/7 | AllLogic Online",
     description:
       "Atenda seus clientes no WhatsApp com Inteligência Artificial humanizada. Respostas imediatas a dúvidas, compreensão de áudio e texto, transbordo para atendentes e integração com agendamentos.",
   },
   hero: {
     badge: "Atendimento Inteligente no WhatsApp",
-    title: "Agillex Atendimento: Inteligência Artificial que atende seus clientes no WhatsApp 24/7",
+    title: "Agilex Atende: Inteligência Artificial que atende seus clientes no WhatsApp 24/7",
     description:
-      "Esqueça robôs engessados e cardápios de 'digite 1'. O Agillex Atendimento conversa com seus clientes de forma natural, entende mensagens de texto e áudio por voz, tira dúvidas sobre serviços e encaminha para atendentes humanos sempre que necessário.",
+      "Esqueça robôs engessados e cardápios de 'digite 1'. O Agilex Atende conversa com seus clientes de forma natural, entende mensagens de texto e áudio por voz, tira dúvidas sobre serviços e encaminha para atendentes humanos sempre que necessário.",
     actions: {
       primary: {
         label: "Começar 14 dias grátis",
@@ -250,7 +250,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
   },
   demo: {
     eyebrow: "EXPERIÊNCIA NA PRÁTICA",
-    title: "Veja o Agillex Atendimento em ação no WhatsApp",
+    title: "Veja o Agilex Atende em ação no WhatsApp",
     description:
       "Atendimento humanizado que entende áudio, responde dúvidas, qualifica o cliente e passa o bastão para sua equipe na hora certa.",
     tabs: [
@@ -368,7 +368,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
   },
   faq: {
     eyebrow: "DÚVIDAS FREQUENTES",
-    title: "Perguntas comuns sobre o Agillex Atendimento",
+    title: "Perguntas comuns sobre o Agilex Atende",
     description:
       "Tudo o que você precisa saber sobre o atendimento com Inteligência Artificial no WhatsApp.",
     items: [
@@ -385,7 +385,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
       {
         question: "A IA realmente entende mensagens de áudio gravadas pelos clientes?",
         answer:
-          "Sim! O Agillex Atendimento possui processador nativo de voz que transcreve e interpreta com alta precisão mensagens de áudio gravadas pelos clientes no WhatsApp, respondendo com clareza em texto de forma imediata.",
+          "Sim! O Agilex Atende possui processador nativo de voz que transcreve e interpreta com alta precisão mensagens de áudio gravadas pelos clientes no WhatsApp, respondendo com clareza em texto de forma imediata.",
       },
       {
         question: "Como funciona o transbordo para um atendente humano?",
@@ -395,7 +395,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
       {
         question: "Preciso pagar taxa de implantação (setup) ou comprar tokens da OpenAI à parte?",
         answer:
-          "Não. Diferente de outras plataformas do mercado que cobram de R$ 500 a R$ 2.000 de taxa de implantação ou exigem que você crie contas em dólar em provedores de IA, no Agillex Atendimento o consumo da Inteligência Artificial já está 100% incluso na mensalidade, sem custos surpresa.",
+          "Não. Diferente de outras plataformas do mercado que cobram de R$ 500 a R$ 2.000 de taxa de implantação ou exigem que você crie contas em dólar em provedores de IA, no Agilex Atende o consumo da Inteligência Artificial já está 100% incluso na mensalidade, sem custos surpresa.",
       },
       {
         question: "Como funciona o teste gratuito de 14 dias?",
