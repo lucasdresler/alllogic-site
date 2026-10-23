@@ -12,8 +12,8 @@ export const privacidadeContent = {
   eyebrow: "Privacidade e Proteção de Dados",
   title: "Política de Privacidade",
   description:
-    "Esta Política de Privacidade descreve de forma transparente como a AllLogic Online trata dados pessoais em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD), abrangendo este portal institucional, o formulário de contato, comunicações e as plataformas em nuvem da Família Agillex.",
-  updatedAt: "18 de outubro de 2026",
+    "Esta Política de Privacidade descreve de forma transparente como a AllLogic Online trata dados pessoais em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD), abrangendo este portal institucional, o formulário de contato, comunicações, o Programa de Parceiros e as plataformas em nuvem da Família Agillex.",
+  updatedAt: "22 de outubro de 2026",
 
   sections: [
     {
@@ -45,6 +45,7 @@ export const privacidadeContent = {
         "Formulário de Contato e Diagnóstico: nome da empresa, nome do responsável pelo contato, telefone ou WhatsApp e mensagem/descrição da necessidade comercial ou técnica;",
         "Atendimento via WhatsApp Oficial: nome, número de telefone e histórico das mensagens em texto e áudios voluntariamente enviados para suporte ou esclarecimento de dúvidas;",
         "Contratação de Soluções e Faturamento: razão social ou nome completo, CNPJ ou CPF, endereço, e-mail de faturamento e dados de contato para emissão de nota fiscal e formalização de contrato;",
+        "Programa de Parceiros e Afiliados (AllLogic Partners): nome completo ou razão social, endereço de e-mail, telefone/WhatsApp de contato, tipo de chave Pix e chave Pix para viabilizar a apuração e liquidação dos repasses financeiros de comissões;",
         "Navegação e Desempenho (Google Analytics 4): endereço IP anonimizado, tipo de navegador, sistema operacional, páginas acessadas e tempo de permanência — coletados exclusivamente após o consentimento explícito do visitante.",
       ],
     },
@@ -54,7 +55,7 @@ export const privacidadeContent = {
         "Todo e qualquer tratamento de dados pessoais realizado pela AllLogic Online possui fundamento nas hipóteses legais estabelecidas pelo Artigo 7º da LGPD:",
       ],
       items: [
-        "Procedimentos preliminares e execução de contrato (Art. 7º, V): para receber diagnósticos, elaborar propostas técnicas, formalizar contratos de prestação de serviços e licenciar soluções da Família Agillex;",
+        "Procedimentos preliminares e execução de contrato (Art. 7º, V): para receber diagnósticos, elaborar propostas técnicas, formalizar contratos de prestação de serviços, licenciar soluções da Família Agillex e operacionalizar a gestão e repasses de comissões aos participantes do Programa de Parceiros AllLogic Partners;",
         "Cumprimento de obrigação legal ou regulatória (Art. 7º, II): guarda de registros de conexão conforme exigido pelo Artigo 15 do Marco Civil da Internet (Lei nº 12.965/2014) e emissão de notas fiscais perante órgãos tributários;",
         "Legítimo interesse (Art. 7º, IX): para garantir a segurança cibernética do portal, prevenir fraudes, mitigar ataques de bots e aprimorar a estabilidade de nossos sistemas;",
         "Consentimento do titular (Art. 7º, I): para a ativação de cookies opcionais de análise e estatística via Google Analytics.",
@@ -75,9 +76,10 @@ export const privacidadeContent = {
       ],
     },
     {
-      title: "7. Pagamentos e Segurança Financeira (Agillex Pay)",
+      title: "7. Pagamentos, Repasses e Segurança Financeira (Agillex Pay e Pix)",
       paragraphs: [
         "As cobranças de assinaturas e transações financeiras realizadas através do Agillex Pay e dos portais de checkout são processadas pelo gateway bancário homologado Asaas Gestão Financeira Instituição de Pagamento S.A. e pelo arranjo de pagamentos Pix do Banco Central do Brasil.",
+        "A liquidação de comissões aos parceiros do programa AllLogic Partners é efetuada mediante transferência bancária direta via Pix para a chave voluntariamente informada pelo afiliado no momento do credenciamento, sendo os dados utilizados exclusivamente para efetivação bancária dos repasses e cumprimento das obrigações fiscais cabíveis.",
         "A AllLogic Online NÃO armazena, não processa e não tem acesso a números de cartão de crédito ou códigos de segurança (CVV). Todo o processamento financeiro é realizado diretamente nos servidores seguros do gateway, em total conformidade com os padrões internacionais de segurança PCI-DSS.",
       ],
     },

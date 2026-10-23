@@ -11,8 +11,8 @@ export const termosContent = {
   eyebrow: "Termos e Condições",
   title: "Termos de Uso e Contrato de Prestação de Serviços",
   description:
-    "Estes Termos de Uso e Contrato de Prestação de Serviços regem o acesso e a utilização dos serviços de tecnologia, engenharia digital e licenciamento das plataformas em nuvem da Família Agillex fornecidos pela AllLogic Online.",
-  updatedAt: "18 de outubro de 2026",
+    "Estes Termos de Uso e Contrato de Prestação de Serviços regem o acesso e a utilização dos serviços de tecnologia, engenharia digital, licenciamento das plataformas em nuvem da Família Agillex e a participação no Programa Oficial de Parceiros e Afiliados (AllLogic Partners) fornecidos pela AllLogic Online.",
+  updatedAt: "22 de outubro de 2026",
 
   sections: [
     {
@@ -30,7 +30,8 @@ export const termosContent = {
       items: [
         "Software como Serviço (SaaS / Família Agillex): licenciamento de uso de plataformas em nuvem, incluindo Agillex Hub, Agillex Agenda, Agilex Atende e Agillex Pay;",
         "Engenharia e Desenvolvimento sob Medida: concepção, arquitetura, desenvolvimento e implantação de softwares, portais web, automações e integrações de APIs personalizadas;",
-        "Hospedagem Gerenciada e Sustentação: infraestrutura em nuvem, monitoramento de disponibilidade, rotinas de backup e manutenção técnica contínua.",
+        "Hospedagem Gerenciada e Sustentação: infraestrutura em nuvem, monitoramento de disponibilidade, rotinas de backup e manutenção técnica contínua;",
+        "Programa de Parceiros e Afiliados: credenciamento de pessoas físicas e jurídicas para indicação e comercialização comissionada das soluções AllLogic Online.",
       ],
     },
     {
@@ -89,7 +90,20 @@ export const termosContent = {
       ],
     },
     {
-      title: "10. Legislação Aplicável e Foro de Eleição",
+      title: "10. Programa de Parceiros e Afiliados (AllLogic Partners)",
+      paragraphs: [
+        "A participação no Programa de Parceiros e Afiliados da AllLogic Online (AllLogic Partners) é regida pelas diretrizes oficiais homologadas no SGA (SGA/06-Comercial/parcerias/PROGRAMA-DE-PARCEIROS-E-AFILIADOS.md), formalizando-se mediante preenchimento do cadastro no portal oficial (alllogiconline.com.br/afiliados):",
+      ],
+      items: [
+        "Adesão Gratuita e Sem Vínculo Empregatício: a afiliação é 100% gratuita, de natureza estritamente comercial autônoma, sem exclusividade e sem qualquer vínculo trabalhista ou de subordinação;",
+        "Comissionamento Recorrente: o parceiro faz jus a comissões sobre assinaturas e contratos faturados de clientes indicados através do seu link exclusivo (20% de comissão recorrente mensal contínua sobre as mensalidades ativas da Família Agillex e até 20% em contratações de serviços de engenharia e hospedagem sob medida);",
+        "Rastreamento por Último Clique (Last-Click): as indicações são rastreadas por link personalizado com janela de atribuição de 60 (sessenta) dias, preservando o direito à comissão inclusive durante o período de teste gratuito de 14 dias das soluções;",
+        "Calendário e Liquidação de Repasses via Pix: as comissões apuradas no mês anterior são pagas pontualmente todo dia 10 (ou primeiro dia útil subsequente) via transferência instantânea Pix na chave cadastrada pelo parceiro, com saldo mínimo de R$ 100,00 (valores inferiores acumulam automaticamente para o ciclo seguinte sem expiração);",
+        "Código de Conduta e Proteção da Marca: é terminantemente proibida a prática de SPAM (disparos em massa não solicitados), auto-indicação fraudulenta ou a compra de anúncios patrocinados em mecanismos de busca (como Google Ads) com correspondência exata dos nomes institucionais 'AllLogic Online', 'Agillex Hub', 'Agillex Agenda' ou 'Agilex Atende'. O descumprimento comprovado enseja o cancelamento sumário da afiliação e a retenção de comissões originadas de conduta ilícita.",
+      ],
+    },
+    {
+      title: "11. Legislação Aplicável e Foro de Eleição",
       paragraphs: [
         "O presente instrumento é regido pelas leis da República Federativa do Brasil.",
         "Para a resolução de quaisquer controvérsias decorrentes destes Termos que não possam ser dirimidas de forma amigável, fica eleito com exclusividade o Foro da Comarca da Capital do Estado de São Paulo, com renúncia a qualquer outro por mais privilegiado que seja.",
