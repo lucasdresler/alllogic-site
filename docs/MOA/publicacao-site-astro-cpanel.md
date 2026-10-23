@@ -361,3 +361,22 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
   - Ocultação estrita do card de confirmação com `display: none !important;` e classe `.is-hidden` no carregamento da página `/afiliados/`.
   - Garantia de que a página inicial apresente apenas o formulário limpo, revelando o código e link de parceiro exclusivamente após o envio bem-sucedido dos dados.
 
+## Registro de referência — Reorganização Estratégica dos CTAs na Página de Afiliados (22/10/2026)
+
+- **Commit de referência:** `089d034`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-deploy-089d034.tar.gz`
+- **SHA-256 do pacote:** `73571a370664f9b1fc947ecf31ac80db0daa04a40fbca1d7c3188b98c8d0f8c3`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261022-213628.tar.gz` (SHA-256: `eaa2516c382b9f317525e68bba50b798b1b0483dad802f21255e76e3877e7c4c`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-089d034`
+- **Validações prévias:** Backup validado com `gzip -t` e `tar -tzf`, integridade do pacote checada via SHA-256 remotamente antes de qualquer substituição.
+- **Preservação de serviços:** Endpoints `api/diagnosis.php` e `api/affiliates.php` comparados via `cmp -s` e confirmados 100% idênticos; persistência de dados em `api/data/` mantida intocada.
+- **Sequência executada:** Suporte e assets compilados (`_astro/`, `images/`) → rotas públicas atualizadas → sitemaps e robots → página inicial (`index.html`) por último.
+- **Respostas HTTP:** Retorno `200` confirmado para todas as rotas públicas; ordem sequencial dos IDs no DOM confirmada em produção: `afiliados-hero` → `comissoes` → `diferenciais` → `afiliados-cta` (meio) → `publico-alvo` → `guia-vendas` → `duvidas-frequentes` (FAQ) → `cadastro` (fechamento final).
+- **Ajustes aplicados:**
+  - Posicionamento do card de CTA intermediário de alto impacto logo após as comissões e benefícios, capturando leads quentes sem rolagem desnecessária.
+  - Alocação do formulário de credenciamento como fechamento conclusivo da página, logo abaixo do FAQ, eliminando duplicidade de botões ao final da jornada.
+
+
