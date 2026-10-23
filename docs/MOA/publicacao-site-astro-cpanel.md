@@ -379,4 +379,24 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
   - Posicionamento do card de CTA intermediário de alto impacto logo após as comissões e benefícios, capturando leads quentes sem rolagem desnecessária.
   - Alocação do formulário de credenciamento como fechamento conclusivo da página, logo abaixo do FAQ, eliminando duplicidade de botões ao final da jornada.
 
+## Registro de referência — Atualização dos Termos de Uso e Política de Privacidade (22/10/2026)
+
+- **Commit de referência:** `aed6671`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-deploy-aed6671.tar.gz`
+- **SHA-256 do pacote:** `21d05b00154921d599cd00b3b96a7ace6bd414e7708cab538c34f79595583a1b`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261022-215035.tar.gz` (SHA-256: `e221ad663f953be436bf14cd2032a599d9935f02513f6a02b69c41e853a42996`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-aed6671`
+- **Validações prévias:** Backup validado com `gzip -t` e `tar -tzf`, integridade do pacote checada via SHA-256 remotamente antes de qualquer substituição.
+- **Preservação de serviços:** Endpoints `api/diagnosis.php` e `api/affiliates.php` comparados via `cmp -s` e confirmados 100% idênticos; persistência de dados em `api/data/` mantida intocada.
+- **Sequência executada:** Suporte e assets compilados (`_astro/`, `images/`) → rotas `/termos-de-uso/` e `/politica-de-privacidade/` atualizadas → sitemaps e robots → página inicial (`index.html`) por último.
+- **Respostas HTTP:** Retorno `200` confirmado para todas as rotas públicas; confirmação remota da presença da Cláusula 10 do Programa de Parceiros e Afiliados em `/termos-de-uso/` e do tratamento de repasses Pix em `/politica-de-privacidade/`.
+- **Ajustes aplicados:**
+  - Inclusão da Cláusula 10 nos Termos de Uso regendo o Programa AllLogic Partners (comissões recorrentes, cookie de 60 dias, repasses dia 10 via Pix, saldo mínimo de R$ 100,00 e código de conduta).
+  - Atualização da Política de Privacidade abrangendo os dados coletados de parceiros (Nome, E-mail, WhatsApp, Chave Pix), a base legal de execução de contrato (Art. 7º, V da LGPD) e a liquidação financeira de comissões.
+  - Atualização da data de revisão de ambos os documentos institucionais para 22 de outubro de 2026.
+
+
 
