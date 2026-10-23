@@ -343,8 +343,21 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
   - Cascatas contemporâneas de entrada em todos os topos/heroes (`heroEntranceFadeDown`, `heroEntranceFadeUp`, `agillexWindowPop`).
   - Escalonamento harmônico de revelação na rolagem (`scroll-reveal`) em todas as grades e listas de cards com atrasos progressivos de 80ms a 480ms.
   - Elevação e bordas luminosas em hover em todos os cartões interativos do site.
-  - Animação de expansão suave nas respostas do FAQ (`faqAnswerFade`) e conformidade total com acessibilidade (`prefers-reduced-motion`).
+  - Animação de expansão suave nas respostas do FAQ (`faqAnswerFade`) e conformidade total com acessibilidade (`prefers-reduced-motion`).## Registro de referência — Correção da Visibilidade do Painel de Confirmação de Afiliados (22/10/2026)
 
-
-
+- **Commit de referência:** `966868b`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-deploy-966868b.tar.gz`
+- **SHA-256 do pacote:** `e8c69340f640eea6044a9b04c7ec1a7ec9116e55f02630f5f801281824f05c53`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261022-212253.tar.gz` (SHA-256: `0b03fce4ca8a741c07f0aef72f52e880a2bcca861912f5235d8b608a4853510f`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-966868b`
+- **Validações prévias:** Backup validado com `gzip -t` e `tar -tzf`, integridade do pacote checada via SHA-256 remotamente antes de qualquer substituição.
+- **Preservação de serviços:** Endpoints `api/diagnosis.php` e `api/affiliates.php` comparados via `cmp -s` e confirmados 100% idênticos; persistência de dados em `api/data/` mantida intocada.
+- **Sequência executada:** Suporte e assets compilados (`_astro/`, `images/`) → rotas públicas atualizadas → sitemaps e robots → página inicial (`index.html`) por último.
+- **Respostas HTTP:** Retorno `200` confirmado para todas as rotas públicas, com confirmação remota da presença de `.affiliates-success-panel.is-hidden{display:none!important}` no CSS compilado.
+- **Ajustes aplicados:**
+  - Ocultação estrita do card de confirmação com `display: none !important;` e classe `.is-hidden` no carregamento da página `/afiliados/`.
+  - Garantia de que a página inicial apresente apenas o formulário limpo, revelando o código e link de parceiro exclusivamente após o envio bem-sucedido dos dados.
 
