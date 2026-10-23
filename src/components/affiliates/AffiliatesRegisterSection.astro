@@ -107,7 +107,7 @@ const { register } = afiliadosContent;
         </form>
 
         <!-- Painel de Sucesso Imediato (Credenciamento Gerado) -->
-        <div id="affiliates-success-panel" class="affiliates-success-panel" hidden>
+        <div id="affiliates-success-panel" class="affiliates-success-panel is-hidden" hidden style="display: none;">
           <div class="affiliates-success-badge-wrap">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
@@ -123,7 +123,7 @@ const { register } = afiliadosContent;
           <div class="affiliates-credentials-box">
             <div class="affiliate-credential-row">
               <span class="affiliate-credential-label">{register.success.codeLabel}</span>
-              <div class="affiliate-code-display" id="success-affiliate-code">AL-00000</div>
+              <div class="affiliate-code-display" id="success-affiliate-code">---</div>
             </div>
 
             <div class="affiliate-credential-row">
@@ -184,6 +184,14 @@ const { register } = afiliadosContent;
     const successPanel = document.getElementById("affiliates-success-panel") as HTMLDivElement | null;
 
     if (!form || !phoneInput || !submitBtn || !successPanel) return;
+
+    // Estado inicial garantido
+    form.hidden = false;
+    form.classList.remove("is-hidden");
+    form.style.display = "flex";
+    successPanel.hidden = true;
+    successPanel.classList.add("is-hidden");
+    successPanel.style.display = "none";
 
     // Máscara dinâmica de telefone celular / fixo (XX) XXXXX-XXXX
     phoneInput.addEventListener("input", () => {
@@ -261,8 +269,16 @@ const { register } = afiliadosContent;
     }
 
     function showSuccess(name: string, code: string, link: string, pix: string) {
-      form!.hidden = true;
-      successPanel!.hidden = false;
+      if (form) {
+        form.hidden = true;
+        form.classList.add("is-hidden");
+        form.style.display = "none";
+      }
+      if (successPanel) {
+        successPanel.hidden = false;
+        successPanel.classList.remove("is-hidden");
+        successPanel.style.display = "flex";
+      }
 
       const userNameEl = document.getElementById("success-user-name");
       const codeEl = document.getElementById("success-affiliate-code");

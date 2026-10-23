@@ -37,6 +37,11 @@
   transition: opacity 0.3s ease;
 }
 
+.affiliates-register-form[hidden],
+.affiliates-register-form.is-hidden {
+  display: none !important;
+}
+
 .affiliates-form-group {
   display: flex;
   flex-direction: column;
@@ -148,6 +153,11 @@
   align-items: center;
   text-align: center;
   animation: successPop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.affiliates-success-panel[hidden],
+.affiliates-success-panel.is-hidden {
+  display: none !important;
 }
 
 @keyframes successPop {
