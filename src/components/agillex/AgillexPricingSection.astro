@@ -152,6 +152,20 @@ const defaultTier = pricing.tiers.find((t) => t.popular) ?? pricing.tiers[1];
       <div class="agillex-pricing__footer-note">
         {pricing.universalNote}
       </div>
+
+      {pricing.loginLink && (
+        <div class="agillex-pricing__login-box" data-scroll-reveal="up">
+          <span class="agillex-pricing__login-text">{pricing.loginLink.text}</span>
+          <a
+            href={pricing.loginLink.href}
+            class="agillex-pricing__login-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {pricing.loginLink.ctaLabel}
+          </a>
+        </div>
+      )}
     </div>
   </Container>
 </Section>

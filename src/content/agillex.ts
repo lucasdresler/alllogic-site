@@ -100,6 +100,11 @@ export interface AgillexPricingContent {
   universalNote: string;
   features: string[];
   tiers: AgillexPricingTier[];
+  loginLink?: {
+    text: string;
+    ctaLabel: string;
+    href: string;
+  };
 }
 
 export interface AgillexFaqItem {
@@ -181,7 +186,7 @@ export const agillexContent: AgillexContent = {
     badge: "Sistema de Agendamento Online",
     title: "Agillex Agenda: organização e simplicidade para o seu atendimento",
     description:
-      "A solução de agendamento online que centraliza os agendamentos, clientes e serviços do seu negócio em um só lugar. Seus clientes agendam serviços com facilidade pelo celular, tablet ou computador.",
+      "A solução de agendamento online sincronizada com Google Calendar que centraliza clientes, horários e serviços em uma página pública exclusiva 24/7. Seus clientes agendam serviços com facilidade pelo celular, tablet ou computador.",
     actions: {
       primary: {
         label: "Experimentar o Agillex Agenda",
@@ -202,7 +207,7 @@ export const agillexContent: AgillexContent = {
         rel: "",
       },
     },
-    trust: "Configuração simples · Você organiza seu negócio diretamente na plataforma",
+    trust: "Ativação imediata · 14 dias de teste grátis · Sem cartão de crédito · Sem fidelidade",
   },
   audience: {
     eyebrow: "Para quem é",
@@ -258,9 +263,9 @@ export const agillexContent: AgillexContent = {
       },
       {
         badge: "02",
-        title: "Equipe e Horários sob Controle",
+        title: "Google Calendar & Escalas sob Controle",
         description:
-          "Defina a disponibilidade individual de cada membro da equipe, jornadas de trabalho personalizadas e intervalos entre atendimentos.",
+          "Sincronização em tempo real com o Google Agenda para evitar conflitos de horários. Defina a disponibilidade individual de cada membro da equipe, jornadas de trabalho e intervalos.",
       },
       {
         badge: "03",
@@ -270,9 +275,9 @@ export const agillexContent: AgillexContent = {
       },
       {
         badge: "04",
-        title: "Página Pública de Agendamento",
+        title: "Página Pública & Link da Bio",
         description:
-          "Disponibilize uma página com os dados do seu negócio, catálogo de serviços e canais de contato para facilitar a escolha de horários.",
+          "Disponibilize uma página exclusiva com os dados do seu negócio para colocar na bio do Instagram ou WhatsApp. Seus clientes agendam 24/7 direto pelo navegador, sem baixar aplicativos.",
       },
       {
         badge: "05",
@@ -405,11 +410,11 @@ export const agillexContent: AgillexContent = {
     features: [
       "Acesso a 100% dos recursos da plataforma em todos os planos",
       "Clientes, serviços e agendamentos ilimitados",
-      "Página pública exclusiva do seu negócio aberta 24/7",
+      "Página pública exclusiva para o link da bio do Instagram e WhatsApp 24/7",
+      "Sincronização em tempo real com Google Calendar",
       "Notificações e confirmações automáticas via WhatsApp",
       "Painel administrativo com visão diária, semanal e mensal",
-      "Gestão de escalas, horários e intervalos de trabalho",
-      "Totalmente adaptado para celular, tablet e computador",
+      "Gestão de escalas, jornadas individuais e intervalos de trabalho",
       "14 dias de teste grátis — sem cartão de crédito e sem fidelidade",
     ],
     tiers: [
@@ -469,6 +474,11 @@ export const agillexContent: AgillexContent = {
         },
       },
     ],
+    loginLink: {
+      text: "Já possui uma conta cadastrada?",
+      ctaLabel: "Acesse o painel administrativo →",
+      href: "https://agenda.alllogiconline.com.br/admin/login",
+    },
   },
   faq: {
     eyebrow: "DÚVIDAS FREQUENTES",
