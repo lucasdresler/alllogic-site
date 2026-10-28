@@ -27,6 +27,17 @@ import "./agillex-hero-section.css";
         >
           {agillexContent.hero.actions.primary.label}
         </a>
+        {agillexContent.hero.actions.demo && (
+          <a
+            href={agillexContent.hero.actions.demo.href}
+            class="agillex-hero__btn agillex-hero__btn--demo"
+            target={agillexContent.hero.actions.demo.target}
+            rel={agillexContent.hero.actions.demo.rel}
+          >
+            <span class="agillex-hero__btn-icon" aria-hidden="true">💈</span>
+            <span>{agillexContent.hero.actions.demo.label}</span>
+          </a>
+        )}
         <a
           href={agillexContent.hero.actions.secondary.href}
           class="agillex-hero__btn agillex-hero__btn--secondary"

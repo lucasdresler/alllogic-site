@@ -1,0 +1,80 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexContent } from "../../content/agillex";
+import "./agillex-models-section.css";
+
+const { models } = agillexContent;
+---
+
+<Section id="modelos-demonstracao" background="light" spacing="lg">
+  <Container size="xl">
+    <div class="agillex-models" data-scroll-reveal="up">
+      <div class="agillex-models__header">
+        <span class="agillex-models__eyebrow">{models.eyebrow}</span>
+        <h2 class="agillex-models__title">{models.title}</h2>
+        <p class="agillex-models__description">{models.description}</p>
+      </div>
+
+      <div class="agillex-models__grid">
+        {
+          models.items.map((item) => (
+            <div class="agillex-models__card" data-scroll-reveal="up">
+              <div class="agillex-models__card-top">
+                <div class="agillex-models__card-header">
+                  <span class="agillex-models__icon" aria-hidden="true">{item.icon}</span>
+                  <span class="agillex-models__badge">{item.badge}</span>
+                </div>
+                <h3 class="agillex-models__card-title">{item.title}</h3>
+                <p class="agillex-models__card-desc">{item.description}</p>
+                <ul class="agillex-models__highlights" aria-label="Recursos do modelo">
+                  {item.highlights.map((h) => (
+                    <li>
+                      <span class="agillex-models__highlights-check" aria-hidden="true">✓</span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="agillex-models__card-action">
+                <a
+                  href={item.url}
+                  class="agillex-models__btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visitar modelo de demonstração ${item.title}`}
+                >
+                  <span>{item.ctaLabel}</span>
+                  <span class="agillex-models__btn-icon" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      {models.note && (
+        <div class="agillex-models__footer-note" data-scroll-reveal="up">
+          <svg
+            class="agillex-models__footer-icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <p class="agillex-models__footer-text">{models.note}</p>
+        </div>
+      )}
+    </div>
+  </Container>
+</Section>

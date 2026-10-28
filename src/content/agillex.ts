@@ -131,15 +131,42 @@ export interface AgillexDemoContent {
   tabs: AgillexDemoTab[];
 }
 
+export interface AgillexDemoModel {
+  id: string;
+  niche: string;
+  icon: string;
+  badge: string;
+  title: string;
+  description: string;
+  highlights: string[];
+  url: string;
+  ctaLabel: string;
+}
+
+export interface AgillexDemoModelsContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  note: string;
+  items: AgillexDemoModel[];
+}
+
+export interface AgillexHeroActions {
+  primary: AgillexCTA;
+  secondary: AgillexCTA;
+  demo?: AgillexCTA;
+}
+
 export interface AgillexContent {
   meta: {
     title: string;
     description: string;
   };
-  hero: AgillexHeroContent;
+  hero: Omit<AgillexHeroContent, "actions"> & { actions: AgillexHeroActions };
   audience: AgillexAudienceContent;
   features: AgillexFeaturesContent;
   demo: AgillexDemoContent;
+  models: AgillexDemoModelsContent;
   pricing: AgillexPricingContent;
   faq: AgillexFaqContent;
   trial: AgillexTrialContent;
@@ -166,6 +193,12 @@ export const agillexContent: AgillexContent = {
       secondary: {
         label: "Ver planos e preços",
         href: "#planos-e-precos",
+        target: "_self",
+        rel: "",
+      },
+      demo: {
+        label: "Ver modelos de demonstração",
+        href: "#modelos-demonstracao",
         target: "_self",
         rel: "",
       },
@@ -288,6 +321,79 @@ export const agillexContent: AgillexContent = {
         title: "Sua agenda organizada e atualizada em tempo real",
         description:
           "Tenha uma visão clara dos horários do dia, da semana e da disponibilidade de cada profissional. Reagende ou cancele atendimentos com apenas alguns cliques.",
+      },
+    ],
+  },
+  models: {
+    eyebrow: "MODELOS DE DEMONSTRAÇÃO",
+    title: "Experimente um modelo real do seu segmento",
+    description:
+      "Escolha abaixo o modelo de demonstração que mais se aproxima do seu negócio e navegue pela experiência real de agendamento online que seus clientes terão.",
+    note: "Todas as demonstrações refletem o sistema em produção com seleção de serviços, profissionais, horários e cálculo em tempo real.",
+    items: [
+      {
+        id: "barbearia",
+        niche: "Barbearias & Cortes",
+        icon: "💈",
+        badge: "Barbearia",
+        title: "Barbearia Silva & Estilo",
+        description:
+          "Modelo configurado para barbearias e estética masculina com múltiplos barbeiros, cortes clássicos, barboterapia e horários dinâmicos.",
+        highlights: [
+          "Múltiplos profissionais e escalas de atendimento",
+          "Cortes, barba e combos com duração personalizada",
+          "Confirmação instantânea com dados do agendamento",
+        ],
+        url: "https://agenda.alllogiconline.com.br/barbearia",
+        ctaLabel: "Visitar modelo Barbearia",
+      },
+      {
+        id: "salao",
+        niche: "Salões & Estética",
+        icon: "💅",
+        badge: "Salão & Estética",
+        title: "Salão Premium & Esmalteria",
+        description:
+          "Modelo ideal para salões de beleza, esmalterias e clínicas de estética com catálogo rico de serviços femininos e pacotes.",
+        highlights: [
+          "Esmaltação, unhas em gel, corte e escova",
+          "Escolha de especialistas e serviços combinados",
+          "Interface intuitiva com fotos e avaliações",
+        ],
+        url: "https://agenda.alllogiconline.com.br/salao-premium",
+        ctaLabel: "Visitar modelo Salão & Estética",
+      },
+      {
+        id: "clinica-odonto",
+        niche: "Clínicas & Consultórios",
+        icon: "🦷",
+        badge: "Odontologia & Saúde",
+        title: "OdontoPrime Clínica Integrada",
+        description:
+          "Modelo adaptado para consultórios odontológicos e profissionais de saúde, com intervalos entre consultas e biossegurança.",
+        highlights: [
+          "Consultas de avaliação, limpeza e ortodontia",
+          "Intervalos automáticos e horários protegidos",
+          "Instruções pré-atendimento e preparo",
+        ],
+        url: "https://agenda.alllogiconline.com.br/clinica-odonto",
+        ctaLabel: "Visitar modelo Clínica Odonto",
+      },
+      {
+        id: "petshop",
+        niche: "Pet Shops & Banho/Tosa",
+        icon: "🐾",
+        badge: "Pet Shop",
+        title: "Pet Spa & Care",
+        description:
+          "Modelo desenvolvido para pet shops, clínicas veterinárias e serviços de banho e tosa com horários bem distribuídos.",
+        highlights: [
+          "Banho, tosa higiênica, spa felino e hidratação",
+          "Organização por profissional ou equipe de banho",
+          "Comunicação direta para tranquilidade dos tutores",
+        ],
+        url: "https://agenda.alllogiconline.com.br/petshop",
+        ctaLabel: "Visitar modelo Pet Shop",
       },
     ],
   },

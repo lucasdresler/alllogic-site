@@ -116,6 +116,21 @@
   box-shadow: 0 8px 24px rgba(201, 162, 39, 0.55);
 }
 
+.agillex-hero__btn--demo {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border: 1px solid rgba(31, 111, 255, 0.35);
+  gap: 8px;
+}
+
+.agillex-hero__btn--demo:hover {
+  background-color: #ffffff;
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  box-shadow: 0 4px 14px rgba(31, 111, 255, 0.15);
+  transform: translateY(-2px);
+}
+
 .agillex-hero__btn--secondary {
   background-color: transparent;
   color: var(--color-primary);

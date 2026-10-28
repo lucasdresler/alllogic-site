@@ -485,3 +485,54 @@
   padding: 2px 6px;
   border-radius: 4px;
 }
+
+/* Ponte de CTA para Modelos de Demonstração */
+.agillex-demo__cta-bridge {
+  margin-top: var(--space-xl);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.75rem;
+}
+
+.agillex-demo__cta-bridge-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.agillex-demo__cta-bridge-text strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.agillex-demo__cta-bridge-text span {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.agillex-demo__cta-bridge-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.agillex-demo__cta-bridge-btn:hover {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(31, 111, 255, 0.25);
+}
