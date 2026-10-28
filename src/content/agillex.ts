@@ -10,9 +10,8 @@
 // institucional conservadora, sem prometer garantias não comprovadas, preservando a
 // finalidade da página e os destinos funcionais dos links.
 //
-// Observação de destinos:
-// - O destino "https://agenda.alllogiconline.com.br/agillex" permanece provisório,
-//   aguardando aprovação explícita do responsável.
+// - O destino oficial de checkout e contratação é:
+//   https://hub.alllogiconline.com.br/checkout
 // - O contato de atendimento utiliza o canal oficial de WhatsApp (11) 96638-1915.
 
 export interface AgillexCTA {
@@ -186,7 +185,7 @@ export const agillexContent: AgillexContent = {
     actions: {
       primary: {
         label: "Experimentar o Agillex Agenda",
-        href: "https://agenda.alllogiconline.com.br/agillex",
+        href: "https://hub.alllogiconline.com.br/checkout",
         target: "_blank",
         rel: "noopener noreferrer",
       },
@@ -427,7 +426,7 @@ export const agillexContent: AgillexContent = {
         period: "/mês",
         cta: {
           label: "Começar 14 dias grátis",
-          href: "https://agenda.alllogiconline.com.br/agillex?plano=inicial",
+          href: "https://hub.alllogiconline.com.br/checkout",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -446,7 +445,7 @@ export const agillexContent: AgillexContent = {
         period: "/mês",
         cta: {
           label: "Começar 14 dias grátis",
-          href: "https://agenda.alllogiconline.com.br/agillex?plano=intermediario",
+          href: "https://hub.alllogiconline.com.br/checkout",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -464,7 +463,7 @@ export const agillexContent: AgillexContent = {
         period: "/mês",
         cta: {
           label: "Começar 14 dias grátis",
-          href: "https://agenda.alllogiconline.com.br/agillex?plano=avancado",
+          href: "https://hub.alllogiconline.com.br/checkout",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -534,7 +533,7 @@ export const agillexContent: AgillexContent = {
       description: "Acesse o sistema para conhecer a interface.",
       action: {
         label: "Acessar o Agillex Agenda",
-        href: "https://agenda.alllogiconline.com.br/agillex",
+        href: "https://hub.alllogiconline.com.br/checkout",
         target: "_blank",
         rel: "noopener noreferrer",
       },
