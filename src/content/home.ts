@@ -208,14 +208,14 @@ export const homeContent: HomeContent = {
         type: "Projeto concluído",
         description:
           "Otimização de SEO, organização de conteúdo e melhorias técnicas para fortalecer a presença orgânica do projeto.",
-        url: "https://escolasabatinaonline.com.br/site/",
+        url: "https://escolasabatinaonline.com.br/",
         image: "/images/portfolio/escola-sabatina-online.png",
       },
       {
         title: "Cupido Adventista",
-        type: "Em andamento",
+        type: "Projeto concluído",
         description:
-          "Otimização de SEO das áreas públicas, melhorias técnicas e ajustes de estrutura e conteúdo.",
+          "Modernização de interface (UI/UX), implementação de Progressive Web App (PWA) e estruturação de anúncios institucionais.",
         url: "https://cupidoadventista.com.br/",
         image: "/images/portfolio/cupido-adventista.png",
       },
