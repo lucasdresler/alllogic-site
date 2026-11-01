@@ -207,7 +207,7 @@ export const homeContent: HomeContent = {
         title: "Escola Sabatina Online",
         type: "Projeto concluído",
         description:
-          "Otimização de SEO, organização de conteúdo e melhorias técnicas para fortalecer a presença orgânica do projeto.",
+          "Centro de capacitação com acervo prático para líderes e professores da Escola Sabatina, organização de conteúdo e presença digital.",
         url: "https://escolasabatinaonline.com.br/",
         image: "/images/portfolio/escola-sabatina-online.png",
       },
@@ -223,7 +223,7 @@ export const homeContent: HomeContent = {
         title: "Lojinha do Lucas",
         type: "Projeto concluído",
         description:
-          "Otimização de SEO para produtos e categorias, ajustes de conteúdo e melhorias na estrutura da loja.",
+          "Plataforma de e-commerce com catálogo de produtos, fluxo de checkout seguro, promoções integradas e experiência de compra otimizada.",
         url: "https://lojinhadolucas.com.br/",
         image: "/images/portfolio/lojinha-do-lucas.png",
       },
