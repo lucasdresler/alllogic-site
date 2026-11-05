@@ -185,6 +185,18 @@ export const homeContent: HomeContent = {
         linkText: "Conhecer Agillex Hub",
       },
       {
+        title: "Agillex Cobrança Inteligente",
+        description: "Régua inteligente de cobrança e notificação ativa no WhatsApp integrada ao Asaas, com Pix Copia e Cola, aviso preventivo e recuperação amigável de inadimplência.",
+        href: "/contato",
+        linkText: "Conhecer Agillex Cobrança",
+      },
+      {
+        title: "Agillex Reputação 5 Estrelas",
+        description: "Acelerador de avaliações no Google Meu Negócio pós-atendimento com filtro protetor de marca (NPS 4-5 vai pro Google Maps e 1-3 é tratado internamente) e respostas com IA para SEO local.",
+        href: "/contato",
+        linkText: "Conhecer Agillex Reputação",
+      },
+      {
         title: "IA & Automações",
         description: "Aplicações práticas de IA para apoiar atendimento, otimizar fluxos de trabalho e simplificar rotinas empresariais.",
         href: "/contato",
