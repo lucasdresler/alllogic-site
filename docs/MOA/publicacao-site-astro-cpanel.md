@@ -398,5 +398,24 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
   - Atualização da Política de Privacidade abrangendo os dados coletados de parceiros (Nome, E-mail, WhatsApp, Chave Pix), a base legal de execução de contrato (Art. 7º, V da LGPD) e a liquidação financeira de comissões.
   - Atualização da data de revisão de ambos os documentos institucionais para 22 de outubro de 2026.
 
+## Registro de referência — Publicação dos Novos Produtos da Família Agillex: Cobrança e Reputação (05/11/2026)
+
+- **Commit de referência:** `2c53f36`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-2c53f36.tar.gz`
+- **SHA-256 do pacote:** `3e8ba264b55ba11a5c60a60e5f6d5690a698b9e11bd74661c0def15a35ce86b0`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261105-202710.tar.gz` (SHA-256: `5d7c1ee1ff987a875a299b0069ad9214265d24ed37016953bb3093771258ef40`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-2c53f36`
+- **Validações prévias:** Backup validado com `gzip -t` e `tar -tzf`, integridade do pacote checada via SHA-256 remotamente antes de qualquer substituição.
+- **Preservação de serviços:** Endpoint `api/diagnosis.php` comparado via `cmp -s` e confirmado 100% idêntico.
+- **Sequência executada:** Suporte e assets compilados (`_astro/`, `images/`) → rotas públicas atualizadas → sitemaps e robots → página inicial (`index.html`) por último.
+- **Respostas HTTP:** Retorno `200` confirmado para todas as rotas públicas; confirmação remota da presença ativa de "Agillex Cobrança" e "Agillex Reputação" no cabeçalho, rodapé e vitrine de soluções da Home.
+- **Ajustes aplicados:**
+  - Adição de Agillex Cobrança e Agillex Reputação à vitrine de soluções da Home (`#solucoes`) e aos menus de navegação do cabeçalho e rodapé.
+  - Alinhamento textual do FAQ da Home, Termos de Uso, Política de Privacidade e SEO meta description abrangendo os 5 produtos oficiais da Família Agillex.
+
+
 
 
