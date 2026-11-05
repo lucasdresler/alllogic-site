@@ -1,0 +1,266 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexReputacaoContent } from "../../content/agillex-reputacao";
+import "../agillex/agillex-pricing-section.css";
+
+const { pricing } = agillexReputacaoContent;
+const defaultTier = pricing.tiers.find((t) => t.popular) ?? pricing.tiers[1];
+---
+
+<Section id="planos-e-precos" background="default" spacing="lg">
+  <div id="precos" aria-hidden="true"></div>
+  <Container>
+    <div class="agillex-pricing" data-scroll-reveal="up">
+      <div class="agillex-pricing__header">
+        <span class="agillex-pricing__eyebrow">{pricing.eyebrow}</span>
+        <h2 class="agillex-pricing__title">{pricing.title}</h2>
+        <p class="agillex-pricing__subtitle">{pricing.subtitle}</p>
+
+        <!-- Toggle Mensal / Anual -->
+        <div class="agillex-pricing__toggle-wrapper">
+          <span
+            class="agillex-pricing__toggle-label agillex-pricing__toggle-label--active"
+            id="reputacao-label-mensal"
+          >
+            Mensal
+          </span>
+          <label class="agillex-pricing__switch" for="reputacao-pricing-toggle">
+            <input
+              type="checkbox"
+              id="reputacao-pricing-toggle"
+              role="switch"
+              aria-checked="false"
+              aria-label="Alternar para plano anual"
+            />
+            <span class="agillex-pricing__slider"></span>
+          </label>
+          <span class="agillex-pricing__toggle-label" id="reputacao-label-anual">
+            Anual
+          </span>
+          <span class="agillex-pricing__discount-badge">Até 25% OFF</span>
+        </div>
+      </div>
+
+      <!-- CARD ÚNICO MASTER COM SELETOR DE PLANOS -->
+      <div class="agillex-pricing__single-card-wrapper">
+        <div
+          class="agillex-pricing__single-card"
+          id="reputacao-pricing-card"
+          data-current-tier={defaultTier.id}
+        >
+          <!-- Badge de Destaque -->
+          <span class="agillex-pricing__card-badge" id="reputacao-pricing-badge">
+            {defaultTier.badge ?? "Mais Escolhido"}
+          </span>
+
+          <!-- Seletor de Franquia / Capacidade -->
+          <div class="agillex-pricing__capacity-block">
+            <label class="agillex-pricing__capacity-label">
+              Selecione o plano ideal para a presença digital da sua empresa:
+            </label>
+            <div
+              class="agillex-pricing__capacity-tabs"
+              role="tablist"
+              aria-label="Planos de reputação"
+            >
+              {
+                pricing.tiers.map((tier) => (
+                  <button
+                    type="button"
+                    role="tab"
+                    id={`reputacao-tab-${tier.id}`}
+                    aria-selected={tier.id === defaultTier.id ? "true" : "false"}
+                    aria-controls="reputacao-pricing-card"
+                    class:list={[
+                      "agillex-pricing__capacity-tab",
+                      tier.id === defaultTier.id && "agillex-pricing__capacity-tab--active",
+                    ]}
+                    data-tier-id={tier.id}
+                    data-price-monthly={tier.priceMonthly}
+                    data-price-annual={tier.priceAnnualMonthly}
+                    data-annual-total={tier.annualTotal}
+                    data-badge={tier.badge ?? ""}
+                    data-cta-label={tier.cta.label}
+                    data-cta-href={tier.cta.href}
+                    data-tagline={tier.tagline}
+                  >
+                    <span class="agillex-pricing__tab-capacity">{tier.name}</span>
+                    <span class="agillex-pricing__tab-price">
+                      {tier.priceMonthly}
+                      <small>/mês</small>
+                    </span>
+                  </button>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Informações de Preço Dinâmico -->
+          <div class="agillex-pricing__card-header">
+            <p class="agillex-pricing__card-tagline" id="reputacao-pricing-tagline">
+              {defaultTier.tagline}
+            </p>
+            <div class="agillex-pricing__price-wrapper">
+              <span class="agillex-pricing__price" id="reputacao-pricing-display">
+                {defaultTier.priceMonthly}
+              </span>
+              <span class="agillex-pricing__period" id="reputacao-pricing-period">
+                {defaultTier.period}
+              </span>
+            </div>
+            <p
+              class="agillex-pricing__annual-total"
+              id="reputacao-pricing-annual-total"
+              aria-live="polite"
+              hidden
+            >
+              {defaultTier.annualTotal}
+            </p>
+          </div>
+
+          <!-- Lista de Recursos Inclusos -->
+          <ul class="agillex-pricing__features-list">
+            {
+              pricing.features.map((feature) => (
+                <li class="agillex-pricing__feature-item">
+                  <svg
+                    class="agillex-pricing__check-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>{feature}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <!-- Ação Principal -->
+          <div class="agillex-pricing__card-cta">
+            <a
+              href={defaultTier.cta.href}
+              class="agillex-pricing__btn agillex-pricing__btn--primary"
+              id="reputacao-pricing-btn"
+              target={defaultTier.cta.target}
+              rel={defaultTier.cta.rel}
+            >
+              {defaultTier.cta.label}
+            </a>
+          </div>
+
+          <!-- Nota Universal -->
+          <p class="agillex-pricing__universal-note">
+            {pricing.universalNote}
+          </p>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<script>
+  function initReputacaoPricing() {
+    const toggle = document.getElementById("reputacao-pricing-toggle") as HTMLInputElement | null;
+    const card = document.getElementById("reputacao-pricing-card");
+    const labelMensal = document.getElementById("reputacao-label-mensal");
+    const labelAnual = document.getElementById("reputacao-label-anual");
+    const display = document.getElementById("reputacao-pricing-display");
+    const annualTotal = document.getElementById("reputacao-pricing-annual-total");
+    const badge = document.getElementById("reputacao-pricing-badge");
+    const btn = document.getElementById("reputacao-pricing-btn") as HTMLAnchorElement | null;
+    const tagline = document.getElementById("reputacao-pricing-tagline");
+    const tabs = document.querySelectorAll<HTMLButtonElement>(".agillex-pricing__capacity-tab[data-tier-id]");
+
+    if (!toggle || !card || !display || !annualTotal) return;
+
+    let isAnnual = toggle.checked;
+
+    function updateCard(tab: HTMLButtonElement) {
+      const priceMonthly = tab.dataset.priceMonthly ?? "";
+      const priceAnnual = tab.dataset.priceAnnual ?? "";
+      const total = tab.dataset.annualTotal ?? "";
+      const badgeText = tab.dataset.badge ?? "";
+      const ctaHref = tab.dataset.ctaHref ?? "#";
+      const ctaLabel = tab.dataset.ctaLabel ?? "Começar agora";
+      const taglineText = tab.dataset.tagline ?? "";
+
+      display!.textContent = isAnnual ? priceAnnual : priceMonthly;
+
+      if (isAnnual) {
+        annualTotal!.textContent = total;
+        annualTotal!.hidden = false;
+      } else {
+        annualTotal!.hidden = true;
+      }
+
+      if (badge) {
+        if (badgeText) {
+          badge.textContent = badgeText;
+          badge.style.display = "inline-block";
+        } else {
+          badge.style.display = "none";
+        }
+      }
+
+      if (btn) {
+        btn.href = ctaHref;
+        btn.textContent = ctaLabel;
+      }
+
+      if (tagline && taglineText) {
+        tagline.textContent = taglineText;
+      }
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => {
+          t.classList.remove("agillex-pricing__capacity-tab--active");
+          t.setAttribute("aria-selected", "false");
+        });
+        tab.classList.add("agillex-pricing__capacity-tab--active");
+        tab.setAttribute("aria-selected", "true");
+        updateCard(tab);
+      });
+    });
+
+    toggle.addEventListener("change", () => {
+      isAnnual = toggle.checked;
+      toggle.setAttribute("aria-checked", String(isAnnual));
+
+      if (isAnnual) {
+        labelMensal?.classList.remove("agillex-pricing__toggle-label--active");
+        labelAnual?.classList.add("agillex-pricing__toggle-label--active");
+      } else {
+        labelAnual?.classList.remove("agillex-pricing__toggle-label--active");
+        labelMensal?.classList.add("agillex-pricing__toggle-label--active");
+      }
+
+      tabs.forEach((tab) => {
+        const pMonthly = tab.dataset.priceMonthly ?? "";
+        const pAnnual = tab.dataset.priceAnnual ?? "";
+        const priceLabel = tab.querySelector(".agillex-pricing__tab-price");
+        if (priceLabel) {
+          priceLabel.innerHTML = `${isAnnual ? pAnnual : pMonthly}<small>/mês</small>`;
+        }
+      });
+
+      const activeTab = document.querySelector<HTMLButtonElement>(
+        ".agillex-pricing__capacity-tab--active"
+      );
+      if (activeTab) updateCard(activeTab);
+    });
+  }
+
+  initReputacaoPricing();
+  document.addEventListener("astro:page-load", initReputacaoPricing);
+</script>

@@ -1,0 +1,108 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexReputacaoContent } from "../../content/agillex-reputacao";
+import "../agillex/agillex-hero-section.css";
+---
+
+<Section id="hero-reputacao" spacing="lg">
+  <Container>
+    <div class="agillex-hero">
+      <div class="agillex-hero__badge">
+        <span>{agillexReputacaoContent.hero.badge}</span>
+      </div>
+      <h1 class="agillex-hero__title">
+        {agillexReputacaoContent.hero.title}
+      </h1>
+      <p class="agillex-hero__description">
+        {agillexReputacaoContent.hero.description}
+      </p>
+
+      <div class="agillex-hero__actions">
+        <a
+          href={agillexReputacaoContent.hero.actions.primary.href}
+          class="agillex-hero__btn agillex-hero__btn--primary"
+          target={agillexReputacaoContent.hero.actions.primary.target ?? "_blank"}
+          rel={agillexReputacaoContent.hero.actions.primary.rel ?? "noopener noreferrer"}
+        >
+          {agillexReputacaoContent.hero.actions.primary.label}
+        </a>
+        <a
+          href={agillexReputacaoContent.hero.actions.secondary.href}
+          class="agillex-hero__btn agillex-hero__btn--secondary"
+          target={agillexReputacaoContent.hero.actions.secondary.target}
+          rel={agillexReputacaoContent.hero.actions.secondary.rel}
+        >
+          {agillexReputacaoContent.hero.actions.secondary.label}
+        </a>
+      </div>
+
+      <div class="agillex-hero__trust">
+        <svg
+          class="agillex-hero__trust-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <polyline points="9 12 11 14 15 10"></polyline>
+        </svg>
+        <span>{agillexReputacaoContent.hero.trust}</span>
+      </div>
+
+      <!-- Preview Visual Dinâmico do Card Google e Filtro NPS -->
+      <div class="agillex-hero__preview">
+        <div class="agillex-hero__window">
+          <div class="agillex-hero__window-bar">
+            <div class="agillex-hero__window-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="agillex-hero__window-url">
+              Perfil da Empresa no Google · Google Maps
+            </div>
+            <span class="agillex-hero__window-status">★ 5.0 (148 avaliações)</span>
+          </div>
+
+          <div class="agillex-hero__window-content" style="background: #0B141A; padding: 22px; font-family: inherit;">
+            <div style="display: flex; flex-direction: column; gap: 14px; max-width: 580px; margin: 0 auto;">
+              <!-- Mensagem WhatsApp Pesquisa NPS -->
+              <div style="align-self: flex-start; background: #202C33; color: #E9EDEF; padding: 14px 16px; border-radius: 12px 12px 12px 2px; max-width: 90%; font-size: 0.9rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                <div style="font-weight: 600; color: #EAB308; margin-bottom: 4px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                  ⭐ Pesquisa Rápida de Satisfação (1 clique)
+                </div>
+                <div>Olá, <strong>Lucas</strong>! Como foi sua experiência no atendimento de hoje? Sua opinião nos ajuda a evoluir!</div>
+                <div style="display: flex; gap: 8px; margin-top: 10px; justify-content: center; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+                  <span style="font-size: 1.25rem; cursor: pointer;">⭐ 1</span>
+                  <span style="font-size: 1.25rem; cursor: pointer;">⭐ 2</span>
+                  <span style="font-size: 1.25rem; cursor: pointer;">⭐ 3</span>
+                  <span style="font-size: 1.25rem; cursor: pointer;">⭐ 4</span>
+                  <span style="font-size: 1.25rem; font-weight: bold; color: #FACC15; cursor: pointer; background: rgba(234,179,8,0.25); padding: 2px 8px; border-radius: 6px;">⭐ 5</span>
+                </div>
+                <span style="display: block; text-align: right; font-size: 0.68rem; color: #8696A0; margin-top: 6px;">15:30</span>
+              </div>
+
+              <!-- Resposta com IA no Google Maps -->
+              <div style="align-self: flex-start; background: #1B2735; color: #E9EDEF; padding: 14px 16px; border-radius: 12px 12px 12px 2px; max-width: 90%; font-size: 0.88rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border-left: 3px solid #4285F4;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+                  <strong style="color: #60A5FA;">Avaliação no Google Maps ★★★★★</strong>
+                  <span style="font-size: 0.72rem; color: #94A3B8;">Hoje</span>
+                </div>
+                <div style="color: #CBD5E1; font-style: italic;">"Atendimento impecável, equipe pontual e resultado excelente! Recomendo muito em São Paulo."</div>
+                <div style="margin-top: 10px; background: rgba(0,0,0,0.25); padding: 8px 12px; border-radius: 6px; font-size: 0.82rem; color: #E2E8F0; border-left: 2px solid #34D399;">
+                  <strong style="color: #34D399;">Resposta automática com IA da empresa:</strong>
+                  <p style="margin: 4px 0 0 0; color: #94A3B8;">Muito obrigado pelo carinho, Lucas! É uma honra poder entregar excelência no seu atendimento. Volte sempre!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>

@@ -1,0 +1,100 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexCobrancaContent } from "../../content/agillex-cobranca";
+import "../agillex/agillex-hero-section.css";
+---
+
+<Section id="hero-cobranca" spacing="lg">
+  <Container>
+    <div class="agillex-hero">
+      <div class="agillex-hero__badge">
+        <span>{agillexCobrancaContent.hero.badge}</span>
+      </div>
+      <h1 class="agillex-hero__title">
+        {agillexCobrancaContent.hero.title}
+      </h1>
+      <p class="agillex-hero__description">
+        {agillexCobrancaContent.hero.description}
+      </p>
+
+      <div class="agillex-hero__actions">
+        <a
+          href={agillexCobrancaContent.hero.actions.primary.href}
+          class="agillex-hero__btn agillex-hero__btn--primary"
+          target={agillexCobrancaContent.hero.actions.primary.target ?? "_blank"}
+          rel={agillexCobrancaContent.hero.actions.primary.rel ?? "noopener noreferrer"}
+        >
+          {agillexCobrancaContent.hero.actions.primary.label}
+        </a>
+        <a
+          href={agillexCobrancaContent.hero.actions.secondary.href}
+          class="agillex-hero__btn agillex-hero__btn--secondary"
+          target={agillexCobrancaContent.hero.actions.secondary.target}
+          rel={agillexCobrancaContent.hero.actions.secondary.rel}
+        >
+          {agillexCobrancaContent.hero.actions.secondary.label}
+        </a>
+      </div>
+
+      <div class="agillex-hero__trust">
+        <svg
+          class="agillex-hero__trust-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <polyline points="9 12 11 14 15 10"></polyline>
+        </svg>
+        <span>{agillexCobrancaContent.hero.trust}</span>
+      </div>
+
+      <!-- Preview Visual Dinâmico da Régua de Cobrança WhatsApp -->
+      <div class="agillex-hero__preview">
+        <div class="agillex-hero__window">
+          <div class="agillex-hero__window-bar">
+            <div class="agillex-hero__window-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="agillex-hero__window-url">
+              Régua Automática no WhatsApp · Notificações Pix
+            </div>
+            <span class="agillex-hero__window-status">● Liquidação Instantânea</span>
+          </div>
+
+          <div class="agillex-hero__window-content" style="background: #0B141A; padding: 22px; font-family: inherit;">
+            <div style="display: flex; flex-direction: column; gap: 14px; max-width: 580px; margin: 0 auto;">
+              <!-- Notificação Preventiva D-2 -->
+              <div style="align-self: flex-start; background: #202C33; color: #E9EDEF; padding: 14px 16px; border-radius: 12px 12px 12px 2px; max-width: 90%; font-size: 0.9rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                <div style="font-weight: 600; color: #00A884; margin-bottom: 4px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                  🔔 Lembrete Preventivo (2 dias antes)
+                </div>
+                <div>Olá, <strong>Mariana</strong>! Tudo bem? Passando para lembrar que sua fatura de <strong>Mensalidade Estética Pro</strong> no valor de <strong>R$ 180,00</strong> vence em 2 dias (10/11).</div>
+                <div style="margin-top: 10px; background: rgba(0,0,0,0.25); padding: 8px 12px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; word-break: break-all; border-left: 3px solid #00A884;">
+                  00020126580014br.gov.bcb.pix0136asaas-pix-alllogic-cobranca...
+                </div>
+                <span style="display: block; text-align: right; font-size: 0.68rem; color: #8696A0; margin-top: 6px;">09:00</span>
+              </div>
+
+              <!-- Notificação de Baixa Confirmada -->
+              <div style="align-self: flex-start; background: #1F362C; color: #E9EDEF; padding: 14px 16px; border-radius: 12px 12px 12px 2px; max-width: 90%; font-size: 0.9rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border-left: 3px solid #25D366;">
+                <div style="font-weight: 600; color: #25D366; margin-bottom: 4px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                  🟢 Pagamento Confirmado em Segundos
+                </div>
+                <div>Obrigado, Mariana! Recebemos com sucesso a quitação do seu Pix de <strong>R$ 180,00</strong>. Seu plano continua 100% ativo. Tenha um excelente dia! ✨</div>
+                <span style="display: block; text-align: right; font-size: 0.68rem; color: #8696A0; margin-top: 6px;">09:02 · Liquidado via Pix</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>

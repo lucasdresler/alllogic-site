@@ -187,13 +187,13 @@ export const homeContent: HomeContent = {
       {
         title: "Agillex Cobrança Inteligente",
         description: "Régua inteligente de cobrança e notificação ativa no WhatsApp integrada ao Asaas, com Pix Copia e Cola, aviso preventivo e recuperação amigável de inadimplência.",
-        href: "/contato",
+        href: "/agillex-cobranca",
         linkText: "Conhecer Agillex Cobrança",
       },
       {
         title: "Agillex Reputação 5 Estrelas",
         description: "Acelerador de avaliações no Google Meu Negócio pós-atendimento com filtro protetor de marca (NPS 4-5 vai pro Google Maps e 1-3 é tratado internamente) e respostas com IA para SEO local.",
-        href: "/contato",
+        href: "/agillex-reputacao",
         linkText: "Conhecer Agillex Reputação",
       },
       {
