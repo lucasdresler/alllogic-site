@@ -28,7 +28,7 @@ export const termosContent = {
         "O presente instrumento regula a prestação de serviços de tecnologia da informação e soluções digitais, compreendendo uma ou mais das seguintes modalidades contratadas:",
       ],
       items: [
-        "Software como Serviço (SaaS / Família Agillex): licenciamento de uso de plataformas em nuvem, incluindo Agillex Hub, Agillex Agenda, Agilex Atende e Agillex Pay;",
+        "Software como Serviço (SaaS / Família Agillex): licenciamento de uso de plataformas em nuvem, incluindo Agillex Hub, Agillex Agenda, Agilex Atende, Agillex Cobrança, Agillex Reputação e Agillex Pay;",
         "Engenharia e Desenvolvimento sob Medida: concepção, arquitetura, desenvolvimento e implantação de softwares, portais web, automações e integrações de APIs personalizadas;",
         "Hospedagem Gerenciada e Sustentação: infraestrutura em nuvem, monitoramento de disponibilidade, rotinas de backup e manutenção técnica contínua;",
         "Programa de Parceiros e Afiliados: credenciamento de pessoas físicas e jurídicas para indicação e comercialização comissionada das soluções AllLogic Online.",
@@ -43,6 +43,8 @@ export const termosContent = {
         "Agillex Hub: plataforma unificada de gestão operacional, centralizando atendimento com IA no WhatsApp, agendamento de horários, CRM em funil Kanban e checkout de cobrança;",
         "Agillex Agenda: sistema de agendamento online 24/7 com página pública exclusiva da empresa, sincronização em tempo real com Google Calendar e lembretes automáticos via WhatsApp;",
         "Agilex Atende: atendente virtual inteligente com IA humanizada no WhatsApp Oficial, suporte a áudio e texto, resposta contextual baseada em documentos homologados (arquitetura RAG — sem alucinações) e transbordo humano em 1 clique;",
+        "Agillex Cobrança: sistema de notificação ativa e régua de cobrança automática no WhatsApp integrado ao gateway Asaas, com emissão de Pix Copia e Cola e recuperação amigável de inadimplência;",
+        "Agillex Reputação: acelerador de avaliações no Perfil da Empresa no Google (Google Meu Negócio) pós-atendimento com filtro protetor de satisfação e respostas automáticas humanizadas com IA para SEO local;",
         "Agillex Pay: módulo integrado de intermediação financeira via Asaas com Taxa Fixa de apenas R$ 1,99 por transação concluída no Pix ou Cartão de Crédito, sem cobrança de taxas percentuais sobre o faturamento do cliente.",
       ],
     },

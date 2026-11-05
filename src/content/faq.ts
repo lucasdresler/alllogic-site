@@ -22,7 +22,7 @@ export const faqContent: FAQContent = {
     {
       question: "Qual é a diferença entre a Família Agillex e uma solução sob medida?",
       answer:
-        "A Família Agillex (Hub, Agenda e Atendimento) é nosso ecossistema de software como serviço (SaaS) pronto para uso imediato, com ativação no mesmo dia, planos mensais transparentes e suporte contínuo. Já as soluções sob medida são projetos de engenharia desenhados para empresas que possuem processos complexos e precisam de sistemas, APIs ou automações construídos exclusivamente para sua realidade.",
+        "A Família Agillex (Hub, Atendimento com IA, Agenda Online, Cobrança e Reputação) é nosso ecossistema de software como serviço (SaaS) pronto para uso imediato, com ativação no mesmo dia, planos mensais transparentes e suporte contínuo. Já as soluções sob medida são projetos de engenharia desenhados para empresas que possuem processos complexos e precisam de sistemas, APIs ou automações construídos exclusivamente para sua realidade.",
     },
     {
       question: "Como funciona a Inteligência Artificial no WhatsApp? Ela pode inventar respostas ou 'alucinar'?",
