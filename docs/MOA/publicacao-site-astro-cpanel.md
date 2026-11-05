@@ -416,6 +416,25 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
   - Adição de Agillex Cobrança e Agillex Reputação à vitrine de soluções da Home (`#solucoes`) e aos menus de navegação do cabeçalho e rodapé.
   - Alinhamento textual do FAQ da Home, Termos de Uso, Política de Privacidade e SEO meta description abrangendo os 5 produtos oficiais da Família Agillex.
 
+## Registro de referência — Publicação das Páginas Dedicadas de Apresentação: Agillex Cobrança e Agillex Reputação (05/11/2026)
+
+- **Commit de referência:** `7716212`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-7716212.tar.gz`
+- **SHA-256 do pacote:** `4eb6a369c477f5b1b282bb5e0a946ec42704ea5327eaa7553a1bf3abcbbc12b3`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261105-205331.tar.gz` (SHA-256: `85470763cf1c7a6727f7acbdee7bdc237b0d2cf75da8d3cda63b89cad25db1a4`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-7716212`
+- **Validações prévias:** Backup validado com `gzip -t` e `tar -tzf`, integridade do pacote checada via SHA-256 remotamente antes da substituição.
+- **Preservação de serviços:** Endpoint `api/diagnosis.php` comparado via `cmp -s` e confirmado 100% idêntico.
+- **Sequência executada:** Suporte e assets compilados (`_astro/`, `images/`) → novas rotas públicas (`/agillex-cobranca/`, `/agillex-reputacao/`) e rotas existentes atualizadas → sitemaps e robots → página inicial (`index.html`) por último.
+- **Respostas HTTP:** Retorno `200` confirmado para todas as 13 rotas públicas, com destaque para as novas páginas `/agillex-cobranca/` e `/agillex-reputacao/`.
+- **Ajustes aplicados:**
+  - Criação das páginas completas de apresentação para Agillex Cobrança e Agillex Reputação, incluindo Hero interativo, Público-Alvo, Recursos, Planos (com seletor dinâmico e desconto anual), FAQ e Garantias.
+  - Atualização dos links de navegação do menu suspenso e da vitrine de soluções da Home para apontar para as novas páginas dedicadas.
+
+
 
 
 
