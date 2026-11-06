@@ -434,6 +434,26 @@ Nunca executar publicação ou rollback quando o backup estiver ausente ou invá
   - Criação das páginas completas de apresentação para Agillex Cobrança e Agillex Reputação, incluindo Hero interativo, Público-Alvo, Recursos, Planos (com seletor dinâmico e desconto anual), FAQ e Garantias.
   - Atualização dos links de navegação do menu suspenso e da vitrine de soluções da Home para apontar para as novas páginas dedicadas.
 
+## Registro de referência — Padronização da Rota Oficial Agillex Atende e Redirecionamentos (05/11/2026)
+
+- **Commit de referência:** `2346b50`
+- **Servidor:** `177.104.163.165`, porta SSH `21008`, usuário `alllogiconline`
+- **Diretório público:** `/home2/alllogiconline/public_html/`
+- **Diretório de backup:** `/home2/alllogiconline/backups/`
+- **Pacote utilizado:** `alllogic-site-2346b50.tar.gz`
+- **SHA-256 do pacote:** `2bcd76b3e387764c53347a00065bc1f8aef3074ebcfade92d6b8c64b16dfd32f`
+- **Backup pré-publicação:** `public_html-pre-deploy-20261105-213517.tar.gz` (SHA-256: `60940bbb5ff6529cbb2e3d3c735edac8b074d86759c436cd8807c8db97559df2`)
+- **Diretório de homologação:** `/home2/alllogiconline/staging-2346b50`
+- **Validações prévias:** Backup validado com `gzip -t` e `tar -tzf`, integridade do pacote checada via SHA-256 remotamente antes da substituição.
+- **Preservação de serviços:** Endpoint `api/diagnosis.php` comparado via `cmp -s` e confirmado 100% idêntico.
+- **Sequência executada:** Suporte e assets compilados (`_astro/`, `images/`) → nova rota oficial `/agillex-atende/` e páginas de redirecionamento (`/agillex-atendimento/`, `/agilex-atende/`) → rotas existentes atualizadas → sitemaps e robots → página inicial (`index.html`) por último.
+- **Respostas HTTP:** Retorno `200` confirmado para todas as 15 rotas públicas; validação do redirecionamento automático em `/agillex-atendimento/` e `/agilex-atende/` direcionando com precisão para `/agillex-atende/`.
+- **Ajustes aplicados:**
+  - Criação da rota canônica oficial `/agillex-atende/` com metadados Schema.org e breadcrumbs alinhados.
+  - Implementação de redirecionamento instantâneo em `/agillex-atendimento/` e `/agilex-atende/` via meta-refresh, canonical tag e script JavaScript para preservação de links anteriores e tráfego orgânico.
+  - Atualização dos links internos nos menus de navegação do cabeçalho, rodapé, página de afiliados e vitrine da Home.
+
+
 
 
 
