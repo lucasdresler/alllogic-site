@@ -23,7 +23,7 @@ export const navigationContent: NavigationContent = {
       children: [
         { label: "Agillex Hub", href: "/agillex-hub" },
         { label: "Agillex Agenda", href: "/agillex-agenda" },
-        { label: "Agilex Atende", href: "/agillex-atendimento" },
+        { label: "Agillex Atende", href: "/agillex-atende" },
         { label: "Agillex Cobrança", href: "/agillex-cobranca" },
         { label: "Agillex Reputação", href: "/agillex-reputacao" },
       ],
@@ -39,7 +39,7 @@ export const navigationContent: NavigationContent = {
       children: [
         { label: "Agillex Hub", href: "/agillex-hub" },
         { label: "Agillex Agenda", href: "/agillex-agenda" },
-        { label: "Agilex Atende", href: "/agillex-atendimento" },
+        { label: "Agillex Atende", href: "/agillex-atende" },
         { label: "Agillex Cobrança", href: "/agillex-cobranca" },
         { label: "Agillex Reputação", href: "/agillex-reputacao" },
       ],

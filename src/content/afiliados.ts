@@ -433,7 +433,7 @@ export const afiliadosContent: AffiliatesContent = {
         ],
         pitchScript: "Oi [Nome]! Você costuma perder clientes que mandam mensagem no WhatsApp fora do horário de expediente ou no almoço? A AllLogic Online tem o Agilex Atende, um atendente com IA que conversa no WhatsApp da sua empresa 24 horas por dia, entende áudios e responde dúvidas na hora. Se quiser conhecer, te mostro como funciona: [link]",
         commissionSummary: "20% recorrente todos os meses (R$ 19,98/mês no plano Starter e R$ 35,98/mês no plano Pro).",
-        detailsUrl: "/agilex-atende",
+        detailsUrl: "/agillex-atende",
       },
       {
         id: "agillex-hub",

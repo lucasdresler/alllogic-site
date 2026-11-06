@@ -1,7 +1,7 @@
-// Conteúdo textual e dados da página /agillex-atendimento, isolados da apresentação.
+// Conteúdo textual e dados da página /agillex-atende, isolados da apresentação.
 //
-// Solução comercial: Agilex Atende (Atendimento Inteligente no WhatsApp com IA).
-// Rota pública: /agillex-atendimento/
+// Solução comercial: Agillex Atende (Atendimento Inteligente no WhatsApp com IA).
+// Rota pública: /agillex-atende/
 //
 // Família: Agillex
 // Organização: AllLogic Online — Engenharia de Soluções Digitais
