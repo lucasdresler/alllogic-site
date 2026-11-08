@@ -133,7 +133,7 @@ export const agillexReputacaoContent: ReputacaoContent = {
     actions: {
       primary: {
         label: "Testar por 14 dias grátis",
-        href: "https://hub.alllogiconline.com.br/checkout",
+        href: "https://hub.alllogiconline.com.br/checkout?modulo=reputacao&plano=reputacao-pro&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },
@@ -264,7 +264,7 @@ export const agillexReputacaoContent: ReputacaoContent = {
         period: "/mês",
         cta: {
           label: "Começar teste grátis",
-          href: "https://hub.alllogiconline.com.br/checkout?plan=reputacao-start",
+          href: "https://hub.alllogiconline.com.br/checkout?modulo=reputacao&plano=reputacao-start&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -283,7 +283,7 @@ export const agillexReputacaoContent: ReputacaoContent = {
         period: "/mês",
         cta: {
           label: "Começar teste grátis",
-          href: "https://hub.alllogiconline.com.br/checkout?plan=reputacao-pro",
+          href: "https://hub.alllogiconline.com.br/checkout?modulo=reputacao&plano=reputacao-pro&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -300,7 +300,7 @@ export const agillexReputacaoContent: ReputacaoContent = {
         period: "/mês",
         cta: {
           label: "Começar teste grátis",
-          href: "https://hub.alllogiconline.com.br/checkout?plan=reputacao-escala",
+          href: "https://hub.alllogiconline.com.br/checkout?modulo=reputacao&plano=reputacao-escala&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -370,7 +370,7 @@ export const agillexReputacaoContent: ReputacaoContent = {
         "Crie sua conta no Agillex Hub agora e comece a acelerar sua reputação 5 estrelas no WhatsApp e no Google Maps.",
       action: {
         label: "Iniciar Teste de 14 Dias",
-        href: "https://hub.alllogiconline.com.br/checkout",
+        href: "https://hub.alllogiconline.com.br/checkout?modulo=reputacao&plano=reputacao-pro&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },

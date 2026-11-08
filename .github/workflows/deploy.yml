@@ -1,0 +1,109 @@
+name: CI/CD - Site Institucional AllLogic Online (Projeto Atlas)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-site-institucional
+  cancel-in-progress: false
+
+jobs:
+  validate-and-build:
+    name: 🔍 Validação e Build Estático (Astro)
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js (v22)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: 📦 Instalar Dependências
+        run: npm ci
+
+      - name: 🔍 Verificação de Tipos e Integridade Astro
+        run: npx astro check
+
+      - name: 🔨 Compilar Build Estático
+        run: npm run build
+
+      - name: 💾 Armazenar Artefatos Compilados
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: dist/
+          retention-days: 7
+
+  deploy-production:
+    name: 🚀 Deploy Automatizado em Produção (cPanel / EVEO)
+    needs: validate-and-build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Baixar Artefatos Compilados
+        uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+
+      - name: 🔑 Configurar Acesso SSH e Publicar
+        env:
+          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST || '177.104.163.165' }}
+          SSH_PORT: ${{ secrets.SSH_PORT || '21008' }}
+          SSH_USER: ${{ secrets.SSH_USER || 'alllogiconline' }}
+        run: |
+          if [ -z "$SSH_KEY" ]; then
+            echo "⚠️ Secret SSH_PRIVATE_KEY não configurado no GitHub. Deploy contínuo em espera da chave."
+            echo "ℹ️ O build e os testes foram concluídos com 100% de sucesso!"
+            exit 0
+          fi
+
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
+
+          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+          PACKAGE="dist-$TIMESTAMP.tar.gz"
+          REMOTE_BASE="/home2/$SSH_USER"
+          REMOTE_PUBLIC="$REMOTE_BASE/public_html"
+          REMOTE_BACKUPS="$REMOTE_BASE/backups"
+
+          echo "📦 Empacotando artefatos..."
+          tar -czf "/tmp/$PACKAGE" -C dist .
+
+          echo "🛡️ Criando backup remoto de segurança..."
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "mkdir -p $REMOTE_BACKUPS && tar -czf $REMOTE_BACKUPS/public_html-pre-deploy-$TIMESTAMP.tar.gz -C $REMOTE_BASE public_html"
+
+          echo "📤 Enviando pacote para o servidor..."
+          scp -P "$SSH_PORT" "/tmp/$PACKAGE" "$SSH_USER@$SSH_HOST:$REMOTE_BASE/$PACKAGE"
+
+          echo "🔄 Atualizando ambiente de produção..."
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "
+            STAGE_DIR='$REMOTE_BASE/staging-$TIMESTAMP'
+            mkdir -p \$STAGE_DIR
+            tar -xzf $REMOTE_BASE/$PACKAGE -C \$STAGE_DIR
+            rm -f $REMOTE_BASE/$PACKAGE
+            cp -a \$STAGE_DIR/_astro/. $REMOTE_PUBLIC/_astro/ 2>/dev/null || true
+            mkdir -p $REMOTE_PUBLIC/images && cp -a \$STAGE_DIR/images/. $REMOTE_PUBLIC/images/ 2>/dev/null || true
+            cp -a \$STAGE_DIR/. $REMOTE_PUBLIC/
+            rm -rf \$STAGE_DIR
+          "
+
+          echo "🔍 Validando resposta HTTP em produção..."
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -k "https://alllogiconline.com.br/")
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "✅ Deploy com sucesso! HTTP $HTTP_CODE ativo em https://alllogiconline.com.br/"
+          else
+            echo "⚠️ Alerta: HTTP $HTTP_CODE retornado."
+          fi

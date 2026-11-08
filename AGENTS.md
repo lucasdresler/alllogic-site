@@ -41,9 +41,15 @@ O **Projeto Atlas** é o portal institucional oficial da empresa, responsável p
    npm run build
    ```
 3. **Portão Obrigatório de Aprovação:** Apresentar ao fundador um resumo claro das alterações propostas, arquivos afetados e resultado do build local. Formular explicitamente a pergunta de autorização e pausar a execução. Fica proibido comitar ou publicar sem autorização expressa.
-4. **Execução Contínua Pós-Autorização:** Uma vez concedida a autorização pelo fundador, a execução deve prosseguir de forma contínua até a conclusão de todas as etapas previstas, sem interrupções para confirmações intermediárias:
-   - Criar commit semântico e enviar com `git push origin main`.
-   - Gerar backup das versões anteriores em produção (`backups/public_html-pre-deploy-*.tar.gz`) e validar com `gzip -t`.
-   - Transferir pacote para staging e sincronizar o diretório gerado `dist/` via SFTP/SSH na porta `21008` para `/home2/alllogiconline/public_html/`.
-   - Executar testes de validação pós-deploy (verificação HTTP 200, integridade do endpoint PHP e entrega de assets atualizados).
-   - Apresentar o relatório final de evidências de publicação.
+4. **Execução Contínua Pós-Autorização:** Uma vez concedida a autorização pelo fundador, a publicação é executada de ponta a ponta através do script oficial determinístico:
+   ```bash
+   bash ./deploy.sh
+   ```
+   O script executa de forma autônoma e segura:
+   - Build estático local com Astro (`npm run build`).
+   - Empacotamento com validação de checksum SHA-256.
+   - Backup preventivo integral em produção (`/home2/alllogiconline/backups/`).
+   - Transferência e extração em área isolada de staging.
+   - Sincronização controlada preservando APIs e dados prévios.
+   - Validação em tempo real com healthcheck HTTP 200.
+   - Apresentação do relatório final de evidências.

@@ -322,7 +322,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         period: "/mês",
         cta: {
           label: "Assinar Starter Online",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=starter",
+          href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=starter&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -341,7 +341,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         period: "/mês",
         cta: {
           label: "Assinar Pro Online",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=pro",
+          href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=pro&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -359,7 +359,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         period: "/mês",
         cta: {
           label: "Assinar Combo Online",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=combo&plano=combo",
+          href: "https://hub.alllogiconline.com.br/checkout?modulo=combo&plano=combo&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },

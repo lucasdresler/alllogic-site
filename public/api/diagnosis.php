@@ -34,6 +34,71 @@ if (
     exit;
 }
 
+// Persistência segura em arquivo estruturado protegido
+$dataDir = __DIR__ . '/data';
+if (!is_dir($dataDir)) {
+    @mkdir($dataDir, 0755, true);
+}
+$htaccessFile = $dataDir . '/.htaccess';
+if (!file_exists($htaccessFile)) {
+    @file_put_contents($htaccessFile, "Require all denied\nDeny from all\n");
+}
+$leadRecord = [
+    'timestamp' => date('c'),
+    'company' => $company,
+    'contactName' => $contactName,
+    'phone' => $phone,
+    'message' => $message,
+    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown',
+];
+@file_put_contents($dataDir . '/leads.json', json_encode($leadRecord, JSON_UNESCAPED_UNICODE) . "\n", FILE_APPEND | LOCK_EX);
+
+// Disparo de notificação via WhatsApp (Evolution API / Agillex)
+$waAdminPhone = '5511966381915';
+$waText = "🚀 *NOVO LEAD DE DIAGNÓSTICO PELO SITE ALOGIC* 🚀\n\n"
+    . "🏢 *Empresa:* " . $company . "\n"
+    . "👤 *Contato:* " . $contactName . "\n"
+    . "📱 *WhatsApp:* " . $phone . "\n"
+    . "💬 *Mensagem:* " . $message . "\n\n"
+    . "⏰ *Data:* " . date('d/m/Y H:i:s');
+
+$evolutionUrl = 'https://wa.alllogiconline.com.br';
+$evolutionKey = 'MatrizSuperSecretApiKey2026';
+
+try {
+    $ch = curl_init($evolutionUrl . '/instance/fetchInstances');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['apikey: ' . $evolutionKey]);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 3);
+    $instJson = curl_exec($ch);
+    curl_close($ch);
+
+    if ($instJson) {
+        $instances = json_decode($instJson, true);
+        if (is_array($instances) && !empty($instances)) {
+            $instName = $instances[0]['name'] ?? ($instances[0]['instanceName'] ?? '');
+            if ($instName) {
+                $chSend = curl_init($evolutionUrl . '/message/sendText/' . $instName);
+                curl_setopt($chSend, CURLOPT_POST, true);
+                curl_setopt($chSend, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($chSend, CURLOPT_HTTPHEADER, [
+                    'Content-Type: application/json',
+                    'apikey: ' . $evolutionKey,
+                ]);
+                curl_setopt($chSend, CURLOPT_POSTFIELDS, json_encode([
+                    'number' => $waAdminPhone,
+                    'text' => $waText,
+                ]));
+                curl_setopt($chSend, CURLOPT_TIMEOUT, 3);
+                curl_exec($chSend);
+                curl_close($chSend);
+            }
+        }
+    }
+} catch (\Throwable $e) {
+    error_log('WhatsApp notification error: ' . $e->getMessage());
+}
+
 $to = 'contato@alllogiconline.com.br';
 $subject = 'Novo contato pelo site AllLogic Online';
 
