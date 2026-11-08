@@ -7,7 +7,7 @@ import "../agillex/agillex-faq-section.css";
 
 <Section id="duvidas-frequentes" background="light" spacing="lg">
   <Container size="md">
-    <div class="agillex-faq__header" data-scroll-reveal="up">
+    <div class="agillex-faq__header" data-scroll-reveal="left">
       <span class="agillex-faq__eyebrow">{agillexGedContent.faq.eyebrow}</span>
       <h2 class="agillex-faq__title">{agillexGedContent.faq.title}</h2>
       <p class="agillex-faq__description">
@@ -15,9 +15,13 @@ import "../agillex/agillex-faq-section.css";
       </p>
     </div>
 
-    <div class="agillex-faq__list" data-scroll-reveal="up">
+    <div class="agillex-faq__list">
       {agillexGedContent.faq.items.map((item, index) => (
-        <details class="agillex-faq__item" name="faq-ged">
+        <details
+          class="agillex-faq__item"
+          name="faq-ged"
+          data-scroll-reveal={index % 2 === 0 ? "right" : "left"}
+        >
           <summary class="agillex-faq__question">
             <span>{item.question}</span>
             <span class="agillex-faq__chevron" aria-hidden="true">

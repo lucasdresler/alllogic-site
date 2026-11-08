@@ -7,7 +7,7 @@ import "../agillex/agillex-audience-section.css";
 
 <Section id="publico-alvo" background="light" spacing="lg">
   <Container size="xl">
-    <div class="agillex-audience__header" data-scroll-reveal="up">
+    <div class="agillex-audience__header" data-scroll-reveal="left">
       <span class="agillex-audience__eyebrow">{agillexGedContent.audience.eyebrow}</span>
       <h2 class="agillex-audience__title">{agillexGedContent.audience.title}</h2>
       {agillexGedContent.audience.complement && (
@@ -21,8 +21,11 @@ import "../agillex/agillex-audience-section.css";
     </div>
 
     <div class="agillex-audience__grid">
-      {agillexGedContent.audience.items.map((item) => (
-        <div class="agillex-audience__card card-interactive" data-scroll-reveal="up">
+      {agillexGedContent.audience.items.map((item, index) => (
+        <div
+          class="agillex-audience__card card-interactive"
+          data-scroll-reveal={index % 2 === 0 ? "left" : "right"}
+        >
           <div class="agillex-audience__icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>

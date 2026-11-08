@@ -8,17 +8,17 @@ import "../agillex/agillex-hero-section.css";
 <Section id="hero-ged" spacing="lg">
   <Container>
     <div class="agillex-hero">
-      <div class="agillex-hero__badge">
+      <div class="agillex-hero__badge" data-scroll-reveal="left">
         <span>{agillexGedContent.hero.badge}</span>
       </div>
-      <h1 class="agillex-hero__title">
+      <h1 class="agillex-hero__title" data-scroll-reveal="left">
         {agillexGedContent.hero.title}
       </h1>
-      <p class="agillex-hero__description">
+      <p class="agillex-hero__description" data-scroll-reveal="right">
         {agillexGedContent.hero.description}
       </p>
 
-      <div class="agillex-hero__actions">
+      <div class="agillex-hero__actions" data-scroll-reveal="left">
         <a
           href={agillexGedContent.hero.actions.primary.href}
           class="agillex-hero__btn agillex-hero__btn--primary"
@@ -37,7 +37,7 @@ import "../agillex/agillex-hero-section.css";
         </a>
       </div>
 
-      <div class="agillex-hero__trust">
+      <div class="agillex-hero__trust" data-scroll-reveal="right">
         <svg
           class="agillex-hero__trust-icon"
           width="16"
