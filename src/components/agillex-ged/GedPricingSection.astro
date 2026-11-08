@@ -190,6 +190,8 @@ const defaultTier = pricing.tiers.find((t) => t.popular) ?? pricing.tiers[1];
     let currentTierId = card.getAttribute("data-current-tier") ?? "pro";
 
     function updateCard() {
+      if (!card || !display || !annualTotal || !badge || !btn || !tagline) return;
+
       const activeTab = document.querySelector<HTMLButtonElement>(
         `.agillex-pricing__capacity-tab[data-tier-id="${currentTierId}"]`
       );

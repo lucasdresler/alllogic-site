@@ -36,7 +36,8 @@
   background-color: var(--color-background);
 }
 
-.section--light {
+.section--light,
+.section--surface {
   background-color: var(--color-surface);
 }
 
