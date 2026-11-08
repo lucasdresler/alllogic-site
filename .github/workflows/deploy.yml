@@ -60,7 +60,7 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST || '177.104.163.165' }}
           SSH_PORT: ${{ secrets.SSH_PORT || '21008' }}
-          SSH_USER: ${{ secrets.SSH_USER || 'alllogiconline' }}
+          SSH_USER: ${{ secrets.SSH_USER || 'alllogic' }}
         run: |
           if [ -z "$SSH_KEY" ]; then
             echo "⚠️ Secret SSH_PRIVATE_KEY não configurado no GitHub. Deploy contínuo em espera da chave."
