@@ -14,8 +14,8 @@ O **Projeto Atlas** é o portal institucional oficial da empresa, responsável p
 - **Plataforma Base:** Astro 5 (Static Site Generation - SSG)
 - **Frontend:** TypeScript, Tailwind CSS, componentes Astro modulares, CSS moderno e assets otimizados.
 - **Hospedagem & Infraestrutura:** Servidor cPanel / EVEO (Top Hospedagem Web, IP `177.104.163.165`).
-- **Acesso Remoto:** SSH / SFTP na porta `21008` (usuário `alllogic`, chave `~/.ssh/id_rsa`).
-- **Diretório Remoto:** `/home/alllogic/public_html/`.
+- **Acesso Remoto:** SSH / SFTP na porta `21008` (usuário `alllogiconline`, chave `~/.ssh/id_rsa`).
+- **Diretório Remoto:** `/home2/alllogiconline/public_html/`.
 
 ---
 

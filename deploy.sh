@@ -9,8 +9,8 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DIST_DIR="$SCRIPT_DIR/dist"
-REMOTE_HOST="alllogic"
-REMOTE_BASE="/home/alllogic"
+REMOTE_HOST="alllogiconline"
+REMOTE_BASE="/home2/alllogiconline"
 REMOTE_PUBLIC="$REMOTE_BASE/public_html"
 REMOTE_BACKUPS="$REMOTE_BASE/backups"
 TIMESTAMP="$(date +%Y%m%d_%H%M%S)"
