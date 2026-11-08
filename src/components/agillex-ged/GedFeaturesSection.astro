@@ -1,0 +1,28 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexGedContent } from "../../content/agillex-ged";
+import "../agillex/agillex-features-section.css";
+---
+
+<Section id="recursos" background="default" spacing="lg">
+  <Container size="xl">
+    <div class="agillex-features__header" data-scroll-reveal="up">
+      <span class="agillex-features__eyebrow">{agillexGedContent.features.eyebrow}</span>
+      <h2 class="agillex-features__title">{agillexGedContent.features.title}</h2>
+      <p class="agillex-features__description">
+        {agillexGedContent.features.description}
+      </p>
+    </div>
+
+    <div class="agillex-features__grid">
+      {agillexGedContent.features.items.map((item) => (
+        <div class="agillex-features__card card-interactive" data-scroll-reveal="up">
+          <span class="agillex-features__badge">{item.badge}</span>
+          <h3 class="agillex-features__card-title">{item.title}</h3>
+          <p class="agillex-features__card-description">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Section>

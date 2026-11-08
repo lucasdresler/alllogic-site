@@ -1,0 +1,36 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexGedContent } from "../../content/agillex-ged";
+import "../agillex/agillex-faq-section.css";
+---
+
+<Section id="duvidas-frequentes" background="light" spacing="lg">
+  <Container size="md">
+    <div class="agillex-faq__header" data-scroll-reveal="up">
+      <span class="agillex-faq__eyebrow">{agillexGedContent.faq.eyebrow}</span>
+      <h2 class="agillex-faq__title">{agillexGedContent.faq.title}</h2>
+      <p class="agillex-faq__description">
+        {agillexGedContent.faq.description}
+      </p>
+    </div>
+
+    <div class="agillex-faq__list" data-scroll-reveal="up">
+      {agillexGedContent.faq.items.map((item, index) => (
+        <details class="agillex-faq__item" name="faq-ged">
+          <summary class="agillex-faq__question">
+            <span>{item.question}</span>
+            <span class="agillex-faq__chevron" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </summary>
+          <div class="agillex-faq__answer">
+            <p>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </Container>
+</Section>

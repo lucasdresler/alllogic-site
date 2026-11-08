@@ -197,6 +197,12 @@ export const homeContent: HomeContent = {
         linkText: "Conhecer Agillex Reputação",
       },
       {
+        title: "Agillex GED (Documentos com IA)",
+        description: "Gestão Eletrônica de Documentos com OCR inteligente, leitura automática de contratos e certidões, alertas de vencimento no WhatsApp e assinatura digital em 1 clique.",
+        href: "/agillex-ged",
+        linkText: "Conhecer Agillex GED",
+      },
+      {
         title: "IA & Automações",
         description: "Aplicações práticas de IA para apoiar atendimento, otimizar fluxos de trabalho e simplificar rotinas empresariais.",
         href: "/contato",

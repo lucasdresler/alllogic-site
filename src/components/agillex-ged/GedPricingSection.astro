@@ -1,0 +1,259 @@
+---
+import Section from "../layout/Section.astro";
+import Container from "../layout/Container.astro";
+import { agillexGedContent } from "../../content/agillex-ged";
+import "../agillex/agillex-pricing-section.css";
+
+const { pricing } = agillexGedContent;
+const defaultTier = pricing.tiers.find((t) => t.popular) ?? pricing.tiers[1];
+---
+
+<Section id="planos-e-precos" background="default" spacing="lg">
+  <div id="precos" aria-hidden="true"></div>
+  <Container>
+    <div class="agillex-pricing" data-scroll-reveal="up">
+      <div class="agillex-pricing__header">
+        <span class="agillex-pricing__eyebrow">{pricing.eyebrow}</span>
+        <h2 class="agillex-pricing__title">{pricing.title}</h2>
+        <p class="agillex-pricing__subtitle">{pricing.description}</p>
+
+        <!-- Toggle Mensal / Anual -->
+        <div class="agillex-pricing__toggle-wrapper">
+          <span
+            class="agillex-pricing__toggle-label agillex-pricing__toggle-label--active"
+            id="ged-label-mensal"
+          >
+            Mensal
+          </span>
+          <label class="agillex-pricing__switch" for="ged-pricing-toggle">
+            <input
+              type="checkbox"
+              id="ged-pricing-toggle"
+              role="switch"
+              aria-checked="false"
+              aria-label="Alternar para plano anual"
+            />
+            <span class="agillex-pricing__slider"></span>
+          </label>
+          <span class="agillex-pricing__toggle-label" id="ged-label-anual">
+            Anual
+          </span>
+          <span class="agillex-pricing__discount-badge">Até 25% OFF</span>
+        </div>
+      </div>
+
+      <!-- CARD ÚNICO MASTER COM SELETOR DE PLANOS -->
+      <div class="agillex-pricing__single-card-wrapper">
+        <div
+          class="agillex-pricing__single-card"
+          id="ged-pricing-card"
+          data-current-tier={defaultTier.id}
+        >
+          <!-- Badge de Destaque -->
+          <span class="agillex-pricing__card-badge" id="ged-pricing-badge">
+            {defaultTier.badge ?? "Mais Escolhido"}
+          </span>
+
+          <!-- Seletor de Franquia / Capacidade -->
+          <div class="agillex-pricing__capacity-block">
+            <label class="agillex-pricing__capacity-label">
+              Selecione o espaço de armazenamento ideal para sua empresa:
+            </label>
+            <div
+              class="agillex-pricing__capacity-tabs"
+              role="tablist"
+              aria-label="Espaço de armazenamento GED"
+            >
+              {
+                pricing.tiers.map((tier) => (
+                  <button
+                    type="button"
+                    role="tab"
+                    id={`ged-tab-${tier.id}`}
+                    aria-selected={tier.id === defaultTier.id ? "true" : "false"}
+                    aria-controls="ged-pricing-card"
+                    class:list={[
+                      "agillex-pricing__capacity-tab",
+                      tier.id === defaultTier.id && "agillex-pricing__capacity-tab--active",
+                    ]}
+                    data-tier-id={tier.id}
+                    data-price-monthly={tier.priceMonthly}
+                    data-price-annual={tier.priceAnnualMonthly}
+                    data-annual-total={tier.annualTotal}
+                    data-badge={tier.badge ?? ""}
+                    data-cta-label={tier.cta.label}
+                    data-cta-href={tier.cta.href}
+                    data-tagline={tier.tagline}
+                  >
+                    <span class="agillex-pricing__tab-capacity">{tier.name}</span>
+                    <span class="agillex-pricing__tab-price">
+                      {tier.priceMonthly}
+                      <small>/mês</small>
+                    </span>
+                  </button>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Informações de Preço Dinâmico -->
+          <div class="agillex-pricing__card-header">
+            <p class="agillex-pricing__card-tagline" id="ged-pricing-tagline">
+              {defaultTier.tagline}
+            </p>
+            <div class="agillex-pricing__price-wrapper">
+              <span class="agillex-pricing__price" id="ged-pricing-display">
+                {defaultTier.priceMonthly}
+              </span>
+              <span class="agillex-pricing__period" id="ged-pricing-period">
+                {defaultTier.period}
+              </span>
+            </div>
+            <p
+              class="agillex-pricing__annual-total"
+              id="ged-pricing-annual-total"
+              aria-live="polite"
+              hidden
+            >
+              {defaultTier.annualTotal}
+            </p>
+          </div>
+
+          <!-- Lista de Recursos Inclusos -->
+          <ul class="agillex-pricing__features-list">
+            <li class="agillex-pricing__feature-item">
+              <svg class="agillex-pricing__check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>Extração automática de textos com OCR & Inteligência Artificial</span>
+            </li>
+            <li class="agillex-pricing__feature-item">
+              <svg class="agillex-pricing__check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>Recebimento e envio de documentos direto no WhatsApp</span>
+            </li>
+            <li class="agillex-pricing__feature-item">
+              <svg class="agillex-pricing__check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>Alertas preventivos de vencimento de contratos e certidões no WhatsApp</span>
+            </li>
+            <li class="agillex-pricing__feature-item">
+              <svg class="agillex-pricing__check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>Cofre em nuvem criptografada com isolamento e backups diários</span>
+            </li>
+          </ul>
+
+          <!-- Ação Principal -->
+          <div class="agillex-pricing__card-cta">
+            <a
+              href={defaultTier.cta.href}
+              class="agillex-pricing__btn agillex-pricing__btn--primary"
+              id="ged-pricing-btn"
+              target={defaultTier.cta.target}
+              rel={defaultTier.cta.rel}
+            >
+              {defaultTier.cta.label}
+            </a>
+          </div>
+
+          <!-- Nota Universal -->
+          <p class="agillex-pricing__card-note">
+            14 dias de teste grátis · Sem cartão de crédito · Sem taxa de ativação
+          </p>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<script>
+  function setupGedPricing() {
+    const toggle = document.getElementById("ged-pricing-toggle") as HTMLInputElement | null;
+    const labelMensal = document.getElementById("ged-label-mensal");
+    const labelAnual = document.getElementById("ged-label-anual");
+    const card = document.getElementById("ged-pricing-card");
+    const display = document.getElementById("ged-pricing-display");
+    const annualTotal = document.getElementById("ged-pricing-annual-total");
+    const badge = document.getElementById("ged-pricing-badge");
+    const tagline = document.getElementById("ged-pricing-tagline");
+    const btn = document.getElementById("ged-pricing-btn") as HTMLAnchorElement | null;
+    const tabs = document.querySelectorAll<HTMLButtonElement>(".agillex-pricing__capacity-tab");
+
+    if (!card || !display || !annualTotal || !badge || !btn || !tagline) return;
+
+    let isAnnual = false;
+    let currentTierId = card.getAttribute("data-current-tier") ?? "pro";
+
+    function updateCard() {
+      const activeTab = document.querySelector<HTMLButtonElement>(
+        `.agillex-pricing__capacity-tab[data-tier-id="${currentTierId}"]`
+      );
+      if (!activeTab) return;
+
+      const price = isAnnual
+        ? activeTab.getAttribute("data-price-annual")
+        : activeTab.getAttribute("data-price-monthly");
+      const total = activeTab.getAttribute("data-annual-total") ?? "";
+      const tierBadge = activeTab.getAttribute("data-badge") ?? "";
+      const ctaLabel = activeTab.getAttribute("data-cta-label") ?? "Começar teste grátis";
+      let ctaHref = activeTab.getAttribute("data-cta-href") ?? "https://hub.alllogiconline.com.br/checkout";
+      if (isAnnual && !ctaHref.includes("ciclo=yearly")) {
+        ctaHref += (ctaHref.includes("?") ? "&" : "?") + "ciclo=yearly";
+      }
+      const tierTagline = activeTab.getAttribute("data-tagline") ?? "";
+
+      display.textContent = price ?? "";
+      tagline.textContent = tierTagline;
+      btn.textContent = ctaLabel;
+      btn.href = ctaHref;
+
+      if (tierBadge) {
+        badge.textContent = tierBadge;
+        badge.hidden = false;
+      } else {
+        badge.hidden = true;
+      }
+
+      if (isAnnual) {
+        annualTotal.textContent = total;
+        annualTotal.hidden = false;
+      } else {
+        annualTotal.hidden = true;
+      }
+
+      tabs.forEach((tab) => {
+        const matches = tab.getAttribute("data-tier-id") === currentTierId;
+        tab.classList.toggle("agillex-pricing__capacity-tab--active", matches);
+        tab.setAttribute("aria-selected", matches ? "true" : "false");
+      });
+    }
+
+    if (toggle) {
+      toggle.addEventListener("change", () => {
+        isAnnual = toggle.checked;
+        labelMensal?.classList.toggle("agillex-pricing__toggle-label--active", !isAnnual);
+        labelAnual?.classList.toggle("agillex-pricing__toggle-label--active", isAnnual);
+        updateCard();
+      });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const id = tab.getAttribute("data-tier-id");
+        if (id) {
+          currentTierId = id;
+          card.setAttribute("data-current-tier", id);
+          updateCard();
+        }
+      });
+    });
+
+    updateCard();
+  }
+
+  document.addEventListener("DOMContentLoaded", setupGedPricing);
+</script>
