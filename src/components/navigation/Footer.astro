@@ -24,7 +24,96 @@ import "./footer.css";
         <p>{siteContent.branding.tagline}</p>
       </div>
 
+      <!-- Navegação institucional -->
+      <div class="footer__nav">
+        <h2>Navegação</h2>
+        <nav aria-label="Navegação institucional">
+          <ul>
+            {navigationContent.footer.map((item) => (
+              <li class={item.children ? "footer__nav-item--has-dropdown" : ""}>
+                {item.children ? (
+                  <div class="footer__dropdown">
+                    <button
+                      type="button"
+                      class="footer__dropdown-toggle"
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      id={`footer-dropdown-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      <span>{item.label}</span>
+                      <svg
+                        class="footer__dropdown-icon"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+                    <ul
+                      class="footer__dropdown-menu"
+                      role="menu"
+                      aria-labelledby={`footer-dropdown-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {item.children.map((subItem) => (
+                        <li class="footer__dropdown-item" role="none">
+                          <a
+                            class="footer__dropdown-link"
+                            href={subItem.href}
+                            role="menuitem"
+                          >
+                            {subItem.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <a href={item.href}>{item.label}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
 
+      <!-- Informações de contato -->
+      <div class="footer__contact">
+        <h2>Contato</h2>
+
+        <address>
+          <p>
+            <span>E-mail</span>
+            <a href={`mailto:${siteContent.contact.email}`}>
+              {siteContent.contact.email}
+            </a>
+          </p>
+
+          <p>
+            <span>Telefone</span>
+            <a href={`tel:+5511966381915`}>
+              {siteContent.contact.phone}
+            </a>
+          </p>
+
+          <p>
+            <span>WhatsApp</span>
+            <a
+              href="https://wa.me/5511966381915"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {siteContent.contact.whatsapp}
+            </a>
+          </p>
+        </address>
+      </div>
     </div>
 
     <!-- Copyright -->
