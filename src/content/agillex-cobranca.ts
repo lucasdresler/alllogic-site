@@ -133,7 +133,7 @@ export const agillexCobrancaContent: CobrancaContent = {
     actions: {
       primary: {
         label: "Testar por 14 dias grátis",
-        href: "https://hub.alllogiconline.com.br/checkout?modulo=cobranca&plano=cobranca-pro&trial=true",
+        href: "https://hub.agillex.com.br/checkout?modulo=cobranca&plano=cobranca-pro&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },
@@ -264,7 +264,7 @@ export const agillexCobrancaContent: CobrancaContent = {
         period: "/mês",
         cta: {
           label: "Começar teste grátis",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=cobranca&plano=cobranca-start&trial=true",
+          href: "https://hub.agillex.com.br/checkout?modulo=cobranca&plano=cobranca-start&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -283,7 +283,7 @@ export const agillexCobrancaContent: CobrancaContent = {
         period: "/mês",
         cta: {
           label: "Começar teste grátis",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=cobranca&plano=cobranca-pro&trial=true",
+          href: "https://hub.agillex.com.br/checkout?modulo=cobranca&plano=cobranca-pro&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -300,7 +300,7 @@ export const agillexCobrancaContent: CobrancaContent = {
         period: "/mês",
         cta: {
           label: "Começar teste grátis",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=cobranca&plano=cobranca-escala&trial=true",
+          href: "https://hub.agillex.com.br/checkout?modulo=cobranca&plano=cobranca-escala&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -370,7 +370,7 @@ export const agillexCobrancaContent: CobrancaContent = {
         "Crie sua conta no Agillex Hub agora e comece a disparar cobranças inteligentes no WhatsApp em minutos.",
       action: {
         label: "Iniciar Teste de 14 Dias",
-        href: "https://hub.alllogiconline.com.br/checkout?modulo=cobranca&plano=cobranca-pro&trial=true",
+        href: "https://hub.agillex.com.br/checkout?modulo=cobranca&plano=cobranca-pro&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },

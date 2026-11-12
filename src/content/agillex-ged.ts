@@ -129,7 +129,7 @@ export const agillexGedContent: AgillexGedPageContent = {
     actions: {
       primary: {
         label: "Testar por 14 dias grátis",
-        href: "https://hub.alllogiconline.com.br/checkout?modulo=ged&plano=ged-pro&trial=true",
+        href: "https://hub.agillex.com.br/checkout?modulo=ged&plano=ged-pro&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },
@@ -249,7 +249,7 @@ export const agillexGedContent: AgillexGedPageContent = {
         period: "/mês",
         cta: {
           label: "Começar teste grátis",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=ged&plano=ged-start&trial=true",
+          href: "https://hub.agillex.com.br/checkout?modulo=ged&plano=ged-start&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -268,7 +268,7 @@ export const agillexGedContent: AgillexGedPageContent = {
         period: "/mês",
         cta: {
           label: "Começar teste grátis",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=ged&plano=ged-pro&trial=true",
+          href: "https://hub.agillex.com.br/checkout?modulo=ged&plano=ged-pro&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -285,7 +285,7 @@ export const agillexGedContent: AgillexGedPageContent = {
         period: "/mês",
         cta: {
           label: "Começar teste grátis",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=ged&plano=ged-escala&trial=true",
+          href: "https://hub.agillex.com.br/checkout?modulo=ged&plano=ged-escala&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -355,7 +355,7 @@ export const agillexGedContent: AgillexGedPageContent = {
         "Crie sua conta no Agillex Hub agora e comece a experimentar o GED com Inteligência Artificial e WhatsApp integrado.",
       action: {
         label: "Iniciar Teste de 14 Dias",
-        href: "https://hub.alllogiconline.com.br/checkout?modulo=ged&plano=ged-pro&trial=true",
+        href: "https://hub.agillex.com.br/checkout?modulo=ged&plano=ged-pro&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },

@@ -144,7 +144,7 @@ export const agillexHubContent: AgillexHubContent = {
     actions: {
       primary: {
         label: "Começar 14 dias grátis",
-        href: "https://hub.alllogiconline.com.br/checkout?modulo=combo&plano=combo&trial=true",
+        href: "https://hub.agillex.com.br/checkout?modulo=combo&plano=combo&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },
@@ -305,7 +305,7 @@ export const agillexHubContent: AgillexHubContent = {
         ],
         cta: {
           label: "Começar 14 dias grátis",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=combo&plano=combo&trial=true",
+          href: "https://hub.agillex.com.br/checkout?modulo=combo&plano=combo&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -421,7 +421,7 @@ export const agillexHubContent: AgillexHubContent = {
         "Experimente o Agillex Hub na rotina da sua empresa e ganhe tempo e organização.",
       action: {
         label: "Iniciar teste gratuito de 14 dias",
-        href: "https://hub.alllogiconline.com.br/checkout?modulo=combo&plano=combo&trial=true",
+        href: "https://hub.agillex.com.br/checkout?modulo=combo&plano=combo&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },

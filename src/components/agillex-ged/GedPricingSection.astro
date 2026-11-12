@@ -203,7 +203,7 @@ const defaultTier = pricing.tiers.find((t) => t.popular) ?? pricing.tiers[1];
       const total = activeTab.getAttribute("data-annual-total") ?? "";
       const tierBadge = activeTab.getAttribute("data-badge") ?? "";
       const ctaLabel = activeTab.getAttribute("data-cta-label") ?? "Começar teste grátis";
-      let ctaHref = activeTab.getAttribute("data-cta-href") ?? "https://hub.alllogiconline.com.br/checkout";
+      let ctaHref = activeTab.getAttribute("data-cta-href") ?? "https://hub.agillex.com.br/checkout";
       if (isAnnual && !ctaHref.includes("ciclo=yearly")) {
         ctaHref += (ctaHref.includes("?") ? "&" : "?") + "ciclo=yearly";
       }
