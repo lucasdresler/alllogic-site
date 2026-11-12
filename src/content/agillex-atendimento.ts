@@ -151,7 +151,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
     actions: {
       primary: {
         label: "Começar 14 dias grátis",
-        href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=pro&trial=true",
+        href: "https://hub.agillex.com.br/checkout?modulo=atendimento&plano=pro&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },
@@ -322,7 +322,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         period: "/mês",
         cta: {
           label: "Assinar Starter Online",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=starter&trial=true",
+          href: "https://hub.agillex.com.br/checkout?modulo=atendimento&plano=starter&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -341,7 +341,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         period: "/mês",
         cta: {
           label: "Assinar Pro Online",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=pro&trial=true",
+          href: "https://hub.agillex.com.br/checkout?modulo=atendimento&plano=pro&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -359,7 +359,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         period: "/mês",
         cta: {
           label: "Assinar Combo Online",
-          href: "https://hub.alllogiconline.com.br/checkout?modulo=combo&plano=combo&trial=true",
+          href: "https://hub.agillex.com.br/checkout?modulo=combo&plano=combo&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -430,7 +430,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         "Crie sua conta online em minutos e conecte seu WhatsApp para começar a atender seus clientes com inteligência artificial agora mesmo.",
       action: {
         label: "Iniciar teste gratuito de 14 dias",
-        href: "https://hub.alllogiconline.com.br/checkout?modulo=atendimento&plano=pro&trial=true",
+        href: "https://hub.agillex.com.br/checkout?modulo=atendimento&plano=pro&trial=true",
         target: "_blank",
         rel: "noopener noreferrer",
       },
