@@ -241,6 +241,7 @@ const defaultTier = pricing.tiers.find((t) => t.popular) ?? pricing.tiers[1];
 
       if (ctaBtn) {
         ctaBtn.href = tier.cta.href;
+        ctaBtn.textContent = tier.cta.label;
       }
     }
 

@@ -321,7 +321,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         annualTotal: "Cobrado anualmente: R$ 958,80 ao ano (20% de economia)",
         period: "/mês",
         cta: {
-          label: "Assinar Starter Online",
+          label: "Assinar Plano Starter",
           href: "https://hub.agillex.com.br/checkout?modulo=atendimento&plano=starter&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
@@ -340,7 +340,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         annualTotal: "Cobrado anualmente: R$ 1.798,80 ao ano (~17% de economia)",
         period: "/mês",
         cta: {
-          label: "Assinar Pro Online",
+          label: "Assinar Plano Pro",
           href: "https://hub.agillex.com.br/checkout?modulo=atendimento&plano=pro&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
@@ -358,7 +358,7 @@ export const agillexAtendimentoContent: AgillexAtendimentoContent = {
         annualTotal: "Cobrado anualmente: R$ 2.398,80 ao ano (20% de economia)",
         period: "/mês",
         cta: {
-          label: "Assinar Combo Online",
+          label: "Assinar Plano Combo",
           href: "https://hub.agillex.com.br/checkout?modulo=combo&plano=combo&trial=true",
           target: "_blank",
           rel: "noopener noreferrer",
